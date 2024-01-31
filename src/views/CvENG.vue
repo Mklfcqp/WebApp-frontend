@@ -5,37 +5,68 @@
         <section>
             <div class="content">
                 <div class="info">
-                    
+
                     <div class="title">ABOUT ME</div>
 
-                    <p>I am team player with the ability to work alone, which have experiences 
+                    <p>I am team player with the ability to work alone, which have experiences
                         working on web application development as business partner and also with leading small project.
                     </p>
                     <br>
                     <p>I am currently seeking a role as a Junior java Developer.</p>
                     <br>
-                    <p>I am driven to contribute to dynamic development projects leveraging my collaborative mindset and technical skills
+                    <p>I am driven to contribute to dynamic development projects leveraging my collaborative mindset and
+                        technical skills
                         to create innovative solutions.
                     </p>
                     <br>
-                    <p>My enthusiasm for continuous studying and dedication honing my development capabilities makes me 
+                    <p>My enthusiasm for continuous studying and dedication honing my development capabilities makes me
                         an idealt candidate for a Junior Java Developer position.
                     </p>
 
                 </div>
 
                 <swiper :effect="'cards'" :grabCursor="true" :modules="modules" class="swiper">
-                    <swiper-slide>
+                    <swiper-slide class="card1">
                         <p>dfsfsdgsdfgsdfgsdfgsdfgssadfdgadgadfgdfgsdfgsdfgsdf</p>
                     </swiper-slide>
-                    <swiper-slide>Technical Skills</swiper-slide>
-                    <swiper-slide>Soft Skills</swiper-slide>
-                    <swiper-slide>Education</swiper-slide>
-                    <swiper-slide>Work Experiences</swiper-slide>
-                    <swiper-slide>Languages</swiper-slide>
-                    <swiper-slide>Contacts</swiper-slide>
-                    <swiper-slide>Slide 8</swiper-slide>
-                    <swiper-slide>Slide 9</swiper-slide>
+                    <swiper-slide class="card1">
+                        <div class="title_card">Technical Skills</div>
+                    </swiper-slide>
+                    <swiper-slide class="card2">
+                        <div class="title_card">Soft Skills</div>
+                    </swiper-slide>
+                    <swiper-slide class="card3">
+                        <div class="title_card">Education</div>
+                    </swiper-slide>
+                    <swiper-slide class="card4">
+                        <div class="title_card">Work Experiences</div>
+                    </swiper-slide>
+                    <swiper-slide class="card5">
+                        <div class="title_card">Languages</div>
+                    </swiper-slide>
+                    <swiper-slide class="card6">
+                        <div class="title_card">Contacts</div>
+                        <div class="contacts">
+                            <div class="linkedin" type="button" @click="redirectToLinkedin">
+                                <Icon icon="cib:linkedin" class="linkedin_icon" />
+                            </div>
+                            <div class="email" type="button" @click="copyToClipboard('tomas.senti@seznam.cz')">
+                                <Icon icon="clarity:email-line" class="contact_icon" />
+                                <P>tomas.senti@seznam.cz</P>
+                            </div>
+                            <div class="phone" type="button" @click="copyToClipboard('+420 725 602 631')">
+                                <Icon icon="ph:device-mobile" class="contact_icon" />
+                                <P>+420 725 602 631</P>
+                            </div>
+                            <div class="city" type="button" @click="copyToClipboard('Luštěnice')">
+                                <Icon icon="icon-park-outline:city" class="contact_icon" />
+                                <P>Luštěnice</P>
+                            </div>
+                            <div class="github" type="button" @click="redirectToGihub">
+                                <Icon icon="bi:github" class="github_icon" />
+                            </div>
+                        </div>
+                    </swiper-slide>
                 </swiper>
 
 
@@ -119,23 +150,7 @@
                                     </div>
                                 </div>
 
-                                <div class="contacts">
-                                    <div class="contacts_inside">
 
-                                        <Icon icon="devicon:linkedin" class="linkedin_icon" />
-                                        <div class="email">
-                                            <Icon icon="clarity:email-line" class="contact_icon" />
-                                            <P>Tomas.senti@seznam.cz</P>
-                                        </div>
-                                        <div class="phone">
-                                            <Icon icon="twemoji:mobile-phone-with-arrow" class="contact_icon" />
-                                            <P>+420 725 602 631</P>
-                                        </div>
-                                        <div class="city">
-                                            <Icon icon="emojione-v1:cityscape" class="contact_icon" />
-                                            <P>Luštěnice</P>
-                                        </div>
-                                        <Icon icon="devicon:github" class="github_icon" />
                             > -->
     </main>
 </template>
@@ -180,9 +195,30 @@ export default {
     },
 
     methods: {
+        redirectToGihub() {
+            const githubUrl = 'https://github.com/Mklfcqp';
+            window.open(githubUrl, '_blank');
+        },
 
-    }
+        redirectToLinkedin() {
+            const githubUrl = 'https://www.linkedin.com/in/tom%C3%A1%C5%A1-pitron-814148270/';
+            window.open(githubUrl, '_blank');
+        },
+
+        copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            alert('The text has been copied to the clipboard.');
+        },
+
+    },
 }
+
 </script>
 
 
@@ -248,59 +284,199 @@ section {
 
 
 .swiper {
-  width: 280px;
-  height: 420px;
+    width: 280px;
+    height: 420px;
 }
 
 .swiper-slide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 18px;
-  font-size: 18px;
-  color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    font-size: 18px;
+    color: #fff;
+    border: 1px solid rgba(177, 177, 177, 0.4);
 }
 
-.swiper-slide:nth-child(1n) {
-  background-color: rgb(206, 17, 17);
+.swiper-slide:hover {
+    border: 1px solid white;
+
 }
 
-.swiper-slide:nth-child(2n) {
-  background-color: rgb(0, 140, 255);
-}
-
-.swiper-slide:nth-child(3n) {
-  background-color: rgb(10, 184, 111);
-}
-
-.swiper-slide:nth-child(4n) {
-  background-color: rgb(211, 122, 7);
-}
-
-.swiper-slide:nth-child(5n) {
-  background-color: rgb(118, 163, 12);
-}
-
-.swiper-slide:nth-child(6n) {
-  background-color: rgb(180, 10, 47);
-}
-
-.swiper-slide:nth-child(7n) {
-  background-color: rgb(35, 99, 19);
-}
-
-.swiper-slide:nth-child(8n) {
-  background-color: rgb(0, 68, 255);
-}
-
-.swiper-slide:nth-child(9n) {
-  background-color: rgb(218, 12, 218);
-}
-
-.swiper-slide:nth-child(10n) {
-  background-color: rgb(54, 94, 77);
+.swiper-slide::after {
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background: linear-gradient(226deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 35%, rgba(255, 255, 255, 0.2) 42%, rgba(255, 255, 255, 0) 60%);
 }
 
 
 
+
+.card1 {
+    background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+
+}
+
+.card2 {
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+}
+
+
+.card3 {
+    background-image: linear-gradient(to right top, #a8668c, #a06e99, #9677a3, #8c7fa9, #8486ad, #7f8db0, #7c94b1, #7c9ab1, #80a2b2, #87a9b2, #91afb2, #9db5b3);
+}
+
+.card4 {
+    background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+}
+
+.card5 {
+    background-image: linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%);
+}
+
+.card6 {
+    background-color: #3C3C3C
+}
+
+
+.title_card {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    -ms-transform: translate(-50%, -20%);
+    width: max-content;
+    text-align: center;
+    padding: 10px 18px;
+    background: rgba(46, 39, 39, 0.3);
+    border-radius: 8px;
+    border: 2px solid rgb(177, 177, 177, 0.4);
+    box-shadow: 0 4px 30px rgb(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.5s linear;
+    font-weight: 600;
+}
+
+
+
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+.linkedin,
+.email,
+.phone,
+.city,
+.github {
+    height: 3.5rem;
+    width: 14rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    transition: all 0.5s;
+    position: relative;
+    font-size: 2rem;
+    color: #5D9FFF;
+}
+
+.linkedin::before,
+.email::before,
+.phone::before,
+.city::before,
+.github::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+    border-radius: 10px;
+}
+
+.linkedin:hover::before,
+.email:hover::before,
+.phone:hover::before,
+.city:hover::before,
+.github:hover::before {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+}
+
+.linkedin::after,
+.email::after,
+.phone::after,
+.city::after,
+.github::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transform: scale(1.2, 1.2);
+    border-radius: 10px;
+
+}
+
+.linkedin:hover,
+.email:hover,
+.phone:hover,
+.city:hover,
+.github:hover {
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    background: #5d9eff83;
+}
+
+.linkedin:hover::after,
+.email:hover::after,
+.phone:hover::after,
+.city:hover::after,
+.github:hover::after {
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
+.email p,
+.phone p,
+.city p {
+    display: none;
+}
+
+.email:hover .contact_icon,
+.phone:hover .contact_icon,
+.city:hover .contact_icon {
+    display: none;
+}
+
+.email:hover p,
+.phone:hover p,
+.city:hover p {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: white;
+}
 </style>

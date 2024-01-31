@@ -8,7 +8,7 @@
 
       <div class="buttons">
         <button class="button" @click="redirectToMenu" :class="{ 'profile-active': isStockMenuVisible }">
-          <Icon icon="ep:menu" class="menu_icon"/>
+          <Icon icon="ep:menu" class="menu_icon" />
           Menu
         </button>
         <button class="button" @click="redirectToCV">
@@ -142,19 +142,19 @@ export default {
     },
 
     redirectToPortfolio() {
-      this.$router.push("/portfolioENG"); 
+      this.$router.push("/portfolioENG");
     },
 
     redirectToWatchlist() {
-      this.$router.push("/watchlistENG"); 
+      this.$router.push("/watchlistENG");
     },
 
     redirectToCV() {
-      this.$router.push("/cvENG"); 
+      this.$router.push("/cvENG");
     },
 
     redirectToMenu() {
-      this.$router.push("/menuENG"); 
+      this.$router.push("/menuENG");
     },
 
     logout() {
