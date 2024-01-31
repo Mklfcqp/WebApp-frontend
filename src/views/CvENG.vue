@@ -50,6 +50,9 @@
                                     <Icon icon="cib:git" class="row_box_icon"/>
                                     <p>GIT / GIT bash</p>
                                 </div>
+                                <div class="row_box">
+
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="row_box">
@@ -65,6 +68,9 @@
                                 <div class="row_box">
                                     <Icon icon="carbon:http" class="row_box_icon"/>
                                     <p>HTTP basics</p>
+                                </div>
+                                <div class="row_box">
+
                                 </div>
                             </div>
                             <div class="row">
@@ -83,14 +89,17 @@
                                     <Icon icon="akar-icons:postgresql-fill" class="row_box_icon"/>
                                     <p>PostgreSQL</p>
                                 </div>
+                                <div class="row_box">
+
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="row_box">
-                                    <Icon icon="flowbite:html-solid" class="row_box_icon"/>
+                                    <Icon icon="akar-icons:html-fill" class="row_box_icon"/>
                                     <p>HTML</p>
                                 </div>
                                 <div class="row_box">
-                                    <Icon icon="flowbite:css-solid" class="row_box_icon"/>
+                                    <Icon icon="akar-icons:css-fill" class="row_box_icon"/>
                                     <p>CSS</p>
                                 </div>
                                 <div class="row_box">
@@ -100,6 +109,9 @@
                                 <div class="row_box">
                                     <Icon icon="teenyicons:vue-solid" class="row_box_icon"/>
                                     <p>Vue</p>
+                                </div>
+                                <div class="row_box">
+
                                 </div>
                             </div>
                         </div>
@@ -396,16 +408,14 @@ section {
 }
 
 .box {
-    border: 1px solid black;
-    width: 24rem;
+    width: 30rem;
     height: 24rem;
     display: flex;
     flex-direction: column;
 }
 
 .row {
-    border: 1px solid yellow;
-    width: 24rem;
+    width: 30rem;
     height: 6rem;
     display: flex;
     flex-direction: row;
@@ -414,28 +424,21 @@ section {
 }
 
 .row_box {
-    border: 1px solid red;
+    position: relative;
+    border: 1px solid #3C3C3C;
     border-radius: 10px;
     width: 3.5rem;
     height: 3.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
 
-
-
-
-
-
-.row_box {
-    
-    color: #FFF;
-    transition: all 0.5s;
-    position: relative;
-    
-    color: #5D9FFF;
+.row_box_icon {
+    color: #3C3C3C;
+    font-size: 2rem;
 }
 
 .row_box::before {
@@ -451,38 +454,17 @@ section {
     border-radius: 10px;
 }
 
-.row_box:hover::before {
-    opacity: 0;
-    transform: scale(0.5, 0.5);
-}
-
-.row_box::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0;
-    transition: all 0.3s;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    transform: scale(1.2, 1.2);
-    border-radius: 10px;
-
-}
-
 .row_box:hover {
     border: 1px solid white;
     border-radius: 10px;
     color: white;
-    background: #5d9eff83;
+    background: #3C3C3C;
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 800;
 }
 
-.row_box:hover::after {
-    opacity: 1;
-    transform: scale(1, 1);
-}
+
 
 .row_box p {
     display: none;
@@ -492,12 +474,10 @@ section {
     display: none;
 }
 
-.row_box:hover  {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 800;
+.row_box:hover p {
     color: white;
 }
+
 
 
 
