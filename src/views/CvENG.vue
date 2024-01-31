@@ -1,7 +1,7 @@
 <template>
     <main>
-        <TNavbar />
         <TBackground />
+        <TNavbar />
         <section>
             <div class="content">
                 <div class="info">
@@ -26,24 +26,152 @@
                 </div>
 
                 <swiper :effect="'cards'" :grabCursor="true" :modules="modules" class="swiper">
+
+
                     <swiper-slide class="card1">
-                        <p>dfsfsdgsdfgsdfgsdfgsdfgssadfdgadgadfgdfgsdfgsdfgsdf</p>
-                    </swiper-slide>
-                    <swiper-slide class="card1">
+
                         <div class="title_card">Technical Skills</div>
+
+                        <div class="box">
+                            <div class="row">
+                                <div class="row_box">
+                                    <Icon icon="fluent-mdl2:java-logo" class="row_box_icon"/>
+                                    <p>Java 17</p>
+                                </div>
+                                <div class="row_box">
+                                    <Icon icon="cib:spring" class="row_box_icon"/>
+                                    <p>Spring Boot</p>
+                                </div>
+                                <div class="row_box">
+                                    <Icon icon="simple-icons:springsecurity" class="row_box_icon"/>
+                                    <p>Spring Security</p>
+                                </div>
+                                <div class="row_box">
+                                    <Icon icon="cib:git" class="row_box_icon"/>
+                                    <p>GIT / GIT bash</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="row_box">
+                                    <Icon icon="simple-icons:junit5" class="row_box_icon"/> 
+                                    <p>Junit</p>
+                                </div>
+                                <div class="row_box">
+                                    <p>Assertj</p>
+                                </div>
+                                <div class="row_box">
+                                    <p>Mockito</p>
+                                </div>
+                                <div class="row_box">
+                                    <Icon icon="carbon:http" class="row_box_icon"/>
+                                    <p>HTTP basics</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="row_box">
+                                    <Icon icon="simple-icons:hibernate" class="row_box_icon"/>
+                                    <p>Hibernate</p>
+                                </div>
+                                <div class="row_box">
+                                    <Icon icon="tabler:brand-mysql" class="row_box_icon"/>
+                                    <p>MySQL</p>
+                                </div>
+                                <div class="row_box">
+                                    <p>JDBC</p>
+                                </div>
+                                <div class="row_box">
+                                    <Icon icon="akar-icons:postgresql-fill" class="row_box_icon"/>
+                                    <p>PostgreSQL</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="row_box">
+                                    <Icon icon="flowbite:html-solid" class="row_box_icon"/>
+                                    <p>HTML</p>
+                                </div>
+                                <div class="row_box">
+                                    <Icon icon="flowbite:css-solid" class="row_box_icon"/>
+                                    <p>CSS</p>
+                                </div>
+                                <div class="row_box">
+                                    <Icon icon="simple-icons:javascript" class="row_box_icon"/>
+                                    <p>JavaScript</p>
+                                </div>
+                                <div class="row_box">
+                                    <Icon icon="teenyicons:vue-solid" class="row_box_icon"/>
+                                    <p>Vue</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- 
+
+
+          <Icon icon="logos:aws-lambda" /> Lambda
+                        </p>
+                        <p>
+                            <Icon icon="carbon:partition-collection" /> Stream
+                        </p>
+
+                            <Icon icon="logos:aws-step-functions" /> 
+                        <p>Functional programming</p>
+
+
+
+                        </div> -->
                     </swiper-slide>
+
+
                     <swiper-slide class="card2">
                         <div class="title_card">Soft Skills</div>
+                        <p>Collaboration within a team on the development of an aplication for creating EDI data in the role
+                            of providing input for developers.</p>
+                        <br>
+                        <p>Leading the migration of suppliers for ŠKODA auto from one EDI webapp to another.</p>
+                        <br>
+                        <p>Abilyty and enthusiasm for self-learning and personal development.</p>
                     </swiper-slide>
+
+
                     <swiper-slide class="card3">
                         <div class="title_card">Education</div>
+                        <p>Software Development Academy</p>
+                        <p>Java from Scratch (327 hours) 04 2023 - 02 2024</p>
                     </swiper-slide>
+
+
                     <swiper-slide class="card4">
                         <div class="title_card">Work Experiences</div>
+                        <p>Since xx I have been working as and EDI specialist at the company Impromat Engineering, providing
+                            EDI services for ŠKODA auto.</p>
+                        <p>If you would like know more information, feel free to request it.</p>
                     </swiper-slide>
+
+
                     <swiper-slide class="card5">
                         <div class="title_card">Languages</div>
+                        <div class="languages">
+                            <div class="languages_inside">
+
+                                <div class="language">
+                                    <Icon icon="flag:cz-4x3" class="language_icon" />
+                                    <p>NATIVE</p>
+                                </div>
+                                <div class="language">
+                                    <Icon icon="flag:us-4x3" class="language_icon" />
+                                    <p>B2</p>
+                                </div>
+                                <div class="language">
+                                    <Icon icon="flag:jp-4x3" class="language_icon" />
+                                    <p>N4</p>
+                                </div>
+
+                            </div>
+                        </div>
                     </swiper-slide>
+
+
                     <swiper-slide class="card6">
                         <div class="title_card">Contacts</div>
                         <div class="contacts">
@@ -66,6 +194,7 @@
                                 <Icon icon="bi:github" class="github_icon" />
                             </div>
                         </div>
+
                     </swiper-slide>
                 </swiper>
 
@@ -73,85 +202,6 @@
 
             </div>
         </section>
-
-
-
-        <!--   
-                                                        <p><Icon icon="skill-icons:java-light" /> Java 17</p>
-                                                        <p><Icon icon="skill-icons:spring-dark" /> Spring Boot</p>
-                                                        <p><Icon icon="simple-icons:springsecurity" /> Spring Security</p>
-                                                        <p><Icon icon="devicon:git" /> GIT / GIT bash</p>
-                                                        <p><Icon icon="logos:aws-step-functions" /> Functional programming</p>
-                                                        <p><Icon icon="logos:aws-lambda" /> Lambda</p>
-                                                        <p><Icon icon="carbon:partition-collection" /> Stream</p>
-                                                    </div>
-                                                    <div class="column2">
-                                                        <p>Testing</p>
-                                                        <p><Icon icon="devicon:junit-wordmark" /> Junit</p>
-                                                        <p>Assertj</p>
-                                                        <p>Mockito</p>
-                                                    </div>
-                                                    <div class="column3">
-                                                        <p>Database</p>
-                                                        <p><Icon icon="devicon:mysql-wordmark" /> MySQL</p>
-                                                        <p>JDBC</p>
-                                                        <p><Icon icon="logos:hibernate" /> Hibernate</p>
-                                                    </div>
-                                                    <div class="column4">
-                                                        <p>Frontend</p>
-                                                        <p><Icon icon="skill-icons:html" /> HTML</p>
-                                                        <p><Icon icon="skill-icons:css" /> CSS</p>
-                                                        <p><Icon icon="openmoji:javascript" /> JavaScript</p>
-                                                        <p><Icon icon="logos:vue" /> Vue</p>
-                                                    </div>
-                                                    <div class="column5">
-                                                        <p><Icon icon="vscode-icons:file-type-http" /> HTTP basics</p>
-                                                    </div>
-
-                                            </div>
-                                        </div>
-                                        <div class="work_experiences">
-                                            <h1>WORK EXPERIENCES</h1>
-                                            <p></p>
-                                        </div>
-                                    </div>
-
-                                    <div class="card">
-                                        <div class="soft_skills">
-                                            <h1>SOFT SKILLS</h1>
-                                            <p></p>
-                                        </div>
-                                        <div class="education">
-                                            <h1>EDUCATION</h1>
-                                            <p>Software Development Academy</p>
-                                            <p>Java from Scratch(320 hours)</p>
-                                        </div>
-                             
-                                    </div>
-                                </div>
-
-
-                                <div class="languages">
-                                    <div class="languages_inside">
-
-                                        <div class="language">
-                                            <Icon icon="flag:cz-4x3" class="language_icon" />
-                                            <p>NATIVE</p>
-                                        </div>
-                                        <div class="language">
-                                            <Icon icon="flag:us-4x3" class="language_icon" />
-                                            <p>B2</p>
-                                        </div>
-                                        <div class="language">
-                                            <Icon icon="flag:jp-4x3" class="language_icon" />
-                                            <p>N4</p>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-
-                            > -->
     </main>
 </template>
 
@@ -245,18 +295,20 @@ section {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    top: 0;
+    left: 0;
 }
 
 
 .content {
-    width: 70rem;
-    height: 40rem;
+    width: 100rem;
+    height: 50rem;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 100px;
     background: linear-gradient(180deg,
-            rgba(255, 255, 255, 0.28) 0%,
+            rgba(255, 255, 255, 0.25) 0%,
             rgba(255, 255, 255, 0) 100%);
     backdrop-filter: blur(2px);
     border-radius: 20px;
@@ -284,8 +336,8 @@ section {
 
 
 .swiper {
-    width: 280px;
-    height: 420px;
+    width: 600px;
+    height: 520px;
 }
 
 .swiper-slide {
@@ -319,7 +371,7 @@ section {
 
 .card1 {
     background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
-
+    color: #3C3C3C;
 }
 
 .card2 {
@@ -343,6 +395,125 @@ section {
     background-color: #3C3C3C
 }
 
+.box {
+    border: 1px solid black;
+    width: 24rem;
+    height: 24rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    border: 1px solid yellow;
+    width: 24rem;
+    height: 6rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.row_box {
+    border: 1px solid red;
+    border-radius: 10px;
+    width: 3.5rem;
+    height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+.row_box {
+    
+    color: #FFF;
+    transition: all 0.5s;
+    position: relative;
+    
+    color: #5D9FFF;
+}
+
+.row_box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s;
+    border-radius: 10px;
+}
+
+.row_box:hover::before {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+}
+
+.row_box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transform: scale(1.2, 1.2);
+    border-radius: 10px;
+
+}
+
+.row_box:hover {
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    background: #5d9eff83;
+}
+
+.row_box:hover::after {
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
+.row_box p {
+    display: none;
+}
+
+.row_box:hover .row_box_icon {
+    display: none;
+}
+
+.row_box:hover  {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** CONTACT CARD */
 
 .title_card {
     position: absolute;
@@ -365,14 +536,12 @@ section {
 
 
 
-
 .contacts {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
 }
-
 
 
 .linkedin,
@@ -479,4 +648,6 @@ section {
     font-weight: 800;
     color: white;
 }
+
+
 </style>

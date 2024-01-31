@@ -1,100 +1,65 @@
 <template>
     <main>
-        <div class="wrapper">
-
-            <div class="background">
-
-                <div class="architecture">
-                    <TNavbar />
-
-                    <div class="header">
-                        <Icon icon="ep:menu" class="header_icon" />
-                        <h1>MENU</h1>
-                        <h3></h3>
+        <TBackground />
+        <TNavbar />
+        <section>
+            <div class="content">
+        
+                    <div class="description_1">
+                        <p class="annotation">@Data</p>
+                        <p class="annotation">@NoArgsConstructor</p>
+                        <p class="annotation">@AllArgsConstructor</p>
+                        <p class="annotation">@Builder</p>
+                        <p><span class="keyword">public class</span> <span class="normal_text">JuniorJavaDeveloper
+                                {</span></p>
+                        <br>
+                        <p><span class="keyword">private</span> <span class="normal_text">String</span> <span
+                                class="variables">fullname</span> <span class="normal_text">= "Tomáš
+                                Pitron"</span><span class="keyword">;</span></p>
+                        <br>
+                        <p class="comments">/*</p>
+                        <br>
+                        <p class="comments">for other information click the CV or STOCK button</p>
+                        <br>
                     </div>
 
-                    <div class="top_filling">
-                        <div class="top_filling_left"></div>
-                        <div class="top_filling_mid"></div>
-                        <div class="top_filling_right"></div>
-                    </div>
+                    <div class="content_boxes">
 
-                    <div class="content">
+                        <div class="cv_box" @click="redirectToCV">
 
-                        <div class="content_left">
-
-                        </div>
-
-                        <div class="content_mid">
-
-                            <div class="mainbox">
-
-                                <div class="sorted"></div>
-
-                                <div class="description_1">
-                                    <p class="annotation">@Data</p>
-                                    <p class="annotation">@NoArgsConstructor</p>
-                                    <p class="annotation">@AllArgsConstructor</p>
-                                    <p class="annotation">@Builder</p>
-                                    <p><span class="keyword">public class</span> <span
-                                            class="normal_text">JuniorJavaDeveloper
-                                            {</span></p>
-                                    <br>
-                                    <p><span class="keyword">private</span> <span class="normal_text">String</span> <span
-                                            class="variables">fullname</span> <span class="normal_text">= "Tomáš
-                                            Pitron"</span><span class="keyword">;</span></p>
-                                    <br>
-                                    <p class="comments">/*</p>
-                                    <br>
-                                    <p class="comments">for other information click the CV or STOCK button</p>
-                                    <br>
-                                </div>
-
-                                <div class="content_boxes">
-
-                                    <div class="cv_box" @click="redirectToCV">
-
-                                        <div class="title">
-                                            <h1>CV</h1>
-                                        </div>
-
-                                        <div class="text">
-                                            <p>the document attempting to describe my life experiences</p>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="stock_box" @click="redirectToWatchlist">
-                                        <div class="title">
-                                            <h1>STOCK</h1>
-                                        </div>
-
-                                        <div class="text">
-                                            <p>mini web application to demonstrate my skills</p>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                                <div class="description_2">
-                                    <br>
-                                    <p class="comments">*/</p>
-                                    <p class="normal_text">}</p>
-                                    <br>
-                                </div>
-
+                            <div class="title">
+                                <h1>CV</h1>
                             </div>
+
+                            <div class="text">
+                                <p>the document attempting to describe my life experiences</p>
+                            </div>
+
                         </div>
 
-                        <div class="content_right">
+                        <div class="stock_box" @click="redirectToWatchlist">
+                            <div class="title">
+                                <h1>STOCK</h1>
+                            </div>
+
+                            <div class="text">
+                                <p>mini web application to demonstrate my skills</p>
+                            </div>
 
                         </div>
 
                     </div>
-                </div>
-            </div>
+                    <div class="description_2">
+                        <br>
+                        <p class="comments">*/</p>
+                        <p class="normal_text">}</p>
+                        <br>
+                    </div>
 
-        </div>
+                </div>
+      
+
+        </section>
     </main>
 </template>
 
@@ -108,12 +73,14 @@ import TNavbar from '@/components/TNavbar.vue'
 import { Icon } from '@iconify/vue';
 import db from '../utils/db.js'
 import axios from 'axios';
+import TBackground from '@/components/TBackground.vue'
 
 export default {
 
     components: {
         TNavbar,
-        Icon
+        Icon,
+        TBackground
     },
     data() {
         return {
@@ -140,108 +107,45 @@ export default {
 
 
 <style scoped>
-* {
-    box-sizing: border-box;
-    padding: 0;
+*,
+*::before,
+*::after {
     margin: 0;
-    color: #000000;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.background {
-    background: radial-gradient(circle at top, #3a3a3a, #000000);
+section {
     height: 100vh;
     width: 100%;
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
     top: 0;
     left: 0;
-    overflow: auto;
-}
-
-.architecture {
-    display: flex;
-    flex-direction: column;
-    /*align-items: center;*/
-
 }
 
 
-/** HEADER */
-
-.header {
-    height: 10rem;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 5px;
-    border-bottom: 0.5px solid rgb(211, 199, 199);
-    background-color: #3A4454;
-    background-image: linear-gradient(to right, #00CED1, #000080);
-    font-family: Oswald, 'Courier New', Courier;
-}
-
-.header h1 {
-    color: white;
-}
-
-.header h3 {
-    color: rgb(206, 206, 206);
-    font-weight: 300;
-}
-
-.header_icon {
-    font-size: 1.75rem;
-}
-
-
-
-
-/** CONTENT */
 .content {
-    height: 70.75vh;
+    width: 70rem;
+    height: 40rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
-}
-
-.content_mid {
-    width: 45rem;
-    height: 45rem;
-    display: flex;
-    justify-content: center;
-    border-left: 2px solid #9e94945e;
-    border-right: 2px solid #9e94945e;
-}
-
-
-
-.top_filling {
-    height: 3rem;
-    width: 100%;
-    border-bottom: 2px solid #9e94945e;
-    /*box-shadow: 0 5px 5px -5px #03e9f4, 0 25px 25px -10px #03e9f4, 0 50px 50px -15px #03e9f4, 0 100px 100px -20px #03e9f4;*/
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.top_filling_left,
-.top_filling_right {
-    height: 3rem;
-}
-
-.top_filling_mid {
-    height: 3rem;
-    width: 45rem;
-    border-left: 2px solid #9e94945e;
-    border-right: 2px solid #9e94945e;
-    
-}
-
-.sorted {
-    height: 2rem;
-    width: 100%;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0) 100%);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);
+    z-index: 10;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    font-family: 'JetBrains Mono', Oswald, 'Courier New', Courier;
 }
 
 /** CONTENT - MAINBOX */
@@ -264,18 +168,6 @@ export default {
     margin: auto;
 }
 
-.mainbox {
-    width: 45rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: radial-gradient(circle at top, #3a3a3a, #000000);
-    font-size: 0.85rem;
-    line-height: 1.5;
-    font-family: 'JetBrains Mono', Oswald, 'Courier New', Courier;
-
-}
-
 
 .content_boxes {
     display: flex;
@@ -287,12 +179,11 @@ export default {
 
 .cv_box,
 .stock_box {
-    height: 3rem;
+    height: 5rem;
     width: 15rem;
     border: 1px solid #808080;
     border-radius: 5px;
     padding: 5px;
-    transition: width 0.3s, height 0.3s;
 }
 
 .cv_box {
@@ -306,8 +197,8 @@ export default {
 .cv_box .text,
 .stock_box .text {
     display: none;
-    /* Skryje text v normálním stavu */
 }
+
 
 .cv_box:hover .title h1,
 .stock_box:hover .title h1 {
@@ -321,8 +212,6 @@ export default {
 
 .cv_box:hover,
 .stock_box:hover {
-    height: 7rem;
-    width: 15rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -332,13 +221,11 @@ export default {
 
 
 .stock_box:hover {
-    background: #eea507;
-    box-shadow: 0 0 5px #eea507, 0 0 25px #eea507, 0 0 50px #eea507, 0 0 100px #eea507;
+
 }
 
 .cv_box:hover {
-    background: #03a8f4;
-    box-shadow: 0 0 5px #03a8f4, 0 0 25px #03a8f4, 0 0 50px #03a8f4, 0 0 100px #03a8f4;
+ 
 }
 
 .title {
@@ -373,6 +260,4 @@ export default {
 .comments {
     color: #808080;
 }
-
-
 </style>

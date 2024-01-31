@@ -15,17 +15,11 @@ export default {
 
 
 <style scoped>
-html {
-    height: 100%;
-    overflow: hidden;
-
-}
-
 .background {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     overflow: hidden;
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);

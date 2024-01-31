@@ -8,15 +8,15 @@
 
       <div class="buttons">
         <button class="button" @click="redirectToMenu" :class="{ 'profile-active': isStockMenuVisible }">
-          <Icon icon="ep:menu" class="menu_icon" />
+       
           Menu
         </button>
         <button class="button" @click="redirectToCV">
-          <Icon icon="pepicons-pop:cv" class="cv_icon" />
+
           CV
         </button>
         <button class="button" @click="toggleStockMenu" :class="{ 'profile-active': isStockMenuVisible }">
-          <Icon icon="fxemoji:stockchart" class="header_icon" />
+
           Stock
         </button>
       </div>
@@ -194,13 +194,14 @@ export default {
   display: flex;
   align-items: center;
   padding: 20px;
-  border-bottom: 0.5px solid rgba(211, 199, 199, 0.863);
-  background: #3A4454;
+  background: radial-gradient(circle at top, #3a3a3a, #000000);
+  border-bottom: 1px solid rgba(177, 177, 177, 0.4);
+
 }
 
 .img {
-  width: 30px;
-  height: 30px;
+  width: 1.75rem;
+  height: 1.75rem;
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid black;
@@ -281,9 +282,9 @@ export default {
 }
 
 .button {
-  background: #3A4454;
+  background: none;
   cursor: pointer;
-  color: white;
+  color: #cfcfcf;
   border: none;
   border-radius: 5px;
   height: 2.2rem;
@@ -299,9 +300,9 @@ export default {
 .button:hover {
   height: 2.2rem;
   width: 10rem;
-  color: white;
-  /*background: rgba(90, 89, 89, 0.623)*/
-  background: #dba613a1
+  color: #dba613;
+  background: none;
+
 }
 
 .cv_icon,
@@ -309,15 +310,6 @@ export default {
   color: rgb(177, 177, 177);
 }
 
-
-
-.button:hover {
-  height: 2.2rem;
-  width: 10rem;
-  color: white;
-  /*background: rgba(90, 89, 89, 0.623)*/
-  background: #dba613a1
-}
 
 
 /** LANGUAGE BUTTONS */
