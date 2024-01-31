@@ -522,8 +522,8 @@ export default {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: Oswald, 'Courier New', Courier;
     color: #000000;
+    font-family: Oswald, 'Courier New', Courier;
 }
 
 .background {
@@ -605,11 +605,13 @@ export default {
     align-items: center;
     justify-content: row;
     background: #e9e8e8;
+    
+    
+
 }
 
 .watchlist_table div {
     color: black;
-
 }
 
 .Ticker {

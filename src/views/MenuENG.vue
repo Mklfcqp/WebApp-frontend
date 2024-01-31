@@ -148,7 +148,7 @@ export default {
 }
 
 .background {
-    background: #444444;
+    background: radial-gradient(circle at top, #3a3a3a, #000000);
     height: 100vh;
     width: 100%;
     position: absolute;
@@ -269,7 +269,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #444444;
+    background: radial-gradient(circle at top, #3a3a3a, #000000);
     font-size: 0.85rem;
     line-height: 1.5;
     font-family: 'JetBrains Mono', Oswald, 'Courier New', Courier;

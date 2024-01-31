@@ -1,6 +1,6 @@
 <template>
   <body>
-    <TBackgroundGreen />
+    <TBackground/>
 
     <div class="login">
       <form @submit.prevent="registerUser" action="" class="login__form">
@@ -79,7 +79,7 @@
 
 
 <script>
-import TBackgroundGreen from '@/components/TBackgroundGreen.vue'
+import TBackground from '@/components/TBackground.vue'
 import { useRouter } from "vue-router";
 import { Icon } from '@iconify/vue';
 import db from '../utils/db.js'
@@ -88,7 +88,7 @@ import CryptoJS from 'crypto-js';
 import axios from "axios";
 
 export default {
-  components: { TBackgroundGreen, Icon },
+  components: { TBackground, Icon },
 
   data() {
     return {
@@ -192,13 +192,13 @@ body {
   width: 400px;
   padding: 2rem 3rem 2rem;
   border-radius: 1rem;
-  box-shadow: 0 0 50px rgb(0, 255, 55);
+  box-shadow: 0 0 50px #f1f505;
 }
 
 .login__title {
   text-align: center;
   margin-bottom: 2rem;
-  color: rgb(0, 255, 55);
+  color: #f1f505;
   font-weight: 500;
 }
 
@@ -301,7 +301,7 @@ body {
   border-radius: 0.5rem;
   cursor: pointer;
   margin-bottom: 2rem;
-  color: rgb(0, 255, 55);
+  color: #f1f505;
   transition: 0.5s;
   text-align: center;
   text-decoration: none;
@@ -313,11 +313,10 @@ body {
 }
 
 .login__button:hover {
-  background: rgb(0, 255, 55);
+  background: #f1f505;
   color: #fff;
   border-radius: 0.5rem;
-  box-shadow: 0 0 5px rgb(0, 255, 55), 0 0 25px rgb(0, 255, 55), 0 0 50px rgb(0, 255, 55),
-    0 0 100px rgb(0, 255, 55);
+  box-shadow: 0 0 5px #f1f505, 0 0 25px #f1f505, 0 0 50px #f1f505, 0 0 100px #f1f505;
 }
 
 .login__register {
@@ -349,10 +348,6 @@ body {
   .login__title {
     font-size: 2rem;
   }
-  .background .boxes {
-    width: calc(20vw - 2px);
-    height: calc(20vw - 2px);
-  }
 }
 
 @media screen and (max-width: 900px) {
@@ -367,34 +362,6 @@ body {
   .login__title {
     font-size: 2rem;
   }
-  .background .boxes {
-    width: calc(10vw - 2px);
-    height: calc(10vw - 2px);
-  }
 }
 
-.language-buttons {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-
-.language-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-.language-icon {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 0.5px solid#000000;
-  box-shadow: 0 0 10px rgb(0, 255, 55);
-}
 </style>

@@ -1,7 +1,7 @@
 <template>
   <body>
     
-    <TBackgroundRed/>
+    <TBackground/>
 
     <div class="login">
       
@@ -40,12 +40,12 @@
 
 
 <script>
-import TBackgroundRed from '@/components/TBackgroundRed.vue'
+import TBackground from '@/components/TBackground.vue'
 import { useRouter } from "vue-router";
 import { Icon } from '@iconify/vue';
 
 export default {
-  components: { TBackgroundRed, Icon },
+  components: { TBackground, Icon },
 
   methods: {
     redirectToLogin() {

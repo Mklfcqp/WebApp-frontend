@@ -1,12 +1,12 @@
 <template>
   <body>
     
-    <TBackgroundBlue/>
+    <TBackground/>
 
     <div class="login">
       
       <form @submit.prevent="loginUser" action="" class="login__form">
-        <h1 class="login__title">VÍTEJTE</h1>
+        <h1 class="login__title">WELCOME</h1>
 
         <div class="login__content">
           <div class="login__box">
@@ -36,7 +36,7 @@
                 id="repeat-pass"
                 placeholder=" "
               />
-              <label for="repeat-pass" class="login__label">Heslo</label>
+              <label for="repeat-pass" class="login__label">Password</label>
               <Icon :icon="inputTypeIcon === 'password' ? 'ri:eye-off-line' : 'gravity-ui:eye'" class="login__eye" @click="toggleInputIcon"/>
             </div>
           </div>
@@ -45,24 +45,17 @@
         <div class="login__check">
           <div class="login__check-group">
             <input type="checkbox" class="login__check-input" id="login-check" />
-            <label for="login-check" class="login__check-label">Zapamatovat</label>
+            <label for="login-check" class="login__check-label">Remember me</label>
           </div>
 
-          <a href="#" class="login__forgot" @click="redirectToResetPassword">Reset hesla.</a>
+          <a href="#" class="login__forgot" @click="redirectToResetPassword">Forgot Password?</a>
         </div>
 
-        <button type="submit" class="login__button">PŘIHLÁSIT</button>
+        <button type="submit" class="login__button">LOGIN</button>
 
-        <p class="login__register">Nemáte účet? <a href="#" @click="redirectToRegister">Registrace</a></p>
+        <p class="login__register">Don't have an account? <a href="#" @click="redirectToRegister">Register</a></p>
       </form>
-      <div class="language-buttons">
-        <button class="language-button" @click="changeLanguageCZ">
-          <img src="@/assets/img/cz.png" alt="Czech Flag" class="language-icon">
-        </button>
-        <button class="language-button" @click="changeLanguageENG">
-          <img src="@/assets/img/gb.png" alt="English Flag" class="language-icon">
-        </button>
-      </div>
+      
 
     </div>
   </body>
@@ -72,13 +65,15 @@
 
 
 <script>
-import TBackgroundBlue from '@/components/TBackgroundBlue.vue'
+import TBackground from '@/components/TBackground.vue'
 import { useRouter } from "vue-router";
 import { Icon } from '@iconify/vue';
 import axios from "axios";
+import CryptoJS from 'crypto-js';
+import db from '../utils/db.js'
 
 export default {
-  components: { TBackgroundBlue, Icon },
+  components: { TBackground, Icon },
 
   data() {
     return {
@@ -90,23 +85,11 @@ export default {
 
   methods: {
     redirectToRegister() {
-      const router = useRouter();
-      this.$router.push("/registerCZ"); 
+      this.$router.push("/registerENG"); 
     },
 
     redirectToResetPassword() {
-      const router = useRouter();
-      this.$router.push("/resetPasswordCZ"); 
-    },
-
-    changeLanguageCZ() {
-      const router = useRouter();
-      this.$router.push("/loginCZ"); 
-    },
-
-    changeLanguageENG() {
-      const router = useRouter();
-      this.$router.push("/loginENG"); 
+      this.$router.push("/resetPasswordENG"); 
     },
 
     toggleInputIcon() {
@@ -114,19 +97,23 @@ export default {
     },
 
     redirectToWatchlist() {
-      const router = useRouter();
       this.$router.push("/watchlistENG"); 
     },
 
     loginUser() {
       const userData = {
         email: this.email,
-        password: this.password,
+        password: CryptoJS.SHA256(this.password).toString(CryptoJS.enc.Hex),
       };
 
       axios.post("http://localhost:8080/auth/login", userData)
         .then((response) => {
           console.log("User logged in successfully:", response.data);
+
+          const {access_token, refresh_token} = response.data;
+          localStorage.setItem('accessToken', access_token);
+          localStorage.setItem('refreshToken', refresh_token);
+
           this.redirectToWatchlist();
         }).catch((error) => {
           console.error("Login failed:", error.response.data);
@@ -146,7 +133,9 @@ export default {
   padding: 0;
   margin: 0;
   color: white;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: Oswald, 'Courier New', Courier, monospace;
+  font-weight: 300;
+  letter-spacing: 1px;
 }
 
 input,
@@ -184,13 +173,13 @@ body {
 .login__form {
   position: relative;
   background-color: hsla(0, 0%, 10%, 0.1);
-  background: #353434ce;
+  background: #353434;
   border: 2px solid white;
   margin-inline: auto;
   width: 400px;
-  padding: 4rem 3rem 3.5rem;
+  padding: 2rem 3rem 2rem;
   border-radius: 1rem;                             
-  backdrop-filter: blur(8px); 
+
   box-shadow: 0 0 50px #0ef;                  
 }
 
@@ -198,6 +187,7 @@ body {
   text-align: center;
   margin-bottom: 2rem;
   color: #03e9f4;
+  font-weight: 500;
 }
 
 .login__content,
@@ -214,7 +204,9 @@ body {
   grid-template-columns: max-content 1fr;
   align-items: center;
   column-gap: 0.75rem;
-  border-bottom: 2px solid white;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 0 10px;
 }
 
 .login__icon,
@@ -238,7 +230,9 @@ body {
   position: absolute;
   left: 0;
   top: 13px;
-  transition: top 0.3s, font-size 0.3s;
+  transition: top 0.3s;
+  background-color: #353434;
+  padding: 0 5px;
 }
 
 .login__eye {

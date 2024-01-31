@@ -1,12 +1,12 @@
 <template>
   <body>
     
-    <TBackgroundBlue/>
+    <TBackground/>
 
     <div class="login">
       
       <form @submit.prevent="loginUser" action="" class="login__form">
-        <h1 class="login__title">WELCOME</h1>
+        <h1 class="login__title">LOGIN</h1>
 
         <div class="login__content">
           <div class="login__box">
@@ -65,7 +65,7 @@
 
 
 <script>
-import TBackgroundBlue from '@/components/TBackgroundBlue.vue'
+import TBackground from '@/components/TBackground.vue'
 import { useRouter } from "vue-router";
 import { Icon } from '@iconify/vue';
 import axios from "axios";
@@ -73,7 +73,7 @@ import CryptoJS from 'crypto-js';
 import db from '../utils/db.js'
 
 export default {
-  components: { TBackgroundBlue, Icon },
+  components: { TBackground, Icon },
 
   data() {
     return {
@@ -96,8 +96,8 @@ export default {
       this.inputTypeIcon = this.inputTypeIcon === "password" ? "text" : "password";
     },
 
-    redirectToWatchlist() {
-      this.$router.push("/watchlistENG"); 
+    redirectToMenu() {
+      this.$router.push("/menuENG"); 
     },
 
     loginUser() {
@@ -114,7 +114,7 @@ export default {
           localStorage.setItem('accessToken', access_token);
           localStorage.setItem('refreshToken', refresh_token);
 
-          this.redirectToWatchlist();
+          this.redirectToMenu();
         }).catch((error) => {
           console.error("Login failed:", error.response.data);
         });
@@ -336,10 +336,6 @@ body {
   .login__title {
     font-size: 2rem;
   }
-  .background .boxes {
-    width: calc(20vw - 2px);
-    height: calc(20vw - 2px);
-  }
 }
 
 @media screen and (max-width: 900px) {
@@ -354,35 +350,8 @@ body {
   .login__title {
     font-size: 2rem;
   }
-  .background .boxes {
-    width: calc(10vw - 2px);
-    height: calc(10vw - 2px);
-  }
+
 }
 
-.language-buttons {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-}
-
-.language-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-.language-icon {
-  width: 35px; 
-  height: 35px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 0.5px solid#000000;
-  box-shadow: 0 0 10px #0ef;  
-}
 
 </style>

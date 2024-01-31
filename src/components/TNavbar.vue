@@ -74,8 +74,6 @@
       </button>
     </div>
 
-    <div class="under_navigation"></div>
-
   </main>
 </template>
 
@@ -356,15 +354,7 @@ export default {
 
 /** UNDER NAVIGATION */
 
-.under_navigation {
-  width: 100%;
-  height: 3rem;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding: 20px;
 
-}
 
 
 /** PROFILE MENU */

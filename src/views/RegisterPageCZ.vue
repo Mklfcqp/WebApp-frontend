@@ -1,6 +1,6 @@
 <template>
   <body>
-    <TBackgroundGreen />
+    <TBackground/>
 
     <div class="login">
       <form @submit.prevent="registerUser" action="" class="login__form">
@@ -87,14 +87,14 @@
 
 
 <script>
-import TBackgroundGreen from '@/components/TBackgroundGreen.vue'
+import TBackground from '@/components/TBackground.vue'
 import { useRouter } from "vue-router";
 import { Icon } from '@iconify/vue';
 import axios from 'axios';
 import db from '../utils/db.js'
 
 export default {
-  components: { TBackgroundGreen, Icon },
+  components: { TBackground, Icon },
 
   data() {
     return {
