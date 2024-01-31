@@ -1,68 +1,51 @@
 <template>
     <main>
         <TNavbar />
-        <TBackground/>
+        <TBackground />
         <section>
             <div class="content">
                 <div class="info">
-                    <p>Join us for a fantastic <span class="movie-night">movie night</span> filled with popcorn, laughter,
-                        and great company! Whether you're a fan of thrilling action, heartwarming dramas, or side-splitting
-                        comedies, we've got a film lineup to cater to all tastes. Save the date and bring your favorite
-                        snacks to make it a memorable evening.</p>
-                    <button class="btn">Join</button>
+                    
+                    <div class="title">ABOUT ME</div>
+
+                    <p>I am team player with the ability to work alone, which have experiences 
+                        working on web application development as business partner and also with leading small project.
+                    </p>
+                    <br>
+                    <p>I am currently seeking a role as a Junior java Developer.</p>
+                    <br>
+                    <p>I am driven to contribute to dynamic development projects leveraging my collaborative mindset and technical skills
+                        to create innovative solutions.
+                    </p>
+                    <br>
+                    <p>My enthusiasm for continuous studying and dedication honing my development capabilities makes me 
+                        an idealt candidate for a Junior Java Developer position.
+                    </p>
+
                 </div>
 
-
                 <swiper :effect="'cards'" :grabCursor="true" :modules="modules" class="swiper">
-                    <swiper-slide>Slide 1</swiper-slide>
-                    <swiper-slide>Slide 2</swiper-slide>
-                    <swiper-slide>Slide 3</swiper-slide>
-                    <swiper-slide>Slide 4</swiper-slide>
-                    <swiper-slide>Slide 5</swiper-slide>
-                    <swiper-slide>Slide 6</swiper-slide>
-                    <swiper-slide>Slide 7</swiper-slide>
+                    <swiper-slide>
+                        <p>dfsfsdgsdfgsdfgsdfgsdfgssadfdgadgadfgdfgsdfgsdfgsdf</p>
+                    </swiper-slide>
+                    <swiper-slide>Technical Skills</swiper-slide>
+                    <swiper-slide>Soft Skills</swiper-slide>
+                    <swiper-slide>Education</swiper-slide>
+                    <swiper-slide>Work Experiences</swiper-slide>
+                    <swiper-slide>Languages</swiper-slide>
+                    <swiper-slide>Contacts</swiper-slide>
                     <swiper-slide>Slide 8</swiper-slide>
                     <swiper-slide>Slide 9</swiper-slide>
                 </swiper>
 
-            
+
+
             </div>
         </section>
 
 
 
-        <!--         <div class="wrapper">
-
-            <div class="background">
-
-                <div class="architecture">
-                    
-
-
-                    <div class="content">
-
-                        <div class="content_mid">
-
-                            <div class="mainbox">
-
-                                <div class="about_me">
-                                    <div class="about_me_inside">
-                                        <div class="about_me_inside_content">
-                                            <h1>ABOUT ME</h1>
-                                            <p></p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="middle">
-                                    <div class="card1">
-                                        <div class="technical_skills">
-                                                <div class="title">
-                                                    <h1>TECHNICAL SKILLS</h1>
-                                                </div>
-                                                <div class="text">
-                                                    <div class="column1">
-                                                        <p>Backend</p>
+        <!--   
                                                         <p><Icon icon="skill-icons:java-light" /> Java 17</p>
                                                         <p><Icon icon="skill-icons:spring-dark" /> Spring Boot</p>
                                                         <p><Icon icon="simple-icons:springsecurity" /> Spring Security</p>
@@ -153,25 +136,7 @@
                                             <P>Luštěnice</P>
                                         </div>
                                         <Icon icon="devicon:github" class="github_icon" />
-                                    </div>
-
-                                </div>
-
-
-                            </div>
-
-
-
-                        </div>
-           
-
-
-                    </div>
-
-            
-                </div>
-            </div>
-        </div> -->
+                            > -->
     </main>
 </template>
 
@@ -186,13 +151,11 @@ import { Icon } from '@iconify/vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import TBackground from '@/components/TBackground.vue'
 
-  import 'swiper/css';
+import 'swiper/css';
 
-  import 'swiper/css/effect-cards';
+import 'swiper/css/effect-cards';
 
-  import '@/assets/swiperStyle.css';
-
-  import { EffectCards } from 'swiper/modules';
+import { EffectCards } from 'swiper/modules';
 
 
 
@@ -253,10 +216,9 @@ section {
     width: 70rem;
     height: 40rem;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 100px;
     background: linear-gradient(180deg,
             rgba(255, 255, 255, 0.28) 0%,
             rgba(255, 255, 255, 0) 100%);
@@ -271,9 +233,8 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    max-width: 450px;
-    padding: 0 35px;
+    width: 30rem;
+    height: 30rem;
     text-align: justify;
 }
 
@@ -281,53 +242,65 @@ section {
     color: #fff;
     font-weight: 500;
     font-size: 1rem;
-    margin-bottom: 20px;
     line-height: 1.5;
 }
 
 
-.btn {
-    display: block;
-    padding: 10px 40px;
-    margin: 10px auto;
-    font-size: 1.1rem;
-    font-weight: 700;
-    border-radius: 4px;
-    outline: none;
-    text-decoration: none;
-    color: #784ba0;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    cursor: pointer;
+
+.swiper {
+  width: 280px;
+  height: 420px;
 }
 
-.btn:hover,
-.btn:focus,
-.btn:active,
-.btn:visited {
-    transition-timing-function: cubic-bezier(0.6, 4, 0.3, 0.8);
-    animation: gelatine 0.5s 1;
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 18px;
+  color: #fff;
 }
 
-@keyframes gelatine {
-
-    0%,
-    100% {
-        transform: scale(1, 1);
-    }
-
-    25% {
-        transform: scale(0.9, 1.1);
-    }
-
-    50% {
-        transform: scale(1.1, 0.9);
-    }
-
-    75% {
-        transform: scale(0.95, 1.05);
-    }
+.swiper-slide:nth-child(1n) {
+  background-color: rgb(206, 17, 17);
 }
+
+.swiper-slide:nth-child(2n) {
+  background-color: rgb(0, 140, 255);
+}
+
+.swiper-slide:nth-child(3n) {
+  background-color: rgb(10, 184, 111);
+}
+
+.swiper-slide:nth-child(4n) {
+  background-color: rgb(211, 122, 7);
+}
+
+.swiper-slide:nth-child(5n) {
+  background-color: rgb(118, 163, 12);
+}
+
+.swiper-slide:nth-child(6n) {
+  background-color: rgb(180, 10, 47);
+}
+
+.swiper-slide:nth-child(7n) {
+  background-color: rgb(35, 99, 19);
+}
+
+.swiper-slide:nth-child(8n) {
+  background-color: rgb(0, 68, 255);
+}
+
+.swiper-slide:nth-child(9n) {
+  background-color: rgb(218, 12, 218);
+}
+
+.swiper-slide:nth-child(10n) {
+  background-color: rgb(54, 94, 77);
+}
+
+
 
 </style>
