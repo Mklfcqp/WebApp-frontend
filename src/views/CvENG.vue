@@ -8,20 +8,16 @@
 
                     <div class="title">ABOUT ME</div>
 
-                    <p>I am team player with the ability to work alone, which have experiences
-                        working on web application development as business partner and also with leading small project.
-                    </p>
-                    <br>
-                    <p>I am currently seeking a role as a Junior java Developer.</p>
-                    <br>
-                    <p>I am driven to contribute to dynamic development projects leveraging my collaborative mindset and
-                        technical skills
-                        to create innovative solutions.
-                    </p>
-                    <br>
-                    <p>My enthusiasm for continuous studying and dedication honing my development capabilities makes me
-                        an idealt candidate for a Junior Java Developer position.
-                    </p>
+                    <p>I am <span class="text_name">Tomáš Pitron</span>, Junior Java Developer.</p>
+
+                    <p>As a team player with the ability to work independently and with passion of self-education, I have
+                        gained valuable experience working on web application development as a business partner and leading
+                        small project regarding migration of suppliers to new system.</p>
+
+                    <p>I am highly motivated and driven to contribute to dynamic development projects, leveraging my
+                        technical skills and collaborative mindset to create innovative solutions, where I can contribute to
+                        dynamic development projects utilizing my analytic mindset and technical skills to create innovative
+                        solutions.</p>
 
                 </div>
 
@@ -34,104 +30,137 @@
 
                         <div class="box">
                             <div class="row">
-                                <div class="row_box">
-                                    <Icon icon="fluent-mdl2:java-logo" class="row_box_icon"/>
-                                    <p>Java 17</p>
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <Icon icon="fluent-mdl2:java-logo" class="row_box_icon" />
+                                    </div>
+                                    <p>JAVA 17</p>
                                 </div>
-                                <div class="row_box">
-                                    <Icon icon="cib:spring" class="row_box_icon"/>
-                                    <p>Spring Boot</p>
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <Icon icon="cib:spring" class="row_box_icon" />
+                                    </div>
+                                    <p>SPRING BOOT</p>
                                 </div>
-                                <div class="row_box">
-                                    <Icon icon="simple-icons:springsecurity" class="row_box_icon"/>
-                                    <p>Spring Security</p>
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <Icon icon="simple-icons:springsecurity" class="row_box_icon" />  
+                                    </div>
+                                    <p>SPRING</p>
+                                    <p>SECURITY</p>
                                 </div>
-                                <div class="row_box">
-                                    <Icon icon="cib:git" class="row_box_icon"/>
-                                    <p>GIT / GIT bash</p>
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <Icon icon="cib:git" class="row_box_icon" />
+                                    </div>
+                                    <p>GIT</p>
                                 </div>
-                                <div class="row_box">
-
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="row_box">
-                                    <Icon icon="simple-icons:junit5" class="row_box_icon"/> 
-                                    <p>Junit</p>
-                                </div>
-                                <div class="row_box">
-                                    <p>Assertj</p>
-                                </div>
-                                <div class="row_box">
-                                    <p>Mockito</p>
-                                </div>
-                                <div class="row_box">
-                                    <Icon icon="carbon:http" class="row_box_icon"/>
-                                    <p>HTTP basics</p>
-                                </div>
-                                <div class="row_box">
-
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <Icon icon="carbon:partition-collection" class="row_box_icon"/> 
+                                    </div>
+                                    <p>STREAM</p>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="row_box">
-                                    <Icon icon="simple-icons:hibernate" class="row_box_icon"/>
-                                    <p>Hibernate</p>
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <Icon icon="simple-icons:junit5" class="row_box_icon" />
+                                    </div>
+                                    <p>JUNIT</p>
                                 </div>
-                                <div class="row_box">
-                                    <Icon icon="tabler:brand-mysql" class="row_box_icon"/>
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <div class="box_without_icon">ASSERTJ</div>
+                                    </div>
+                                    <p>ASSERTJ</p>
+                                </div>
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <Icon icon="material-symbols:function" class="row_box_icon"/>
+                                    </div>
+                                    <p>FUNCTIONAL</p>
+                                    <p>PROGRAMMING</p>
+                                </div>
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <div class="box_without_icon">HTTP</div>
+                                    </div>
+                                    <p>HTTP</p>
+                                </div>
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <div class="box_without_icon">MOCKITO</div>
+                                    </div>
+                                    <p>MOCKITO</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <Icon icon="simple-icons:hibernate" class="row_box_icon" />
+                                    </div>
+                                    <p>HIBERNATE</p>
+                                </div>
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <Icon icon="tabler:brand-mysql" class="row_box_icon" />
+                                    </div>
                                     <p>MySQL</p>
                                 </div>
-                                <div class="row_box">
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <div class="box_without_icon">JDBC</div>
+                                    </div>
                                     <p>JDBC</p>
                                 </div>
-                                <div class="row_box">
-                                    <Icon icon="akar-icons:postgresql-fill" class="row_box_icon"/>
-                                    <p>PostgreSQL</p>
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <Icon icon="akar-icons:postgresql-fill" class="row_box_icon" />
+                                    </div>
+                                    <p>POSTGRE</p>
                                 </div>
-                                <div class="row_box">
-
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <Icon icon="simple-icons:awslambda" class="row_box_icon"/> 
+                                    </div>
+                                    <p>LAMBDA</p>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="row_box">
-                                    <Icon icon="akar-icons:html-fill" class="row_box_icon"/>
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <Icon icon="akar-icons:html-fill" class="row_box_icon" />
+                                    </div>
                                     <p>HTML</p>
                                 </div>
-                                <div class="row_box">
-                                    <Icon icon="akar-icons:css-fill" class="row_box_icon"/>
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <Icon icon="akar-icons:css-fill" class="row_box_icon" />
+                                    </div>
                                     <p>CSS</p>
                                 </div>
-                                <div class="row_box">
-                                    <Icon icon="simple-icons:javascript" class="row_box_icon"/>
-                                    <p>JavaScript</p>
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <Icon icon="simple-icons:javascript" class="row_box_icon" />
+                                    </div>
+                                    <p>JAVASCRIPT</p>
                                 </div>
-                                <div class="row_box">
-                                    <Icon icon="teenyicons:vue-solid" class="row_box_icon"/>
-                                    <p>Vue</p>
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <Icon icon="teenyicons:vue-solid" class="row_box_icon" />
+                                    </div>
+                                    <p>VUE</p>
                                 </div>
-                                <div class="row_box">
-
+                                <div class="row_box_inside">
+                                    <div class="row_box">
+                                        <div class="box_without_icon"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-
-                        <!-- 
-
-
-          <Icon icon="logos:aws-lambda" /> Lambda
-                        </p>
-                        <p>
-                            <Icon icon="carbon:partition-collection" /> Stream
-                        </p>
-
-                            <Icon icon="logos:aws-step-functions" /> 
-                        <p>Functional programming</p>
-
-
-
-                        </div> -->
+                    
                     </swiper-slide>
 
 
@@ -289,6 +318,8 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Six+Caps&display=swap');
+
 
 *,
 *::before,
@@ -336,13 +367,30 @@ section {
     width: 30rem;
     height: 30rem;
     text-align: justify;
+    gap: 20px;
+}
+
+.title {
+    font-family: 'Six Caps', 'Noto Serif', sans-serif;
+    color: rgb(179, 179, 179);
+    font-size: 8rem;
+    letter-spacing: 3px;
 }
 
 .info p {
-    color: #fff;
-    font-weight: 500;
-    font-size: 1rem;
+    font-family: 'Noto Serif', sans-serif;
+    color: #f0caca;
+    font-weight: 200;
+    font-size: 1.1rem;
     line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+.text_name {
+    font-family: 'Noto Serif', sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: #50A7C2;
 }
 
 
@@ -375,7 +423,7 @@ section {
     left: 0;
     width: 100%;
     height: 120%;
-    background: linear-gradient(226deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.4) 35%, rgba(255, 255, 255, 0.2) 42%, rgba(255, 255, 255, 0) 60%);
+    background: linear-gradient(226deg, rgba(255, 255, 255, 0.137) 0%, rgba(255, 255, 255, 0.151) 35%, rgba(255, 255, 255, 0.048) 42%, rgba(255, 255, 255, 0) 60%);
 }
 
 
@@ -412,6 +460,7 @@ section {
     height: 24rem;
     display: flex;
     flex-direction: column;
+    margin-top: 2.5rem;
 }
 
 .row {
@@ -420,7 +469,7 @@ section {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
+
 }
 
 .row_box {
@@ -432,7 +481,21 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0) inset, 0 4px 16px rgba(0, 0, 0, 0.37);
+  
+}
+
+.row_box_inside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 6rem;
+    gap: 5px;
+}
+
+.box_without_icon {
+    font-size: 0.6rem;
+    font-weight: 800;
 }
 
 
@@ -449,33 +512,33 @@ section {
     width: 100%;
     height: 100%;
     z-index: 1;
-    background-color: rgba(255, 255, 255, 0.1);
     transition: all 0.3s;
-    border-radius: 10px;
 }
 
 .row_box:hover {
-    border: 1px solid white;
+    width: 3.5rem;
+    height: 3.5rem;
     border-radius: 10px;
-    color: white;
-    background: #3C3C3C;
-    display: block;
-    font-size: 0.9rem;
     font-weight: 800;
+    background: rgba(0, 0, 0, 0.062);
 }
 
-
-
-.row_box p {
+.row_box_inside p {
     display: none;
 }
 
-.row_box:hover .row_box_icon {
-    display: none;
+.row_box_inside:hover p {
+    color: black;
+    display: block;
+    font-weight: 900;
+    font-size: 0.8rem;
 }
 
 .row_box:hover p {
-    color: white;
+    color: black;
+    display: block;
+    font-size: 1rem;
+    font-weight: 800;
 }
 
 
@@ -540,6 +603,7 @@ section {
     position: relative;
     font-size: 2rem;
     color: #5D9FFF;
+    border-radius: 10px;
 }
 
 .linkedin::before,
@@ -559,34 +623,7 @@ section {
     border-radius: 10px;
 }
 
-.linkedin:hover::before,
-.email:hover::before,
-.phone:hover::before,
-.city:hover::before,
-.github:hover::before {
-    opacity: 0;
-    transform: scale(0.5, 0.5);
-}
 
-.linkedin::after,
-.email::after,
-.phone::after,
-.city::after,
-.github::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0;
-    transition: all 0.3s;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    transform: scale(1.2, 1.2);
-    border-radius: 10px;
-
-}
 
 .linkedin:hover,
 .email:hover,
@@ -597,15 +634,6 @@ section {
     border-radius: 10px;
     color: white;
     background: #5d9eff83;
-}
-
-.linkedin:hover::after,
-.email:hover::after,
-.phone:hover::after,
-.city:hover::after,
-.github:hover::after {
-    opacity: 1;
-    transform: scale(1, 1);
 }
 
 .email p,
@@ -628,6 +656,4 @@ section {
     font-weight: 800;
     color: white;
 }
-
-
 </style>
