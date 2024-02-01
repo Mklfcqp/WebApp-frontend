@@ -1,332 +1,335 @@
-<template>
-    <main>
-        <div class="wrapper">
-
-            <div class="background">
-
-                <div class="architecture">
-                    <TNavbar />
-
-                    <div class="header">
+<!-- 
                         <Icon icon="fxemoji:stockchart" class="header_icon" />
                         <h1>STOCK</h1>
                         <h3>Watchlist</h3>
-                    </div>                   
-
-                    <div class="content">
-
-                        <div class="top_filling"></div>
-
-                        <div class="mainbox">
-
-                            <div class="sorted"></div>
 
 
-                            <div class="overlay" v-if="showAddForm">
-                                <form v-if="showAddForm" class="add_form">
+</style>
+ -->
 
-                                    <div class="add_form_description">ADD COMPANY TO WATCHLIST</div>
+<template>
+    <main>
+        <TBackground />
+        <TNavbar />
+        <section>
+            <div class="content">
 
-                                    <div class="company_add_box">
-                                        <div class="input_format">
-                                            <input v-model="newBox.company" type="text" id="company" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="company" class="add_box_label">COMPANY</label>
-                                        </div>
+                <div class="content1">
+
+                    <div class="top_filling"></div>
+
+                    <div class="mainbox">
+
+                        <div class="sorted"></div>
+
+
+                        <div class="overlay" v-if="showAddForm">
+                            <form v-if="showAddForm" class="add_form">
+
+                                <div class="add_form_description">ADD COMPANY TO WATCHLIST</div>
+
+                                <div class="company_add_box">
+                                    <div class="input_format">
+                                        <input v-model="newBox.company" type="text" id="company" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="company" class="add_box_label">COMPANY</label>
                                     </div>
-
-                                    <div class="ticker_add_box">
-                                        <div class="input_format">
-                                            <input v-model="newBox.ticker" type="text" id="ticker" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="ticker" class="add_box_label">TICKER</label>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="price_add_box">
-
-                                        <div class="input_format">
-                                            <input v-model="newBox.price" type="text" id="price" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="price" class="add_box_label">CURRENT PRICE</label>
-                                        </div>
-
-                                        <div class="input_format">
-                                            <input v-model="newBox.currencyPrice" type="text" id="currencyPrice" required
-                                                class="add_form_input_double_2" value="USD" />
-                                        </div>
-                                    </div>
-
-                                    <div class="dcf_add_box">
-
-                                        <div class="input_format">
-                                            <input v-model="newBox.dcf" type="text" id="dcf" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="dcf" class="add_box_label">DCF</label>
-                                        </div>
-
-                                        <div class="input_format">
-                                            <input v-model="newBox.currencyDcf" type="text" id="currencyDcf" required
-                                                class="add_form_input_double_2" value="USD" />
-                                        </div>
-
-                                    </div>
-
-                                    <div class="dividend_yield_add_box">
-
-                                        <div class="input_format">
-                                            <input v-model="newBox.dividendYield" type="text" id="dividendYield" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="dividendYield" class="add_box_label">DIVIDEND YIELD
-                                                (%)</label>
-                                        </div>
-
-
-                                    </div>
-
-                                    <div class="dividend_q_add_box">
-                                        <div class="input_format">
-                                            <input v-model="newBox.dividendQ" type="text" id="dividendQ" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="dividendQ" class="add_box_label">DIVIDEN -
-                                                QUARTERLY</label>
-                                        </div>
-
-
-                                        <div class="input_format">
-                                            <input v-model="newBox.currencyDividendQ" type="text" id="currencyDividendQ"
-                                                required class="add_form_input_double_2" value="USD" />
-                                        </div>
-                                    </div>
-
-                                    <div class="dividend_y_add_box">
-                                        <div class="input_format">
-                                            <input v-model="newBox.dividendY" type="text" id="dividendY" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="dividendY" class="add_box_label">DIVIDEND - YEAR</label>
-                                        </div>
-
-                                        <div class="input_format">
-                                            <input v-model="newBox.currencyDividendY" type="text" id="currencyDividendY"
-                                                required class="add_form_input_double_2" value="USD" />
-                                        </div>
-                                    </div>
-
-                                    <div class="add_form_buttons">
-                                        <button type="submit" @click="addStockToWatchlist"
-                                            class="add_form_button">Add</button>
-                                        <button type="button" @click="cancelAdd" class="add_form_button">Cancel</button>
-                                    </div>
-
-                                </form>
-                            </div>
-
-
-
-                            <div class="overlay" v-if="showEditForm">
-                                <form v-if="showEditForm" class="add_form">
-
-                                    <div class="add_form_description">UPDATE WATCHLIST</div>
-
-                                    <div class="company_add_box">
-                                        <div class="input_format">
-                                            <input v-model="updateBox.company" type="text" id="company" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="company" class="add_box_label">COMPANY</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="ticker_add_box">
-                                        <div class="input_format">
-                                            <input v-model="updateBox.ticker" type="text" id="ticker" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="ticker" class="add_box_label">TICKER</label>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="price_add_box">
-
-                                        <div class="input_format">
-                                            <input v-model="updateBox.price" type="text" id="price" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="price" class="add_box_label">CURRENT PRICE</label>
-                                        </div>
-
-                                        <div class="input_format">
-                                            <input v-model="updateBox.currencyPrice" type="text" id="currencyPrice" required
-                                                class="add_form_input_double_2" value="USD" />
-                                        </div>
-                                    </div>
-
-                                    <div class="dcf_add_box">
-
-                                        <div class="input_format">
-                                            <input v-model="updateBox.dcf" type="text" id="dcf" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="dcf" class="add_box_label">DCF</label>
-                                        </div>
-
-                                        <div class="input_format">
-                                            <input v-model="updateBox.currencyDcf" type="text" id="currencyDcf" required
-                                                class="add_form_input_double_2" value="USD" />
-                                        </div>
-
-                                    </div>
-
-                                    <div class="dividend_yield_add_box">
-
-                                        <div class="input_format">
-                                            <input v-model="updateBox.dividendYield" type="text" id="dividendYield" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="dividendYield" class="add_box_label">DIVIDEND YIELD
-                                                (%)</label>
-                                        </div>
-
-
-                                    </div>
-
-                                    <div class="dividend_q_add_box">
-                                        <div class="input_format">
-                                            <input v-model="updateBox.dividendQ" type="text" id="dividendQ" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="dividendQ" class="add_box_label">DIVIDEN -
-                                                QUARTERLY</label>
-                                        </div>
-
-
-                                        <div class="input_format">
-                                            <input v-model="updateBox.currencyDividendQ" type="text" id="currencyDividendQ"
-                                                required class="add_form_input_double_2" value="USD" />
-                                        </div>
-                                    </div>
-
-                                    <div class="dividend_y_add_box">
-                                        <div class="input_format">
-                                            <input v-model="updateBox.dividendY" type="text" id="dividendY" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="dividendY" class="add_box_label">DIVIDEND - YEAR</label>
-                                        </div>
-
-                                        <div class="input_format">
-                                            <input v-model="updateBox.currencyDividendY" type="text" id="currencyDividendY"
-                                                required class="add_form_input_double_2" value="USD" />
-                                        </div>
-                                    </div>
-
-                                    <div class="add_form_buttons">
-                                        <button type="submit" @click="updateWatchlist()"
-                                            class="add_form_button">Update</button>
-                                        <button type="button" @click="cancelAdd" class="add_form_button">Cancel</button>
-                                    </div>
-
-                                </form>
-                            </div>
-
-
-
-                            <table>
-                                <thead>
-                                    <tr class="watchlist_table">
-
-                                        <th scope="col" class="Ticker">
-                                            <div>Ticker</div>
-                                        </th>
-                                        <th scope="col" class="Company">
-                                            <Icon icon="mdi:alphabet-a" class="watchlist_table_icon" />
-                                            <div>Company</div>
-                                        </th>
-                                        <th scope="col" class="Current_Price">
-                                            <Icon icon="foundation:dollar" class="watchlist_table_icon" />
-                                            <div>Current Price</div>
-                                        </th>
-                                        <th scope="col" class="DCF">
-                                            <Icon icon="foundation:dollar" class="watchlist_table_icon" />
-                                            <div>DCF</div>
-                                        </th>
-                                        <th scope="col" class="Dividend_Yield">
-                                            <Icon icon="material-symbols:percent" class="watchlist_table_icon" />
-                                            <div>Dividend Yield</div>
-                                        </th>
-                                        <th scope="col" class="Dividend_Q">
-                                            <Icon icon="solar:dollar-line-duotone" class="watchlist_table_icon" />
-                                            <div>Dividend(Q)</div>
-                                        </th>
-                                        <th scope="col" class="Dividend_Y">
-                                            <Icon icon="solar:dollar-outline" class="watchlist_table_icon" />
-                                            <div>Dividend(Y)</div>
-                                        </th>
-                                        <th scope="col" class="Disparity">
-                                            <Icon icon="material-symbols:percent" class="watchlist_table_icon" />
-                                            <div>Disparity</div>
-                                        </th>
-
-                                        <th scope="col" class="Edit_remove"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="box in boxes" :key="box.id" class="added_form">
-                                        <th scope="row" class="hidden-id">{{ box.id }}</th>
-                                        <td class="ticker_box">{{ box.ticker }}</td>
-                                        <td class="company_box">{{ box.company }}</td>
-                                        <td class="price_box">
-                                            <div class="price_value">{{ box.price }}</div>
-                                            <div class="currency">{{ box.currencyPrice }}</div>
-                                        </td>
-                                        <td class="dcf_box">
-                                            <div class="dcf_value">{{ box.dcf }}</div>
-                                            <div class="currency">{{ box.currencyDcf }}</div>
-                                        </td>
-                                        <td class="dividend_yield_box">
-                                            <div>{{ box.dividendYield }}</div>
-                                            <div class="currency">%</div>
-                                        </td>
-                                        <td class="dividend_q_box">
-                                            <div class="dividend_q">{{ box.dividendQ }}</div>
-                                            <div class="currency">{{ box.currencyDividendQ }}</div>
-                                        </td>
-                                        <td class="dividend_y_box">
-                                            <div class="dividend_y">{{ box.dividendY }}</div>
-                                            <div class="currency">{{ box.currencyDividendY }}</div>
-                                        </td>
-                                        <td class="disparity_box" >
-                                            <div :class="{ 'disparity_overvalued': box.overValuedUnderValued.includes('Overvalued'), 'disparity_undervalued': box.overValuedUnderValued.includes('Undervalued'), 'disparity_normal': !box.overValuedUnderValued.includes('Overvalued') && !box.overValuedUnderValued.includes('Undervalued') }">{{ box.overValuedUnderValued }}</div>
-                                        </td>
-                                        <td class="edit_remove">
-                                            <button class="edit_remove_button"
-                                                @click="loadWatchlistForEdit(box.id)">
-                                                <Icon icon="mdi:edit-outline" />
-                                            </button>
-                                            <button class="edit_remove_button" @click="deleteWatchlist(box.id)">
-                                                <Icon icon="mingcute:delete-fill" />
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
-                        </div>
-                        <div class="bot">
-
-                            <button @click="showAddForm = true" v-if="!showAddForm" class="bot_box">
-
-                                <div class="bot_box_icon">
-                                    <Icon icon="typcn:plus" class="bot_icon" />
                                 </div>
 
-                                <div class="bot_box_button">Add Stock to Watchlist</div>
+                                <div class="ticker_add_box">
+                                    <div class="input_format">
+                                        <input v-model="newBox.ticker" type="text" id="ticker" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="ticker" class="add_box_label">TICKER</label>
+                                    </div>
 
-                            </button>
+                                </div>
 
+                                <div class="price_add_box">
+
+                                    <div class="input_format">
+                                        <input v-model="newBox.price" type="text" id="price" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="price" class="add_box_label">CURRENT PRICE</label>
+                                    </div>
+
+                                    <div class="input_format">
+                                        <input v-model="newBox.currencyPrice" type="text" id="currencyPrice" required
+                                            class="add_form_input_double_2" value="USD" />
+                                    </div>
+                                </div>
+
+                                <div class="dcf_add_box">
+
+                                    <div class="input_format">
+                                        <input v-model="newBox.dcf" type="text" id="dcf" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="dcf" class="add_box_label">DCF</label>
+                                    </div>
+
+                                    <div class="input_format">
+                                        <input v-model="newBox.currencyDcf" type="text" id="currencyDcf" required
+                                            class="add_form_input_double_2" value="USD" />
+                                    </div>
+
+                                </div>
+
+                                <div class="dividend_yield_add_box">
+
+                                    <div class="input_format">
+                                        <input v-model="newBox.dividendYield" type="text" id="dividendYield" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="dividendYield" class="add_box_label">DIVIDEND YIELD
+                                            (%)</label>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="dividend_q_add_box">
+                                    <div class="input_format">
+                                        <input v-model="newBox.dividendQ" type="text" id="dividendQ" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="dividendQ" class="add_box_label">DIVIDEN -
+                                            QUARTERLY</label>
+                                    </div>
+
+
+                                    <div class="input_format">
+                                        <input v-model="newBox.currencyDividendQ" type="text" id="currencyDividendQ"
+                                            required class="add_form_input_double_2" value="USD" />
+                                    </div>
+                                </div>
+
+                                <div class="dividend_y_add_box">
+                                    <div class="input_format">
+                                        <input v-model="newBox.dividendY" type="text" id="dividendY" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="dividendY" class="add_box_label">DIVIDEND - YEAR</label>
+                                    </div>
+
+                                    <div class="input_format">
+                                        <input v-model="newBox.currencyDividendY" type="text" id="currencyDividendY"
+                                            required class="add_form_input_double_2" value="USD" />
+                                    </div>
+                                </div>
+
+                                <div class="add_form_buttons">
+                                    <button type="submit" @click="addStockToWatchlist" class="add_form_button">Add</button>
+                                    <button type="button" @click="cancelAdd" class="add_form_button">Cancel</button>
+                                </div>
+
+                            </form>
                         </div>
 
+
+
+                        <div class="overlay" v-if="showEditForm">
+                            <form v-if="showEditForm" class="add_form">
+
+                                <div class="add_form_description">UPDATE WATCHLIST</div>
+
+                                <div class="company_add_box">
+                                    <div class="input_format">
+                                        <input v-model="updateBox.company" type="text" id="company" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="company" class="add_box_label">COMPANY</label>
+                                    </div>
+                                </div>
+
+                                <div class="ticker_add_box">
+                                    <div class="input_format">
+                                        <input v-model="updateBox.ticker" type="text" id="ticker" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="ticker" class="add_box_label">TICKER</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="price_add_box">
+
+                                    <div class="input_format">
+                                        <input v-model="updateBox.price" type="text" id="price" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="price" class="add_box_label">CURRENT PRICE</label>
+                                    </div>
+
+                                    <div class="input_format">
+                                        <input v-model="updateBox.currencyPrice" type="text" id="currencyPrice" required
+                                            class="add_form_input_double_2" value="USD" />
+                                    </div>
+                                </div>
+
+                                <div class="dcf_add_box">
+
+                                    <div class="input_format">
+                                        <input v-model="updateBox.dcf" type="text" id="dcf" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="dcf" class="add_box_label">DCF</label>
+                                    </div>
+
+                                    <div class="input_format">
+                                        <input v-model="updateBox.currencyDcf" type="text" id="currencyDcf" required
+                                            class="add_form_input_double_2" value="USD" />
+                                    </div>
+
+                                </div>
+
+                                <div class="dividend_yield_add_box">
+
+                                    <div class="input_format">
+                                        <input v-model="updateBox.dividendYield" type="text" id="dividendYield" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="dividendYield" class="add_box_label">DIVIDEND YIELD
+                                            (%)</label>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="dividend_q_add_box">
+                                    <div class="input_format">
+                                        <input v-model="updateBox.dividendQ" type="text" id="dividendQ" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="dividendQ" class="add_box_label">DIVIDEN -
+                                            QUARTERLY</label>
+                                    </div>
+
+
+                                    <div class="input_format">
+                                        <input v-model="updateBox.currencyDividendQ" type="text" id="currencyDividendQ"
+                                            required class="add_form_input_double_2" value="USD" />
+                                    </div>
+                                </div>
+
+                                <div class="dividend_y_add_box">
+                                    <div class="input_format">
+                                        <input v-model="updateBox.dividendY" type="text" id="dividendY" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="dividendY" class="add_box_label">DIVIDEND - YEAR</label>
+                                    </div>
+
+                                    <div class="input_format">
+                                        <input v-model="updateBox.currencyDividendY" type="text" id="currencyDividendY"
+                                            required class="add_form_input_double_2" value="USD" />
+                                    </div>
+                                </div>
+
+                                <div class="add_form_buttons">
+                                    <button type="submit" @click="updateWatchlist()" class="add_form_button">Update</button>
+                                    <button type="button" @click="cancelAdd" class="add_form_button">Cancel</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+
+
+                        <table>
+                            <thead>
+                                <tr class="watchlist_table">
+
+                                    <th scope="col" class="Ticker">
+                                        <div>Ticker</div>
+                                    </th>
+                                    <th scope="col" class="Company">
+                                        <Icon icon="mdi:alphabet-a" class="watchlist_table_icon" />
+                                        <div>Company</div>
+                                    </th>
+                                    <th scope="col" class="Current_Price">
+                                        <Icon icon="foundation:dollar" class="watchlist_table_icon" />
+                                        <div>Current Price</div>
+                                    </th>
+                                    <th scope="col" class="DCF">
+                                        <Icon icon="foundation:dollar" class="watchlist_table_icon" />
+                                        <div>DCF</div>
+                                    </th>
+                                    <th scope="col" class="Dividend_Yield">
+                                        <Icon icon="material-symbols:percent" class="watchlist_table_icon" />
+                                        <div>Dividend Yield</div>
+                                    </th>
+                                    <th scope="col" class="Dividend_Q">
+                                        <Icon icon="solar:dollar-line-duotone" class="watchlist_table_icon" />
+                                        <div>Dividend(Q)</div>
+                                    </th>
+                                    <th scope="col" class="Dividend_Y">
+                                        <Icon icon="solar:dollar-outline" class="watchlist_table_icon" />
+                                        <div>Dividend(Y)</div>
+                                    </th>
+                                    <th scope="col" class="Disparity">
+                                        <Icon icon="material-symbols:percent" class="watchlist_table_icon" />
+                                        <div>Disparity</div>
+                                    </th>
+
+                                    <th scope="col" class="Edit_remove"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="box in boxes" :key="box.id" class="added_form">
+                                    <th scope="row" class="hidden-id">{{ box.id }}</th>
+                                    <td class="ticker_box">{{ box.ticker }}</td>
+                                    <td class="company_box">{{ box.company }}</td>
+                                    <td class="price_box">
+                                        <div class="price_value">{{ box.price }}</div>
+                                        <div class="currency">{{ box.currencyPrice }}</div>
+                                    </td>
+                                    <td class="dcf_box">
+                                        <div class="dcf_value">{{ box.dcf }}</div>
+                                        <div class="currency">{{ box.currencyDcf }}</div>
+                                    </td>
+                                    <td class="dividend_yield_box">
+                                        <div>{{ box.dividendYield }}</div>
+                                        <div class="currency">%</div>
+                                    </td>
+                                    <td class="dividend_q_box">
+                                        <div class="dividend_q">{{ box.dividendQ }}</div>
+                                        <div class="currency">{{ box.currencyDividendQ }}</div>
+                                    </td>
+                                    <td class="dividend_y_box">
+                                        <div class="dividend_y">{{ box.dividendY }}</div>
+                                        <div class="currency">{{ box.currencyDividendY }}</div>
+                                    </td>
+                                    <td class="disparity_box">
+                                        <div
+                                            :class="{ 'disparity_overvalued': box.overValuedUnderValued.includes('Overvalued'), 'disparity_undervalued': box.overValuedUnderValued.includes('Undervalued'), 'disparity_normal': !box.overValuedUnderValued.includes('Overvalued') && !box.overValuedUnderValued.includes('Undervalued') }">
+                                            {{ box.overValuedUnderValued }}</div>
+                                    </td>
+                                    <td class="edit_remove">
+                                        <button class="edit_remove_button" @click="loadWatchlistForEdit(box.id)">
+                                            <Icon icon="mdi:edit-outline" />
+                                        </button>
+                                        <button class="edit_remove_button" @click="deleteWatchlist(box.id)">
+                                            <Icon icon="mingcute:delete-fill" />
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                     </div>
+                    <div class="bot">
+
+                        <button @click="showAddForm = true" v-if="!showAddForm" class="bot_box">
+
+                            <div class="bot_box_icon">
+                                <Icon icon="typcn:plus" class="bot_icon" />
+                            </div>
+
+                            <div class="bot_box_button">Add Stock to Watchlist</div>
+
+                        </button>
+
+                    </div>
+
                 </div>
             </div>
-        </div>
+        </section>
     </main>
 </template>
+
+
+
+
 
 
 <script>
@@ -334,12 +337,14 @@ import TNavbar from '@/components/TNavbar.vue'
 import { Icon } from '@iconify/vue';
 import db from '../utils/db.js'
 import axios from 'axios';
+import TBackground from '@/components/TBackground.vue'
 
 export default {
 
     components: {
         TNavbar,
-        Icon
+        Icon,
+        TBackground
     },
     data() {
         return {
@@ -397,6 +402,14 @@ export default {
     },
 
     methods: {
+        redirectToWatchlist() {
+            this.$router.push("/watchlistENG");
+        },
+
+        redirectToCV() {
+            this.$router.push("/cvENG");
+        },
+
         loadWatchlistForEdit(id) {
             this.selectedBoxId = id;
             this.showEditForm = true;
@@ -508,8 +521,6 @@ export default {
                 console.error("An error occurred:", error);
             }
         },
-
-
     }
 
 }
@@ -518,59 +529,49 @@ export default {
 
 
 <style scoped>
-* {
-    box-sizing: border-box;
-    padding: 0;
+*,
+*::before,
+*::after {
     margin: 0;
-    color: #000000;
-    font-family: Oswald, 'Courier New', Courier;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.background {
-    background: hsl(216, 33%, 98%);
+section {
     height: 100vh;
     width: 100%;
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
     top: 0;
     left: 0;
-    overflow: auto;
 }
 
-.architecture {
+
+.content {
+    width: 100rem;
+    height: 50rem;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-}
-
-
-/** HEADER */
-
-.header {
-    height: 10rem;
-    width: 100%;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 5px;
-    border-bottom: 0.5px solid rgb(211, 199, 199);
-    background-color: #3A4454;
-    background-image: linear-gradient(to right, #00CED1, #000080);
+    gap: 100px;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.25) 0%,
+            rgba(255, 255, 255, 0) 100%);
+    backdrop-filter: blur(2px);
+    border-radius: 20px;
+    box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);
+    z-index: 10;
 }
 
-.header h1 {
-    color: white;
-}
-
-.header h3 {
-    color: rgb(206, 206, 206);
-    font-weight: 300;
-}
+/** CONTENT - MAINBOX */
 
 
 /** CONTENT */
 
-.content {
+.content1 {
     border: none;
     height: auto;
     width: 70%;
@@ -605,8 +606,8 @@ export default {
     align-items: center;
     justify-content: row;
     background: #e9e8e8;
-    
-    
+
+
 
 }
 
@@ -778,7 +779,7 @@ export default {
     align-items: center;
     padding-left: 20px;
     font-size: 1.1rem;
-    
+
 }
 
 .disparity_box {

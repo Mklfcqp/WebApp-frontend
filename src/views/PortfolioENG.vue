@@ -1,331 +1,325 @@
 <template>
     <main>
-        <div class="wrapper">
+        <TBackground />
+        <TNavbar />
+        <section>
+            <div class="content">
+                <div class="content1">
 
-            <div class="background">
+                    <div class="top_filling"></div>
 
-                <div class="architecture">
-                    <TNavbar />
+                    <div class="mainbox">
 
-                    <div class="header">
-                        <Icon icon="raphael:piechart" class="header_icon" />
-                        <h1>STOCK</h1>
-                        <h3>Portfolio</h3>
-                    </div>
-
-                    <div class="content">
-
-                        <div class="top_filling"></div>
-
-                        <div class="mainbox">
-
-                            <div class="sorted"></div>
+                        <div class="sorted"></div>
 
 
-                            <div class="overlay" v-if="showAddForm">
-                                <form v-if="showAddForm" class="add_form">
+                        <div class="overlay" v-if="showAddForm">
+                            <form v-if="showAddForm" class="add_form">
 
-                                    <div class="add_form_description">ADD STOCK TO PORTFOLIO</div>
+                                <div class="add_form_description">ADD STOCK TO PORTFOLIO</div>
 
-                                    <div class="company_add_box">
-                                        <div class="input_format">
-                                            <input v-model="newBox.company" type="text" id="company" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="company" class="add_box_label">COMPANY</label>
-                                        </div>
+                                <div class="company_add_box">
+                                    <div class="input_format">
+                                        <input v-model="newBox.company" type="text" id="company" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="company" class="add_box_label">COMPANY</label>
                                     </div>
-
-                                    <div class="ticker_add_box">
-                                        <div class="input_format">
-                                            <input v-model="newBox.ticker" type="text" id="ticker" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="ticker" class="add_box_label">TICKER</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="shares_add_box">
-                                        <div class="input_format">
-                                            <input v-model="newBox.shares" type="text" id="shares" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="shares" class="add_box_label">SHARES</label>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="buy_add_box">
-                                        <div class="input_format">
-                                            <input v-model="newBox.buy" type="text" id="buy" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="buy" class="add_box_label">BUY</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="sell_add_box">
-                                        <div class="input_format">
-                                            <input v-model="newBox.sell" type="text" id="sell" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="sell" class="add_box_label">SELL</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="interestBuySell_add_box">
-                                        <div class="input_format">
-                                            <input v-model="newBox.interestBuySell" type="text" id="interestBuySell"
-                                                required class="add_form_input_double_1" placeholder="" />
-                                            <label for="interestBuySell" class="add_box_label">BUY/SELL - INTEREST</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="dividend_add_box">
-                                        <div class="input_format">
-                                            <input v-model="newBox.dividend" type="text" id="dividend" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="dividend" class="add_box_label">DIVIDEN</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="interestDividend_add_box">
-                                        <div class="input_format">
-                                            <input v-model="newBox.interestDividend" type="text" id="interestDividend"
-                                                required class="add_form_input_double_1" placeholder="" />
-                                            <label for="interestDividend" class="add_box_label">DIVIDEND - INTEREST</label>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="add_form_buttons">
-                                        <button type="submit" @click="addStockToPortfolio"
-                                            class="add_form_button">Add</button>
-                                        <button type="button" @click="cancelAdd" class="add_form_button">Cancel</button>
-                                    </div>
-
-                                </form>
-                            </div>
-
-
-
-
-
-
-                            <div class="overlay" v-if="showEditForm">
-                                <form v-if="showEditForm" class="add_form">
-
-                                    <div class="add_form_description">UPDATE STOCK</div>
-
-                                    <div class="company_add_box">
-                                        <div class="input_format">
-                                            <input v-model="updateBox.company" type="text" id="company" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="company" class="add_box_label">COMPANY</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="ticker_add_box">
-                                        <div class="input_format">
-                                            <input v-model="updateBox.ticker" type="text" id="ticker" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="ticker" class="add_box_label">TICKER</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="shares_add_box">
-                                        <div class="input_format">
-                                            <input v-model="updateBox.shares" type="text" id="shares" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="shares" class="add_box_label">SHARES</label>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="buy_add_box">
-                                        <div class="input_format">
-                                            <input v-model="updateBox.buy" type="text" id="buy" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="buy" class="add_box_label">BUY</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="sell_add_box">
-                                        <div class="input_format">
-                                            <input v-model="updateBox.sell" type="text" id="sell" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="sell" class="add_box_label">SELL</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="interestBuySell_add_box">
-                                        <div class="input_format">
-                                            <input v-model="updateBox.interestBuySell" type="text" id="interestBuySell"
-                                                required class="add_form_input_double_1" placeholder="" />
-                                            <label for="interestBuySell" class="add_box_label">BUY/SELL - INTEREST</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="dividend_add_box">
-                                        <div class="input_format">
-                                            <input v-model="updateBox.dividend" type="text" id="dividend" required
-                                                class="add_form_input_double_1" placeholder="" />
-                                            <label for="dividend" class="add_box_label">DIVIDEN</label>
-                                        </div>
-                                    </div>
-
-                                    <div class="interestDividend_add_box">
-                                        <div class="input_format">
-                                            <input v-model="updateBox.interestDividend" type="text" id="interestDividend"
-                                                required class="add_form_input_double_1" placeholder="" />
-                                            <label for="interestDividend" class="add_box_label">DIVIDEND - INTEREST</label>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="add_form_buttons">
-                                        <button type="submit" @click="updatePortfolio()"
-                                            class="add_form_button">Update</button>
-                                        <button type="button" @click="cancelAdd" class="add_form_button">Cancel</button>
-                                    </div>
-
-                                </form>
-                            </div>
-
-
-
-
-
-                            <table>
-                                <thead>
-                                    <tr class="portfolio_table">
-
-
-
-                                        <th scope="col" class="Ticker">
-                                            <div>Ticker</div>
-                                        </th>
-                                        <th scope="col" class="Company">
-                                            <Icon icon="mdi:alphabet-a" class="portfolio_table_icon" />
-                                            <div>Company</div>
-                                        </th>
-                                        <th scope="col" class="Shares">
-
-                                            <div>Shares</div>
-                                        </th>
-                                        <th scope="col" class="Buy">
-
-                                            <div>Buy</div>
-                                        </th>
-                                        <th scope="col" class="Sell">
-
-                                            <div>Sell</div>
-                                        </th>
-                                        <th scope="col" class="InterestBuySell">
-
-                                            <div>Interest</div>
-                                        </th>
-                                        <th scope="col" class="ProfitLossBuySell">
-
-                                            <div>Profit/Loss </div>
-                                        </th>
-
-
-
-                                        <th scope="col" class="Dividend">
-
-                                            <div>Dividend</div>
-                                        </th>
-                                        <th scope="col" class="InterestDividend">
-
-                                            <div>Interest</div>
-                                        </th>
-                                        <th scope="col" class="ProfitLossDividend">
-
-                                            <div>Profit/Loss</div>
-                                        </th>
-
-                                        <th scope="col" class="ProfitLossSum">
-
-                                            <div>Profit/Loss</div>
-                                        </th>
-
-
-
-                                        <th scope="col" class="Edit_remove"></th>
-
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="box in boxes" :key="box.id" class="added_form">
-                                        <th scope="row" class="hidden-id">{{ box.id }}</th>
-                                        <td class="ticker_box">{{ box.ticker }}</td>
-                                        <td class="company_box">{{ box.company }}</td>
-                                        <td class="shares_box">{{ box.shares }}</td>
-                                        <td class="buy_box">{{ box.buy }}</td>
-                                        <td class="sell_box">{{ box.sell }}</td>
-                                        <td class="interestBuySell_box">{{ box.interestBuySell }}</td>
-                                        <td class="profitLossBuySell_box">{{ box.profitLossBuySell }}</td>
-                                        <td class="dividend_box">{{ box.dividend }}</td>
-                                        <td class="interestDividend_box">{{ box.interestDividend }}</td>
-                                        <td class="profitLossDividend_box">{{ box.profitLossDividend }}</td>
-                                        <td class="sumProfitLoss_box">{{ box.sumProfitLoss }}</td>
-
-                                        <td class="edit_remove">
-                                            <button class="edit_remove_button" @click="loadPortfolioForEdit(box.id)">
-                                                <Icon icon="mdi:edit-outline" />
-                                            </button>
-                                            <button class="edit_remove_button" @click="deletePortfolio(box.id)">
-                                                <Icon icon="mingcute:delete-fill" />
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <!--
-                                <table>
-                                <thead>
-                                    <tr v-for="sumBox in sumBoxes" :key="sumBox.id" class="added_form">
-                                        <th scope="row" class="hidden-id">{{ sumBox.id }}</th>
-                                        <td class="value_sum_box"></td>
-                                        <td class="buy_sum_box">{{ sumBox.buy }}</td>
-                                        <td class="sell_sum_box">{{ sumBox.sell }}</td>
-                                        <td class="interestBuySell_sum_box">{{ sumBox.interestBuySell }}</td>
-                                        <td class="profitLossBuySell_sum_box">{{ sumBox.profitLossBuySell }}</td>
-                                        <td class="dividend_sum_box">{{ sumBox.dividend }}</td>
-                                        <td class="interestDividend_sum_box">{{ sumBox.interestDividend }}</td>
-                                        <td class="profitLossDividend_sum_box">{{ sumBox.profitLossDividend }}</td>
-                                        <td class="sumProfitLoss_sum_box">{{ sumBox.sumProfitLoss }}</td>
-
-                                        <td class="edit_sum_remove">
-
-                                        </td>
-                                    </tr>
-                                </thead>
-                            </table>
-                            -->
-
-                        </div>
-                        <div class="bot">
-
-                            <button @click="showAddForm = true" v-if="!showAddForm" class="bot_box">
-
-                                <div class="bot_box_icon">
-                                    <Icon icon="typcn:plus" class="bot_icon" />
                                 </div>
 
-                                <div class="bot_box_button">Add Stock to Portfolio</div>
+                                <div class="ticker_add_box">
+                                    <div class="input_format">
+                                        <input v-model="newBox.ticker" type="text" id="ticker" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="ticker" class="add_box_label">TICKER</label>
+                                    </div>
+                                </div>
 
-                            </button>
+                                <div class="shares_add_box">
+                                    <div class="input_format">
+                                        <input v-model="newBox.shares" type="text" id="shares" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="shares" class="add_box_label">SHARES</label>
+                                    </div>
+                                </div>
 
+
+                                <div class="buy_add_box">
+                                    <div class="input_format">
+                                        <input v-model="newBox.buy" type="text" id="buy" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="buy" class="add_box_label">BUY</label>
+                                    </div>
+                                </div>
+
+                                <div class="sell_add_box">
+                                    <div class="input_format">
+                                        <input v-model="newBox.sell" type="text" id="sell" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="sell" class="add_box_label">SELL</label>
+                                    </div>
+                                </div>
+
+                                <div class="interestBuySell_add_box">
+                                    <div class="input_format">
+                                        <input v-model="newBox.interestBuySell" type="text" id="interestBuySell" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="interestBuySell" class="add_box_label">BUY/SELL - INTEREST</label>
+                                    </div>
+                                </div>
+
+                                <div class="dividend_add_box">
+                                    <div class="input_format">
+                                        <input v-model="newBox.dividend" type="text" id="dividend" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="dividend" class="add_box_label">DIVIDEN</label>
+                                    </div>
+                                </div>
+
+                                <div class="interestDividend_add_box">
+                                    <div class="input_format">
+                                        <input v-model="newBox.interestDividend" type="text" id="interestDividend" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="interestDividend" class="add_box_label">DIVIDEND - INTEREST</label>
+                                    </div>
+                                </div>
+
+
+                                <div class="add_form_buttons">
+                                    <button type="submit" @click="addStockToPortfolio" class="add_form_button">Add</button>
+                                    <button type="button" @click="cancelAdd" class="add_form_button">Cancel</button>
+                                </div>
+
+                            </form>
                         </div>
 
+
+
+
+
+
+                        <div class="overlay" v-if="showEditForm">
+                            <form v-if="showEditForm" class="add_form">
+
+                                <div class="add_form_description">UPDATE STOCK</div>
+
+                                <div class="company_add_box">
+                                    <div class="input_format">
+                                        <input v-model="updateBox.company" type="text" id="company" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="company" class="add_box_label">COMPANY</label>
+                                    </div>
+                                </div>
+
+                                <div class="ticker_add_box">
+                                    <div class="input_format">
+                                        <input v-model="updateBox.ticker" type="text" id="ticker" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="ticker" class="add_box_label">TICKER</label>
+                                    </div>
+                                </div>
+
+                                <div class="shares_add_box">
+                                    <div class="input_format">
+                                        <input v-model="updateBox.shares" type="text" id="shares" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="shares" class="add_box_label">SHARES</label>
+                                    </div>
+                                </div>
+
+
+                                <div class="buy_add_box">
+                                    <div class="input_format">
+                                        <input v-model="updateBox.buy" type="text" id="buy" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="buy" class="add_box_label">BUY</label>
+                                    </div>
+                                </div>
+
+                                <div class="sell_add_box">
+                                    <div class="input_format">
+                                        <input v-model="updateBox.sell" type="text" id="sell" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="sell" class="add_box_label">SELL</label>
+                                    </div>
+                                </div>
+
+                                <div class="interestBuySell_add_box">
+                                    <div class="input_format">
+                                        <input v-model="updateBox.interestBuySell" type="text" id="interestBuySell" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="interestBuySell" class="add_box_label">BUY/SELL - INTEREST</label>
+                                    </div>
+                                </div>
+
+                                <div class="dividend_add_box">
+                                    <div class="input_format">
+                                        <input v-model="updateBox.dividend" type="text" id="dividend" required
+                                            class="add_form_input_double_1" placeholder="" />
+                                        <label for="dividend" class="add_box_label">DIVIDEN</label>
+                                    </div>
+                                </div>
+
+                                <div class="interestDividend_add_box">
+                                    <div class="input_format">
+                                        <input v-model="updateBox.interestDividend" type="text" id="interestDividend"
+                                            required class="add_form_input_double_1" placeholder="" />
+                                        <label for="interestDividend" class="add_box_label">DIVIDEND - INTEREST</label>
+                                    </div>
+                                </div>
+
+
+                                <div class="add_form_buttons">
+                                    <button type="submit" @click="updatePortfolio()" class="add_form_button">Update</button>
+                                    <button type="button" @click="cancelAdd" class="add_form_button">Cancel</button>
+                                </div>
+
+                            </form>
+                        </div>
+
+
+
+
+
+                        <table>
+                            <thead>
+                                <tr class="portfolio_table">
+
+
+
+                                    <th scope="col" class="Ticker">
+                                        <div>Ticker</div>
+                                    </th>
+                                    <th scope="col" class="Company">
+                                        <Icon icon="mdi:alphabet-a" class="portfolio_table_icon" />
+                                        <div>Company</div>
+                                    </th>
+                                    <th scope="col" class="Shares">
+
+                                        <div>Shares</div>
+                                    </th>
+                                    <th scope="col" class="Buy">
+
+                                        <div>Buy</div>
+                                    </th>
+                                    <th scope="col" class="Sell">
+
+                                        <div>Sell</div>
+                                    </th>
+                                    <th scope="col" class="InterestBuySell">
+
+                                        <div>Interest</div>
+                                    </th>
+                                    <th scope="col" class="ProfitLossBuySell">
+
+                                        <div>Profit/Loss </div>
+                                    </th>
+
+
+
+                                    <th scope="col" class="Dividend">
+
+                                        <div>Dividend</div>
+                                    </th>
+                                    <th scope="col" class="InterestDividend">
+
+                                        <div>Interest</div>
+                                    </th>
+                                    <th scope="col" class="ProfitLossDividend">
+
+                                        <div>Profit/Loss</div>
+                                    </th>
+
+                                    <th scope="col" class="ProfitLossSum">
+
+                                        <div>Profit/Loss</div>
+                                    </th>
+
+
+
+                                    <th scope="col" class="Edit_remove"></th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="box in boxes" :key="box.id" class="added_form">
+                                    <th scope="row" class="hidden-id">{{ box.id }}</th>
+                                    <td class="ticker_box">{{ box.ticker }}</td>
+                                    <td class="company_box">{{ box.company }}</td>
+                                    <td class="shares_box">{{ box.shares }}</td>
+                                    <td class="buy_box">{{ box.buy }}</td>
+                                    <td class="sell_box">{{ box.sell }}</td>
+                                    <td class="interestBuySell_box">{{ box.interestBuySell }}</td>
+                                    <td class="profitLossBuySell_box">{{ box.profitLossBuySell }}</td>
+                                    <td class="dividend_box">{{ box.dividend }}</td>
+                                    <td class="interestDividend_box">{{ box.interestDividend }}</td>
+                                    <td class="profitLossDividend_box">{{ box.profitLossDividend }}</td>
+                                    <td class="sumProfitLoss_box">{{ box.sumProfitLoss }}</td>
+
+                                    <td class="edit_remove">
+                                        <button class="edit_remove_button" @click="loadPortfolioForEdit(box.id)">
+                                            <Icon icon="mdi:edit-outline" />
+                                        </button>
+                                        <button class="edit_remove_button" @click="deletePortfolio(box.id)">
+                                            <Icon icon="mingcute:delete-fill" />
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!--
+        <table>
+        <thead>
+            <tr v-for="sumBox in sumBoxes" :key="sumBox.id" class="added_form">
+                <th scope="row" class="hidden-id">{{ sumBox.id }}</th>
+                <td class="value_sum_box"></td>
+                <td class="buy_sum_box">{{ sumBox.buy }}</td>
+                <td class="sell_sum_box">{{ sumBox.sell }}</td>
+                <td class="interestBuySell_sum_box">{{ sumBox.interestBuySell }}</td>
+                <td class="profitLossBuySell_sum_box">{{ sumBox.profitLossBuySell }}</td>
+                <td class="dividend_sum_box">{{ sumBox.dividend }}</td>
+                <td class="interestDividend_sum_box">{{ sumBox.interestDividend }}</td>
+                <td class="profitLossDividend_sum_box">{{ sumBox.profitLossDividend }}</td>
+                <td class="sumProfitLoss_sum_box">{{ sumBox.sumProfitLoss }}</td>
+
+                <td class="edit_sum_remove">
+
+                </td>
+            </tr>
+        </thead>
+    </table>
+    -->
+
                     </div>
+                    <div class="bot">
+
+                        <button @click="showAddForm = true" v-if="!showAddForm" class="bot_box">
+
+                            <div class="bot_box_icon">
+                                <Icon icon="typcn:plus" class="bot_icon" />
+                            </div>
+
+                            <div class="bot_box_button">Add Stock to Portfolio</div>
+
+                        </button>
+
+                    </div>
+
                 </div>
             </div>
-        </div>
+
+        </section>
     </main>
 </template>
 
 
+
+
+
+
 <script>
 import TNavbar from '@/components/TNavbar.vue'
+import TBackground from '@/components/TBackground.vue'
 import { Icon } from '@iconify/vue';
 import db from '../utils/db.js'
 import axios from 'axios';
@@ -334,7 +328,8 @@ export default {
 
     components: {
         TNavbar,
-        Icon
+        Icon,
+        TBackground
     },
     data() {
         return {
@@ -536,64 +531,51 @@ export default {
 </script>
 
 
+
+
 <style scoped>
-* {
-    box-sizing: border-box;
-    padding: 0;
+*,
+*::before,
+*::after {
     margin: 0;
-    font-family: Oswald, 'Courier New', Courier;
-    color: #000000;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.background {
-    background: hsl(216, 33%, 98%);
+section {
     height: 100vh;
     width: 100%;
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
     top: 0;
     left: 0;
-    overflow: auto;
 }
 
-.architecture {
+
+.content {
+    width: 100rem;
+    height: 50rem;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-}
-
-
-
-/** HEADER */
-
-.header {
-    height: 10rem;
-    width: 100%;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 5px;
-    border-bottom: 0.5px solid rgb(211, 199, 199);
-    background-color: #3A4454;
-    background-image: linear-gradient(to right, #00CED1, #000080);
+    gap: 100px;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.25) 0%,
+            rgba(255, 255, 255, 0) 100%);
+    backdrop-filter: blur(2px);
+    border-radius: 20px;
+    box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);
+    z-index: 10;
 }
 
-.header h1 {
-    color: white;
-}
-
-.header h3 {
-    color: rgb(206, 206, 206);
-    font-weight: 300;
-}
-
-.header_icon {
-    font-size: 1.75rem;
-}
+/** CONTENT - MAINBOX */
 
 /** CONTENT */
 
-.content {
+.content1 {
     border: none;
     height: auto;
     width: 70%;
@@ -1142,4 +1124,18 @@ export default {
     margin-left: 0.75rem;
     margin-right: 0.75rem;
 }
+
+
 </style>
+
+
+
+<!-- 
+
+                    <div class="header">
+                        <Icon icon="raphael:piechart" class="header_icon" />
+                        <h1>STOCK</h1>
+                        <h3>Portfolio</h3>
+                    </div>
+
+-->
