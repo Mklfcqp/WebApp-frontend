@@ -577,11 +577,13 @@ section {
     width: 70%;
     margin: auto;
     position: relative;
+    border: 1px solid yellow;
 }
 
 .top_filling {
     height: 3rem;
     border-bottom: 1px solid #8880805e;
+    border: 1px solid red;
 }
 
 /** CONTENT - MAINBOX */
@@ -590,11 +592,13 @@ section {
     flex-direction: column;
     align-items: center;
     gap: 1px;
+    border: 1px solid white;
 }
 
 .sorted {
     height: 2rem;
     width: 100%;
+    border: 1px solid green;
 }
 
 .watchlist_table {
