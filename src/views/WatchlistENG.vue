@@ -102,8 +102,8 @@
                             </div>
 
                             <div class="add_form_buttons">
-                                <button type="submit" @click="addStockToWatchlist" class="add_form_button">Add</button>
-                                <button type="button" @click="cancelAdd" class="add_form_button">Cancel</button>
+                                <button type="submit" @click="addStockToWatchlist" class="add_form_button">ADD</button>
+                                <button type="button" @click="cancelAdd" class="add_form_button">CANCEL</button>
                             </div>
 
                         </form>
@@ -203,8 +203,8 @@
                             </div>
 
                             <div class="add_form_buttons">
-                                <button type="submit" @click="updateWatchlist()" class="add_form_button">Update</button>
-                                <button type="button" @click="cancelAdd" class="add_form_button">Cancel</button>
+                                <button type="submit" @click="updateWatchlist()" class="add_form_button">UPDATE</button>
+                                <button type="button" @click="cancelAdd" class="add_form_button">CANCEL</button>
                             </div>
 
                         </form>
@@ -748,6 +748,7 @@ section {
     border-radius: 7px;
     background: #434343;
     background: radial-gradient(at center, #3d3b3b, #383436);
+    margin-bottom: 3px;
 }
 
 .ticker_box {
@@ -797,7 +798,6 @@ section {
     background: #c9c9c934;
     font-size: 0.9rem;
     color: #c9c9c9;
-    border: 1px solid;
 }
 
 .disparity_overvalued {
@@ -811,7 +811,6 @@ section {
     background: #e0454a1f;
     font-size: 0.9rem;
     color: #e0454b;
-    border: 1px solid;
 }
 
 
@@ -825,7 +824,6 @@ section {
     background: rgba(198, 239, 206, 0.082);
     font-size: 0.9rem;
     color: #6cc06c;
-    border: 1px solid;
 }
 
 .edit_remove {
@@ -901,7 +899,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.39);
     z-index: 999;
     display: flex;
     align-items: center;
@@ -911,9 +909,10 @@ section {
 .add_form {
     height: 30rem;
     width: 25rem;
-    border: 1px solid #7D8491;
+    border: 1px solid #8880805e;
     border-radius: 5px;
-    background-color: #d19f41;
+    background: #434343;
+    background: radial-gradient(at center, #3d3b3b, #383436);
     z-index: 1000;
     padding-left: 20px;
     padding-right: 20px;
@@ -924,12 +923,14 @@ section {
 }
 
 .add_form_description {
-    border-bottom: 1px solid #000000;
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
     padding-bottom: 10px;
-    font-size: 1.75rem;
+    font-size: 2rem;
+    font-family: 'Six Caps', 'Noto Serif', sans-serif;
+    letter-spacing: 3px;
+    color: #977e38;
 }
 
 .company_add_box,
@@ -948,72 +949,76 @@ section {
 .add_form_input_double_1 {
     width: 12rem;
     height: 2rem;
-    border: 1px solid #3A606E;
+    border: 1px solid #d8c6c65e;
     border-radius: 3px;
     padding-block: 0.8rem;
     background: none;
     position: relative;
     padding-left: 10px;
+    color: rgba(33, 151, 197, 0.815);
 }
 
 .add_form_input_double_2 {
     width: 3rem;
     height: 2rem;
     background: none;
-    border: 1px solid #3A606E;
+    border: 1px solid #d8c6c65e;
     border-radius: 3px;
     padding-left: 10px;
+    color: rgba(33, 151, 197, 0.815);
 }
 
 .add_form_input_double_1:focus,
 .add_form_input_double_2:focus {
     outline: none;
-    border: 1px solid black;
+    border: 1px solid #a08228;
 }
 
 .input_format {
     position: relative;
     display: flex;
     align-items: center;
-
+    font-family: sans-serif;
 }
 
 .input_format label {
-    color: #3A606E;
+    color: #d8c6c65e;
     letter-spacing: 0.05rem;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 
 .add_box_label {
     position: absolute;
     left: 10px;
     transition: top 0.3s, font-size 0.3s;
-    background-color: #d19f41;
+    background: #434343;
+    background: radial-gradient(at center, #3d3b3b, #383436);
 }
 
 
 .add_form_input_double_1:focus+.add_box_label {
-    top: -10px;
+    top: -6px;
     font-size: 0.7rem;
     left: 0.8rem;
     font-weight: 400;
-    color: black;
+    color: #a08228;
+    font-family: sans-serif;
 }
 
 .add_form_input_double_1:not(:placeholder-shown).add_form_input_double_1:not(:focus)+.add_box_label {
-    top: -10px;
+    top: -6px;
     font-size: 0.7rem;
     left: 0.8rem;
     font-weight: 400;
-    color: #3A606E;
+    
 }
 
 .add_form_buttons {
     display: flex;
     justify-content: center;
     margin-top: 10px;
-    gap: 10px;
-    border-top: 1px solid #000000;
+    gap: 20px;
+    
 }
 
 .add_form_button {
@@ -1023,10 +1028,18 @@ section {
     border-radius: 3px;
     cursor: pointer;
     margin-top: 10px;
+    background: none;
+    border-radius: 3px;
+    border: 1px solid rgb(136, 136, 136);
+    background: rgba(136, 136, 136, 0.089);
+    font-size: 0.9rem;
+    color: rgb(136, 136, 136);
+    font-weight: 600;
 }
 
 .add_form_button:hover {
-    background: #00CED1;
+    background: #977e38;
+    color: black;
 }
 
 

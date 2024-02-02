@@ -82,8 +82,8 @@
 
 
                             <div class="add_form_buttons">
-                                <button type="submit" @click="addStockToPortfolio" class="add_form_button">Add</button>
-                                <button type="button" @click="cancelAdd" class="add_form_button">Cancel</button>
+                                <button type="submit" @click="addStockToPortfolio" class="add_form_button">ADD</button>
+                                <button type="button" @click="cancelAdd" class="add_form_button">CANCEL</button>
                             </div>
 
                         </form>
@@ -166,8 +166,8 @@
 
 
                             <div class="add_form_buttons">
-                                <button type="submit" @click="updatePortfolio()" class="add_form_button">Update</button>
-                                <button type="button" @click="cancelAdd" class="add_form_button">Cancel</button>
+                                <button type="submit" @click="updatePortfolio()" class="add_form_button">UPDATE</button>
+                                <button type="button" @click="cancelAdd" class="add_form_button">CANCEL</button>
                             </div>
 
                         </form>
@@ -247,18 +247,37 @@
                                 <td class="buy_box">{{ box.buy }}</td>
                                 <td class="sell_box">{{ box.sell }}</td>
                                 <td class="interestBuySell_box">{{ box.interestBuySell }}</td>
-                                <td class="profitLossBuySell_box">{{ box.profitLossBuySell }}</td>
+                                <td :class="{
+                                    'profitLossBuySell_box_profit': box.profitLossBuySell > 0,
+                                    'profitLossBuySell_box_loss': box.profitLossBuySell < 0,
+                                    'profitLossBuySell_box_normal': box.profitLossBuySell === 0
+                                }">
+                                    {{ box.profitLossBuySell }}
+                                </td>
                                 <td class="dividend_box">{{ box.dividend }}</td>
                                 <td class="interestDividend_box">{{ box.interestDividend }}</td>
-                                <td class="profitLossDividend_box">{{ box.profitLossDividend }}</td>
-                                <td class="sumProfitLoss_box">{{ box.sumProfitLoss }}</td>
+                                <td :class="{
+                                    'profitLossDividend_box_profit': box.profitLossDividend > 0,
+                                    'profitLossDividend_box_loss': box.profitLossDividend < 0,
+                                    'profitLossDividend_box_normal': box.profitLossDividend === 0
+                                }">
+                                    {{ box.profitLossDividend }}
+                                </td>
+                                <td :class="{
+                                    'sumProfitLoss_box_profit': box.sumProfitLoss > 0,
+                                    'sumProfitLoss_box_loss': box.sumProfitLoss < 0,
+                                    'sumProfitLoss_box_normal': box.sumProfitLoss === 0
+                                }">
+                                    {{ box.sumProfitLoss }}
+                                </td>
+
 
                                 <td class="edit_remove">
                                     <button class="edit_remove_button" @click="loadPortfolioForEdit(box.id)">
-                                        <Icon icon="mdi:edit-outline" class="edit_remove_icon"/>
+                                        <Icon icon="mdi:edit-outline" class="edit_remove_icon" />
                                     </button>
                                     <button class="edit_remove_button" @click="deletePortfolio(box.id)">
-                                        <Icon icon="mingcute:delete-fill" class="edit_remove_icon"/>
+                                        <Icon icon="mingcute:delete-fill" class="edit_remove_icon" />
                                     </button>
                                 </td>
                             </tr>
@@ -619,7 +638,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px 0 0 0;
+    border-radius: 10px 0 0 5px;
     font-weight: 400;
     background: #393433;
     border: 1px solid #8880805e;
@@ -660,23 +679,23 @@ section {
 
 .ProfitLossBuySell {
     border: 1px solid #8880805e;
-    border-radius: 0 10px 0 0;
+    border-radius: 0 10px 5px 0;
 }
 
 .Dividend {
     border: 1px solid #8880805e;
-    border-radius: 10px 0 0 0;
+    border-radius: 10px 0 0 5px;
     margin-left: 0.75rem;
 }
 
 .ProfitLossDividend {
     border: 1px solid #8880805e;
-    border-radius: 0 10px 0 0;
+    border-radius: 0 10px 5px 0;
 }
 
 .ProfitLossSum {
     border: 1px solid #8880805e;
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 5px 5px;
     margin-left: 0.75rem;
     margin-right: 0.75rem;
 }
@@ -780,6 +799,7 @@ section {
     flex-direction: row;
     align-items: center;
     gap: 1px;
+    margin-bottom: 3px;
 }
 
 
@@ -793,11 +813,13 @@ section {
     align-items: center;
     font-size: 0.7rem;
     letter-spacing: 0.05rem;
-    font-weight: 300;
-    color: #a3a3a3;
+    font-weight: 400;
     border: 1px solid #8880805e;
     background: #434343;
     background: radial-gradient(at center, #3d3b3b, #383436);
+    color: #807f7f;
+    font-family: sans-serif;
+    border-radius: 5px 0 0 5px;
 }
 
 
@@ -808,10 +830,13 @@ section {
     justify-content: flex-start;
     align-items: center;
     padding-left: 20px;
-    font-size: 1.1rem;
     border: 1px solid #8880805e;
     background: #434343;
     background: radial-gradient(at center, #3d3b3b, #383436);
+    font-size: 0.8rem;
+    color: rgba(33, 151, 197, 0.815);
+    font-family: sans-serif;
+    letter-spacing: 0.5px;
 }
 
 .edit_remove {
@@ -820,7 +845,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: start;
-    gap: 1px;
+    gap: 3px;
     background: none;
 }
 
@@ -856,11 +881,11 @@ section {
 .buy_box,
 .sell_box,
 .interestBuySell_box,
-.profitLossBuySell_box,
 .dividend_box,
-.interestDividend_box,
-.profitLossDividend_box,
-.sumProfitLoss_box {
+.interestDividend_box {
+    color: #89909b;
+    font-size: 0.8rem;
+    font-family: sans-serif;
     height: 2rem;
     width: 6rem;
     display: flex;
@@ -869,43 +894,140 @@ section {
     padding-right: 10px;
     gap: 5px;
     font-weight: 300;
-    font-size: 1rem;
     border: 1px solid #8880805e;
     background: #434343;
     background: radial-gradient(at center, #3d3b3b, #383436);
 
 }
 
-.shares_box,
-.buy_box,
-.sell_box,
-.interestBuySell_box,
-.dividend_box,
-.interestDividend_box {
-    color: #89909b;
-    font-size: 0.7rem;
-}
-
-.profitLossBuySell_box,
-.profitLossDividend_box {
+.profitLossBuySell_box_normal,
+.profitLossDividend_box_normal {
+    height: 2rem;
+    width: 6rem;
+    background: #434343;
+    background: radial-gradient(at center, #3d3b3b, #383436);
+    font-size: 0.8rem;
+    color: #c9c9c9;
+    font-family: sans-serif;
+    border-radius: 0 5px 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    gap: 5px;
+    font-weight: 300;
+    border: 1px solid #8880805e;
     background: #434343;
     background: radial-gradient(at center, #3d3b3b, #383436);
 }
 
-.sumProfitLoss_box {
+.profitLossBuySell_box_profit,
+.profitLossDividend_box_profit {
+    height: 2rem;
+    width: 6rem;
+    background: #434343;
+    background: radial-gradient(at center, #3d3b3b, #383436);
+    font-size: 0.8rem;
+    color: #6cc06c;
+    font-family: sans-serif;
+    border-radius: 0 5px 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    gap: 5px;
     font-weight: 300;
+    border: 1px solid #8880805e;
+    background: #434343;
+    background: radial-gradient(at center, #3d3b3b, #383436);
 }
+
+.profitLossBuySell_box_loss,
+.profitLossDividend_box_loss {
+    height: 2rem;
+    width: 6rem;
+    background: #434343;
+    background: radial-gradient(at center, #3d3b3b, #383436);
+    font-size: 0.8rem;
+    color: #e0454b;
+    font-family: sans-serif;
+    border-radius: 0 5px 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    gap: 5px;
+    font-weight: 300;
+    border: 1px solid #8880805e;
+    background: #434343;
+    background: radial-gradient(at center, #3d3b3b, #383436);
+}
+
 
 .dividend_box {
     margin-left: 0.75rem;
+    border-radius: 5px 0 0 5px;
 }
 
-.sumProfitLoss_box {
+.sumProfitLoss_box_profit {
     margin-left: 0.75rem;
     margin-right: 0.75rem;
-    background: #434343;
-    background: radial-gradient(at center, #3d3b3b, #383436);
+    background: rgba(198, 239, 206, 0.082);
+    color: #6cc06c;
+    font-family: sans-serif;
+    font-weight: 300;
+    border-radius: 5px;
+    height: 2rem;
+    width: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    border: 1px solid #8880805e;
 }
+
+.sumProfitLoss_box_loss {
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    background: #e0454a1f;
+    color: #e0454b;
+    font-family: sans-serif;
+    font-weight: 300;
+    border-radius: 5px;
+    height: 2rem;
+    width: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    border: 1px solid #8880805e;
+}
+
+.sumProfitLoss_normal {
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    background: #c9c9c934;
+    background: radial-gradient(at center, #3d3b3b, #383436);
+    color: #c9c9c9;
+    font-family: sans-serif;
+    font-weight: 300;
+    border-radius: 5px;
+    height: 2rem;
+    width: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    border: 1px solid #8880805e;
+}
+
+
 
 
 /** ADD FORM */
@@ -916,7 +1038,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.39);
     z-index: 999;
     display: flex;
     align-items: center;
@@ -926,9 +1048,10 @@ section {
 .add_form {
     height: 35rem;
     width: 25rem;
-    border: 1px solid #7D8491;
+    border: 1px solid #8880805e;
     border-radius: 5px;
-    background-color: #d19f41;
+    background: #434343;
+    background: radial-gradient(at center, #3d3b3b, #383436);
     z-index: 1000;
     padding-left: 20px;
     padding-right: 20px;
@@ -939,12 +1062,14 @@ section {
 }
 
 .add_form_description {
-    border-bottom: 1px solid #000000;
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
     padding-bottom: 10px;
-    font-size: 1.75rem;
+    font-size: 2rem;
+    font-family: 'Six Caps', 'Noto Serif', sans-serif;
+    letter-spacing: 3px;
+    color: #977e38;
 }
 
 
@@ -970,87 +1095,97 @@ section {
 }
 
 .add_form_input_double_1 {
-    width: 15rem;
+    width: 12rem;
     height: 2rem;
-    border: 1px solid #3A606E;
+    border: 1px solid #d8c6c65e;
     border-radius: 3px;
     padding-block: 0.8rem;
     background: none;
     position: relative;
     padding-left: 10px;
+    color: rgba(33, 151, 197, 0.815);
 }
 
 .add_form_input_double_2 {
     width: 3rem;
     height: 2rem;
     background: none;
-    border: 1px solid #3A606E;
+    border: 1px solid #d8c6c65e;
     border-radius: 3px;
     padding-left: 10px;
+    color: rgba(33, 151, 197, 0.815);
 }
 
 .add_form_input_double_1:focus,
 .add_form_input_double_2:focus {
     outline: none;
-    border: 1px solid black;
+    border: 1px solid #a08228;
 }
 
 .input_format {
     position: relative;
     display: flex;
     align-items: center;
+    font-family: sans-serif;
 
 }
 
 .input_format label {
-    color: #3A606E;
+    color: #d8c6c65e;
     letter-spacing: 0.05rem;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 
 .add_box_label {
     position: absolute;
     left: 10px;
     transition: top 0.3s, font-size 0.3s;
-    background-color: #d19f41;
+    background: #434343;
+    background: radial-gradient(at center, #3d3b3b, #383436);
 }
 
-
 .add_form_input_double_1:focus+.add_box_label {
-    top: -10px;
+    top: -6px;
     font-size: 0.7rem;
     left: 0.8rem;
     font-weight: 400;
-    color: black;
+    color: #a08228;
+    font-family: sans-serif;
 }
 
 .add_form_input_double_1:not(:placeholder-shown).add_form_input_double_1:not(:focus)+.add_box_label {
-    top: -10px;
+    top: -6px;
     font-size: 0.7rem;
     left: 0.8rem;
     font-weight: 400;
-    color: #3A606E;
 }
 
 .add_form_buttons {
     display: flex;
     justify-content: center;
     margin-top: 10px;
-    gap: 10px;
-    border-top: 1px solid #000000;
+    gap: 20px;
 }
 
 .add_form_button {
-    border: 1px solid #3A606E;
+    border: 1px solid;
     width: 5rem;
     height: 2rem;
     border-radius: 3px;
     cursor: pointer;
     margin-top: 10px;
+    background: none;
+    border-radius: 3px;
+    border: 1px solid rgb(136, 136, 136);
+    background: rgba(136, 136, 136, 0.089);
+    font-size: 0.9rem;
+    color: rgb(136, 136, 136);
+    font-weight: 600;
 }
 
 .add_form_button:hover {
-    background: #00CED1;
+    background: #977e38;
+    color: black;
 }
 
 
