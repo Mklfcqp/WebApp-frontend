@@ -26,6 +26,9 @@
 
                     <swiper-slide class="card1">
 
+                        <Icon :icon="isTextVisible ? 'gravity-ui:eye' : 'ri:eye-off-line'" class="view"
+                            @click="toggleTextVisibility" />
+
                         <div class="title_card">Technical Skills</div>
 
                         <div class="box">
@@ -44,7 +47,7 @@
                                 </div>
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <Icon icon="simple-icons:springsecurity" class="row_box_icon" />  
+                                        <Icon icon="simple-icons:springsecurity" class="row_box_icon" />
                                     </div>
                                     <p>SPRING</p>
                                     <p>SECURITY</p>
@@ -57,7 +60,7 @@
                                 </div>
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <Icon icon="carbon:partition-collection" class="row_box_icon"/> 
+                                        <Icon icon="carbon:partition-collection" class="row_box_icon" />
                                     </div>
                                     <p>STREAM</p>
                                 </div>
@@ -77,7 +80,7 @@
                                 </div>
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <Icon icon="material-symbols:function" class="row_box_icon"/>
+                                        <Icon icon="material-symbols:function" class="row_box_icon" />
                                     </div>
                                     <p>FUNCTIONAL</p>
                                     <p>PROGRAMMING</p>
@@ -122,7 +125,7 @@
                                 </div>
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <Icon icon="simple-icons:awslambda" class="row_box_icon"/> 
+                                        <Icon icon="simple-icons:awslambda" class="row_box_icon" />
                                     </div>
                                     <p>LAMBDA</p>
                                 </div>
@@ -160,22 +163,43 @@
                             </div>
                         </div>
 
-                    
+
                     </swiper-slide>
 
 
                     <swiper-slide class="card2">
                         <div class="title_card">Soft Skills</div>
-                        <p>Collaboration within a team on the development of an aplication for creating EDI data in the role
-                            of providing input for developers.</p>
-                        <br>
-                        <p>Leading the migration of suppliers for ŠKODA auto from one EDI webapp to another.</p>
-                        <br>
-                        <p>Abilyty and enthusiasm for self-learning and personal development.</p>
+
+                        <div class="card2_box">
+                            <div class="card2_box1">
+                                <div class="card2_box1_inside">
+                                    <p><span class="fjala">Collaboration</span> within a team on the development of an
+                                        aplication for creating EDI data
+                                        in the role
+                                        of providing input for developers.</p>
+                                </div>
+                            </div>
+
+                            <div class="card2_box2">
+                                <div class="card2_box2_inside">
+                                    <p><span class="fjala">Leading</span> the migration of suppliers for ŠKODA auto from one
+                                        EDI webapp to another.</p>
+                                </div>
+                            </div>
+
+                            <div class="card2_box3">
+                                <div class="card2_box3_inside">
+                                    <p>Ability and enthusiasm for <span class="fjala">self-learning</span> and personal
+                                        development.</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </swiper-slide>
 
 
                     <swiper-slide class="card3">
+
                         <div class="title_card">Education</div>
                         <p>Software Development Academy</p>
                         <p>Java from Scratch (327 hours) 04 2023 - 02 2024</p>
@@ -192,24 +216,31 @@
 
                     <swiper-slide class="card5">
                         <div class="title_card">Languages</div>
-                        <div class="languages">
-                            <div class="languages_inside">
 
-                                <div class="language">
-                                    <Icon icon="flag:cz-4x3" class="language_icon" />
-                                    <p>NATIVE</p>
-                                </div>
-                                <div class="language">
-                                    <Icon icon="flag:us-4x3" class="language_icon" />
-                                    <p>B2</p>
-                                </div>
-                                <div class="language">
-                                    <Icon icon="flag:jp-4x3" class="language_icon" />
-                                    <p>N4</p>
-                                </div>
 
+                        <div id="drag-container">
+                            <div id="spin-container">
+                                <img src="https://www.worldometers.info/img/flags/ja-flag.gif" alt="jp">
+                                <img src="https://www.worldometers.info/img/flags/ez-flag.gif" alt="cz">
+                                <img src="https://www.worldometers.info/img/flags/uk-flag.gif" alt="uk">
                             </div>
+                            <div id="ground"></div>
                         </div>
+
+
+                        <div class="animation_text">
+
+                            <div id="rotate-words">
+                                <div>Czech<br /> <span>Native</span></div>
+                                <div>English<br /> <span>B2</span></div>
+                                <div>Japanese<br /> <span>N4</span></div>
+                                <div>Czech<br /> <span>Native</span></div>
+                                <div>English<br /> <span>B2</span></div>
+                                <div>Japanese<br /> <span>N4</span></div>
+                            </div>
+
+                        </div>
+
                     </swiper-slide>
 
 
@@ -235,6 +266,20 @@
                                 <Icon icon="bi:github" class="github_icon" />
                             </div>
                         </div>
+
+
+                        <ul class="circles">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
 
                     </swiper-slide>
                 </swiper>
@@ -279,9 +324,14 @@ export default {
         };
     },
 
+    mounted() {
+        this.rotate();
+    },
+
     setup() {
         return {
             modules: [EffectCards],
+            isTextVisible: false,
         };
     },
 
@@ -307,8 +357,115 @@ export default {
             alert('The text has been copied to the clipboard.');
         },
 
+        toggleTextVisibility() {
+            this.isTextVisible = !this.isTextVisible;
+            const rowBoxInsideElements = document.querySelectorAll('.row_box_inside');
+            rowBoxInsideElements.forEach((element) => {
+                element.classList.toggle('active', this.isTextVisible);
+            });
+        },
+
+        rotate() {
+            var radius = 240;
+            var autoRotate = true;
+            var rotateSpeed = -10;
+            var imgWidth = 170;
+            var imgHeight = 120;
+
+
+            setTimeout(init, 1000);
+
+            var odrag = document.getElementById('drag-container');
+            var ospin = document.getElementById('spin-container');
+            var aImg = ospin.getElementsByTagName('img');
+            var aEle = [...aImg];
+
+            ospin.style.width = imgWidth + "px";
+            ospin.style.height = imgHeight + "px";
+
+            var ground = document.getElementById('ground');
+            ground.style.width = radius * 3 + "px";
+            ground.style.height = radius * 3 + "px";
+
+            function init(delayTime) {
+                for (var i = 0; i < aEle.length; i++) {
+                    aEle[i].style.transform = "rotateY(" + (i * (360 / aEle.length)) + "deg) translateZ(" + radius + "px)";
+                    aEle[i].style.transition = "transform 1s";
+                    aEle[i].style.transitionDelay = delayTime || (aEle.length - i) / 4 + "s";
+                }
+            }
+
+            function applyTranform(obj) {
+                if (tY > 180) tY = 180;
+                if (tY < 0) tY = 0;
+
+                obj.style.transform = "rotateX(" + (-tY) + "deg) rotateY(" + (tX) + "deg)";
+            }
+
+            function playSpin(yes) {
+                ospin.style.animationPlayState = (yes ? 'running' : 'paused');
+            }
+
+            var sX, sY, nX, nY, desX = 0,
+                desY = 0,
+                tX = 0,
+                tY = 10;
+
+            if (autoRotate) {
+                var animationName = (rotateSpeed > 0 ? 'spin' : 'spinRevert');
+                ospin.style.animation = `${animationName} ${Math.abs(rotateSpeed)}s infinite linear`;
+            }
+
+            document.onpointerdown = function (e) {
+                clearInterval(odrag.timer);
+                e = e || window.event;
+                var sX = e.clientX,
+                    sY = e.clientY;
+
+                this.onpointermove = function (e) {
+                    e = e || window.event;
+                    var nX = e.clientX,
+                        nY = e.clientY;
+                    desX = nX - sX;
+                    desY = nY - sY;
+                    tX += desX * 0.1;
+                    tY += desY * 0.1;
+                    applyTranform(odrag);
+                    sX = nX;
+                    sY = nY;
+                };
+
+                this.onpointerup = function (e) {
+                    odrag.timer = setInterval(function () {
+                        desX *= 0.95;
+                        desY *= 0.95;
+                        tX += desX * 0.1;
+                        tY += desY * 0.1;
+                        applyTranform(odrag);
+                        playSpin(false);
+                        if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
+                            clearInterval(odrag.timer);
+                            playSpin(true);
+                        }
+                    }, 17);
+                    this.onpointermove = this.onpointerup = null;
+                };
+
+                return false;
+            };
+
+            document.onmousewheel = function (e) {
+                e = e || window.event;
+                var d = e.wheelDelta / 20 || -e.detail;
+                radius += d;
+                init(1);
+            };
+        }
     },
 }
+
+
+
 
 </script>
 
@@ -319,6 +476,9 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Six+Caps&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oswald:700');
+@import url('https://fonts.googleapis.com/css?family=Rubik');
 
 
 *,
@@ -355,7 +515,7 @@ section {
             rgba(255, 255, 255, 0) 100%);
     backdrop-filter: blur(2px);
     border-radius: 20px;
-    box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);
+    /*box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);*/
     z-index: 10;
 
 }
@@ -435,24 +595,35 @@ section {
 }
 
 .card2 {
-    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    background: #EDBF85;
 }
 
 
 .card3 {
-    background-image: linear-gradient(to right top, #a8668c, #a06e99, #9677a3, #8c7fa9, #8486ad, #7f8db0, #7c94b1, #7c9ab1, #80a2b2, #87a9b2, #91afb2, #9db5b3);
+    background-image: linear-gradient(to right, #4d88b2 0%, #99d6ff 100%);
+    display: flex;
+    flex-direction: column;
 }
 
 .card4 {
-    background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
-}
-
-.card5 {
-    background-image: linear-gradient(-225deg, #B7F8DB 0%, #50A7C2 100%);
+    background: #A4B0F5;
+    display: flex;
+    flex-direction: column;
 }
 
 .card6 {
     background-color: #3C3C3C
+}
+
+
+/** CARD - TECHNICAL SKILLS */
+
+.view {
+    position: absolute;
+    bottom: 10px;
+    right: 50%;
+    z-index: 2;
+    font-size: 1.5rem;
 }
 
 .box {
@@ -482,7 +653,7 @@ section {
     justify-content: center;
     align-items: center;
     box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0) inset, 0 4px 16px rgba(0, 0, 0, 0.37);
-  
+
 }
 
 .row_box_inside {
@@ -541,17 +712,287 @@ section {
     font-weight: 800;
 }
 
+.row_box_inside p {
+    display: none;
+}
+
+.row_box_inside.active p {
+    color: black;
+    display: block;
+    font-weight: 900;
+    font-size: 0.8rem;
+}
+
+
+
+/** CARD - SOFT SKILL */
+
+.card2 .title_card {
+    color: #3C3C3C;
+}
+
+.card2_box {
+    margin-top: 2rem;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.card2_box1,
+.card2_box2,
+.card2_box3 {
+    height: 8rem;
+}
+
+
+.card2_box1_inside {
+    height: 8rem;
+    width: 30rem;
+    display: flex;
+    text-align: justify;
+}
+
+.card2_box2_inside {
+    height: 8rem;
+    width: 30rem;
+    display: flex;
+    text-align: justify;
+}
+
+.card2_box3_inside {
+    height: 8rem;
+    width: 30rem;
+    display: flex;
+    text-align: justify;
+}
+
+.card2_box1_inside p,
+.card2_box2_inside p,
+.card2_box3_inside p {
+    height: 7rem;
+    width: 25rem;
+    font-family: 'Nunito', 'Fjalla One', sans-serif;
+    color: #383838;
+}
+
+.fjala {
+    font-family: 'Fjalla One', 'Nunito', sans-serif;
+    color: #50A7C2;
+    font-size: 1.5rem;
+}
 
 
 
 
 
 
+/** EDUCATION */
 
 
 
 
+/** WORK EXPERIENCES */
 
+
+
+/** LANGUAGES */
+.card5 {
+    height: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(circle,
+            rgba(67, 69, 112, 1) 3%,
+            rgba(35, 36, 57, 1) 60%);
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+#drag-container,
+#spin-container {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: auto;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+}
+
+#drag-container img {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 200px;
+    font-size: 50px;
+    text-align: center;
+    -webkit-box-shadow: 0 0 8px #fff;
+    box-shadow: 0 0 8px #fff;
+    -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+    border-radius: 20px;
+}
+
+
+#drag-container p {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+    transform: translate(-50%, -50%) rotateX(90deg);
+    color: #fff;
+}
+
+#ground {
+    width: 900px;
+    height: 900px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+    transform: translate(-50%, -50%) rotateX(90deg);
+    background: -webkit-radial-gradient(center center, farthest-side, #9993, transparent);
+}
+
+
+
+.animation_text {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-attachment: fixed;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+
+#rotate-words {
+    max-width: 400px;
+    padding: 10% 0;
+}
+
+#rotate-words span {
+    height: 50px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    opacity: .8;
+    font-family: 'Rubik', sans-serif;
+}
+
+#rotate-words div {
+    position: absolute;
+    overflow: hidden;
+    bottom: 2rem;
+    left: 14rem;
+    font-size: 2rem;
+    animation: rotate-word 32s linear infinite 0s;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+@keyframes rotate-word {
+    0% {
+        opacity: 0;
+        transform: translateX(0);
+        filter: blur(10px);
+        transform: scale(1.2)
+    }
+
+    3% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0px);
+        transform: scale(.9)
+    }
+
+    12% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0px);
+        transform: scale(1)
+    }
+
+    16% {
+        opacity: 0;
+        transform: translateX(0);
+        filter: blur(10px);
+        transform: scale(1.2)
+    }
+
+    80% {
+        opacity: 0
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+#rotate-words div:nth-child(2) {
+    animation-delay: 4s
+}
+
+#rotate-words div:nth-child(3) {
+    animation-delay: 8s
+}
+
+#rotate-words div:nth-child(4) {
+    animation-delay: 12s
+}
+
+#rotate-words div:nth-child(5) {
+    animation-delay: 16s
+}
+
+#rotate-words div:nth-child(6) {
+    animation-delay: 20s
+}
+
+
+@keyframes author {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+        filter: blur(10px);
+        transform: scaleY(2)
+    }
+
+    20% {
+        opacity: 0;
+        transform: translateY(200px);
+        filter: blur(10px);
+        transform: scaleY(2)
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0px);
+        transform: scaleY(1)
+    }
+
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0px);
+        transform: scaleY(.9)
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(0);
+        filter: blur(10px);
+        transform: scale(2)
+    }
+}
 
 
 
@@ -656,4 +1097,119 @@ section {
     font-weight: 800;
     color: white;
 }
+
+.circles{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.circles li{
+  position: absolute;
+  display: block;
+  list-style: none;
+  width: 20px;
+  height: 20px;
+  background-color: #ff3cac;
+  background-image: linear-gradient(225deg, #ff3cac 0%, #784ba0 50%, #2b86c5 100%);
+  animation: animate 25s linear infinite;
+  bottom: -150px;
+}
+
+.circles li:nth-child(1){
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+
+.circles li:nth-child(2){
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 2s;
+  animation-duration: 12s;
+}
+
+.circles li:nth-child(3){
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 4s;
+}
+
+.circles li:nth-child(4){
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+  animation-duration: 18s;
+}
+
+.circles li:nth-child(5){
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 0s;
+}
+
+.circles li:nth-child(6){
+  left: 75%;
+  width: 110px;
+  height: 110px;
+  animation-delay: 3s;
+}
+
+.circles li:nth-child(7){
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 7s;
+}
+
+.circles li:nth-child(8){
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  animation-delay: 15s;
+  animation-duration: 45s;
+}
+
+.circles li:nth-child(9){
+  left: 20%;
+  width: 15px;
+  height: 15px;
+  animation-delay: 2s;
+  animation-duration: 35s;
+}
+
+.circles li:nth-child(10){
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  animation-delay: 0s;
+  animation-duration: 11s;
+}
+
+@keyframes animate {
+
+  0%{
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+
+  100%{
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+
+}
+
+
+
 </style>

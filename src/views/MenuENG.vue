@@ -49,6 +49,7 @@
                         </div>
 
                     </div>
+                    
                     <div class="description_2">
                         <br>
                         <p class="comments">*/</p>
@@ -139,9 +140,9 @@ section {
     background: linear-gradient(180deg,
             rgba(255, 255, 255, 0.2) 0%,
             rgba(255, 255, 255, 0) 100%);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(1px);
     border-radius: 20px;
-    box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);
+    /*box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);*/
     z-index: 10;
     font-size: 0.9rem;
     line-height: 1.5;
@@ -179,11 +180,13 @@ section {
 
 .cv_box,
 .stock_box {
-    height: 5rem;
+    height: 3rem;
     width: 15rem;
-    border: 1px solid #808080;
-    border-radius: 5px;
+    border-radius: 0.5rem;
     padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cv_box {
@@ -215,17 +218,7 @@ section {
     cursor: pointer;
     display: flex;
     align-items: center;
-    border: 1px solid white;
     border-radius: 0.5rem;
-}
-
-
-.stock_box:hover {
-
-}
-
-.cv_box:hover {
- 
 }
 
 .title {
@@ -236,7 +229,7 @@ section {
 }
 
 .text {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 500;
     text-align: center;
 }
