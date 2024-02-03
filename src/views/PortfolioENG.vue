@@ -418,30 +418,27 @@ export default {
         },
 
         getPortfolio() {
-            fetch('http://localhost:8080/portfolio/load')
+            const accessToken = localStorage.getItem('accessToken');
+            const refreshToken = localStorage.getItem('refreshToken');
+
+            if (!accessToken || !refreshToken) {
+                console.error('User not authenticated');
+                return;
+            }
+
+            const headers = new Headers();
+            headers.append('Authorization', `Bearer ${accessToken}`);
+
+            fetch('http://localhost:8080/portfolio/load', { headers })
                 .then(res => res.json())
                 .then(data => {
-                    this.boxes = data
-                    console.log(data)
+                    this.boxes = data;
+                    console.log(data);
                 })
-
+                .catch(error => console.error('Error:', error));
         },
 
-        /*async getPortfolio() {
-            try {
-                const response = await db.get('http://localhost:8080/portfolio/load');
 
-                if (response.ok) {
-                    const data = await response.json();
-                    this.boxes = data;
-                    console.log("Data have been loaded successfully:", data);
-                } else {
-                    console.error("Loading failed:", await response.json());
-                }
-            } catch (error) {
-                console.error("An error occurred:", error);
-            }
-        },*/
 
         async updatePortfolio() {
             try {

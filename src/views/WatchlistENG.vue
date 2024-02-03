@@ -407,12 +407,24 @@ export default {
         },
 
         getWatchlists() {
-            fetch('http://localhost:8080/watchlist/load')
+            const accessToken = localStorage.getItem('accessToken');
+            const refreshToken = localStorage.getItem('refreshToken');
+
+            if (!accessToken || !refreshToken) {
+                console.error('User not authenticated');
+                return;
+            }
+
+            const headers = new Headers();
+            headers.append('Authorization', `Bearer ${accessToken}`);
+
+            fetch('http://localhost:8080/watchlist/load', { headers })
                 .then(res => res.json())
                 .then(data => {
-                    this.boxes = data
-                    console.log(data)
+                    this.boxes = data;
+                    console.log(data);
                 })
+                .catch(error => console.error('Error:', error));
         },
 
         async updateWatchlist() {
