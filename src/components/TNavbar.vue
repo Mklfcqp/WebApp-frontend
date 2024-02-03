@@ -2,22 +2,22 @@
   <main>
     <div class="navigation">
 
-      <div class="img" @click="toggleMenu" :class="{ 'profile-active': isMenuVisible }">
+      <div class="img" @click="toggleMenu">
         <Icon icon="iconamoon:profile-duotone" />
       </div>
 
       <div class="buttons">
-        <button class="button" @click="redirectToMenu" :class="{ 'profile-active': isStockMenuVisible }">
+        <button class="button" @click="redirectToMenu">
        
-          Menu
+          MENU
         </button>
         <button class="button" @click="redirectToCV">
 
           CV
         </button>
-        <button class="button" @click="toggleStockMenu" :class="{ 'profile-active': isStockMenuVisible }">
+        <button class="button" @click="toggleStockMenu">
 
-          Stock
+          STOCK
         </button>
       </div>
 
@@ -32,7 +32,7 @@
     </div>
 
     <div class="profile_menu" v-show="isMenuVisible">
-      <button class="menuItem1" @click="toggleSubMenu" :class="{ 'profile-active': isMenuVisible }">
+      <button class="menuItem1" @click="toggleSubMenu">
         <Icon icon="lets-icons:setting-line-light" />
         Setting
       </button>
@@ -91,41 +91,25 @@ export default {
     };
   },
 
-  mounted() {
-    document.addEventListener('click', this.closeMenuOnOutsideClick);
-  },
 
-  beforeDestroy() {
-    document.removeEventListener('click', this.closeMenuOnOutsideClick);
-  },
 
   methods: {
     toggleMenu() {
       this.isMenuVisible = !this.isMenuVisible;
 
-      if (this.isMenuVisible) {
-        document.addEventListener('click', this.closeMenuOnOutsideClick);
-      } else {
-        document.removeEventListener('click', this.closeMenuOnOutsideClick);
-      }
-    },
 
-    closeMenuOnOutsideClick(event) {
-      const profileMenu = this.$refs.profileMenu;
-      const submenu = this.$refs.submenu;
-
-      if (
-        (profileMenu && !profileMenu.contains(event.target)) &&
-        (submenu && !submenu.contains(event.target))
-      ) {
-        this.isMenuVisible = false;
-        this.isSubMenuVisible = false;
-      }
     },
 
     toggleSubMenu() {
       this.isSubMenuVisible = !this.isSubMenuVisible;
     },
+
+    toggleStockMenu() {
+      this.isStockMenuVisible = !this.isStockMenuVisible;
+    },
+
+
+
 
     leftClick() {
       var btn = document.getElementById('btn');
@@ -137,9 +121,9 @@ export default {
       btn.style.left = '50px'
     },
 
-    toggleStockMenu() {
-      this.isStockMenuVisible = !this.isStockMenuVisible;
-    },
+    
+
+
 
     redirectToPortfolio() {
       this.$router.push("/portfolioENG");
@@ -173,6 +157,8 @@ export default {
 
 
 <style scoped>
+
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -194,7 +180,9 @@ export default {
   display: flex;
   align-items: center;
   padding: 20px;
-  background: radial-gradient(circle at top, #3a3a3a, #000000);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+  mask-image: linear-gradient(90deg, rgb(255, 255, 255) 0%, #ffffff 25%, #ffffff 75%, rgb(255, 255, 255) 100%);
   border-bottom: 1px solid rgba(177, 177, 177, 0.4);
 
 }
@@ -218,9 +206,6 @@ export default {
   background: #dba613a1;
 }
 
-.profile-active {
-  background: #dba613a1;
-}
 
 
 
@@ -256,6 +241,7 @@ export default {
   gap: 10px;
   margin: 1px;
   border-radius: 5px;
+  
 }
 
 
@@ -265,10 +251,6 @@ export default {
   color: #000000;
 }
 
-
-.profile-active {
-  background: #dba613a1;
-}
 
 
 
@@ -287,29 +269,24 @@ export default {
   color: #cfcfcf;
   border: none;
   border-radius: 5px;
-  height: 2.2rem;
+  height: 3rem;
   width: 10rem;
   font-size: 1.1rem;
   font-family: Oswald;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+
 }
 
 .button:hover {
-  height: 2.2rem;
+  height: 3rem;
   width: 10rem;
   color: #dba613;
-  background: none;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
 
 }
-
-.cv_icon,
-.menu_icon {
-  color: rgb(177, 177, 177);
-}
-
 
 
 /** LANGUAGE BUTTONS */
@@ -438,4 +415,6 @@ export default {
   background: #dba613a1;
   color: #000000;
 }
+
+
 </style>

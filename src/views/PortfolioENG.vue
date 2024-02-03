@@ -759,7 +759,7 @@ section {
 .InterestDividend:hover,
 .ProfitLossDividend:hover,
 .ProfitLossSum:hover {
-    background-color: #dba613a1;
+    background-color: #d4ad4262;
     cursor: pointer;
 }
 

@@ -710,8 +710,9 @@ section {
 .Dividend_Q:hover,
 .Dividend_Y:hover,
 .Disparity:hover {
-    background-color: #dba613a1;
+    background-color: #d4ad4262;
     cursor: pointer;
+    border: 1px solid #8880805e;
 }
 
 

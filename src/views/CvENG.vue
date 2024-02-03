@@ -170,29 +170,24 @@
                     <swiper-slide class="card2">
                         <div class="title_card">Soft Skills</div>
 
-                        <div class="card2_box">
-                            <div class="card2_box1">
-                                <div class="card2_box1_inside">
-                                    <p><span class="fjala">Collaboration</span> within a team on the development of an
-                                        aplication for creating EDI data
-                                        in the role
-                                        of providing input for developers.</p>
-                                </div>
-                            </div>
+                        <div class="mainbox">
 
-                            <div class="card2_box2">
-                                <div class="card2_box2_inside">
+                            <div class="outside_box1">
+                                <p><span class="fjala">Collaboration</span> within a team on the development of an
+                                    aplication for creating EDI data in the role
+                                    of providing input for developers.</p>
+                            </div>
+                            <div class="outside_box2">
+                                <div class="inside_box1">
                                     <p><span class="fjala">Leading</span> the migration of suppliers for ŠKODA auto from one
                                         EDI webapp to another.</p>
                                 </div>
-                            </div>
-
-                            <div class="card2_box3">
-                                <div class="card2_box3_inside">
+                                <div class="inside_box2">
                                     <p>Ability and enthusiasm for <span class="fjala">self-learning</span> and personal
                                         development.</p>
                                 </div>
                             </div>
+
                         </div>
 
                     </swiper-slide>
@@ -246,6 +241,8 @@
 
                     <swiper-slide class="card6">
                         <div class="title_card">Contacts</div>
+
+
                         <div class="contacts">
                             <div class="linkedin" type="button" @click="redirectToLinkedin">
                                 <Icon icon="cib:linkedin" class="linkedin_icon" />
@@ -266,20 +263,6 @@
                                 <Icon icon="bi:github" class="github_icon" />
                             </div>
                         </div>
-
-
-                        <ul class="circles">
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
 
                     </swiper-slide>
                 </swiper>
@@ -595,7 +578,7 @@ section {
 }
 
 .card2 {
-    background: #EDBF85;
+    background: #2e2e2eef;
 }
 
 
@@ -606,7 +589,7 @@ section {
 }
 
 .card4 {
-    background: #A4B0F5;
+    background: linear-gradient(to bottom, #202020, #111119);
     display: flex;
     flex-direction: column;
 }
@@ -728,59 +711,69 @@ section {
 /** CARD - SOFT SKILL */
 
 .card2 .title_card {
-    color: #3C3C3C;
+    color: #ffffff;
 }
 
-.card2_box {
-    margin-top: 2rem;
-    width: 30rem;
+.mainbox {
+    width: 33rem;
+    height: 27rem;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 
-.card2_box1,
-.card2_box2,
-.card2_box3 {
-    height: 8rem;
+.outside_box1 {
+    width: 33rem;
+    height: 13rem;
+    background: #D2D4AD;
+    border-radius: 15px;
+    padding: 20px;
 }
 
-
-.card2_box1_inside {
-    height: 8rem;
-    width: 30rem;
+.outside_box2 {
+    width: 33rem;
+    height: 13rem;
     display: flex;
-    text-align: justify;
+    flex-direction: row;
+    gap: 1rem;
 }
 
-.card2_box2_inside {
-    height: 8rem;
-    width: 30rem;
-    display: flex;
-    text-align: justify;
+.inside_box1 {
+    background: #7B3C45;
+    width: 16rem;
+    height: 13rem;
+    border-radius: 15px;
+    padding: 20px;
 }
 
-.card2_box3_inside {
-    height: 8rem;
-    width: 30rem;
-    display: flex;
-    text-align: justify;
+.inside_box2 {
+    background: #3B5639;
+    width: 16rem;
+    height: 13rem;
+    border-radius: 15px;
+    padding: 20px;
 }
 
-.card2_box1_inside p,
-.card2_box2_inside p,
-.card2_box3_inside p {
-    height: 7rem;
-    width: 25rem;
+
+.outside_box1 {
     font-family: 'Nunito', 'Fjalla One', sans-serif;
-    color: #383838;
+    color: #000000;
+    font-size: 1.3rem;
+}
+
+.inside_box1 p,
+.inside_box2 p {
+    font-family: 'Nunito', 'Fjalla One', sans-serif;
+    color: #cccccc;
+    font-size: 1.3rem;
 }
 
 .fjala {
     font-family: 'Fjalla One', 'Nunito', sans-serif;
     color: #50A7C2;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
-
 
 
 
@@ -1025,6 +1018,7 @@ section {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    margin-top: 2rem;
 }
 
 
@@ -1033,8 +1027,8 @@ section {
 .phone,
 .city,
 .github {
-    height: 3.5rem;
-    width: 14rem;
+    height: 5rem;
+    width: 28rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1097,119 +1091,5 @@ section {
     font-weight: 800;
     color: white;
 }
-
-.circles{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.circles li{
-  position: absolute;
-  display: block;
-  list-style: none;
-  width: 20px;
-  height: 20px;
-  background-color: #ff3cac;
-  background-image: linear-gradient(225deg, #ff3cac 0%, #784ba0 50%, #2b86c5 100%);
-  animation: animate 25s linear infinite;
-  bottom: -150px;
-}
-
-.circles li:nth-child(1){
-  left: 25%;
-  width: 80px;
-  height: 80px;
-  animation-delay: 0s;
-}
-
-.circles li:nth-child(2){
-  left: 10%;
-  width: 20px;
-  height: 20px;
-  animation-delay: 2s;
-  animation-duration: 12s;
-}
-
-.circles li:nth-child(3){
-  left: 70%;
-  width: 20px;
-  height: 20px;
-  animation-delay: 4s;
-}
-
-.circles li:nth-child(4){
-  left: 40%;
-  width: 60px;
-  height: 60px;
-  animation-delay: 0s;
-  animation-duration: 18s;
-}
-
-.circles li:nth-child(5){
-  left: 65%;
-  width: 20px;
-  height: 20px;
-  animation-delay: 0s;
-}
-
-.circles li:nth-child(6){
-  left: 75%;
-  width: 110px;
-  height: 110px;
-  animation-delay: 3s;
-}
-
-.circles li:nth-child(7){
-  left: 35%;
-  width: 150px;
-  height: 150px;
-  animation-delay: 7s;
-}
-
-.circles li:nth-child(8){
-  left: 50%;
-  width: 25px;
-  height: 25px;
-  animation-delay: 15s;
-  animation-duration: 45s;
-}
-
-.circles li:nth-child(9){
-  left: 20%;
-  width: 15px;
-  height: 15px;
-  animation-delay: 2s;
-  animation-duration: 35s;
-}
-
-.circles li:nth-child(10){
-  left: 85%;
-  width: 150px;
-  height: 150px;
-  animation-delay: 0s;
-  animation-duration: 11s;
-}
-
-@keyframes animate {
-
-  0%{
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-    border-radius: 0;
-  }
-
-  100%{
-    transform: translateY(-1000px) rotate(720deg);
-    opacity: 0;
-    border-radius: 50%;
-  }
-
-}
-
-
 
 </style>
