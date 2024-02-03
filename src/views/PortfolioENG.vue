@@ -173,6 +173,18 @@
                         </form>
                     </div>
 
+                    
+
+                    <div class="overlay" v-if="showDeleteConfirmation">
+                        <div v-if="showDeleteConfirmation" class="confirmation">
+                            <p>Are you sure you want to delete this item?</p>
+                            <div class="delete_confirmation_buttons">
+                                <button class="delete_confirmation_button" @click="confirmDelete">Confirm</button>
+                                <button class="delete_confirmation_button" @click="cancelDelete">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+
 
 
 
@@ -276,35 +288,39 @@
                                     <button class="edit_remove_button" @click="loadPortfolioForEdit(box.id)">
                                         <Icon icon="mdi:edit-outline" class="edit_remove_icon" />
                                     </button>
-                                    <button class="edit_remove_button" @click="deletePortfolio(box.id)">
+                                    <button class="edit_remove_button" @click="deletePortfolioConfirmation(box.id)">
                                         <Icon icon="mingcute:delete-fill" class="edit_remove_icon" />
                                     </button>
                                 </td>
                             </tr>
+                            <tr v-for="sumBox in sumBoxes" :key="sumBox.id" class="added_form">
+                                <th scope="row" class="hidden-id">{{ sumBox.id }}</th>
+                                <td class="value_sum_box">
+                                    <Icon icon="tabler:sum" />Total
+                                </td>
+                                <td class="buy_sum_box">{{ sumBox.buy }}</td>
+                                <td class="sell_sum_box">{{ sumBox.sell }}</td>
+                                <td class="interestBuySell_sum_box">{{ sumBox.interestBuySell }}</td>
+                                <td class="profitLossBuySell_sum_box">{{ sumBox.profitLossBuySell }}</td>
+                                <td class="dividend_sum_box">{{ sumBox.dividend }}</td>
+                                <td class="interestDividend_sum_box">{{ sumBox.interestDividend }}</td>
+                                <td class="profitLossDividend_sum_box">{{ sumBox.profitLossDividend }}</td>
+                                <td :class="{
+                                    'sumProfitLoss_sum_box_profit': sumBox.sumProfitLoss > 0,
+                                    'sumProfitLoss_sum_box_loss': sumBox.sumProfitLoss < 0,
+                                    'sumProfitLoss_sum_box_normal': sumBox.sumProfitLoss === 0
+                                }">
+                                    {{ sumBox.sumProfitLoss }}
+                                </td>
+
+                                <td class="edit_sum_remove">
+
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
-                    <!--
-        <table>
-        <thead>
-            <tr v-for="sumBox in sumBoxes" :key="sumBox.id" class="added_form">
-                <th scope="row" class="hidden-id">{{ sumBox.id }}</th>
-                <td class="value_sum_box"></td>
-                <td class="buy_sum_box">{{ sumBox.buy }}</td>
-                <td class="sell_sum_box">{{ sumBox.sell }}</td>
-                <td class="interestBuySell_sum_box">{{ sumBox.interestBuySell }}</td>
-                <td class="profitLossBuySell_sum_box">{{ sumBox.profitLossBuySell }}</td>
-                <td class="dividend_sum_box">{{ sumBox.dividend }}</td>
-                <td class="interestDividend_sum_box">{{ sumBox.interestDividend }}</td>
-                <td class="profitLossDividend_sum_box">{{ sumBox.profitLossDividend }}</td>
-                <td class="sumProfitLoss_sum_box">{{ sumBox.sumProfitLoss }}</td>
 
-                <td class="edit_sum_remove">
 
-                </td>
-            </tr>
-        </thead>
-    </table>
-    -->
                     <div class="bot">
 
                         <button @click="showAddForm = true" v-if="!showAddForm" class="bot_box">
@@ -376,9 +392,6 @@ export default {
                 sumProfitLoss: "",
             },
             sumBox: {
-                ticker: "",
-                company: "",
-                shares: "",
                 buy: "",
                 sell: "",
                 interestBuySell: "",
@@ -401,12 +414,14 @@ export default {
                 interestDividend: "",
             },
             selectedBoxId: null,
+            showDeleteConfirmation: false,
+            deleteItemId: null,
         }
     },
 
     beforeMount() {
         this.getPortfolio()
-        /*this.getPortfolioSUM()*/
+        this.getPortfolioSUM()
     },
 
     methods: {
@@ -433,6 +448,27 @@ export default {
                 .then(res => res.json())
                 .then(data => {
                     this.boxes = data;
+                    console.log(data);
+                })
+                .catch(error => console.error('Error:', error));
+        },
+
+        getPortfolioSUM() {
+            const accessToken = localStorage.getItem('accessToken');
+            const refreshToken = localStorage.getItem('refreshToken');
+
+            if (!accessToken || !refreshToken) {
+                console.error('User not authenticated');
+                return;
+            }
+
+            const headers = new Headers();
+            headers.append('Authorization', `Bearer ${accessToken}`);
+
+            fetch('http://localhost:8080/portfolio/load/sum', { headers })
+                .then(res => res.json())
+                .then(data => {
+                    this.sumBoxes = [data];;
                     console.log(data);
                 })
                 .catch(error => console.error('Error:', error));
@@ -472,16 +508,23 @@ export default {
             }
         },
 
+        async deletePortfolio(id) {
+            try {
+                const response = await fetch(`http://localhost:8080/portfolio/delete/${id}`, {
+                    method: 'DELETE'
+                });
 
-        deletePortfolio(id) {
-            fetch(`http://localhost:8080/portfolio/delete/${id}`, {
-                method: 'DELETE'
-            })
-                .then(data => {
-                    console.log(data)
-                    this.$router.push('/portfolioENG');
-                })
+                if (response.ok) {
+                    console.log('Portfolio deleted successfully');
+                    this.$router.go(0);
+                } else {
+                    console.error('Failed to delete portfolio');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
         },
+
         cancelAdd() {
             this.clearFields();
             this.showAddForm = false;
@@ -527,15 +570,19 @@ export default {
             }
         },
 
-        /*getPortfolio() {
-            fetch('http://localhost:8080/portfolio/load/sum')
-                .then(res => res.json())
-                .then(data => {
-                    this.sumBoxes = data
-                    console.log(data)
-                })
-        },*/
+        deletePortfolioConfirmation(id) {
+            this.deleteItemId = id;
+            this.showDeleteConfirmation = true;
+        },
 
+        confirmDelete() {
+            this.deletePortfolio(this.deleteItemId);
+            this.showDeleteConfirmation = false;
+        },
+        cancelDelete() {
+            this.deleteItemId = null;
+            this.showDeleteConfirmation = false;
+        },
 
     }
 
@@ -734,7 +781,7 @@ section {
     justify-content: center;
     background: none;
     border-radius: 5px;
-
+    margin-top: 15px;
 }
 
 .bot_box {
@@ -843,7 +890,6 @@ section {
     align-items: center;
     justify-content: start;
     gap: 3px;
-    background: none;
 }
 
 .edit_remove_button {
@@ -853,7 +899,6 @@ section {
     height: 2rem;
     width: 2rem;
     cursor: pointer;
-    background: none;
     border-radius: 3px;
     border: 1px solid rgb(136, 136, 136);
     background: rgba(136, 136, 136, 0.089);
@@ -1203,19 +1248,20 @@ section {
     padding-left: 20px;
     font-size: 1rem;
     border: 1px solid #8880805e;
-    border-radius: 0 0 0 10px;
+    background: #393433;
+    border-radius: 5px 0 0 10px;
     font-weight: 400;
-    background: #e9e8e8;
+    margin-top: 20px;
+    font-family: Oswald;
+    color: #8f8f8f;
 }
 
 .edit_sum_remove {
     height: 2.5rem;
     width: 7rem;
-    display: flex;
-    align-items: center;
-    justify-content: start;
     gap: 1px;
-    background: hsl(216, 33%, 98%);
+    background: none;
+    margin-top: 20px;
 }
 
 .buy_sum_box,
@@ -1224,8 +1270,7 @@ section {
 .profitLossBuySell_sum_box,
 .dividend_sum_box,
 .interestDividend_sum_box,
-.profitLossDividend_sum_box,
-.sumProfitLoss_sum_box {
+.profitLossDividend_sum_box {
     height: 2.5rem;
     width: 6rem;
     display: flex;
@@ -1236,50 +1281,159 @@ section {
     font-weight: 400;
     font-size: 1rem;
     border: 1px solid #8880805e;
-    background: #e9e8e8;
-
+    background: #393433;
+    margin-top: 20px;
+    color: #807f7f;
+    font-family: sans-serif;
 }
 
 .profitLossBuySell_sum_box,
 .profitLossDividend_sum_box {
-    font-weight: 300;
-    font-size: 1rem;
-    border: 1px solid #8880805e;
-    border-radius: 0 0 10px 0;
+    border-radius: 0 5px 10px 0;
 }
 
-.sumProfitLoss_sum_box {
-    font-weight: 300;
-}
 
 .dividend_sum_box {
-    border: 1px solid #8880805e;
-    border-radius: 0 0 0 10px;
+    border-radius: 5px 0 0 10px;
     margin-left: 0.75rem;
 }
 
 .sumProfitLoss_sum_box {
     margin-left: 0.75rem;
     margin-right: 0.75rem;
-    background: #d6d6d6;
+    border-radius: 5px 5px 10px 10px;
+    height: 2.5rem;
+    width: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    gap: 5px;
+    font-weight: 400;
+    font-size: 1rem;
+    border: 1px solid #8880805e;
+    background: #393433;
+    margin-top: 20px;
+    color: #807f7f;
+    font-family: sans-serif;
 }
 
-.sumProfitLoss_sum_box {
-    border: 1px solid #8880805e;
-    border-radius: 0 0 10px 10px;
+.sumProfitLoss_sum_box_profit {
     margin-left: 0.75rem;
     margin-right: 0.75rem;
+    border-radius: 5px 5px 10px 10px;
+    height: 2.5rem;
+    width: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    gap: 5px;
+    font-weight: 400;
+    font-size: 1rem;
+    border: 1px solid #8880805e;
+    background: rgba(198, 239, 206, 0.082);
+    margin-top: 20px;
+    color: #6cc06c;
+    font-family: sans-serif;
 }
+
+
+.sumProfitLoss_sum_box_loss {
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    border-radius: 5px 5px 10px 10px;
+    height: 2.5rem;
+    width: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    gap: 5px;
+    font-weight: 400;
+    font-size: 1rem;
+    border: 1px solid #8880805e;
+    background: #e0454a1f;
+    margin-top: 20px;
+    color: #e0454b;
+    font-family: sans-serif;
+}
+
+
+.sumProfitLoss_sum_box_normal {
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    border-radius: 5px 5px 10px 10px;
+    height: 2.5rem;
+    width: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    gap: 5px;
+    font-weight: 400;
+    font-size: 1rem;
+    border: 1px solid #8880805e;
+    background: #393433;
+    margin-top: 20px;
+    color: #c9c9c9;
+    font-family: sans-serif;
+}
+
+
+
+/** DELETE CONFIRMATION */
+
+.confirmation {
+    width: 20rem;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #434343;
+    background: radial-gradient(at center, #3d3b3b, #383436);
+    border: 1px solid #8880805e;
+    border-radius: 15px;
+    gap: 10px;
+    font-size: 0.9rem;
+    font-family: sans-serif;
+    font-weight: 700;
+    color: #977e38;
+}
+
+.delete_confirmation_buttons {
+
+    width: 10rem;
+    height: 2rem;
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.delete_confirmation_button {
+    border: 1px solid;
+    width: 5rem;
+    height: 2rem;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 10px;
+    background: none;
+    border-radius: 3px;
+    border: 1px solid rgb(136, 136, 136);
+    background: rgba(136, 136, 136, 0.089);
+    font-size: 0.9rem;
+    color: rgb(136, 136, 136);
+    font-weight: 600;
+}
+
+.delete_confirmation_button:hover {
+    background: #977e38;
+    color: black;
+}
+
+
 </style>
 
-
-
-<!-- 
-
-                    <div class="header">
-                        <Icon icon="raphael:piechart" class="header_icon" />
-                        <h1>STOCK</h1>
-                        <h3>Portfolio</h3>
-                    </div>
-
--->

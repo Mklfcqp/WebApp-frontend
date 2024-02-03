@@ -211,6 +211,16 @@
                     </div>
 
 
+                    <div class="overlay" v-if="showDeleteConfirmation">
+                        <div v-if="showDeleteConfirmation" class="confirmation">
+                            <p>Are you sure you want to delete this item?</p>
+                            <div class="delete_confirmation_buttons">
+                                <button class="delete_confirmation_button" @click="confirmDelete">Confirm</button>
+                                <button class="delete_confirmation_button" @click="cancelDelete">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+
 
                     <table>
                         <thead>
@@ -285,7 +295,7 @@
                                     <button class="edit_remove_button" @click="loadWatchlistForEdit(box.id)">
                                         <Icon icon="mdi:edit-outline" class="edit_remove_icon" />
                                     </button>
-                                    <button class="edit_remove_button" @click="deleteWatchlist(box.id)">
+                                    <button class="edit_remove_button" @click="deleteWatchlistConfirmation(box.id)">
                                         <Icon icon="mingcute:delete-fill" class="edit_remove_icon" />
                                     </button>
                                 </td>
@@ -383,6 +393,8 @@ export default {
                 currencyDividendY: "",
             },
             selectedBoxId: null,
+            showDeleteConfirmation: false,
+            deleteItemId: null,
         }
     },
 
@@ -462,16 +474,24 @@ export default {
             }
         },
 
+        async deleteWatchlist(id) {
+            try {
+                const response = await fetch(`http://localhost:8080/watchlist/delete/${id}`, {
+                    method: 'DELETE'
+                });
 
-        deleteWatchlist(id) {
-            fetch(`http://localhost:8080/watchlist/delete/${id}`, {
-                method: 'DELETE'
-            })
-                .then(data => {
-                    console.log(data)
-                    this.getWatchlists()
-                })
+                if (response.ok) {
+                    console.log('Watchlist deleted successfully');
+                    this.$router.go(0);
+                } else {
+                    console.error('Failed to delete watchlist');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
         },
+
+
         cancelAdd() {
             this.clearFields();
             this.showAddForm = false;
@@ -521,6 +541,21 @@ export default {
             } catch (error) {
                 console.error("An error occurred:", error);
             }
+        },
+
+
+        deleteWatchlistConfirmation(id) {
+            this.deleteItemId = id;
+            this.showDeleteConfirmation = true;
+        },
+
+        confirmDelete() {
+            this.deleteWatchlist(this.deleteItemId);
+            this.showDeleteConfirmation = false;
+        },
+        cancelDelete() {
+            this.deleteItemId = null;
+            this.showDeleteConfirmation = false;
         },
     }
 
@@ -1058,4 +1093,59 @@ section {
 .hidden-id {
     display: none;
 }
+
+
+
+/** DELETE CONFIRMATION */
+
+.confirmation {
+    width: 20rem;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #434343;
+    background: radial-gradient(at center, #3d3b3b, #383436);
+    border: 1px solid #8880805e;
+    border-radius: 15px;
+    gap: 10px;
+    font-size: 0.9rem;
+    font-family: sans-serif;
+    font-weight: 700;
+    color: #977e38;
+}
+
+.delete_confirmation_buttons {
+
+    width: 10rem;
+    height: 2rem;
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.delete_confirmation_button {
+    border: 1px solid;
+    width: 5rem;
+    height: 2rem;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 10px;
+    background: none;
+    border-radius: 3px;
+    border: 1px solid rgb(136, 136, 136);
+    background: rgba(136, 136, 136, 0.089);
+    font-size: 0.9rem;
+    color: rgb(136, 136, 136);
+    font-weight: 600;
+}
+
+.delete_confirmation_button:hover {
+    background: #977e38;
+    color: black;
+}
+
 </style>
