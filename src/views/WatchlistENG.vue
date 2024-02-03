@@ -10,6 +10,93 @@
                     <div class="header">WATCHLIST</div>
 
 
+
+
+
+                    <div class="navigation">
+
+
+                        <div class="mcd-menu">
+                            <ul class="profile">
+
+
+                                <li>
+                                    <a href="">
+                                        <i class="fa fa-comments-o"></i>
+                                        <strong>
+                                            <Icon icon="iconamoon:profile-duotone" /> Profile
+                                        </strong>
+                                    </a>
+                                    
+                                    <ul>
+
+                                        <li>
+                                            <a href="#"><i class="fa fa-group"></i>Setting</a>
+                                            <ul>
+                                                <li><a href="#"><i class="fa fa-female"></i>Picture</a></li>
+                                                <li>
+                                                    <a href="#"><i class="fa fa-male"></i>Email</a>
+
+                                                </li>
+                                                <li><a href="#"><i class="fa fa-female"></i>Password</a></li>
+                                                <li><a href="#"><i class="fa fa-female"></i>Delete account</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-trophy"></i>Logout</a></li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="buttons">
+                                <ul class="mcd-menu">
+                                    <li>
+                                        <a href="">
+                                            <i class="fa fa-picture-o"></i>
+                                            <strong>Menu</strong>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            <i class="fa fa-envelope-o"></i>
+                                            <strong>CV</strong>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="">
+                                            <i class="fa fa-comments-o"></i>
+                                            <strong>STOCK</strong>
+                                        </a>
+                                        <ul>
+
+                                            <li>
+                                                <a href="#"><i class="fa fa-group"></i>Watchlist</a>
+
+                                            </li>
+                                            <li><a href="#"><i class="fa fa-trophy"></i>Portfolio</a></li>
+
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="language_box">
+                                <div id="btn"></div>
+                                <button type="button" class="toggle-btn" @click="leftClick">ENG</button>
+                                <button type="button" class="toggle-btn" @click="rightClick">CZ</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+
+
+
+
+
                     <div class="overlay" v-if="showAddForm">
                         <form v-if="showAddForm" class="add_form">
 
@@ -1058,7 +1145,7 @@ section {
     font-size: 0.7rem;
     left: 0.8rem;
     font-weight: 400;
-    
+
 }
 
 .add_form_buttons {
@@ -1066,7 +1153,7 @@ section {
     justify-content: center;
     margin-top: 10px;
     gap: 20px;
-    
+
 }
 
 .add_form_button {
@@ -1149,4 +1236,261 @@ section {
     color: black;
 }
 
-</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.navigation {
+    position: fixed;
+    top: 50;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 3rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+    mask-image: linear-gradient(90deg, rgb(255, 255, 255) 0%, #ffffff 25%, #ffffff 75%, rgb(255, 255, 255) 100%);
+    border-bottom: 1px solid rgba(177, 177, 177, 0.4);
+
+}
+
+
+/** ok */
+ul {
+    list-style-type: none;
+}
+
+.mcd-menu {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: #FFF;
+    border-radius: 2px;
+}
+
+.mcd-menu li {
+    position: relative;
+    /** kdyz smazu, tak u stock se mi rozevre list vlevo */
+    height: 3rem;
+    width: 10rem;
+    border: 1px solid green;
+}
+
+.mcd-menu li a {
+    display: block;
+    text-decoration: none;
+    color: #777;
+    text-align: center;
+    position: relative;
+}
+
+
+
+.mcd-menu li a p {
+    float: left;
+    margin: 0;
+}
+
+
+
+/** ok */
+.mcd-menu li a strong {
+    display: block;
+    text-transform: uppercase;
+    cursor: pointer;
+    height: 2rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    font-family: Oswald;
+    letter-spacing: 0.2px;
+    border: none;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 10px;
+    gap: 10px;
+    margin: 1px;
+    border-radius: 5px;
+}
+
+/** ok */
+.mcd-menu li a strong:hover {
+    height: 3rem;
+    width: 10rem;
+    color: #dba613;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
+/** ok */
+.mcd-menu li:hover>a {
+    height: 3rem;
+    width: 10rem;
+    color: #dba613;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.1);
+
+}
+
+
+
+.mcd-menu li ul {
+    position: absolute;
+    height: auto;
+    min-width: 200px;
+    padding: 0;
+    margin: 0;
+    background: #FFF;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -webkit-transition: all 300ms linear;
+
+    z-index: 1000;
+
+    left: 280px;
+    top: 0px;
+    border-left: 4px solid #e67e22;
+
+}
+
+.mcd-menu li ul li ul {
+    position: absolute;
+    height: auto;
+    min-width: 200px;
+    padding: 0;
+    margin: 0;
+    background: #FFF;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -webkit-transition: all 300ms linear;
+    z-index: 1000;
+    left: 280px;
+    top: 0px;
+    border-left: 4px solid #e67e22;
+
+}
+
+
+
+.mcd-menu li:hover>ul {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    left: 200px;
+}
+
+.mcd-menu li ul li:hover>ul {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    left: 200px;
+}
+
+
+
+
+
+.buttons {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.button {
+    background: none;
+    cursor: pointer;
+    color: #cfcfcf;
+    border: none;
+    border-radius: 5px;
+    height: 3rem;
+    width: 10rem;
+    font-size: 1.1rem;
+    font-family: Oswald;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.button:hover {
+    height: 3rem;
+    width: 10rem;
+    color: #dba613;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.1);
+
+}
+
+
+
+.language_box {
+
+    position: relative;
+    border-radius: 10px;
+    background: #afafaf;
+}
+
+.toggle-btn {
+    padding: 5px 20px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+    text-align: center;
+}
+
+#btn {
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 4rem;
+    height: 100%;
+    background: #dba613a1;
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: .5s;
+}</style>
