@@ -1,82 +1,93 @@
 <template>
-  <main>
-    <div class="navigation">
+  <div class="navigation_backgroud"></div>
+  <div class="navigation">
 
-      <div class="img" @click="toggleMenu">
-        <Icon icon="iconamoon:profile-duotone" />
-      </div>
-
-      <div class="buttons">
-        <button class="button" @click="redirectToMenu">
-       
-          MENU
-        </button>
-        <button class="button" @click="redirectToCV">
-
-          CV
-        </button>
-        <button class="button" @click="toggleStockMenu">
-
-          STOCK
-        </button>
-      </div>
-
-
-      <div class="language_box">
-        <div id="btn"></div>
-        <button type="button" class="toggle-btn" @click="leftClick">ENG</button>
-        <button type="button" class="toggle-btn" @click="rightClick">CZ</button>
-      </div>
-
-
+    <div class="profile_bar">
+      <ul>
+        <li class="active">
+          <a href="#">
+            <Icon icon="iconamoon:profile-duotone" class="menuIcon"/>
+            Profile
+          </a>
+          <div class="sub_menu_1">
+            <ul>
+              <li class="hover_me">
+                <a href="#">
+                  <Icon icon="lets-icons:setting-line-light" class="menuIcon"/>
+                  Setting
+                </a>
+                <div class="sub_menu_2">
+                  <ul>
+                    <li>
+                      <a href="#">
+                        <Icon icon="basil:picture-outline" class="menuIcon" />
+                        Picture
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <Icon icon="carbon:email" class="menuIcon"/>
+                        Email
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <Icon icon="mdi:password-outline" class="menuIcon"/>
+                        Password
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <Icon icon="lucide:delete" class="menuIcon"/>
+                        Delete account
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#" @click="logout">
+                  <Icon icon="mdi-light:logout" class="menuIcon"/>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
     </div>
+    <div class="menu_bar">
+      <ul>
 
-    <div class="profile_menu" v-show="isMenuVisible">
-      <button class="menuItem1" @click="toggleSubMenu">
-        <Icon icon="lets-icons:setting-line-light" class="menuIcon"/>
-        Setting
-      </button>
-
-      <div class="submenu" v-show="isSubMenuVisible">
-        <button class="submenuItem1">
-          <Icon icon="basil:picture-outline" class="menuIcon"/>
-          Picture
-        </button>
-        <button class="submenuItem2">
-          <Icon icon="carbon:email" class="menuIcon"/>
-          Email
-        </button>
-        <button class="submenuItem3">
-          <Icon icon="mdi:password-outline" class="menuIcon"/>
-          Password
-        </button>
-        <button class="submenuItem4">
-          <Icon icon="lucide:delete" class="menuIcon"/>
-          Delete account
-        </button>
-      </div>
-
-      <button class="menuItem2" @click="logout">
-        <Icon icon="mdi-light:logout" class="menuIcon"/>
-        Logout
-      </button>
+        <li class="active_menu"><a href="#" @click="redirectToMenu">MENU</a></li>
+        <li class="active_cv"><a href="#" @click="redirectToCV">CV</a></li>
+        <li class="active_stock"><a href="#">STOCK</a>
+          <div class="sub_menu_1">
+            <ul>
+              <li>
+                <a href="#" @click="redirectToWatchlist">
+                  <Icon icon="streamline:graph-dot-solid" class="menuIcon"/>
+                  Watchlist
+                </a>
+              </li>
+              <li>
+                <a href="#" @click="redirectToPortfolio">
+                  <Icon icon="raphael:piechart" class="menuIcon"/>
+                  Portfolio
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
     </div>
-
-    <div class="stock_menu" v-show="isStockMenuVisible">
-      <button class="stockMenuItem1" @click="redirectToWatchlist">
-        <Icon icon="streamline:graph-dot-solid" class="menuIcon"/>
-        Watchlist
-      </button>
-
-      <button class="stockMenuItem2" @click="redirectToPortfolio">
-        <Icon icon="raphael:piechart" class="menuIcon"/>
-        Portfolio
-      </button>
+    <div class="language_box">
+      <div id="btn"></div>
+      <button type="button" class="toggle-btn" @click="leftClick">ENG</button>
+      <button type="button" class="toggle-btn" @click="rightClick">CZ</button>
     </div>
+  </div>
 
-    
-
-  </main>
 </template>
 
 <script>
@@ -122,7 +133,7 @@ export default {
       btn.style.left = '50px'
     },
 
-    
+
 
 
 
@@ -158,93 +169,51 @@ export default {
 
 
 <style scoped>
-
-
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: Oswald, 'Courier New', Courier;
   color: #000000;
-}
+} 
 
 /** NAVIGATION */
 
 .navigation {
+  height: 3rem;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  z-index: 1000;
+  z-index: 100;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navigation_backgroud {
+  position: fixed;
+  top: 0;
+  left: 0;
   height: 3rem;
   width: 100%;
-  display: flex;
-  align-items: center;
-  padding: 20px;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
   mask-image: linear-gradient(90deg, rgb(255, 255, 255) 0%, #ffffff 25%, #ffffff 75%, rgb(255, 255, 255) 100%);
   border-bottom: 1px solid rgba(177, 177, 177, 0.4);
-
 }
 
-.img {
-  width: 1.75rem;
-  height: 1.75rem;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid black;
-  background: #d1d1d1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 40px;
-
-}
-
-.img:hover {
-  cursor: pointer;
-  background: #dba613a1;
-}
-
-
-
-
-/** STOCK MENU */
-
-.stock_menu {
-  display: flex;
-  flex-direction: column;
-  z-index: 1000;
-  position: absolute;
-  top: 3rem;
-  left: 65rem;
+.profile_bar {
+  height: 3rem;
   width: 10rem;
-  height: 4rem;
-  border-radius: 5px;
-  background: #2a272749;
+  background: none;
+  margin-left: 1.5rem;
 }
 
-
-.stockMenuItem1,
-.stockMenuItem2 {
-  cursor: pointer;
-  height: 2rem;
-  font-size: 0.9rem;
-  font-weight: 400;
-  font-family: Oswald;
-  letter-spacing: 0.2px;
-  border: none;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  padding-left: 10px;
-  gap: 10px;
-  margin: 1px;
-  border-radius: 5px;
+.menu_bar {
+  width: 30rem;
+  height: 3rem;
   background: none;
-  color: #cfcfcf;
-
 }
 
 .menuIcon {
@@ -252,175 +221,123 @@ export default {
 }
 
 
-.stockMenuItem1:hover,
-.stockMenuItem2:hover {
-  background: #dba613a1;
-}
-
-
-
-
-/** CV STOCK BUTTONS */
-
-.buttons {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-.button {
-  background: none;
-  cursor: pointer;
+.menu_bar ul,
+.profile_bar ul {
+  display: inline-flex;
+  list-style: none;
   color: #cfcfcf;
-  border: none;
-  border-radius: 5px;
-  height: 3rem;
+
+}
+
+.menu_bar ul li,
+.profile_bar ul li {
   width: 10rem;
-  font-size: 1.1rem;
-  font-family: Oswald;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
-.button:hover {
+.menu_bar ul li a,
+.profile_bar ul li a {
+  text-decoration: none;
+  color: #cfcfcf;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.active:hover,
+.active_menu a:hover,
+.active_cv a:hover,
+.active_stock a:hover {
+  color: #dba613;
+}
+
+.menu_bar ul li:hover,
+.profile_bar ul li:hover {
   height: 3rem;
   width: 10rem;
   color: #dba613;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
   background: rgba(255, 255, 255, 0.1);
-
 }
+
+.sub_menu_1 {
+  display: none;
+}
+
+.menu_bar ul li:hover .sub_menu_1,
+.profile_bar ul li:hover .sub_menu_1 {
+  display: block;
+  position: absolute;
+  background: #2a272749;
+  margin-top: 112px;
+  font-size: 0.9rem;
+}
+
+.menu_bar ul li:hover .sub_menu_1 ul,
+.profile_bar ul li:hover .sub_menu_1 ul {
+  display: block;
+}
+
+.menu_bar ul li:hover .sub_menu_1 ul li,
+.profile_bar ul li:hover .sub_menu_1 ul li {
+  height: 2rem;
+  width: 10rem;
+  background: rgba(255, 255, 255, 0.1);
+  text-align: left;
+}
+
+
+
+.menu_bar ul li:hover .sub_menu_1 ul li a:hover,
+.profile_bar ul li:hover .sub_menu_1 ul li a:hover {
+  color: #dba613;
+}
+
+.sub_menu_2 {
+  display: none;
+}
+
+.hover_me:hover .sub_menu_2 {
+  position: absolute;
+  display: block;
+  margin-top: 96px;
+  margin-left: 319px;
+  background: #2a272749;
+  font-size: 0.9rem;
+}
+
 
 
 /** LANGUAGE BUTTONS */
 
 .language_box {
-
-  position: relative;
-  border-radius: 10px;
-  background: #afafaf;
+position: relative;
+border-radius: 10px;
+background: #afafaf;
 }
 
 .toggle-btn {
-  padding: 5px 20px;
-  cursor: pointer;
-  background: transparent;
-  border: 0;
-  outline: none;
-  position: relative;
-  text-align: center;
+padding: 5px 20px;
+cursor: pointer;
+background: transparent;
+border: 0;
+outline: none;
+position: relative;
+text-align: center;
 }
 
 #btn {
-  left: 0;
-  top: 0;
-  position: absolute;
-  width: 4rem;
-  height: 100%;
-  background: #dba613a1;
-  border: 1px solid black;
-  border-radius: 10px;
-  transition: .5s;
-}
-
-
-/** UNDER NAVIGATION */
-
-
-
-
-/** PROFILE MENU */
-
-.profile_menu {
-  display: flex;
-  flex-direction: column;
-  z-index: 1000;
-  position: absolute;
-  top: 3.2rem;
-  left: 15px;
-  width: 6rem;
-  border: 1px solid black;
-  border-radius: 5px;
-  background: #2a272749;
-}
-
-
-.menuItem1,
-.menuItem2 {
-  cursor: pointer;
-  height: 2rem;
-  font-size: 0.9rem;
-  font-weight: 400;
-  font-family: Oswald;
-  letter-spacing: 0.2px;
-  border: none;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  padding-left: 10px;
-  gap: 10px;
-  margin: 1px;
-  border-radius: 5px;
-  background: none;
-  color: #cfcfcf;
-}
-
-
-.menuItem1:hover,
-.menuItem2:hover {
-  background: #dba613a1;
-}
-
-/** SUBMENU */
-
-.submenu {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 0;
-  left: 6rem;
-  border-radius: 5px;
-  background: #2a272749;
-  z-index: 1000;
-  width: 8rem;
-  border-radius: 5px;
-}
-
-
-.submenuItem1,
-.submenuItem2,
-.submenuItem3,
-.submenuItem4 {
-  cursor: pointer;
-  height: 2rem;
-  font-size: 0.9rem;
-  font-weight: 400;
-  font-family: Oswald;
-  letter-spacing: 0.2px;
-  border: none;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  padding-left: 10px;
-  gap: 10px;
-  margin: 1px;
-  border-radius: 5px;
-  background: none;
-  color: #cfcfcf;
-}
-
-
-
-
-.submenuItem1:hover,
-.submenuItem2:hover,
-.submenuItem3:hover,
-.submenuItem4:hover {
-  background: #dba613a1;
-  color: #000000;
+left: 0;
+top: 0;
+position: absolute;
+width: 4rem;
+height: 100%;
+background: #dba613a1;
+border: 1px solid black;
+border-radius: 10px;
+transition: .5s;
 }
 
 

@@ -62,7 +62,7 @@
                                     <div class="row_box">
                                         <Icon icon="carbon:partition-collection" class="row_box_icon" />
                                     </div>
-                                    <p>STREAM</p>
+                                    <p>STREAM API</p>
                                 </div>
                             </div>
                             <div class="row">
