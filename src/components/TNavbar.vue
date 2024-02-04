@@ -33,43 +33,43 @@
 
     <div class="profile_menu" v-show="isMenuVisible">
       <button class="menuItem1" @click="toggleSubMenu">
-        <Icon icon="lets-icons:setting-line-light" />
+        <Icon icon="lets-icons:setting-line-light" class="menuIcon"/>
         Setting
       </button>
 
       <div class="submenu" v-show="isSubMenuVisible">
         <button class="submenuItem1">
-          <Icon icon="basil:picture-outline" />
+          <Icon icon="basil:picture-outline" class="menuIcon"/>
           Picture
         </button>
         <button class="submenuItem2">
-          <Icon icon="carbon:email" />
+          <Icon icon="carbon:email" class="menuIcon"/>
           Email
         </button>
         <button class="submenuItem3">
-          <Icon icon="mdi:password-outline" />
+          <Icon icon="mdi:password-outline" class="menuIcon"/>
           Password
         </button>
         <button class="submenuItem4">
-          <Icon icon="lucide:delete" />
+          <Icon icon="lucide:delete" class="menuIcon"/>
           Delete account
         </button>
       </div>
 
       <button class="menuItem2" @click="logout">
-        <Icon icon="mdi-light:logout" />
+        <Icon icon="mdi-light:logout" class="menuIcon"/>
         Logout
       </button>
     </div>
 
     <div class="stock_menu" v-show="isStockMenuVisible">
       <button class="stockMenuItem1" @click="redirectToWatchlist">
-        <Icon icon="fxemoji:stockchart" />
+        <Icon icon="streamline:graph-dot-solid" class="menuIcon"/>
         Watchlist
       </button>
 
       <button class="stockMenuItem2" @click="redirectToPortfolio">
-        <Icon icon="raphael:piechart" />
+        <Icon icon="raphael:piechart" class="menuIcon"/>
         Portfolio
       </button>
     </div>
@@ -98,7 +98,6 @@ export default {
   methods: {
     toggleMenu() {
       this.isMenuVisible = !this.isMenuVisible;
-
 
     },
 
@@ -218,12 +217,12 @@ export default {
   flex-direction: column;
   z-index: 1000;
   position: absolute;
-  top: 3.2rem;
-  left: 67rem;
-  width: 6rem;
-  border: 1px solid black;
+  top: 3rem;
+  left: 65rem;
+  width: 10rem;
+  height: 4rem;
   border-radius: 5px;
-  background: white;
+  background: #2a272749;
 }
 
 
@@ -243,14 +242,19 @@ export default {
   gap: 10px;
   margin: 1px;
   border-radius: 5px;
-  
+  background: none;
+  color: #cfcfcf;
+
+}
+
+.menuIcon {
+  color: #cfcfcf;
 }
 
 
 .stockMenuItem1:hover,
 .stockMenuItem2:hover {
   background: #dba613a1;
-  color: #000000;
 }
 
 
@@ -340,7 +344,7 @@ export default {
   width: 6rem;
   border: 1px solid black;
   border-radius: 5px;
-  background: white;
+  background: #2a272749;
 }
 
 
@@ -360,13 +364,14 @@ export default {
   gap: 10px;
   margin: 1px;
   border-radius: 5px;
+  background: none;
+  color: #cfcfcf;
 }
 
 
 .menuItem1:hover,
 .menuItem2:hover {
   background: #dba613a1;
-  color: #000000;
 }
 
 /** SUBMENU */
@@ -377,12 +382,10 @@ export default {
   position: absolute;
   top: 0;
   left: 6rem;
-  border: 1px solid black;
   border-radius: 5px;
-  background: #fff;
+  background: #2a272749;
   z-index: 1000;
   width: 8rem;
-  border: 1px solid black;
   border-radius: 5px;
 }
 
@@ -405,6 +408,8 @@ export default {
   gap: 10px;
   margin: 1px;
   border-radius: 5px;
+  background: none;
+  color: #cfcfcf;
 }
 
 

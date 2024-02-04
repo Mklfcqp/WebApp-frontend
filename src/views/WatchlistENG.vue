@@ -9,94 +9,6 @@
 
                     <div class="header">WATCHLIST</div>
 
-
-
-
-
-                    <div class="navigation">
-
-
-                        <div class="mcd-menu">
-                            <ul class="profile">
-
-
-                                <li>
-                                    <a href="">
-                                        <i class="fa fa-comments-o"></i>
-                                        <strong>
-                                            <Icon icon="iconamoon:profile-duotone" /> Profile
-                                        </strong>
-                                    </a>
-                                    
-                                    <ul>
-
-                                        <li>
-                                            <a href="#"><i class="fa fa-group"></i>Setting</a>
-                                            <ul>
-                                                <li><a href="#"><i class="fa fa-female"></i>Picture</a></li>
-                                                <li>
-                                                    <a href="#"><i class="fa fa-male"></i>Email</a>
-
-                                                </li>
-                                                <li><a href="#"><i class="fa fa-female"></i>Password</a></li>
-                                                <li><a href="#"><i class="fa fa-female"></i>Delete account</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#"><i class="fa fa-trophy"></i>Logout</a></li>
-
-                                    </ul>
-                                </li>
-                            </ul>
-                            <div class="buttons">
-                                <ul class="mcd-menu">
-                                    <li>
-                                        <a href="">
-                                            <i class="fa fa-picture-o"></i>
-                                            <strong>Menu</strong>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="">
-                                            <i class="fa fa-envelope-o"></i>
-                                            <strong>CV</strong>
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="">
-                                            <i class="fa fa-comments-o"></i>
-                                            <strong>STOCK</strong>
-                                        </a>
-                                        <ul>
-
-                                            <li>
-                                                <a href="#"><i class="fa fa-group"></i>Watchlist</a>
-
-                                            </li>
-                                            <li><a href="#"><i class="fa fa-trophy"></i>Portfolio</a></li>
-
-                                        </ul>
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <div class="language_box">
-                                <div id="btn"></div>
-                                <button type="button" class="toggle-btn" @click="leftClick">ENG</button>
-                                <button type="button" class="toggle-btn" @click="rightClick">CZ</button>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-
-
-
-
-
-
-
                     <div class="overlay" v-if="showAddForm">
                         <form v-if="showAddForm" class="add_form">
 
@@ -644,6 +556,8 @@ export default {
             this.deleteItemId = null;
             this.showDeleteConfirmation = false;
         },
+
+
     }
 
 }
@@ -1271,17 +1185,33 @@ section {
     top: 50;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 900;
     height: 3rem;
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 20px;
     background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
     mask-image: linear-gradient(90deg, rgb(255, 255, 255) 0%, #ffffff 25%, #ffffff 75%, rgb(255, 255, 255) 100%);
     border-bottom: 1px solid rgba(177, 177, 177, 0.4);
 
+}
+
+.profile {
+    height: 3rem;
+    width: 20rem;
+}
+
+.buttons {
+    height: 3rem;
+    width: 20rem;
+}
+
+.language_box {
+    height: 3rem;
+    width: 20rem;
 }
 
 
@@ -1318,10 +1248,10 @@ ul {
 
 
 
-.mcd-menu li a p {
+/* .mcd-menu li a p {
     float: left;
     margin: 0;
-}
+} */
 
 
 
@@ -1329,13 +1259,10 @@ ul {
 .mcd-menu li a strong {
     display: block;
     text-transform: uppercase;
-    cursor: pointer;
-    height: 2rem;
-    font-size: 0.9rem;
+    height: 3rem;
     font-weight: 400;
     font-family: Oswald;
     letter-spacing: 0.2px;
-    border: none;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -1370,7 +1297,6 @@ ul {
 .mcd-menu li ul {
     position: absolute;
     height: auto;
-    min-width: 200px;
     padding: 0;
     margin: 0;
     background: #FFF;
@@ -1381,16 +1307,14 @@ ul {
     -ms-transition: all 300ms linear;
     -moz-transition: all 300ms linear;
     -webkit-transition: all 300ms linear;
-
     z-index: 1000;
-
-    left: 280px;
-    top: 0px;
+    left: 0; /* Změna z 200px na 0 */
+    top: 3rem; /* Změna z 10px na 3rem (mohlo by být potřeba přizpůsobit hodnotu) */
     border-left: 4px solid #e67e22;
 
 }
 
-.mcd-menu li ul li ul {
+/* .mcd-menu li ul li ul {
     position: absolute;
     height: auto;
     min-width: 200px;
@@ -1409,7 +1333,7 @@ ul {
     top: 0px;
     border-left: 4px solid #e67e22;
 
-}
+} */
 
 
 
@@ -1417,16 +1341,16 @@ ul {
     display: block;
     opacity: 1;
     visibility: visible;
-    left: 200px;
+    bottom: 200px;
 }
 
-.mcd-menu li ul li:hover>ul {
+/* .mcd-menu li ul li:hover>ul {
     display: block;
     opacity: 1;
     visibility: visible;
     left: 200px;
 }
-
+ */
 
 
 
@@ -1493,4 +1417,5 @@ ul {
     border: 1px solid black;
     border-radius: 10px;
     transition: .5s;
-}</style>
+}
+</style>
