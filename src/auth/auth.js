@@ -7,6 +7,6 @@ export default {
       this.user = user;
     },
     logout() {
-      this.user = null;
+      this.user = user;
     },
   };
