@@ -192,24 +192,37 @@
 
                     </swiper-slide>
 
-
                     <swiper-slide class="card3">
 
-                        <div class="title_card">Education</div>
-                        <p>Software Development Academy</p>
-                        <p>Java from Scratch (327 hours) 04 2023 - 02 2024</p>
+                        <div class="title_card">Education / Work Experiences</div>
+                        <div class="mainbox_edu">
+
+                            <div class="outside_box1_edu">
+                                <p>
+                                    Since 1.10. 2020 I have been working as and
+                                    <span class="fjala_edu">EDI specialist</span>
+                                    at the company
+                                    <span class="company">Impromat Engineering</span>, providing
+                                    EDI services for
+                                    <span class="company">ŠKODA Auto</span>.
+
+                                </p>
+                                <span class="info_outside_box1_edu">If you would like to know more information feel free to contact me.</span>
+                            </div>
+                            <div class="outside_box2_edu">
+                                <p><span class="fjala_edu">Software Development Academy</span> 
+                                    <br>
+                                    <br>Java from Scratch (327 hours) 
+                                    <br>
+                                    <br>1.4. 2023 - 17.2. 2024</p>
+                            </div>
+
+                        </div>
+
                     </swiper-slide>
 
 
                     <swiper-slide class="card4">
-                        <div class="title_card">Work Experiences</div>
-                        <p>Since xx I have been working as and EDI specialist at the company Impromat Engineering, providing
-                            EDI services for ŠKODA auto.</p>
-                        <p>If you would like know more information, feel free to request it.</p>
-                    </swiper-slide>
-
-
-                    <swiper-slide class="card5">
                         <div class="title_card">Languages</div>
 
 
@@ -239,7 +252,9 @@
                     </swiper-slide>
 
 
-                    <swiper-slide class="card6">
+                    <swiper-slide class="card5">
+
+                        
                         <div class="title_card">Contacts</div>
 
 
@@ -573,7 +588,7 @@ section {
 
 
 .card1 {
-    background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    background-image: linear-gradient(to right, #dbbe95 0%, #d19784 100%);
     color: #3C3C3C;
 }
 
@@ -581,21 +596,14 @@ section {
     background: #2e2e2eef;
 }
 
-
 .card3 {
-    background-image: linear-gradient(to right, #4d88b2 0%, #99d6ff 100%);
-    display: flex;
-    flex-direction: column;
-}
-
-.card4 {
     background: linear-gradient(to bottom, #202020, #111119);
     display: flex;
     flex-direction: column;
 }
 
-.card6 {
-    background-color: #3C3C3C
+.card5 {
+    background: linear-gradient(to bottom, #202020, #111119);
 }
 
 
@@ -650,11 +658,12 @@ section {
 .box_without_icon {
     font-size: 0.6rem;
     font-weight: 800;
+    color: #385F71;
 }
 
 
 .row_box_icon {
-    color: #3C3C3C;
+    color: #385F71;
     font-size: 2rem;
 }
 
@@ -682,14 +691,14 @@ section {
 }
 
 .row_box_inside:hover p {
-    color: black;
+    color: #385F71;
     display: block;
     font-weight: 900;
     font-size: 0.8rem;
 }
 
 .row_box:hover p {
-    color: black;
+    color: #385F71;
     display: block;
     font-size: 1rem;
     font-weight: 800;
@@ -700,7 +709,7 @@ section {
 }
 
 .row_box_inside.active p {
-    color: black;
+    color: #385F71;
     display: block;
     font-weight: 900;
     font-size: 0.8rem;
@@ -780,16 +789,69 @@ section {
 
 
 /** EDUCATION */
-
-
-
-
 /** WORK EXPERIENCES */
+
+
+.mainbox_edu {
+    width: 33rem;
+    height: 27rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.outside_box1_edu {
+    width: 33rem;
+    height: 13rem;
+    background: #B6C8A9;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.info_outside_box1_edu {
+    font-size: 0.8rem;
+    color: #4b3a39;
+}
+
+
+.outside_box2_edu {
+    width: 33rem;
+    height: 13rem;
+    background: #695958;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+
+.outside_box1_edu {
+    font-family: 'Nunito', 'Fjalla One', sans-serif;
+    color: #000000;
+    font-size: 1.3rem;
+}
+
+.inside_box1_edu p,
+.inside_box2_edu p {
+    font-family: 'Nunito', 'Fjalla One', sans-serif;
+    color: #cccccc;
+    font-size: 1.3rem;
+}
+
+.fjala_edu {
+    font-family: 'Fjalla One', 'Nunito', sans-serif;
+    color: #50A7C2;
+    font-size: 2rem;
+}
+
+.company {
+    font-size: 1.5rem;
+    font-family: 'Fjalla One', 'Nunito', sans-serif;
+}
 
 
 
 /** LANGUAGES */
-.card5 {
+.card4 {
     height: 100%;
     overflow: hidden;
     display: -webkit-box;
@@ -1027,8 +1089,8 @@ section {
 .phone,
 .city,
 .github {
-    height: 5rem;
-    width: 28rem;
+    height: 3rem;
+    width: 18rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1037,7 +1099,7 @@ section {
     transition: all 0.5s;
     position: relative;
     font-size: 2rem;
-    color: #5D9FFF;
+    color: #3f74c4;
     border-radius: 10px;
 }
 
@@ -1065,10 +1127,9 @@ section {
 .phone:hover,
 .city:hover,
 .github:hover {
-    border: 1px solid white;
     border-radius: 10px;
     color: white;
-    background: #5d9eff83;
+    background: #3f74c4;
 }
 
 .email p,
@@ -1091,5 +1152,4 @@ section {
     font-weight: 800;
     color: white;
 }
-
 </style>

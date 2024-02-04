@@ -645,15 +645,15 @@ section {
 }
 
 .header {
-    height: 7rem;
+    height: 5rem;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Six Caps', 'Noto Serif', sans-serif;
-    color: #977e38;
-    font-size: 3rem;
-    letter-spacing: 10px;
+    font-family: 'Oswald', 'Noto Serif', sans-serif;
+    color: #9e8a53;
+    font-size: 2rem;
+    letter-spacing: 3px;
 }
 
 .portfolio_table {

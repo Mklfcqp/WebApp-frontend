@@ -568,6 +568,7 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Six+Caps&display=swap');
 
+
 *,
 *::before,
 *::after {
@@ -618,15 +619,15 @@ section {
 }
 
 .header {
-    height: 7rem;
+    height: 5rem;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Six Caps', 'Noto Serif', sans-serif;
-    color: #977e38;
-    font-size: 3rem;
-    letter-spacing: 10px;
+    font-family: 'Oswald', 'Noto Serif', sans-serif;
+    color: #9e8a53;
+    font-size: 2rem;
+    letter-spacing: 3px;
 }
 
 .watchlist_table {
