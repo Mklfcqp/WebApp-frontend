@@ -4,16 +4,16 @@
 
     <div class="profile_bar">
       <ul>
-        <li class="active">
-          <a href="#">
-            <Icon icon="iconamoon:profile-duotone" class="menuIcon"/>
+        <li>
+          <a href="#" class="active">
+            <Icon icon="iconamoon:profile-duotone" class="menuIcon" />
             Profile
           </a>
           <div class="sub_menu_1">
             <ul>
               <li class="hover_me">
                 <a href="#">
-                  <Icon icon="lets-icons:setting-line-light" class="menuIcon"/>
+                  <Icon icon="lets-icons:setting-line-light" class="menuIcon" />
                   Setting
                 </a>
                 <div class="sub_menu_2">
@@ -26,19 +26,19 @@
                     </li>
                     <li>
                       <a href="#">
-                        <Icon icon="carbon:email" class="menuIcon"/>
+                        <Icon icon="carbon:email" class="menuIcon" />
                         Email
                       </a>
                     </li>
                     <li>
                       <a href="#">
-                        <Icon icon="mdi:password-outline" class="menuIcon"/>
+                        <Icon icon="mdi:password-outline" class="menuIcon" />
                         Password
                       </a>
                     </li>
                     <li>
                       <a href="#">
-                        <Icon icon="lucide:delete" class="menuIcon"/>
+                        <Icon icon="lucide:delete" class="menuIcon" />
                         Delete account
                       </a>
                     </li>
@@ -47,7 +47,7 @@
               </li>
               <li>
                 <a href="#" @click="logout">
-                  <Icon icon="mdi-light:logout" class="menuIcon"/>
+                  <Icon icon="mdi-light:logout" class="menuIcon" />
                   Logout
                 </a>
               </li>
@@ -66,13 +66,13 @@
             <ul>
               <li>
                 <a href="#" @click="redirectToWatchlist">
-                  <Icon icon="streamline:graph-dot-solid" class="menuIcon"/>
+                  <Icon icon="streamline:graph-dot-solid" class="menuIcon" />
                   Watchlist
                 </a>
               </li>
               <li>
                 <a href="#" @click="redirectToPortfolio">
-                  <Icon icon="raphael:piechart" class="menuIcon"/>
+                  <Icon icon="raphael:piechart" class="menuIcon" />
                   Portfolio
                 </a>
               </li>
@@ -82,12 +82,13 @@
       </ul>
     </div>
     <div class="language_box">
+    <div class="language_button">
       <div id="btn"></div>
       <button type="button" class="toggle-btn" @click="leftClick">ENG</button>
       <button type="button" class="toggle-btn" @click="rightClick">CZ</button>
     </div>
   </div>
-
+  </div>
 </template>
 
 <script>
@@ -175,7 +176,7 @@ export default {
   margin: 0;
   font-family: Oswald, 'Courier New', Courier;
   color: #000000;
-} 
+}
 
 /** NAVIGATION */
 
@@ -285,7 +286,6 @@ export default {
   height: 2rem;
   width: 10rem;
   background: rgba(255, 255, 255, 0.1);
-  text-align: left;
 }
 
 
@@ -311,33 +311,39 @@ export default {
 
 
 /** LANGUAGE BUTTONS */
-
 .language_box {
-position: relative;
-border-radius: 10px;
-background: #afafaf;
+  display: flex;
+  align-items: center;
+  margin-right: 1.5rem;
+}
+
+.language_button {
+  height: 2rem;
+  display: flex;
+  position: relative;
+  border-radius: 10px;
+  background: #afafaf;
 }
 
 .toggle-btn {
-padding: 5px 20px;
-cursor: pointer;
-background: transparent;
-border: 0;
-outline: none;
-position: relative;
-text-align: center;
+  padding: 5px 20px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  outline: none;
+  position: relative;
+  text-align: center;
 }
 
 #btn {
-left: 0;
-top: 0;
-position: absolute;
-width: 4rem;
-height: 100%;
-background: #dba613a1;
-border: 1px solid black;
-border-radius: 10px;
-transition: .5s;
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 4rem;
+  height: 100%;
+  background: #dba613a1;
+  border: 1px solid black;
+  border-radius: 10px;
+  transition: .5s;
 }
-
 </style>
