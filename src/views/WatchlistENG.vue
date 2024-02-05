@@ -804,8 +804,8 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #2a2727;
-    box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);
+    background: #2b282879;
+/*     box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12); */
     gap: 1px;
     border-radius: 20px;
     overflow-y: auto;
@@ -1350,94 +1350,94 @@ section {
 /** LOADER */
 
 .loader {
-  --cell-size: 10px;
-  --cell-spacing: 1px;
-  --cells: 3;
-  --total-size: calc(var(--cells) * (var(--cell-size) + 2 * var(--cell-spacing)));
-  display: flex;
-  flex-wrap: wrap;
-  width: var(--total-size);
-  height: var(--total-size);
+    --cell-size: 10px;
+    --cell-spacing: 1px;
+    --cells: 3;
+    --total-size: calc(var(--cells) * (var(--cell-size) + 2 * var(--cell-spacing)));
+    display: flex;
+    flex-wrap: wrap;
+    width: var(--total-size);
+    height: var(--total-size);
 }
 
 .cell {
-  flex: 0 0 var(--cell-size);
-  margin: var(--cell-spacing);
-  background-color: transparent;
-  box-sizing: border-box;
-  border-radius: 4px;
-  animation: 1.5s ripple ease infinite;
+    flex: 0 0 var(--cell-size);
+    margin: var(--cell-spacing);
+    background-color: transparent;
+    box-sizing: border-box;
+    border-radius: 4px;
+    animation: 1.5s ripple ease infinite;
 }
 
 .cell.d-1 {
-  animation-delay: 100ms;
+    animation-delay: 100ms;
 }
 
 .cell.d-2 {
-  animation-delay: 200ms;
+    animation-delay: 200ms;
 }
 
 .cell.d-3 {
-  animation-delay: 300ms;
+    animation-delay: 300ms;
 }
 
 .cell.d-4 {
-  animation-delay: 400ms;
+    animation-delay: 400ms;
 }
 
 .cell:nth-child(1) {
-  --cell-color: #977e38;
+    --cell-color: #977e38;
 }
 
 .cell:nth-child(2) {
-  --cell-color: #977e38;
+    --cell-color: #977e38;
 }
 
 .cell:nth-child(3) {
-  --cell-color: #977e38;
+    --cell-color: #977e38;
 }
 
 .cell:nth-child(4) {
-  --cell-color: #977e38;
+    --cell-color: #977e38;
 }
 
 .cell:nth-child(5) {
-  --cell-color: #977e38;
+    --cell-color: #977e38;
 }
 
 .cell:nth-child(6) {
-  --cell-color: #977e38;
+    --cell-color: #977e38;
 }
 
 .cell:nth-child(7) {
-  --cell-color: #977e38;
+    --cell-color: #977e38;
 }
 
 .cell:nth-child(8) {
-  --cell-color: #977e38;
+    --cell-color: #977e38;
 }
 
 .cell:nth-child(9) {
-  --cell-color: #977e38;
+    --cell-color: #977e38;
 }
 
 /*Animation*/
 @keyframes ripple {
-  0% {
-    background-color: transparent;
-  }
+    0% {
+        background-color: transparent;
+    }
 
-  30% {
-    background-color: var(--cell-color);
-  }
+    30% {
+        background-color: var(--cell-color);
+    }
 
-  60% {
-    background-color: transparent;
-  }
+    60% {
+        background-color: transparent;
+    }
 
-  100% {
-    background-color: transparent;
-  }
+    100% {
+        background-color: transparent;
+    }
 }
 
 
@@ -1463,4 +1463,8 @@ section {
 ::-webkit-scrollbar-thumb:hover {
     background-color: #555;
 }
+
+
+
+
 </style>

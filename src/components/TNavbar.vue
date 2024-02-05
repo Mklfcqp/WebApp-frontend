@@ -16,34 +16,6 @@
                   <Icon icon="lets-icons:setting-line-light" class="menuIcon" />
                   Setting
                 </a>
-                <div class="sub_menu_2">
-                  <ul>
-                    <li>
-                      <a href="#">
-                        <Icon icon="basil:picture-outline" class="menuIcon" />
-                        Picture
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <Icon icon="carbon:email" class="menuIcon" />
-                        Email
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <Icon icon="mdi:password-outline" class="menuIcon" />
-                        Password
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <Icon icon="lucide:delete" class="menuIcon" />
-                        Delete account
-                      </a>
-                    </li>
-                  </ul>
-                </div>
               </li>
               <li>
                 <a href="#" @click="logout">
@@ -295,18 +267,6 @@ export default {
   color: #dba613;
 }
 
-.sub_menu_2 {
-  display: none;
-}
-
-.hover_me:hover .sub_menu_2 {
-  position: absolute;
-  display: block;
-  margin-top: 96px;
-  margin-left: 319px;
-  background: #2a272749;
-  font-size: 0.9rem;
-}
 
 
 

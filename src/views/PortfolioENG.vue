@@ -659,8 +659,8 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #2a2727;
-    box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);
+    background: #2b282879;
+    /* box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12); */
     gap: 1px;
     border-radius: 20px;
 }
