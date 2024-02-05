@@ -241,7 +241,7 @@ section {
 }
 
 .container .glass h3 {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #d4d4d4;
     font-weight: 500;
     text-transform: uppercase;
