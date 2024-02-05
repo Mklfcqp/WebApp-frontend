@@ -2,7 +2,7 @@
     <main>
         <TBackground />
         <TNavbar />
-    
+
         <section>
             <div class="content">
 
@@ -221,15 +221,33 @@
                         </div>
                     </div>
 
+                    <div v-if="loading">
+                        <div class="loader">
+                            <div class="cell d-0"></div>
+                            <div class="cell d-1"></div>
+                            <div class="cell d-2"></div>
 
-                    <table>
+                            <div class="cell d-1"></div>
+                            <div class="cell d-2"></div>
+
+
+                            <div class="cell d-2"></div>
+                            <div class="cell d-3"></div>
+
+
+                            <div class="cell d-3"></div>
+                            <div class="cell d-4"></div>
+                        </div>
+                    </div>
+
+                    <table v-if="!loading">
                         <thead>
                             <tr class="watchlist_table">
 
                                 <th scope="col" class="Ticker">
                                     <div>Ticker</div>
                                 </th>
-                                <th scope="col" class="Company">
+                                <th scope="col" class="Company" @click="getWatchlistsSortedByCompany">
                                     <Icon icon="mdi:alphabet-a" class="watchlist_table_icon" />
                                     <div>Company</div>
                                 </th>
@@ -395,6 +413,7 @@ export default {
             selectedBoxId: null,
             showDeleteConfirmation: false,
             deleteItemId: null,
+            loading: true,
         }
     },
 
@@ -434,6 +453,7 @@ export default {
                 .then(res => res.json())
                 .then(data => {
                     this.boxes = data;
+                    this.loading = false;
                     console.log(data);
                 })
                 .catch(error => console.error('Error:', error));
@@ -559,6 +579,177 @@ export default {
         },
 
 
+
+
+
+        /* --------------------------------------getWatchlistsSortedByCompany()-------------------------------------- */
+
+        getWatchlistsSortedByCompany() {
+            const accessToken = localStorage.getItem('accessToken');
+            const refreshToken = localStorage.getItem('refreshToken');
+
+            if (!accessToken || !refreshToken) {
+                console.error('User not authenticated');
+                return;
+            }
+
+            const headers = new Headers();
+            headers.append('Authorization', `Bearer ${accessToken}`);
+
+            fetch('http://localhost:8080/watchlist/sorted/company', { headers })
+                .then(res => res.json())
+                .then(data => {
+                    this.boxes = data;
+                    console.log(data);
+                })
+                .catch(error => console.error('Error:', error));
+        },
+
+
+        /* --------------------------------------getWatchlistsSortedByPrice()-------------------------------------- */
+
+        getWatchlistsSortedByPrice() {
+            const accessToken = localStorage.getItem('accessToken');
+            const refreshToken = localStorage.getItem('refreshToken');
+
+            if (!accessToken || !refreshToken) {
+                console.error('User not authenticated');
+                return;
+            }
+
+            const headers = new Headers();
+            headers.append('Authorization', `Bearer ${accessToken}`);
+
+            fetch('http://localhost:8080/watchlist/sorted/price', { headers })
+                .then(res => res.json())
+                .then(data => {
+                    this.boxes = data;
+                    console.log(data);
+                })
+                .catch(error => console.error('Error:', error));
+        },
+
+
+        /* --------------------------------------getWatchlistsSortedByDCF()-------------------------------------- */
+
+        getWatchlistsSortedByDCF() {
+            const accessToken = localStorage.getItem('accessToken');
+            const refreshToken = localStorage.getItem('refreshToken');
+
+            if (!accessToken || !refreshToken) {
+                console.error('User not authenticated');
+                return;
+            }
+
+            const headers = new Headers();
+            headers.append('Authorization', `Bearer ${accessToken}`);
+
+            fetch('http://localhost:8080/watchlist/sorted/dcf', { headers })
+                .then(res => res.json())
+                .then(data => {
+                    this.boxes = data;
+                    console.log(data);
+                })
+                .catch(error => console.error('Error:', error));
+        },
+
+
+        /* --------------------------------------getWatchlistsSortedByDividendq()-------------------------------------- */
+
+        getWatchlistsSortedByDividendq() {
+            const accessToken = localStorage.getItem('accessToken');
+            const refreshToken = localStorage.getItem('refreshToken');
+
+            if (!accessToken || !refreshToken) {
+                console.error('User not authenticated');
+                return;
+            }
+
+            const headers = new Headers();
+            headers.append('Authorization', `Bearer ${accessToken}`);
+
+            fetch('http://localhost:8080/watchlist/sorted/dividendq', { headers })
+                .then(res => res.json())
+                .then(data => {
+                    this.boxes = data;
+                    console.log(data);
+                })
+                .catch(error => console.error('Error:', error));
+        },
+
+
+        /* --------------------------------------getWatchlistsSortedByDividendy()-------------------------------------- */
+
+        getWatchlistsSortedByDividendy() {
+            const accessToken = localStorage.getItem('accessToken');
+            const refreshToken = localStorage.getItem('refreshToken');
+
+            if (!accessToken || !refreshToken) {
+                console.error('User not authenticated');
+                return;
+            }
+
+            const headers = new Headers();
+            headers.append('Authorization', `Bearer ${accessToken}`);
+
+            fetch('http://localhost:8080/watchlist/sorted/dividendy', { headers })
+                .then(res => res.json())
+                .then(data => {
+                    this.boxes = data;
+                    console.log(data);
+                })
+                .catch(error => console.error('Error:', error));
+        },
+
+
+        /* --------------------------------------getWatchlistsSortedByDividendYield()-------------------------------------- */
+
+        getWatchlistsSortedByDividendYield() {
+            const accessToken = localStorage.getItem('accessToken');
+            const refreshToken = localStorage.getItem('refreshToken');
+
+            if (!accessToken || !refreshToken) {
+                console.error('User not authenticated');
+                return;
+            }
+
+            const headers = new Headers();
+            headers.append('Authorization', `Bearer ${accessToken}`);
+
+            fetch('http://localhost:8080/watchlist/sorted/dividendyield', { headers })
+                .then(res => res.json())
+                .then(data => {
+                    this.boxes = data;
+                    console.log(data);
+                })
+                .catch(error => console.error('Error:', error));
+        },
+
+
+        /* --------------------------------------getWatchlistsSortedByDisparity()-------------------------------------- */
+
+        getWatchlistsSortedByDisparity() {
+            const accessToken = localStorage.getItem('accessToken');
+            const refreshToken = localStorage.getItem('refreshToken');
+
+            if (!accessToken || !refreshToken) {
+                console.error('User not authenticated');
+                return;
+            }
+
+            const headers = new Headers();
+            headers.append('Authorization', `Bearer ${accessToken}`);
+
+            fetch('http://localhost:8080/watchlist/sorted/disparity', { headers })
+                .then(res => res.json())
+                .then(data => {
+                    this.boxes = data;
+                    console.log(data);
+                })
+                .catch(error => console.error('Error:', error));
+        },
+
+
     }
 
 }
@@ -617,6 +808,7 @@ section {
     box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);
     gap: 1px;
     border-radius: 20px;
+    overflow-y: auto;
 }
 
 .header {
@@ -1155,8 +1347,120 @@ section {
 
 
 
+/** LOADER */
+
+.loader {
+  --cell-size: 10px;
+  --cell-spacing: 1px;
+  --cells: 3;
+  --total-size: calc(var(--cells) * (var(--cell-size) + 2 * var(--cell-spacing)));
+  display: flex;
+  flex-wrap: wrap;
+  width: var(--total-size);
+  height: var(--total-size);
+}
+
+.cell {
+  flex: 0 0 var(--cell-size);
+  margin: var(--cell-spacing);
+  background-color: transparent;
+  box-sizing: border-box;
+  border-radius: 4px;
+  animation: 1.5s ripple ease infinite;
+}
+
+.cell.d-1 {
+  animation-delay: 100ms;
+}
+
+.cell.d-2 {
+  animation-delay: 200ms;
+}
+
+.cell.d-3 {
+  animation-delay: 300ms;
+}
+
+.cell.d-4 {
+  animation-delay: 400ms;
+}
+
+.cell:nth-child(1) {
+  --cell-color: #977e38;
+}
+
+.cell:nth-child(2) {
+  --cell-color: #977e38;
+}
+
+.cell:nth-child(3) {
+  --cell-color: #977e38;
+}
+
+.cell:nth-child(4) {
+  --cell-color: #977e38;
+}
+
+.cell:nth-child(5) {
+  --cell-color: #977e38;
+}
+
+.cell:nth-child(6) {
+  --cell-color: #977e38;
+}
+
+.cell:nth-child(7) {
+  --cell-color: #977e38;
+}
+
+.cell:nth-child(8) {
+  --cell-color: #977e38;
+}
+
+.cell:nth-child(9) {
+  --cell-color: #977e38;
+}
+
+/*Animation*/
+@keyframes ripple {
+  0% {
+    background-color: transparent;
+  }
+
+  30% {
+    background-color: var(--cell-color);
+  }
+
+  60% {
+    background-color: transparent;
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
 
 
 
 
+
+
+
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
 </style>

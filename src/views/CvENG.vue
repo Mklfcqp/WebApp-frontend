@@ -199,9 +199,9 @@
 
                             <div class="outside_box1_edu">
                                 <p>
-                                    Since 1.10. 2020 I have been working as and
+                                    Since 1.10. 2020 I have been working as <br>
                                     <span class="fjala_edu">EDI specialist</span>
-                                    at the company
+                                    at the company <br>
                                     <span class="company">Impromat Engineering</span>, providing
                                     EDI services for
                                     <span class="company">ŠKODA Auto</span>.
@@ -236,15 +236,19 @@
                         </div>
 
 
-                        <div class="animation_text">
+                        <div class="language_description_box">
 
-                            <div id="rotate-words">
-                                <div>Czech<br /> <span>Native</span></div>
-                                <div>English<br /> <span>B2</span></div>
-                                <div>Japanese<br /> <span>N4</span></div>
-                                <div>Czech<br /> <span>Native</span></div>
-                                <div>English<br /> <span>B2</span></div>
-                                <div>Japanese<br /> <span>N4</span></div>
+                            <div class="cz_box">
+                                <img class="img" src="https://www.worldometers.info/img/flags/ez-flag.gif" alt="cz">
+                                <p>NATIVE</p>
+                            </div>
+                            <div class="eng_box">
+                                <img class="img" src="https://www.worldometers.info/img/flags/uk-flag.gif" alt="uk">
+                                <p>B2</p>
+                            </div>
+                            <div class="jp_box">
+                                <img class="img" src="https://www.worldometers.info/img/flags/ja-flag.gif" alt="jp">
+                                <p>N4</p>
                             </div>
 
                         </div>
@@ -568,10 +572,7 @@ section {
     border: 1px solid rgba(177, 177, 177, 0.4);
 }
 
-.swiper-slide:hover {
-    border: 1px solid white;
 
-}
 
 .swiper-slide::after {
     display: block;
@@ -588,8 +589,8 @@ section {
 
 
 .card1 {
-    background-image: linear-gradient(to right, #dbbe95 0%, #d19784 100%);
-    color: #3C3C3C;
+    background-image: linear-gradient(to right, #3a3631 0%, #4b3f3b 100%);
+    color: #43c2fd;
 }
 
 .card2 {
@@ -597,7 +598,7 @@ section {
 }
 
 .card3 {
-    background: linear-gradient(to bottom, #202020, #111119);
+    background: linear-gradient(to bottom, #303030, #23232b);
     display: flex;
     flex-direction: column;
 }
@@ -636,14 +637,14 @@ section {
 
 .row_box {
     position: relative;
-    border: 1px solid #3C3C3C;
+    border: 1px solid #413c3c;
     border-radius: 10px;
     width: 3.5rem;
     height: 3.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0) inset, 0 4px 16px rgba(0, 0, 0, 0.37);
+    box-shadow: 0 0.5px 0 1px rgba(90, 76, 76, 0.23) inset, 0 1px 0 0 rgba(87, 69, 69, 0) inset, 0 4px 16px rgba(0, 0, 0, 0.37);
 
 }
 
@@ -658,12 +659,12 @@ section {
 .box_without_icon {
     font-size: 0.6rem;
     font-weight: 800;
-    color: #385F71;
+    color: #43c2fd;
 }
 
 
 .row_box_icon {
-    color: #385F71;
+    color: #43c2fd;
     font-size: 2rem;
 }
 
@@ -691,14 +692,14 @@ section {
 }
 
 .row_box_inside:hover p {
-    color: #385F71;
+    color: #43c2fd;
     display: block;
     font-weight: 900;
     font-size: 0.8rem;
 }
 
 .row_box:hover p {
-    color: #385F71;
+    color: #43c2fd;
     display: block;
     font-size: 1rem;
     font-weight: 800;
@@ -709,7 +710,7 @@ section {
 }
 
 .row_box_inside.active p {
-    color: #385F71;
+    color: #43c2fd;
     display: block;
     font-weight: 900;
     font-size: 0.8rem;
@@ -918,136 +919,38 @@ section {
 }
 
 
-
-.animation_text {
+.language_description_box {
     width: 100%;
-    height: 100%;
-    position: absolute;
-    background-attachment: fixed;
-    color: #fff;
-    text-align: center;
-    overflow: hidden;
+    height: 6rem;
+    display: flex;
+    flex-direction: row;
 }
 
-#rotate-words {
-    max-width: 400px;
-    padding: 10% 0;
+.cz_box,
+.eng_box,
+.jp_box {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
 }
 
-#rotate-words span {
-    height: 50px;
+.cz_box p,
+.eng_box p,
+.jp_box p {
     font-size: 1rem;
-    text-transform: uppercase;
-    opacity: .8;
-    font-family: 'Rubik', sans-serif;
 }
 
-#rotate-words div {
-    position: absolute;
-    overflow: hidden;
-    bottom: 2rem;
-    left: 14rem;
-    font-size: 2rem;
-    animation: rotate-word 32s linear infinite 0s;
-    font-family: 'Oswald', sans-serif;
-    text-transform: uppercase;
-}
-
-@keyframes rotate-word {
-    0% {
-        opacity: 0;
-        transform: translateX(0);
-        filter: blur(10px);
-        transform: scale(1.2)
-    }
-
-    3% {
-        opacity: 1;
-        transform: translateX(0);
-        filter: blur(0px);
-        transform: scale(.9)
-    }
-
-    12% {
-        opacity: 1;
-        transform: translateX(0);
-        filter: blur(0px);
-        transform: scale(1)
-    }
-
-    16% {
-        opacity: 0;
-        transform: translateX(0);
-        filter: blur(10px);
-        transform: scale(1.2)
-    }
-
-    80% {
-        opacity: 0
-    }
-
-    100% {
-        opacity: 0
-    }
-}
-
-#rotate-words div:nth-child(2) {
-    animation-delay: 4s
-}
-
-#rotate-words div:nth-child(3) {
-    animation-delay: 8s
-}
-
-#rotate-words div:nth-child(4) {
-    animation-delay: 12s
-}
-
-#rotate-words div:nth-child(5) {
-    animation-delay: 16s
-}
-
-#rotate-words div:nth-child(6) {
-    animation-delay: 20s
+.img {
+    width: 90px;
+    height: 60px;
+    border-radius: 10px;
+    border: 1px solid #8b8b94;
+    box-shadow: 0 0 8px #fff;
 }
 
 
-@keyframes author {
-    0% {
-        opacity: 0;
-        transform: translateY(100px);
-        filter: blur(10px);
-        transform: scaleY(2)
-    }
-
-    20% {
-        opacity: 0;
-        transform: translateY(200px);
-        filter: blur(10px);
-        transform: scaleY(2)
-    }
-
-    30% {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0px);
-        transform: scaleY(1)
-    }
-
-    90% {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0px);
-        transform: scaleY(.9)
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(0);
-        filter: blur(10px);
-        transform: scale(2)
-    }
-}
 
 
 

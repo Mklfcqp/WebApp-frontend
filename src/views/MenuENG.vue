@@ -4,61 +4,57 @@
         <TNavbar />
         <section>
             <div class="content">
-        
-                    <div class="description_1">
-                        <p class="annotation">@Data</p>
-                        <p class="annotation">@NoArgsConstructor</p>
-                        <p class="annotation">@AllArgsConstructor</p>
-                        <p class="annotation">@Builder</p>
-                        <p><span class="keyword">public class</span> <span class="normal_text">JuniorJavaDeveloper
-                                {</span></p>
-                        <br>
-                        <p><span class="keyword">private</span> <span class="normal_text">String</span> <span
-                                class="variables">fullname</span> <span class="normal_text">= "Tomáš
-                                Pitron"</span><span class="keyword">;</span></p>
-                        <br>
-                        <p class="comments">/*</p>
-                        <br>
-                        <p class="comments">for other information click the CV or STOCK button</p>
-                        <br>
-                    </div>
 
-                    <div class="content_boxes">
+                <div class="description_1">
+                    <p class="annotation">@Data</p>
+                    <p class="annotation">@NoArgsConstructor</p>
+                    <p class="annotation">@AllArgsConstructor</p>
+                    <p class="annotation">@Builder</p>
+                    <p><span class="keyword">public class</span> <span class="normal_text">JuniorJavaDeveloper
+                            {</span></p>
+                    <br>
+                    <p><span class="keyword">private</span> <span class="normal_text">String</span> <span
+                            class="variables">fullname</span> <span class="normal_text">= "Tomáš
+                            Pitron"</span><span class="keyword">;</span></p>
+                    <br>
+                    <p class="comments">/*</p>
+                    <br>
+                    <p class="comments">for other information click the CV or STOCK button</p>
+                    <br>
+                </div>
 
-                        <div class="cv_box" @click="redirectToCV">
+                <div class="content_boxes">
 
-                            <div class="title">
+                    <div class="container">
+                        <div class="box">
+                            <div class="cv_box">
                                 <h1>CV</h1>
                             </div>
-
-                            <div class="text">
-                                <p>the document attempting to describe my life experiences</p>
+                            <div class="glass" @click="redirectToCV">
+                                <h3>the document attempting to describe my life experiences</h3>
                             </div>
-
                         </div>
-
-                        <div class="stock_box" @click="redirectToWatchlist">
-                            <div class="title">
+                        <div class="box">
+                            <div class="stock_box">
                                 <h1>STOCK</h1>
                             </div>
-
-                            <div class="text">
-                                <p>mini web application to demonstrate my skills</p>
+                            <div class="glass" @click="redirectToWatchlist">
+                                <h3>mini web application to demonstrate my skills</h3>
                             </div>
-
                         </div>
-
-                    </div>
-                    
-                    <div class="description_2">
-                        <br>
-                        <p class="comments">*/</p>
-                        <p class="normal_text">}</p>
-                        <br>
                     </div>
 
                 </div>
-      
+
+                <div class="description_2">
+                    <br>
+                    <p class="comments">*/</p>
+                    <p class="normal_text">}</p>
+                    <br>
+                </div>
+
+            </div>
+
 
         </section>
     </main>
@@ -190,49 +186,79 @@ section {
 }
 
 .cv_box {
-    background: #5183af;
+    background: #497296;
 }
 
 .stock_box {
-    background: #b97c37;
-}
-
-.cv_box .text,
-.stock_box .text {
-    display: none;
+    background: #966b3a;
 }
 
 
-.cv_box:hover .title h1,
-.stock_box:hover .title h1 {
-    display: none;
-}
-
-.cv_box:hover .text,
-.stock_box:hover .text {
-    display: block;
-}
-
-.cv_box:hover,
-.stock_box:hover {
-    cursor: pointer;
+.container {
+    position: relative;
     display: flex;
+    justify-content: center;
     align-items: center;
-    border-radius: 0.5rem;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
-.title {
-    font-size: 0.8rem;
-    font-weight: 400;
-    text-align: center;
-
+.container .box {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
-.text {
-    font-size: 0.8rem;
+
+
+.container .box .glass {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(#fff2, transparent);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    opacity: 0;
+    scale: 0;
+    transition: 0.5s;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+.container .box:hover .glass {
+    opacity: 1;
+    scale: 1;
+}
+
+.container .glass h3 {
+    font-size: 1rem;
+    color: #d4d4d4;
     font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     text-align: center;
+    line-height: 1.2rem;
 }
+
+.container .box:hover h1 {
+    display: none;
+}
+
+.container .box:hover .cv_box,
+.container .box:hover .stock_box {
+    background: none;
+}
+
 
 .annotation {
     color: #BBB529;
@@ -253,4 +279,10 @@ section {
 .comments {
     color: #808080;
 }
+
+
+
+
+
+
 </style>

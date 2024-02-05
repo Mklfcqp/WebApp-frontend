@@ -192,13 +192,13 @@ body {
   width: 400px;
   padding: 2rem 3rem 2rem;
   border-radius: 1rem;
-  box-shadow: 0 0 50px #f1f505;
+  box-shadow: 0 0 50px #0ef;
 }
 
 .login__title {
   text-align: center;
   margin-bottom: 2rem;
-  color: #f1f505;
+  color: #0ef;
   font-weight: 500;
 }
 
@@ -301,7 +301,7 @@ body {
   border-radius: 0.5rem;
   cursor: pointer;
   margin-bottom: 2rem;
-  color: #f1f505;
+  color: #0ef;
   transition: 0.5s;
   text-align: center;
   text-decoration: none;
@@ -313,10 +313,10 @@ body {
 }
 
 .login__button:hover {
-  background: #f1f505;
+  background: #0ef;
   color: #fff;
   border-radius: 0.5rem;
-  box-shadow: 0 0 5px #f1f505, 0 0 25px #f1f505, 0 0 50px #f1f505, 0 0 100px #f1f505;
+  box-shadow: 0 0 5px #0ef, 0 0 25px #0ef, 0 0 50px #0ef, 0 0 100px #0ef;
 }
 
 .login__register {
