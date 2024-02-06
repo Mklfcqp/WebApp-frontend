@@ -216,47 +216,47 @@
                                 <th scope="col" class="Ticker">
                                     <div>Ticker</div>
                                 </th>
-                                <th scope="col" class="Company">
+                                <th scope="col" class="Company" @click="sortTableByCompany">
                                     <Icon icon="mdi:alphabet-a" class="portfolio_table_icon" />
                                     <div>Company</div>
                                 </th>
-                                <th scope="col" class="Shares">
+                                <th scope="col" class="Shares" @click="sortTableByShares">
 
                                     <div>Shares</div>
                                 </th>
-                                <th scope="col" class="Buy">
+                                <th scope="col" class="Buy" @click="sortTableByBuy">
 
                                     <div>Buy</div>
                                 </th>
-                                <th scope="col" class="Sell">
+                                <th scope="col" class="Sell" @click="sortTableBySell">
 
                                     <div>Sell</div>
                                 </th>
-                                <th scope="col" class="InterestBuySell">
+                                <th scope="col" class="InterestBuySell" @click="sortTableByInterestBuySell">
 
                                     <div>Interest</div>
                                 </th>
-                                <th scope="col" class="ProfitLossBuySell">
+                                <th scope="col" class="ProfitLossBuySell" @click="sortTableByProfitLossBuySell">
 
                                     <div>Profit/Loss </div>
                                 </th>
 
 
 
-                                <th scope="col" class="Dividend">
+                                <th scope="col" class="Dividend" @click="sortTableByDividend">
 
                                     <div>Dividend</div>
                                 </th>
-                                <th scope="col" class="InterestDividend">
+                                <th scope="col" class="InterestDividend" @click="sortTableByInterestDividend">
 
                                     <div>Interest</div>
                                 </th>
-                                <th scope="col" class="ProfitLossDividend">
+                                <th scope="col" class="ProfitLossDividend" @click="sortTableByProfitLossDividend">
 
                                     <div>Profit/Loss</div>
                                 </th>
 
-                                <th scope="col" class="ProfitLossSum">
+                                <th scope="col" class="ProfitLossSum" @click="sortTableByProfitLossSum">
 
                                     <div>Profit/Loss</div>
                                 </th>
@@ -604,6 +604,54 @@ export default {
         cancelDelete() {
             this.deleteItemId = null;
             this.showDeleteConfirmation = false;
+        },
+
+        sortTableByCompany() {
+            this.boxes.sort((a, b) => {
+                if (a.company > b.company) {
+                    return 1;
+                } else if (a.company < b.company) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            });
+        },
+
+        sortTableByShares() {
+            this.boxes.sort((a, b) => b.shares - a.shares);
+        },
+
+        sortTableByBuy() {
+            this.boxes.sort((a, b) => b.buy - a.buy);
+        },
+
+        sortTableBySell() {
+            this.boxes.sort((a, b) => b.sell - a.sell);
+        },
+
+        sortTableByInterestBuySell() {
+            this.boxes.sort((a, b) => b.interestBuySell - a.interestBuySell);
+        },
+
+        sortTableByProfitLossBuySell() {
+            this.boxes.sort((a, b) => b.profitLossBuySell - a.profitLossBuySell);
+        },
+
+        sortTableByDividend() {
+            this.boxes.sort((a, b) => b.dividend - a.dividend);
+        },
+
+        sortTableByInterestDividend() {
+            this.boxes.sort((a, b) => b.interestDividend - a.interestDividend);
+        },
+
+        sortTableByProfitLossDividend() {
+            this.boxes.sort((a, b) => b.profitLossDividend - a.profitLossDividend);
+        },
+
+        sortTableByProfitLossSum() {
+            this.boxes.sort((a, b) => b.sumProfitLoss - a.sumProfitLoss);
         },
 
     }

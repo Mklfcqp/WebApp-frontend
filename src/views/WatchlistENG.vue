@@ -248,31 +248,31 @@
                                 <th scope="col" class="Ticker">
                                     <div>Ticker</div>
                                 </th>
-                                <th scope="col" class="Company" @click="getWatchlistsSortedByCompany">
+                                <th scope="col" class="Company" @click="sortTableByCompany">
                                     <Icon icon="mdi:alphabet-a" class="watchlist_table_icon" />
                                     <div>Company</div>
                                 </th>
-                                <th scope="col" class="Current_Price">
+                                <th scope="col" class="Current_Price" @click="sortTableByCurrentPrice">
                                     <Icon icon="foundation:dollar" class="watchlist_table_icon" />
                                     <div>Current Price</div>
                                 </th>
-                                <th scope="col" class="DCF">
+                                <th scope="col" class="DCF" @click="sortTableByDCF">
                                     <Icon icon="foundation:dollar" class="watchlist_table_icon" />
                                     <div>DCF</div>
                                 </th>
-                                <th scope="col" class="Dividend_Yield">
+                                <th scope="col" class="Dividend_Yield" @click="sortTableByDividendYield">
                                     <Icon icon="material-symbols:percent" class="watchlist_table_icon" />
                                     <div>Dividend Yield</div>
                                 </th>
-                                <th scope="col" class="Dividend_Q">
+                                <th scope="col" class="Dividend_Q" @click="sortTableByDividendQ">
                                     <Icon icon="solar:dollar-line-duotone" class="watchlist_table_icon" />
                                     <div>Dividend(Q)</div>
                                 </th>
-                                <th scope="col" class="Dividend_Y">
+                                <th scope="col" class="Dividend_Y" @click="sortTableByDividendY">
                                     <Icon icon="solar:dollar-outline" class="watchlist_table_icon" />
                                     <div>Dividend(Y)</div>
                                 </th>
-                                <th scope="col" class="Disparity">
+                                <th scope="col" class="Disparity" @click="sortTableByDisparity">
                                     <Icon icon="material-symbols:percent" class="watchlist_table_icon" />
                                     <div>Disparity</div>
                                 </th>
@@ -321,6 +321,11 @@
                             </tr>
                         </tbody>
                     </table>
+
+                    <div>
+                        <button v-if="page > 0" @click="previousPage">Previous</button>
+                        <button v-if="page < totalPages - 1" @click="nextPage">Next</button>
+                    </div>
 
                     <div class="bot">
 
@@ -415,6 +420,8 @@ export default {
             showDeleteConfirmation: false,
             deleteItemId: null,
             loading: true,
+            totalPages: 1,
+            pageSize: 10,
         }
     },
 
@@ -438,7 +445,7 @@ export default {
             this.updateBox = { ...selectedBox };
         },
 
-        getWatchlists() {
+         getWatchlists() {
             const accessToken = localStorage.getItem('accessToken');
             const refreshToken = localStorage.getItem('refreshToken');
 
@@ -458,7 +465,45 @@ export default {
                     console.log(data);
                 })
                 .catch(error => console.error('Error:', error));
+        }, 
+
+/*                 getWatchlists() {
+                    const accessToken = localStorage.getItem('accessToken');
+                    const refreshToken = localStorage.getItem('refreshToken');
+        
+                    if (!accessToken || !refreshToken) {
+                        console.error('User not authenticated');
+                        return;
+                    }
+        
+                    const headers = new Headers();
+                    headers.append('Authorization', `Bearer ${accessToken}`);
+        
+                    fetch('http://localhost:8080/watchlist/items?page=${this.page}&size=${this.pageSize}', { headers })
+                        .then(res => res.json())
+                        .then(response => {
+                            this.boxes = response.data.content;
+                            this.loading = false;
+                            this.totalPages = response.data.totalPages;
+                            console.log(data);
+                        })
+                        .catch(error => console.error('Error:', error));
+                },  */
+
+
+        previousPage() {
+            this.page--;
+            this.fetchData();
         },
+
+        nextPage() {
+            this.page++;
+            this.fetchData();
+        },
+
+
+
+
 
         async updateWatchlist() {
             try {
@@ -579,157 +624,40 @@ export default {
             this.showDeleteConfirmation = false;
         },
 
+        sortTableByCompany() {
+            this.boxes.sort((a, b) => {
+                if (a.company > b.company) {
+                    return 1;
+                } else if (a.company < b.company) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            });
+        },
 
+        sortTableByCurrentPrice() {
+            this.boxes.sort((a, b) => b.price - a.price);
+        },
 
+        sortTableByDCF() {
+            this.boxes.sort((a, b) => b.dcf - a.dcf);
+        },
 
+        sortTableByDividendYield() {
+            this.boxes.sort((a, b) => b.dividendYield - a.dividendYield);
+        },
 
-        /* --------------------------------------getWatchlistsSortedByCompany()-------------------------------------- */
+        sortTableByDividendQ() {
+            this.boxes.sort((a, b) => b.dividendQ - a.dividendQ);
+        },
 
-        getWatchlistsSortedByCompany() {
-            const accessToken = localStorage.getItem('accessToken');
-            const refreshToken = localStorage.getItem('refreshToken');
-
-            if (!accessToken || !refreshToken) {
-                console.error('User not authenticated');
-                return;
-            }
-
-            const headers = new Headers();
-            headers.append('Authorization', `Bearer ${accessToken}`);
-
-            fetch('http://localhost:8080/watchlist/sorted/company', { headers })
-                .then(res => res.json())
-                .then(data => {
-                    this.boxes = data;
-                    console.log(data);
-                })
-                .catch(error => console.error('Error:', error));
+        sortTableByDividendY() {
+            this.boxes.sort((a, b) => b.dividendY - a.dividendY);
         },
 
 
-        /* --------------------------------------getWatchlistsSortedByPrice()-------------------------------------- */
-
-        getWatchlistsSortedByPrice() {
-            const accessToken = localStorage.getItem('accessToken');
-            const refreshToken = localStorage.getItem('refreshToken');
-
-            if (!accessToken || !refreshToken) {
-                console.error('User not authenticated');
-                return;
-            }
-
-            const headers = new Headers();
-            headers.append('Authorization', `Bearer ${accessToken}`);
-
-            fetch('http://localhost:8080/watchlist/sorted/price', { headers })
-                .then(res => res.json())
-                .then(data => {
-                    this.boxes = data;
-                    console.log(data);
-                })
-                .catch(error => console.error('Error:', error));
-        },
-
-
-        /* --------------------------------------getWatchlistsSortedByDCF()-------------------------------------- */
-
-        getWatchlistsSortedByDCF() {
-            const accessToken = localStorage.getItem('accessToken');
-            const refreshToken = localStorage.getItem('refreshToken');
-
-            if (!accessToken || !refreshToken) {
-                console.error('User not authenticated');
-                return;
-            }
-
-            const headers = new Headers();
-            headers.append('Authorization', `Bearer ${accessToken}`);
-
-            fetch('http://localhost:8080/watchlist/sorted/dcf', { headers })
-                .then(res => res.json())
-                .then(data => {
-                    this.boxes = data;
-                    console.log(data);
-                })
-                .catch(error => console.error('Error:', error));
-        },
-
-
-        /* --------------------------------------getWatchlistsSortedByDividendq()-------------------------------------- */
-
-        getWatchlistsSortedByDividendq() {
-            const accessToken = localStorage.getItem('accessToken');
-            const refreshToken = localStorage.getItem('refreshToken');
-
-            if (!accessToken || !refreshToken) {
-                console.error('User not authenticated');
-                return;
-            }
-
-            const headers = new Headers();
-            headers.append('Authorization', `Bearer ${accessToken}`);
-
-            fetch('http://localhost:8080/watchlist/sorted/dividendq', { headers })
-                .then(res => res.json())
-                .then(data => {
-                    this.boxes = data;
-                    console.log(data);
-                })
-                .catch(error => console.error('Error:', error));
-        },
-
-
-        /* --------------------------------------getWatchlistsSortedByDividendy()-------------------------------------- */
-
-        getWatchlistsSortedByDividendy() {
-            const accessToken = localStorage.getItem('accessToken');
-            const refreshToken = localStorage.getItem('refreshToken');
-
-            if (!accessToken || !refreshToken) {
-                console.error('User not authenticated');
-                return;
-            }
-
-            const headers = new Headers();
-            headers.append('Authorization', `Bearer ${accessToken}`);
-
-            fetch('http://localhost:8080/watchlist/sorted/dividendy', { headers })
-                .then(res => res.json())
-                .then(data => {
-                    this.boxes = data;
-                    console.log(data);
-                })
-                .catch(error => console.error('Error:', error));
-        },
-
-
-        /* --------------------------------------getWatchlistsSortedByDividendYield()-------------------------------------- */
-
-        getWatchlistsSortedByDividendYield() {
-            const accessToken = localStorage.getItem('accessToken');
-            const refreshToken = localStorage.getItem('refreshToken');
-
-            if (!accessToken || !refreshToken) {
-                console.error('User not authenticated');
-                return;
-            }
-
-            const headers = new Headers();
-            headers.append('Authorization', `Bearer ${accessToken}`);
-
-            fetch('http://localhost:8080/watchlist/sorted/dividendyield', { headers })
-                .then(res => res.json())
-                .then(data => {
-                    this.boxes = data;
-                    console.log(data);
-                })
-                .catch(error => console.error('Error:', error));
-        },
-
-
-        /* --------------------------------------getWatchlistsSortedByDisparity()-------------------------------------- */
-
-        getWatchlistsSortedByDisparity() {
+        sortTableByDisparity() {
             const accessToken = localStorage.getItem('accessToken');
             const refreshToken = localStorage.getItem('refreshToken');
 
@@ -749,7 +677,6 @@ export default {
                 })
                 .catch(error => console.error('Error:', error));
         },
-
 
     }
 
