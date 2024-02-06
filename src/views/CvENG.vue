@@ -216,6 +216,7 @@
                                     <br>
                                     <br>1.4. 2023 - 17.2. 2024</p>
                             </div>
+                            
 
                         </div>
 
@@ -844,11 +845,6 @@ section {
     font-size: 2rem;
 }
 
-.company {
-    font-size: 1.5rem;
-    font-family: 'Fjalla One', 'Nunito', sans-serif;
-}
-
 
 
 /** LANGUAGES */
@@ -1055,4 +1051,9 @@ section {
     font-weight: 800;
     color: white;
 }
+
+
+
+
+
 </style>
