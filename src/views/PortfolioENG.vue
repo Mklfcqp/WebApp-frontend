@@ -7,7 +7,9 @@
 
                 <div class="mainbox">
 
-                    <div class="header">PORTFOLIO</div>
+                    <div class="header">
+                        <span class="text1">PORTFOLIO</span>
+                    </div>
 
 
                     <div class="overlay" v-if="showAddForm">
@@ -173,21 +175,21 @@
                         </form>
                     </div>
 
-                    
+
 
                     <div class="overlay" v-if="showDeleteConfirmation">
                         <div v-if="showDeleteConfirmation" class="confirmation">
                             <p>Are you sure you want to delete this item?</p>
                             <div class="delete_confirmation_buttons">
-                                <button class="delete_confirmation_button" @click="confirmDelete">Confirm</button>
-                                <button class="delete_confirmation_button" @click="cancelDelete">Cancel</button>
+                                <div class="delete_button" @click="confirmDelete">Delete</div>
+                                <div class="cancel_button" @click="cancelDelete">Cancel</div>
                             </div>
                         </div>
                     </div>
 
 
-                    <div v-if="loading">
-                        <div class="loader">
+                    <div class="overlay" v-if="loading">
+                        <div v-if="loading" class="loader">
                             <div class="cell d-0"></div>
                             <div class="cell d-1"></div>
                             <div class="cell d-2"></div>
@@ -198,7 +200,6 @@
 
                             <div class="cell d-2"></div>
                             <div class="cell d-3"></div>
-
 
                             <div class="cell d-3"></div>
                             <div class="cell d-4"></div>
@@ -638,6 +639,43 @@ section {
 }
 
 
+/** HEADER */
+.text1 {
+    font-size: 2rem;
+    background-image: linear-gradient(to right, #1ff5e7, #46eefa, #41dfff, #52cffe, #69bff8, #6cb5f6, #72abf2, #7aa1ed, #729bf1, #6b95f5, #648ff8, #4a6ac0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    max-width: 500px;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 6px;
+    position: relative;
+    animation: text 3s 1;
+    font-family: Oswald;
+}
+
+@keyframes text {
+
+    0% {
+
+        color: #000;
+
+    }
+
+    30% {
+
+        letter-spacing: 15px;
+
+    }
+
+    85% {
+
+        letter-spacing: 6px;
+
+    }
+}
+
+
 .content {
     width: 100rem;
     height: 50rem;
@@ -814,7 +852,7 @@ section {
 }
 
 .bot_box_icon {
-    background-color: rgba(33, 151, 197, 0.253);
+    background-color: rgba(22, 162, 218, 0.274);
     color: rgba(33, 151, 197, 0.815);
     border: none;
     border-radius: 5px 0 0 5px;
@@ -832,7 +870,7 @@ section {
 }
 
 .bot_box_button {
-    background-color: rgba(33, 151, 197, 0.384);
+    background-color: rgba(20, 165, 223, 0.384);
     color: rgba(33, 151, 197, 0.815);
     border: none;
     border-radius: 0 5px 5px 0;
@@ -899,7 +937,7 @@ section {
     background: #434343;
     background: radial-gradient(at center, #3d3b3b, #383436);
     font-size: 0.8rem;
-    color: rgba(33, 151, 197, 0.815);
+    color: rgba(8, 172, 236, 0.918);
     font-family: sans-serif;
     letter-spacing: 0.5px;
 }
@@ -1406,8 +1444,8 @@ section {
 /** DELETE CONFIRMATION */
 
 .confirmation {
-    width: 20rem;
-    height: 6rem;
+    width: 22rem;
+    height: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1415,45 +1453,65 @@ section {
     background: #434343;
     background: radial-gradient(at center, #3d3b3b, #383436);
     border: 1px solid #8880805e;
-    border-radius: 15px;
-    gap: 10px;
-    font-size: 0.9rem;
+    border-radius: 10px;
+    gap: 30px;
+    font-size: 1rem;
     font-family: sans-serif;
-    font-weight: 700;
-    color: #977e38;
+    font-weight: 500;
+}
+
+.confirmation p {
+    color: rgb(160, 160, 160);
+
 }
 
 .delete_confirmation_buttons {
-
-    width: 10rem;
     height: 2rem;
     gap: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 
-.delete_confirmation_button {
-    border: 1px solid;
-    width: 5rem;
+.delete_button {
+    width: 8rem;
     height: 2rem;
     border-radius: 3px;
     cursor: pointer;
     margin-top: 10px;
     background: none;
-    border-radius: 3px;
-    border: 1px solid rgb(136, 136, 136);
-    background: rgba(136, 136, 136, 0.089);
+    border-radius: 5px;
+    background: #e0454a1f;
     font-size: 0.9rem;
-    color: rgb(136, 136, 136);
-    font-weight: 600;
+    color: #e0454b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.delete_confirmation_button:hover {
-    background: #977e38;
-    color: black;
+.cancel_button {
+    width: 8rem;
+    height: 2rem;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 10px;
+    background: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    background: #c9c9c934;
+    color: #c9c9c9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.delete_button:hover,
+.cancel_button:hover {
+    background: linear-gradient(#fff2, transparent);
+    backdrop-filter: blur(15px);
+}
+
 
 
 
@@ -1465,95 +1523,94 @@ section {
 /** LOADER */
 
 .loader {
-  --cell-size: 10px;
-  --cell-spacing: 1px;
-  --cells: 3;
-  --total-size: calc(var(--cells) * (var(--cell-size) + 2 * var(--cell-spacing)));
-  display: flex;
-  flex-wrap: wrap;
-  width: var(--total-size);
-  height: var(--total-size);
+    --cell-size: 20px;
+    --cell-spacing: 1px;
+    --cells: 3;
+    --total-size: calc(var(--cells) * (var(--cell-size) + 2 * var(--cell-spacing)));
+    display: flex;
+    flex-wrap: wrap;
+    width: var(--total-size);
+    height: var(--total-size);
 }
 
 .cell {
-  flex: 0 0 var(--cell-size);
-  margin: var(--cell-spacing);
-  background-color: transparent;
-  box-sizing: border-box;
-  border-radius: 4px;
-  animation: 1.5s ripple ease infinite;
+    flex: 0 0 var(--cell-size);
+    margin: var(--cell-spacing);
+    background-color: transparent;
+    box-sizing: border-box;
+    border-radius: 4px;
+    animation: 1.5s ripple ease infinite;
 }
 
 .cell.d-1 {
-  animation-delay: 100ms;
+    animation-delay: 100ms;
 }
 
 .cell.d-2 {
-  animation-delay: 200ms;
+    animation-delay: 200ms;
 }
 
 .cell.d-3 {
-  animation-delay: 300ms;
+    animation-delay: 300ms;
 }
 
 .cell.d-4 {
-  animation-delay: 400ms;
+    animation-delay: 400ms;
 }
 
 .cell:nth-child(1) {
-  --cell-color: #977e38;
+    --cell-color: #5ffbf1;
 }
 
 .cell:nth-child(2) {
-  --cell-color: #977e38;
+    --cell-color: #46eefa;
 }
 
 .cell:nth-child(3) {
-  --cell-color: #977e38;
+    --cell-color: #52cffe;
 }
 
 .cell:nth-child(4) {
-  --cell-color: #977e38;
+    --cell-color: #46eefa;
 }
 
 .cell:nth-child(5) {
-  --cell-color: #977e38;
+    --cell-color: #52cffe;
 }
 
 .cell:nth-child(6) {
-  --cell-color: #977e38;
+    --cell-color: #72abf2;
 }
 
 .cell:nth-child(7) {
-  --cell-color: #977e38;
+    --cell-color: #52cffe;
 }
 
 .cell:nth-child(8) {
-  --cell-color: #977e38;
+    --cell-color: #72abf2;
 }
 
 .cell:nth-child(9) {
-  --cell-color: #977e38;
+    --cell-color: #5f88fb;
 }
 
 /*Animation*/
 @keyframes ripple {
-  0% {
-    background-color: transparent;
-  }
+    0% {
+        background-color: transparent;
+    }
 
-  30% {
-    background-color: var(--cell-color);
-  }
+    30% {
+        background-color: var(--cell-color);
+    }
 
-  60% {
-    background-color: transparent;
-  }
+    60% {
+        background-color: transparent;
+    }
 
-  100% {
-    background-color: transparent;
-  }
+    100% {
+        background-color: transparent;
+    }
 }
-
 </style>
 

@@ -30,7 +30,7 @@
                             <div class="cv_box">
                                 <h1>CV</h1>
                             </div>
-                            <div class="glass" @click="redirectToCV">
+                            <div class="glass_cv" @click="redirectToCV">
                                 <h3>the document attempting to describe my life experiences</h3>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                             <div class="stock_box">
                                 <h1>STOCK</h1>
                             </div>
-                            <div class="glass" @click="redirectToWatchlist">
+                            <div class="glass_stock" @click="redirectToWatchlist">
                                 <h3>mini web application to demonstrate my skills</h3>
                             </div>
                         </div>
@@ -218,11 +218,27 @@ section {
 
 
 
-.container .box .glass {
+.container .box .glass_cv {
     position: absolute;
     inset: 0;
-    background: linear-gradient(#fff2, transparent);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(rgba(32, 102, 194, 0.315), transparent);
+    border: 1px solid rgba(0, 89, 255, 0.1);
+    backdrop-filter: blur(15px);
+    opacity: 0;
+    scale: 0;
+    transition: 0.5s;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container .box .glass_stock {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(187, 141, 41, 0.247), transparent);
+    border: 1px solid rgba(233, 188, 43, 0.1);
     backdrop-filter: blur(15px);
     opacity: 0;
     scale: 0;
@@ -235,12 +251,15 @@ section {
 }
 
 
-.container .box:hover .glass {
+.container .box:hover .glass_cv,
+.container .box:hover .glass_stock
+{
     opacity: 1;
     scale: 1;
 }
 
-.container .glass h3 {
+.container .glass_cv h3,
+.container .glass_stock h3 {
     font-size: 0.9rem;
     color: #d4d4d4;
     font-weight: 500;
