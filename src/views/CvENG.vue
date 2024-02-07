@@ -195,30 +195,41 @@
                     <swiper-slide class="card3">
 
                         <div class="title_card">Education / Work Experiences</div>
-                        <div class="mainbox_edu">
 
-                            <div class="outside_box1_edu">
-                                <p>
-                                    Since 1.10. 2020 I have been working as <br>
-                                    <span class="fjala_edu">EDI specialist</span>
-                                    at the company <br>
-                                    <span class="company">Impromat Engineering</span>, providing
-                                    EDI services for
-                                    <span class="company">ŠKODA Auto</span>.
+                        <div class="card">
 
-                                </p>
-                                <span class="info_outside_box1_edu">If you would like to know more information feel free to contact me.</span>
+                            <div class="box1">
+
+                                <div class="box1_text1">
+                                    <p>Since 1.10. 2020 I have been working as</p>
+                                    <p><span class="fjala_edu_box1">EDI specialist </span>at the company</p>
+                                    <p> <span class="company">Impromat Engineering</span>, providing EDI services</p>
+                                    <p>for<span class="company"> ŠKODA Auto.</span></p>
+                                </div>
+
+                                <div class="box1_text2">
+                                    <span class="box1_text2_info">If you would like to know more information feel free to contact me.</span>      
+                                </div>
+
                             </div>
-                            <div class="outside_box2_edu">
-                                <p><span class="fjala_edu">Software Development Academy</span> 
-                                    <br>
-                                    <br>Java from Scratch (327 hours) 
-                                    <br>
-                                    <br>1.4. 2023 - 17.2. 2024</p>
-                            </div>
-                            
 
+                            <div class="box2">
+
+                                <span class="box3">
+                                    <div class="box3_text1">
+                                        <p><span class="fjala_edu_box3">Software Development Academy</span></p>
+                                    </div>
+                                    <div class="box3_text2">
+                                        <p>Java from Scratch</p>
+                                        <p>(327 hours)</p>
+                                        <p>1.4. 2023 - 17.2. 2024</p>
+
+                                    </div>
+                                </span>
+
+                            </div>
                         </div>
+
 
                     </swiper-slide>
 
@@ -259,7 +270,7 @@
 
                     <swiper-slide class="card5">
 
-                        
+
                         <div class="title_card">Contacts</div>
 
 
@@ -483,7 +494,6 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Oswald:700');
 @import url('https://fonts.googleapis.com/css?family=Rubik');
 
-
 *,
 *::before,
 *::after {
@@ -590,7 +600,7 @@ section {
 
 
 .card1 {
-    background-image: linear-gradient(to right, #3a3631 0%, #4b3f3b 100%);
+    background: hsl(0, 0%, 9%);
     color: #43c2fd;
 }
 
@@ -599,7 +609,7 @@ section {
 }
 
 .card3 {
-    background: linear-gradient(to bottom, #303030, #23232b);
+    background: black;
     display: flex;
     flex-direction: column;
 }
@@ -645,7 +655,11 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0.5px 0 1px rgba(90, 76, 76, 0.23) inset, 0 1px 0 0 rgba(87, 69, 69, 0) inset, 0 4px 16px rgba(0, 0, 0, 0.37);
+    background: linear-gradient(hsl(0 0% 100% / 0.15), #0000), hsl(0 0% 4%);
+    box-shadow:
+        0 -1px hsl(0 0% 0% / 0.5) inset,
+        0 2px 4px hsl(0 0% 0% / 0.5),
+        0 1px hsl(0 0% 100% / 0.5) inset;
 
 }
 
@@ -793,56 +807,164 @@ section {
 /** EDUCATION */
 /** WORK EXPERIENCES */
 
-
-.mainbox_edu {
-    width: 33rem;
-    height: 27rem;
-    margin-top: 1rem;
+.card {
+    position: relative;
+    width: 520px;
+    height: 400px;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    justify-content: space-between;
 }
 
-.outside_box1_edu {
-    width: 33rem;
-    height: 13rem;
+.card .box1 {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    border-radius: 15px;
+    background: #5B2333;
+    background-size: cover;
+}
+
+.card .box1::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: -10px 10px 0 black;
+}
+
+.card .box1::after {
+    content: '';
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: -10px 10px 0 black;
+}
+
+.card .box2 {
+    position: relative;
+    width: 100%;
+    height: 150px;
     background: #B6C8A9;
     border-radius: 15px;
-    padding: 20px;
+    border-top-left-radius: 0;
+    padding: 0 35px;
 }
 
-.info_outside_box1_edu {
-    font-size: 0.8rem;
-    color: #4b3a39;
+.card .box2 .box3 {
+    position: absolute;
+    top: -80px;
+    left: 0;
+    height: 80px;
+    width: 50%;
+    background: #B6C8A9;
+    border-top: 10px solid black;
+    border-right: 10px solid black;
+    border-top-right-radius: 25px;
 }
 
-
-.outside_box2_edu {
-    width: 33rem;
-    height: 13rem;
-    background: #695958;
-    border-radius: 15px;
-    padding: 20px;
+.card .box2 .box3::before {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: -10px -10px 0 black;
 }
 
+.card .box2 .box3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -25px;
+    width: 25px;
+    height: 25px;
+    background: transparent;
+    border-radius: 50%;
+    box-shadow: -10px 10px 0 #B6C8A9;
+}
 
-.outside_box1_edu {
-    font-family: 'Nunito', 'Fjalla One', sans-serif;
+.box1_text1 {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    width: 520px;
+    height: 140px;
+}
+
+.box1_text1 p {
+    font-size: 1.2rem;
+    color: #d5dadb;
+    margin: 7px 20px 0 20px;
+}
+
+.box1_text2 {
+    position: absolute;
+    left: 260px;
+    bottom: 0;
+    width: 260px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.box1_text2_info {
+    font-size: 0.9rem;
+    color: #d5dadb;
+}
+
+.company {
     color: #000000;
-    font-size: 1.3rem;
 }
 
-.inside_box1_edu p,
-.inside_box2_edu p {
-    font-family: 'Nunito', 'Fjalla One', sans-serif;
-    color: #cccccc;
-    font-size: 1.3rem;
+.box3_text1 {
+    position: absolute;
+    left: 30px;
+    width: 220px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
 }
 
-.fjala_edu {
+.box3_text2 {
+    position: absolute;
+    left: 250px;
+    bottom: -150px;
+    width: 270px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.box3_text2 p {
+    color: #413c3c;
+    font-weight: 500;
+}
+
+.fjala_edu_box1 {
     font-family: 'Fjalla One', 'Nunito', sans-serif;
     color: #50A7C2;
     font-size: 2rem;
+}
+
+.fjala_edu_box3 {
+    font-family: 'Fjalla One', 'Nunito', sans-serif;
+    color: #50A7C2;
+    font-size: 2.5rem;
 }
 
 
@@ -1051,9 +1173,4 @@ section {
     font-weight: 800;
     color: white;
 }
-
-
-
-
-
 </style>
