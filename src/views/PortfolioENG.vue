@@ -269,7 +269,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="box in boxes" :key="box.id" class="added_form">
+                            <tr v-for="box in paginatedData" :key="box.id" class="added_form">
                                 <th scope="row" class="hidden-id">{{ box.id }}</th>
                                 <td class="ticker_box">{{ box.ticker }}</td>
                                 <td class="company_box">{{ box.company }}</td>
@@ -337,6 +337,13 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div class="pages_panel">
+                    <div class="firstPage">First</div>
+                    <div class="previous_page" @click="prevPage" :disabled="currentPage === 1">Previous</div>
+                    <div class="current_page">{{ currentPage }}</div>
+                    <div class="next_page" @click="nextPage" :disabled="currentPage === totalPages">Next</div>
+                    <div class="lastPage">Last</div>
+                </div>
 
 
                     <div class="bot">
@@ -435,8 +442,22 @@ export default {
             showDeleteConfirmation: false,
             deleteItemId: null,
             loading: true,
+            pageSize: 11,
+            currentPage: 1,
 
         }
+    },
+
+
+    computed: {
+        totalPages() {
+            return Math.ceil(this.boxes.length / this.pageSize);
+        },
+        paginatedData() {
+            const start = (this.currentPage - 1) * this.pageSize;
+            const end = start + this.pageSize;
+            return this.boxes.slice(start, end);
+        },
     },
 
     beforeMount() {
@@ -654,6 +675,17 @@ export default {
             this.boxes.sort((a, b) => b.sumProfitLoss - a.sumProfitLoss);
         },
 
+        nextPage() {
+            if (this.currentPage < this.totalPages) {
+                this.currentPage++;
+            }
+        },
+        prevPage() {
+            if (this.currentPage > 1) {
+                this.currentPage--;
+            }
+        },
+
     }
 
 }
@@ -724,7 +756,7 @@ section {
 }
 
 
-.content {
+/* .content {
     width: 100rem;
     height: 50rem;
     display: flex;
@@ -734,9 +766,8 @@ section {
             rgba(255, 255, 255, 0.25) 0%,
             rgba(255, 255, 255, 0) 100%);
     border-radius: 20px;
-    /*box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);*/
     z-index: 10;
-}
+} */
 
 /** CONTENT - MAINBOX */
 .mainbox {
@@ -745,7 +776,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #2b282879;
+    background: #2b282886;
     /* box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12); */
     gap: 1px;
     border-radius: 20px;
@@ -1174,6 +1205,58 @@ section {
     gap: 5px;
     font-size: 1rem;
     border: 1px solid #8880805e;
+}
+
+
+
+
+
+/** PAGE PANEL */
+.pages_panel {
+    height: 2rem;
+    width: 85rem;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-family: Oswald;
+}
+
+
+.firstPage,
+.previous_page,
+.next_page,
+.lastPage {
+    width: 4rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #41dfff;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.137);
+    cursor: pointer;
+}
+
+.firstPage:hover,
+.previous_page:hover,
+.next_page:hover,
+.lastPage:hover {
+    background: #2a2727;
+    border: 1px solid;
+}
+
+
+.current_page {
+    width: 4rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #41dfff;
+    border-radius: 5px;
+    background: rgba(14, 180, 202, 0.082);
 }
 
 
