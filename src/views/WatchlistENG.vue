@@ -322,10 +322,14 @@
                         </tbody>
                     </table>
 
-                    <div>
-                        <button v-if="page > 0" @click="previousPage">Previous</button>
-                        <button v-if="page < totalPages - 1" @click="nextPage">Next</button>
-                    </div>
+
+
+                    <!--                    <div class="pages_panel">
+                        <button class="firstPage">First</button>
+                        <button class="previousPage" >Previous</button>
+                        <button class="nextPage">Next</button>
+                        <button class="lastPage">Last</button>
+                    </div> -->
 
                     <div class="bot">
 
@@ -361,13 +365,16 @@ import { Icon } from '@iconify/vue';
 import db from '../utils/db.js'
 import axios from 'axios';
 import TBackground from '@/components/TBackground.vue'
+import Pagination from 'vue-pagination-2';
 
 export default {
 
     components: {
         TNavbar,
         Icon,
-        TBackground
+        TBackground,
+        Pagination
+
     },
     data() {
         return {
@@ -420,8 +427,7 @@ export default {
             showDeleteConfirmation: false,
             deleteItemId: null,
             loading: true,
-            totalPages: 1,
-            pageSize: 10,
+
         }
     },
 
@@ -445,7 +451,7 @@ export default {
             this.updateBox = { ...selectedBox };
         },
 
-         getWatchlists() {
+        getWatchlists() {
             const accessToken = localStorage.getItem('accessToken');
             const refreshToken = localStorage.getItem('refreshToken');
 
@@ -465,45 +471,31 @@ export default {
                     console.log(data);
                 })
                 .catch(error => console.error('Error:', error));
-        }, 
-
-/*                 getWatchlists() {
-                    const accessToken = localStorage.getItem('accessToken');
-                    const refreshToken = localStorage.getItem('refreshToken');
-        
-                    if (!accessToken || !refreshToken) {
-                        console.error('User not authenticated');
-                        return;
-                    }
-        
-                    const headers = new Headers();
-                    headers.append('Authorization', `Bearer ${accessToken}`);
-        
-                    fetch('http://localhost:8080/watchlist/items?page=${this.page}&size=${this.pageSize}', { headers })
-                        .then(res => res.json())
-                        .then(response => {
-                            this.boxes = response.data.content;
-                            this.loading = false;
-                            this.totalPages = response.data.totalPages;
-                            console.log(data);
-                        })
-                        .catch(error => console.error('Error:', error));
-                },  */
-
-
-        previousPage() {
-            this.page--;
-            this.fetchData();
         },
 
-        nextPage() {
-            this.page++;
-            this.fetchData();
+       /*  getWatchlists() {
+            const accessToken = localStorage.getItem('accessToken');
+            const refreshToken = localStorage.getItem('refreshToken');
+
+            if (!accessToken || !refreshToken) {
+                console.error('User not authenticated');
+                return;
+            }
+
+            const headers = new Headers();
+            headers.append('Authorization', `Bearer ${accessToken}`);
+
+            fetch('http://localhost:8080/watchlist/items?page=${this.page}&size=${this.pageSize}', { headers })
+                .then(res => res.json())
+                .then(response => {
+                    this.boxes = response.data.content;
+                    this.loading = false;
+                    this.totalPages = response.data.totalPages;
+                    console.log(data);
+                })
+                .catch(error => console.error('Error:', error));
         },
-
-
-
-
+ */
 
         async updateWatchlist() {
             try {
