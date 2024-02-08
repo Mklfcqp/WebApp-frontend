@@ -63,18 +63,6 @@
 
                             </div>
 
-                            <div class="dividend_yield_add_box">
-
-                                <div class="input_format">
-                                    <input v-model="newBox.dividendYield" type="text" id="dividendYield" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="dividendYield" class="add_box_label">DIVIDEND YIELD
-                                        (%)</label>
-                                </div>
-
-
-                            </div>
-
                             <div class="dividend_q_add_box">
                                 <div class="input_format">
                                     <input v-model="newBox.dividendQ" type="text" id="dividendQ" required
@@ -90,18 +78,6 @@
                                 </div>
                             </div>
 
-                            <div class="dividend_y_add_box">
-                                <div class="input_format">
-                                    <input v-model="newBox.dividendY" type="text" id="dividendY" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="dividendY" class="add_box_label">DIVIDEND - YEAR</label>
-                                </div>
-
-                                <div class="input_format">
-                                    <input v-model="newBox.currencyDividendY" type="text" id="currencyDividendY" required
-                                        class="add_form_input_double_2" value="USD" />
-                                </div>
-                            </div>
 
                             <div class="add_form_buttons">
                                 <button type="submit" @click="addStockToWatchlist" class="add_form_button">ADD</button>
@@ -164,18 +140,6 @@
 
                             </div>
 
-                            <div class="dividend_yield_add_box">
-
-                                <div class="input_format">
-                                    <input v-model="updateBox.dividendYield" type="text" id="dividendYield" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="dividendYield" class="add_box_label">DIVIDEND YIELD
-                                        (%)</label>
-                                </div>
-
-
-                            </div>
-
                             <div class="dividend_q_add_box">
                                 <div class="input_format">
                                     <input v-model="updateBox.dividendQ" type="text" id="dividendQ" required
@@ -187,19 +151,6 @@
 
                                 <div class="input_format">
                                     <input v-model="updateBox.currencyDividendQ" type="text" id="currencyDividendQ" required
-                                        class="add_form_input_double_2" value="USD" />
-                                </div>
-                            </div>
-
-                            <div class="dividend_y_add_box">
-                                <div class="input_format">
-                                    <input v-model="updateBox.dividendY" type="text" id="dividendY" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="dividendY" class="add_box_label">DIVIDEND - YEAR</label>
-                                </div>
-
-                                <div class="input_format">
-                                    <input v-model="updateBox.currencyDividendY" type="text" id="currencyDividendY" required
                                         class="add_form_input_double_2" value="USD" />
                                 </div>
                             </div>
@@ -321,14 +272,22 @@
                             </tr>
                         </tbody>
                     </table>
-            
-                    <div class="pages_panel">
-                    <div class="firstPage">First</div>
-                    <div class="previous_page" @click="prevPage" :disabled="currentPage === 1">Previous</div>
-                    <div class="current_page">{{ currentPage }}</div>
-                    <div class="next_page" @click="nextPage" :disabled="currentPage === totalPages">Next</div>
-                    <div class="lastPage">Last</div>
-                </div>
+
+                    <div class="pages_panel" v-if="totalPages > 1">
+                        <div class="firstPage" @click="firstPage">
+                            <Icon icon="fluent:arrow-previous-12-filled" />
+                        </div>
+                        <div class="previous_page" @click="prevPage" :disabled="currentPage === 1">
+                            <Icon icon="ep:arrow-left-bold" />
+                        </div>
+                        <div class="current_page">{{ currentPage }}</div>
+                        <div class="next_page" @click="nextPage" :disabled="currentPage === totalPages">
+                            <Icon icon="ep:arrow-right-bold" />
+                        </div>
+                        <div class="lastPage" @click="lastPage">
+                            <Icon icon="fluent:arrow-next-12-filled" />
+                        </div>
+                    </div>
 
 
                     <div class="bot">
@@ -387,11 +346,8 @@ export default {
                 currencyPrice: "USD",
                 dcf: "",
                 currencyDcf: "USD",
-                dividendYield: "",
                 dividendQ: "",
                 currencyDividendQ: "USD",
-                dividendY: "",
-                currencyDividendY: "USD",
             },
             box: {
                 ticker: "",
@@ -417,11 +373,8 @@ export default {
                 currencyPrice: "",
                 dcf: "",
                 currencyDcf: "",
-                dividendYield: "",
                 dividendQ: "",
                 currencyDividendQ: "",
-                dividendY: "",
-                currencyDividendY: "",
             },
             selectedBoxId: null,
             showDeleteConfirmation: false,
@@ -494,14 +447,19 @@ export default {
                 this.currentPage++;
             }
         },
+
         prevPage() {
             if (this.currentPage > 1) {
                 this.currentPage--;
             }
         },
 
-
-
+        firstPage() {
+            this.currentPage = 1; 
+        },
+        lastPage() {
+            this.currentPage = this.totalPages; 
+        },
 
         async updateWatchlist() {
             try {
@@ -520,9 +478,7 @@ export default {
                     currencyDcf: this.updateBox.currencyDcf,
                     dividendQ: this.updateBox.dividendQ,
                     currencyDividendQ: this.updateBox.currencyDividendQ,
-                    dividendY: this.updateBox.dividendY,
-                    currencyDividendY: this.updateBox.currencyDividendY,
-                    dividendYield: this.updateBox.dividendYield
+                    currencyDividendY: this.updateBox.currencyDividendQ,
                 };
 
                 const response = await db.put(`/watchlist/update`, watchlistUpdateData);
@@ -537,6 +493,7 @@ export default {
                 console.error("An error occurred:", error);
             }
         },
+
 
         async deleteWatchlist(id) {
             try {
@@ -590,9 +547,7 @@ export default {
                     currencyDcf: this.newBox.currencyDcf,
                     dividendQ: this.newBox.dividendQ,
                     currencyDividendQ: this.newBox.currencyDividendQ,
-                    dividendY: this.newBox.dividendY,
-                    currencyDividendY: this.newBox.currencyDividendY,
-                    dividendYield: this.newBox.dividendYield
+                    currencyDividendY: this.newBox.currencyDividendQ,
                 };
 
                 const response = await db.post("/watchlist/add", watchlistAddData);
@@ -1164,7 +1119,7 @@ section {
 }
 
 .add_form {
-    height: 30rem;
+    height: 25rem;
     width: 25rem;
     border: 1px solid #8880805e;
     border-radius: 5px;
@@ -1194,9 +1149,7 @@ section {
 .ticker_add_box,
 .price_add_box,
 .dcf_add_box,
-.dividend_yield_add_box,
-.dividend_q_add_box,
-.dividend_y_add_box {
+.dividend_q_add_box {
     display: flex;
     flex-direction: row;
     margin-left: 30px;

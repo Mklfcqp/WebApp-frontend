@@ -35,9 +35,9 @@
 
                             <div class="shares_add_box">
                                 <div class="input_format">
-                                    <input v-model="newBox.shares" type="text" id="shares" required
+                                    <input v-model="newBox.sharesBuy" type="text" id="sharesBuy" required
                                         class="add_form_input_double_1" placeholder="" />
-                                    <label for="shares" class="add_box_label">SHARES</label>
+                                    <label for="sharesBuy" class="add_box_label">SHARES BUY</label>
                                 </div>
                             </div>
 
@@ -55,6 +55,14 @@
                                     <input v-model="newBox.sell" type="text" id="sell" required
                                         class="add_form_input_double_1" placeholder="" />
                                     <label for="sell" class="add_box_label">SELL</label>
+                                </div>
+                            </div>
+
+                            <div class="shares_add_box">
+                                <div class="input_format">
+                                    <input v-model="newBox.sharesSell" type="text" id="sharesSell" required
+                                        class="add_form_input_double_1" placeholder="" />
+                                    <label for="sharesSell" class="add_box_label">SHARES SELL</label>
                                 </div>
                             </div>
 
@@ -119,9 +127,9 @@
 
                             <div class="shares_add_box">
                                 <div class="input_format">
-                                    <input v-model="updateBox.shares" type="text" id="shares" required
+                                    <input v-model="updateBox.sharesBuy" type="text" id="sharesBuy" required
                                         class="add_form_input_double_1" placeholder="" />
-                                    <label for="shares" class="add_box_label">SHARES</label>
+                                    <label for="sharesBuy" class="add_box_label">SHARES BUY</label>
                                 </div>
                             </div>
 
@@ -139,6 +147,14 @@
                                     <input v-model="updateBox.sell" type="text" id="sell" required
                                         class="add_form_input_double_1" placeholder="" />
                                     <label for="sell" class="add_box_label">SELL</label>
+                                </div>
+                            </div>
+
+                            <div class="shares_add_box">
+                                <div class="input_format">
+                                    <input v-model="updateBox.sharesSell" type="text" id="sharesSell" required
+                                        class="add_form_input_double_1" placeholder="" />
+                                    <label for="sharesSell" class="add_box_label">SHARES SELL</label>
                                 </div>
                             </div>
 
@@ -220,9 +236,9 @@
                                     <Icon icon="mdi:alphabet-a" class="portfolio_table_icon" />
                                     <div>Company</div>
                                 </th>
-                                <th scope="col" class="Shares" @click="sortTableByShares">
+                                <th scope="col" class="Shares" @click="sortTableBySharesBuy">
 
-                                    <div>Shares</div>
+                                    <div>Shares Buy</div>
                                 </th>
                                 <th scope="col" class="Buy" @click="sortTableByBuy">
 
@@ -231,6 +247,10 @@
                                 <th scope="col" class="Sell" @click="sortTableBySell">
 
                                     <div>Sell</div>
+                                </th>
+                                <th scope="col" class="Shares" @click="sortTableBySharesSell">
+
+                                    <div>Shares Sell</div>
                                 </th>
                                 <th scope="col" class="InterestBuySell" @click="sortTableByInterestBuySell">
 
@@ -273,9 +293,10 @@
                                 <th scope="row" class="hidden-id">{{ box.id }}</th>
                                 <td class="ticker_box">{{ box.ticker }}</td>
                                 <td class="company_box">{{ box.company }}</td>
-                                <td class="shares_box">{{ box.shares }}</td>
+                                <td class="shares_box">{{ box.sharesBuy }}</td>
                                 <td class="buy_box">{{ box.buy }}</td>
                                 <td class="sell_box">{{ box.sell }}</td>
+                                <td class="shares_box">{{ box.sharesSell }}</td>
                                 <td class="interestBuySell_box">{{ box.interestBuySell }}</td>
                                 <td :class="{
                                     'profitLossBuySell_box_profit': box.profitLossBuySell > 0,
@@ -316,8 +337,10 @@
                                 <td class="value_sum_box">
                                     <Icon icon="tabler:sum" />Total
                                 </td>
+                                <td class="sharesBuy_sum_box"></td>
                                 <td class="buy_sum_box">{{ sumBox.buy }}</td>
                                 <td class="sell_sum_box">{{ sumBox.sell }}</td>
+                                <td class="sharesSell_sum_box"></td>
                                 <td class="interestBuySell_sum_box">{{ sumBox.interestBuySell }}</td>
                                 <td class="profitLossBuySell_sum_box">{{ sumBox.profitLossBuySell }}</td>
                                 <td class="dividend_sum_box">{{ sumBox.dividend }}</td>
@@ -337,13 +360,23 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="pages_panel">
-                    <div class="firstPage">First</div>
-                    <div class="previous_page" @click="prevPage" :disabled="currentPage === 1">Previous</div>
-                    <div class="current_page">{{ currentPage }}</div>
-                    <div class="next_page" @click="nextPage" :disabled="currentPage === totalPages">Next</div>
-                    <div class="lastPage">Last</div>
-                </div>
+
+
+                    <div class="pages_panel" v-if="totalPages > 1">
+                        <div class="firstPage" @click="firstPage" >
+                            <Icon icon="fluent:arrow-previous-12-filled" />
+                        </div>
+                        <div class="previous_page" @click="prevPage" :disabled="currentPage === 1">
+                            <Icon icon="ep:arrow-left-bold" />
+                        </div>
+                        <div class="current_page">{{ currentPage }}</div>
+                        <div class="next_page" @click="nextPage" :disabled="currentPage === totalPages">
+                            <Icon icon="ep:arrow-right-bold" />
+                        </div>
+                        <div class="lastPage" @click="lastPage">
+                            <Icon icon="fluent:arrow-next-12-filled" />
+                        </div>
+                    </div>
 
 
                     <div class="bot">
@@ -396,19 +429,22 @@ export default {
             newBox: {
                 ticker: "",
                 company: "",
-                shares: "",
+                sharesBuy: "",
                 buy: "",
                 sell: "",
+                sharesSell: "",
                 interestBuySell: "",
                 dividend: "",
                 interestDividend: "",
             },
+
             box: {
                 ticker: "",
                 company: "",
-                shares: "",
+                sharesBuy: "",
                 buy: "",
                 sell: "",
+                sharesSell: "",
                 interestBuySell: "",
                 profitLossBuySell: "",
                 dividend: "",
@@ -416,6 +452,7 @@ export default {
                 profitLossDividend: "",
                 sumProfitLoss: "",
             },
+
             sumBox: {
                 buy: "",
                 sell: "",
@@ -426,18 +463,21 @@ export default {
                 profitLossDividend: "",
                 sumProfitLoss: "",
             },
+
             showEditForm: false,
             updateBox: {
                 id: "",
                 ticker: "",
                 company: "",
-                shares: "",
+                sharesBuy: "",
                 buy: "",
                 sell: "",
+                sharesSell: "",
                 interestBuySell: "",
                 dividend: "",
                 interestDividend: "",
             },
+
             selectedBoxId: null,
             showDeleteConfirmation: false,
             deleteItemId: null,
@@ -530,9 +570,10 @@ export default {
                     id: this.selectedBoxId,
                     ticker: this.updateBox.ticker,
                     company: this.updateBox.company,
-                    shares: this.updateBox.shares,
+                    sharesBuy: this.updateBox.sharesBuy,
                     buy: this.updateBox.buy,
                     sell: this.updateBox.sell,
+                    sharesSell: this.updateBox.sharesSell,
                     interestBuySell: this.updateBox.interestBuySell,
                     dividend: this.updateBox.dividend,
                     interestDividend: this.updateBox.interestDividend
@@ -593,9 +634,10 @@ export default {
                 const portfolioAddData = {
                     ticker: this.newBox.ticker,
                     company: this.newBox.company,
-                    shares: this.newBox.shares,
+                    sharesBuy: this.newBox.sharesBuy,
                     buy: this.newBox.buy,
                     sell: this.newBox.sell,
+                    sharesSell: this.newBox.sharesSell,
                     interestBuySell: this.newBox.interestBuySell,
                     dividend: this.newBox.dividend,
                     interestDividend: this.newBox.interestDividend
@@ -639,8 +681,12 @@ export default {
             });
         },
 
-        sortTableByShares() {
-            this.boxes.sort((a, b) => b.shares - a.shares);
+        sortTableBySharesBuy() {
+            this.boxes.sort((a, b) => b.sharesBuy - a.sharesBuy);
+        },
+
+        sortTableBySharesSell() {
+            this.boxes.sort((a, b) => b.sharesSell - a.sharesSell);
         },
 
         sortTableByBuy() {
@@ -684,6 +730,14 @@ export default {
             if (this.currentPage > 1) {
                 this.currentPage--;
             }
+        },
+
+        firstPage() {
+            this.currentPage = 1; 
+        },
+        
+        lastPage() {
+            this.currentPage = this.totalPages; 
         },
 
     }
@@ -771,7 +825,7 @@ section {
 
 /** CONTENT - MAINBOX */
 .mainbox {
-    width: 95rem;
+    width: 100rem;
     height: 45rem;
     display: flex;
     flex-direction: column;
@@ -796,7 +850,7 @@ section {
 
 .portfolio_table {
     height: 3rem;
-    width: 87.25rem;
+    width: 93.25rem;
     display: flex;
     align-items: center;
     justify-content: row;
@@ -976,7 +1030,7 @@ section {
 
 .added_form {
     height: 2rem;
-    width: 87.25rem;
+    width: 93.25rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1187,7 +1241,7 @@ section {
     border: 1px solid #8880805e;
 }
 
-.sumProfitLoss_normal {
+.sumProfitLoss_box_normal {
     margin-left: 0.75rem;
     margin-right: 0.75rem;
     background: #c9c9c934;
@@ -1278,8 +1332,8 @@ section {
 }
 
 .add_form {
-    height: 35rem;
-    width: 25rem;
+    height: 37rem;
+    width: 26rem;
     border: 1px solid #8880805e;
     border-radius: 5px;
     background: #434343;
@@ -1292,6 +1346,7 @@ section {
     flex-direction: column;
     gap: 10px;
 }
+
 
 .add_form_description {
     display: flex;
@@ -1431,7 +1486,7 @@ section {
 
 .value_sum_box {
     height: 2.5rem;
-    width: 30.1rem;
+    width: 24.1rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -1456,6 +1511,8 @@ section {
 
 .buy_sum_box,
 .sell_sum_box,
+.sharesBuy_sum_box,
+.sharesSell_sum_box,
 .interestBuySell_sum_box,
 .profitLossBuySell_sum_box,
 .dividend_sum_box,
