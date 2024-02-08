@@ -280,7 +280,7 @@
                         <div class="previous_page" @click="prevPage" :disabled="currentPage === 1">
                             <Icon icon="ep:arrow-left-bold" />
                         </div>
-                        <div class="current_page">{{ currentPage }}</div>
+                        <div class="current_page">{{ currentPage }} / {{ totalPages }}</div>
                         <div class="next_page" @click="nextPage" :disabled="currentPage === totalPages">
                             <Icon icon="ep:arrow-right-bold" />
                         </div>

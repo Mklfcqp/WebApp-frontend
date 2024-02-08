@@ -208,7 +208,8 @@
                                 </div>
 
                                 <div class="box1_text2">
-                                    <span class="box1_text2_info">If you would like to know more information feel free to contact me.</span>      
+                                    <span class="box1_text2_info">If you would like to know more information feel free to
+                                        contact me.</span>
                                 </div>
 
                             </div>
@@ -294,6 +295,19 @@
                                 <Icon icon="bi:github" class="github_icon" />
                             </div>
                         </div>
+
+                        <ul class="circles">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
 
                     </swiper-slide>
                 </swiper>
@@ -1148,9 +1162,11 @@ section {
 .phone:hover,
 .city:hover,
 .github:hover {
+    border: 1px solid rgba(255, 255, 255, 0.411);
     border-radius: 10px;
     color: white;
-    background: #3f74c4;
+    background-color: #1e508a;
+    background-image: linear-gradient(225deg, #25d0e7bd 0%, #1e508a 50%, #163be0bd 100%);
 }
 
 .email p,
@@ -1172,5 +1188,122 @@ section {
     font-size: 0.9rem;
     font-weight: 800;
     color: white;
+}
+
+/* ANIMATED BACKGROUND */
+
+.circles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.circles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background-color: #1e508a;
+    background-image: linear-gradient(225deg, #25d0e7bd 0%, #1e508a 50%, #163be0bd 100%);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+    box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+
+.circles li:nth-child(1) {
+    left: 25%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    animation-delay: 0s;
+}
+
+.circles li:nth-child(2) {
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.circles li:nth-child(3) {
+    left: 70%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 4s;
+}
+
+.circles li:nth-child(4) {
+    left: 40%;
+    width: 30px;
+    height: 30px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.circles li:nth-child(5) {
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.circles li:nth-child(6) {
+    left: 75%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 3s;
+}
+
+.circles li:nth-child(7) {
+    left: 35%;
+    width: 55px;
+    height: 55px;
+    animation-delay: 7s;
+}
+
+.circles li:nth-child(8) {
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+.circles li:nth-child(9) {
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.circles li:nth-child(10) {
+    left: 85%;
+    width: 55px;
+    height: 55px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+@keyframes animate {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 50%;
+    }
+
+    100% {
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+
 }
 </style>
