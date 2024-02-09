@@ -131,180 +131,183 @@
                                     <input v-model="updateBox.dcf" type="text" id="dcf" required
                                         class="add_form_input_double_1" placeholder="" />
                                     <label for="dcf" class="add_box_label">DCF</label>
-                                </div>
+                                </div> 
 
-                                <div class="input_format">
-                                    <input v-model="updateBox.currencyDcf" type="text" id="currencyDcf" required
-                                        class="add_form_input_double_2" value="USD" />
-                                </div>
+                             
+                    
 
+                            <div class="input_format">
+                                <input v-model="updateBox.currencyDcf" type="text" id="currencyDcf" required
+                                    class="add_form_input_double_2" value="USD" />
                             </div>
 
-                            <div class="dividend_q_add_box">
-                                <div class="input_format">
-                                    <input v-model="updateBox.dividendQ" type="text" id="dividendQ" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="dividendQ" class="add_box_label">DIVIDEN -
-                                        QUARTERLY</label>
-                                </div>
-
-
-                                <div class="input_format">
-                                    <input v-model="updateBox.currencyDividendQ" type="text" id="currencyDividendQ" required
-                                        class="add_form_input_double_2" value="USD" />
-                                </div>
-                            </div>
-
-                            <div class="add_form_buttons">
-                                <button type="submit" @click="updateWatchlist()" class="add_form_button">UPDATE</button>
-                                <button type="button" @click="cancelAdd" class="add_form_button">CANCEL</button>
-                            </div>
-
-                        </form>
                     </div>
 
+                    <div class="dividend_q_add_box">
+                        <div class="input_format">
+                            <input v-model="updateBox.dividendQ" type="text" id="dividendQ" required
+                                class="add_form_input_double_1" placeholder="" />
+                            <label for="dividendQ" class="add_box_label">DIVIDEN -
+                                QUARTERLY</label>
+                        </div>
 
-                    <div class="overlay" v-if="showDeleteConfirmation">
-                        <div v-if="showDeleteConfirmation" class="confirmation">
-                            <p>Are you sure you want to delete this item?</p>
-                            <div class="delete_confirmation_buttons">
-                                <div class="delete_button" @click="confirmDelete">Delete</div>
-                                <div class="cancel_button" @click="cancelDelete">Cancel</div>
-                            </div>
+
+                        <div class="input_format">
+                            <input v-model="updateBox.currencyDividendQ" type="text" id="currencyDividendQ" required
+                                class="add_form_input_double_2" value="USD" />
                         </div>
                     </div>
 
-                    <div class="overlay" v-if="loading">
-                        <div v-if="loading" class="loader">
-                            <div class="cell d-0"></div>
-                            <div class="cell d-1"></div>
-                            <div class="cell d-2"></div>
-
-                            <div class="cell d-1"></div>
-                            <div class="cell d-2"></div>
-
-
-                            <div class="cell d-2"></div>
-                            <div class="cell d-3"></div>
-
-                            <div class="cell d-3"></div>
-                            <div class="cell d-4"></div>
-                        </div>
+                    <div class="add_form_buttons">
+                        <button type="submit" @click="updateWatchlist()" class="add_form_button">UPDATE</button>
+                        <button type="button" @click="cancelAdd" class="add_form_button">CANCEL</button>
                     </div>
 
-                    <table v-if="!loading">
-                        <thead>
-                            <tr class="watchlist_table">
+                    </form>
+                </div>
 
-                                <th scope="col" class="Ticker">
-                                    <div>Ticker</div>
-                                </th>
-                                <th scope="col" class="Company" @click="sortTableByCompany">
-                                    <Icon icon="mdi:alphabet-a" class="watchlist_table_icon" />
-                                    <div>Company</div>
-                                </th>
-                                <th scope="col" class="Current_Price" @click="sortTableByCurrentPrice">
-                                    <Icon icon="foundation:dollar" class="watchlist_table_icon" />
-                                    <div>Current Price</div>
-                                </th>
-                                <th scope="col" class="DCF" @click="sortTableByDCF">
-                                    <Icon icon="foundation:dollar" class="watchlist_table_icon" />
-                                    <div>DCF</div>
-                                </th>
-                                <th scope="col" class="Dividend_Yield" @click="sortTableByDividendYield">
-                                    <Icon icon="material-symbols:percent" class="watchlist_table_icon" />
-                                    <div>Dividend Yield</div>
-                                </th>
-                                <th scope="col" class="Dividend_Q" @click="sortTableByDividendQ">
-                                    <Icon icon="solar:dollar-line-duotone" class="watchlist_table_icon" />
-                                    <div>Dividend(Q)</div>
-                                </th>
-                                <th scope="col" class="Dividend_Y" @click="sortTableByDividendY">
-                                    <Icon icon="solar:dollar-outline" class="watchlist_table_icon" />
-                                    <div>Dividend(Y)</div>
-                                </th>
-                                <th scope="col" class="Disparity" @click="sortTableByDisparity">
-                                    <Icon icon="material-symbols:percent" class="watchlist_table_icon" />
-                                    <div>Disparity</div>
-                                </th>
 
-                                <th scope="col" class="Edit_remove"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr v-for="box in paginatedData" :key="box.id" class="added_form">
-                                <th scope="row" class="hidden-id">{{ box.id }}</th>
-                                <td class="ticker_box">{{ box.ticker }}</td>
-                                <td class="company_box">{{ box.company }}</td>
-                                <td class="price_box">
-                                    <div class="price_value">{{ box.price }}</div>
-                                    <div class="currency">{{ box.currencyPrice }}</div>
-                                </td>
-                                <td class="dcf_box">
-                                    <div class="dcf_value">{{ box.dcf }}</div>
-                                    <div class="currency">{{ box.currencyDcf }}</div>
-                                </td>
-                                <td class="dividend_yield_box">
-                                    <div>{{ box.dividendYield }}</div>
-                                    <div class="currency">%</div>
-                                </td>
-                                <td class="dividend_q_box">
-                                    <div class="dividend_q">{{ box.dividendQ }}</div>
-                                    <div class="currency">{{ box.currencyDividendQ }}</div>
-                                </td>
-                                <td class="dividend_y_box">
-                                    <div class="dividend_y">{{ box.dividendY }}</div>
-                                    <div class="currency">{{ box.currencyDividendY }}</div>
-                                </td>
-                                <td class="disparity_box">
-                                    <div
-                                        :class="{ 'disparity_overvalued': box.overValuedUnderValued.includes('Overvalued'), 'disparity_undervalued': box.overValuedUnderValued.includes('Undervalued'), 'disparity_normal': !box.overValuedUnderValued.includes('Overvalued') && !box.overValuedUnderValued.includes('Undervalued') }">
-                                        {{ box.overValuedUnderValued }}</div>
-                                </td>
-                                <td class="edit_remove">
-                                    <button class="edit_remove_button" @click="loadWatchlistForEdit(box.id)">
-                                        <Icon icon="mdi:edit-outline" class="edit_remove_icon" />
-                                    </button>
-                                    <button class="edit_remove_button" @click="deleteWatchlistConfirmation(box.id)">
-                                        <Icon icon="mingcute:delete-fill" class="edit_remove_icon" />
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <div class="pages_panel" v-if="totalPages > 1">
-                        <div class="firstPage" @click="firstPage">
-                            <Icon icon="fluent:arrow-previous-12-filled" />
-                        </div>
-                        <div class="previous_page" @click="prevPage" :disabled="currentPage === 1">
-                            <Icon icon="ep:arrow-left-bold" />
-                        </div>
-                        <div class="current_page">{{ currentPage }} / {{ totalPages }}</div>
-                        <div class="next_page" @click="nextPage" :disabled="currentPage === totalPages">
-                            <Icon icon="ep:arrow-right-bold" />
-                        </div>
-                        <div class="lastPage" @click="lastPage">
-                            <Icon icon="fluent:arrow-next-12-filled" />
+                <div class="overlay" v-if="showDeleteConfirmation">
+                    <div v-if="showDeleteConfirmation" class="confirmation">
+                        <p>Are you sure you want to delete this item?</p>
+                        <div class="delete_confirmation_buttons">
+                            <div class="delete_button" @click="confirmDelete">Delete</div>
+                            <div class="cancel_button" @click="cancelDelete">Cancel</div>
                         </div>
                     </div>
+                </div>
+
+                <div class="overlay" v-if="loading">
+                    <div v-if="loading" class="loader">
+                        <div class="cell d-0"></div>
+                        <div class="cell d-1"></div>
+                        <div class="cell d-2"></div>
+
+                        <div class="cell d-1"></div>
+                        <div class="cell d-2"></div>
 
 
-                    <div class="bot">
+                        <div class="cell d-2"></div>
+                        <div class="cell d-3"></div>
 
-                        <button @click="showAddForm = true" v-if="!showAddForm" class="bot_box">
-
-                            <div class="bot_box_icon">
-                                <Icon icon="typcn:plus" class="bot_icon" />
-                            </div>
-
-                            <div class="bot_box_button">Add Stock to Watchlist</div>
-
-                        </button>
-
+                        <div class="cell d-3"></div>
+                        <div class="cell d-4"></div>
                     </div>
+                </div>
+
+                <table v-if="!loading">
+                    <thead>
+                        <tr class="watchlist_table">
+
+                            <th scope="col" class="Ticker">
+                                <div>Ticker</div>
+                            </th>
+                            <th scope="col" class="Company" @click="sortTableByCompany">
+                                <Icon icon="mdi:alphabet-a" class="watchlist_table_icon" />
+                                <div>Company</div>
+                            </th>
+                            <th scope="col" class="Current_Price" @click="sortTableByCurrentPrice">
+                                <Icon icon="foundation:dollar" class="watchlist_table_icon" />
+                                <div>Current Price</div>
+                            </th>
+                            <th scope="col" class="DCF" @click="sortTableByDCF">
+                                <Icon icon="foundation:dollar" class="watchlist_table_icon" />
+                                <div>DCF</div>
+                            </th>
+                            <th scope="col" class="Dividend_Yield" @click="sortTableByDividendYield">
+                                <Icon icon="material-symbols:percent" class="watchlist_table_icon" />
+                                <div>Dividend Yield</div>
+                            </th>
+                            <th scope="col" class="Dividend_Q" @click="sortTableByDividendQ">
+                                <Icon icon="solar:dollar-line-duotone" class="watchlist_table_icon" />
+                                <div>Dividend(Q)</div>
+                            </th>
+                            <th scope="col" class="Dividend_Y" @click="sortTableByDividendY">
+                                <Icon icon="solar:dollar-outline" class="watchlist_table_icon" />
+                                <div>Dividend(Y)</div>
+                            </th>
+                            <th scope="col" class="Disparity" @click="sortTableByDisparity">
+                                <Icon icon="material-symbols:percent" class="watchlist_table_icon" />
+                                <div>Disparity</div>
+                            </th>
+
+                            <th scope="col" class="Edit_remove"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="box in paginatedData" :key="box.id" class="added_form">
+                            <th scope="row" class="hidden-id">{{ box.id }}</th>
+                            <td class="ticker_box">{{ box.ticker }}</td>
+                            <td class="company_box">{{ box.company }}</td>
+                            <td class="price_box">
+                                <div class="price_value">{{ box.price }}</div>
+                                <div class="currency">{{ box.currencyPrice }}</div>
+                            </td>
+                            <td class="dcf_box">
+                                <div class="dcf_value">{{ box.dcf }}</div>
+                                <div class="currency">{{ box.currencyDcf }}</div>
+                            </td>
+                            <td class="dividend_yield_box">
+                                <div>{{ box.dividendYield }}</div>
+                                <div class="currency">%</div>
+                            </td>
+                            <td class="dividend_q_box">
+                                <div class="dividend_q">{{ box.dividendQ }}</div>
+                                <div class="currency">{{ box.currencyDividendQ }}</div>
+                            </td>
+                            <td class="dividend_y_box">
+                                <div class="dividend_y">{{ box.dividendY }}</div>
+                                <div class="currency">{{ box.currencyDividendY }}</div>
+                            </td>
+                            <td class="disparity_box">
+                                <div
+                                    :class="{ 'disparity_overvalued': box.overValuedUnderValued.includes('Overvalued'), 'disparity_undervalued': box.overValuedUnderValued.includes('Undervalued'), 'disparity_normal': !box.overValuedUnderValued.includes('Overvalued') && !box.overValuedUnderValued.includes('Undervalued') }">
+                                    {{ box.overValuedUnderValued }}</div>
+                            </td>
+                            <td class="edit_remove">
+                                <button class="edit_remove_button" @click="loadWatchlistForEdit(box.id)">
+                                    <Icon icon="mdi:edit-outline" class="edit_remove_icon" />
+                                </button>
+                                <button class="edit_remove_button" @click="deleteWatchlistConfirmation(box.id)">
+                                    <Icon icon="mingcute:delete-fill" class="edit_remove_icon" />
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="pages_panel" v-if="totalPages > 1">
+                    <div class="firstPage" @click="firstPage">
+                        <Icon icon="fluent:arrow-previous-12-filled" />
+                    </div>
+                    <div class="previous_page" @click="prevPage" :disabled="currentPage === 1">
+                        <Icon icon="ep:arrow-left-bold" />
+                    </div>
+                    <div class="current_page">{{ currentPage }} / {{ totalPages }}</div>
+                    <div class="next_page" @click="nextPage" :disabled="currentPage === totalPages">
+                        <Icon icon="ep:arrow-right-bold" />
+                    </div>
+                    <div class="lastPage" @click="lastPage">
+                        <Icon icon="fluent:arrow-next-12-filled" />
+                    </div>
+                </div>
+
+
+                <div class="bot">
+
+                    <button @click="showAddForm = true" v-if="!showAddForm" class="bot_box">
+
+                        <div class="bot_box_icon">
+                            <Icon icon="typcn:plus" class="bot_icon" />
+                        </div>
+
+                        <div class="bot_box_button">Add Stock to Watchlist</div>
+
+                    </button>
 
                 </div>
+
+            </div>
 
 
             </div>
@@ -455,10 +458,10 @@ export default {
         },
 
         firstPage() {
-            this.currentPage = 1; 
+            this.currentPage = 1;
         },
         lastPage() {
-            this.currentPage = this.totalPages; 
+            this.currentPage = this.totalPages;
         },
 
         async updateWatchlist() {
@@ -1448,5 +1451,4 @@ section {
 
 ::-webkit-scrollbar-thumb:hover {
     background-color: #555;
-}
-</style>
+}</style>
