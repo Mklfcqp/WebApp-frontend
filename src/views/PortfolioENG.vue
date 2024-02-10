@@ -525,7 +525,7 @@ export default {
             const headers = new Headers();
             headers.append('Authorization', `Bearer ${accessToken}`);
 
-            fetch('http://localhost:8080/portfolio/load', { headers })
+            fetch('https://webapp-backend-production.up.railway.app/portfolio/load', { headers })
                 .then(res => res.json())
                 .then(data => {
                     this.boxes = data;
@@ -547,7 +547,7 @@ export default {
             const headers = new Headers();
             headers.append('Authorization', `Bearer ${accessToken}`);
 
-            fetch('http://localhost:8080/portfolio/load/sum', { headers })
+            fetch('https://webapp-backend-production.up.railway.app/portfolio/load/sum', { headers })
                 .then(res => res.json())
                 .then(data => {
                     this.sumBoxes = [data];
@@ -594,7 +594,7 @@ export default {
 
         async deletePortfolio(id) {
             try {
-                const response = await fetch(`http://localhost:8080/portfolio/delete/${id}`, {
+                const response = await fetch(`https://webapp-backend-production.up.railway.app/portfolio/delete/${id}`, {
                     method: 'DELETE'
                 });
 

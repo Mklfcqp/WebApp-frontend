@@ -625,7 +625,7 @@ export default {
             const headers = new Headers();
             headers.append('Authorization', `Bearer ${accessToken}`);
 
-            fetch('webapp-backend-production.up.railway.app/watchlist/sorted/disparity', { headers })
+            fetch('https://webapp-backend-production.up.railway.app/watchlist/sorted/disparity', { headers })
                 .then(res => res.json())
                 .then(data => {
                     this.boxes = data;

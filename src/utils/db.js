@@ -4,7 +4,7 @@ import {jwtDecode} from 'jwt-decode'
 
 const axiosInstance = axios.create({
   // baseURL: 'http://localhost:8080',
-  baseURL: 'webapp-backend-production.up.railway.app',
+  baseURL: 'https://webapp-backend-production.up.railway.app',
   headers: {
     Accept: 'application/json'
   }
