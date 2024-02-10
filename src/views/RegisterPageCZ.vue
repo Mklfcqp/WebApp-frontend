@@ -73,10 +73,10 @@
 
       <div class="language-buttons">
         <button class="language-button" @click="changeLanguageCZ">
-          <img src="@/assets/img/cz.png" alt="Czech Flag" class="language-icon" />
+          <img src="" alt="Czech Flag" class="language-icon" />
         </button>
         <button class="language-button" @click="changeLanguageENG">
-          <img src="@/assets/img/gb.png" alt="English Flag" class="language-icon" />
+          <img src="" alt="English Flag" class="language-icon" />
         </button>
       </div>
     </div>
