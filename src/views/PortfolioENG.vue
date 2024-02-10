@@ -292,7 +292,7 @@
                             <tr v-for="box in paginatedData" :key="box.id" class="added_form">
                                 <th scope="row" class="hidden-id">{{ box.id }}</th>
                                 <td class="ticker_box">{{ box.ticker }}</td>
-                                <td class="company_box">{{ box.company }}</td>
+                                <td class="company_box" :class="{ 'same_shares': box.sharesBuy === box.sharesSell }">{{ box.company }}</td>
                                 <td class="shares_box">{{ box.sharesBuy }}</td>
                                 <td class="buy_box">{{ box.buy }}</td>
                                 <td class="sell_box">{{ box.sell }}</td>
@@ -1800,5 +1800,13 @@ section {
         background-color: transparent;
     }
 }
+
+
+
+.same_shares {
+    color: rgba(158, 158, 158, 0.658); 
+}
+
+
 </style>
 

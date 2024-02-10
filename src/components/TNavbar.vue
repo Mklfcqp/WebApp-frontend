@@ -306,4 +306,7 @@ export default {
   border-radius: 10px;
   transition: .5s;
 }
+
+
+/* test */
 </style>
