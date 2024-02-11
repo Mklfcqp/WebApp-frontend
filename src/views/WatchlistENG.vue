@@ -51,7 +51,7 @@
                             <div class="dcf_add_box">
 
                                 <div class="input_format">
-                                    <input v-model="newBox.dcf" type="text" id="dcf" required
+                                    <input v-model="newDcfBox.dcf" type="text" id="dcf" required
                                         class="add_form_input_double_1" placeholder="" />
                                     <label for="dcf" class="add_box_label">DCF</label>
                                 </div>
@@ -80,7 +80,7 @@
 
 
                             <div class="add_form_buttons">
-                                <button type="submit" @click="addStockToWatchlist" class="add_form_button">ADD</button>
+                                <button type="submit" @click="addDcfAndWatchlist" class="add_form_button">ADD</button>
                                 <button type="button" @click="cancelAdd" class="add_form_button">CANCEL</button>
                             </div>
 
@@ -327,7 +327,6 @@ import { Icon } from '@iconify/vue';
 import db from '../utils/db.js'
 import axios from 'axios';
 import TBackground from '@/components/TBackground.vue'
-import Pagination from 'vue-pagination-2';
 
 export default {
 
@@ -335,7 +334,6 @@ export default {
         TNavbar,
         Icon,
         TBackground,
-        Pagination
 
     },
     data() {
@@ -347,11 +345,14 @@ export default {
                 company: "",
                 price: "",
                 currencyPrice: "USD",
-                dcf: "",
                 currencyDcf: "USD",
                 dividendQ: "",
                 currencyDividendQ: "USD",
             },
+            newDcfBox: {
+                dcf: ""
+            },
+
             box: {
                 ticker: "",
                 company: "",
@@ -545,8 +546,8 @@ export default {
                     ticker: this.newBox.ticker,
                     company: this.newBox.company,
                     price: this.newBox.price,
+                    dcf: this.newDcfBox.dcf,
                     currencyPrice: this.newBox.currencyPrice,
-                    dcf: this.newBox.dcf,
                     currencyDcf: this.newBox.currencyDcf,
                     dividendQ: this.newBox.dividendQ,
                     currencyDividendQ: this.newBox.currencyDividendQ,
@@ -563,6 +564,31 @@ export default {
             } catch (error) {
                 console.error("An error occurred:", error);
             }
+        },
+
+
+        async addManualDcf() {
+            try {
+                const dcfAddManualData = {
+                    dcf: this.newDcfBox.dcf,
+                };
+
+                const response = await db.post("/dcf/add/manual", dcfAddManualData);
+
+                if (response.ok) {
+                    console.log("Data have been sent successfully:", response.data);
+                } else {
+                    console.error("Sending failed:", await response.json());
+                }
+            } catch (error) {
+                console.error("An error occurred:", error);
+            }
+        },
+
+
+        async addDcfAndWatchlist() {
+            await this.addManualDcf();
+            this.addStockToWatchlist();
         },
 
 
