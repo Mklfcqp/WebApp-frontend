@@ -327,7 +327,6 @@ import { Icon } from '@iconify/vue';
 import db from '../utils/db.js'
 import axios from 'axios';
 import TBackground from '@/components/TBackground.vue'
-import Pagination from 'vue-pagination-2';
 
 export default {
 
@@ -335,7 +334,6 @@ export default {
         TNavbar,
         Icon,
         TBackground,
-        Pagination
 
     },
     data() {
@@ -433,7 +431,7 @@ export default {
                 Authorization: `Bearer ${accessToken}`,
             };
 
-            axios.get('webapp-backend-production.up.railway.app/watchlist/load', { headers })
+            axios.get('https://webapp-backend-production.up.railway.app/watchlist/load', { headers })
                 .then(response => {
                     this.boxes = response.data;
                     this.loading = false;
@@ -500,7 +498,7 @@ export default {
 
         async deleteWatchlist(id) {
             try {
-                const response = await fetch(`webapp-backend-production.up.railway.app/watchlist/delete/${id}`, {
+                const response = await fetch(`https://webapp-backend-production.up.railway.app/watchlist/delete/${id}`, {
                     method: 'DELETE'
                 });
 
