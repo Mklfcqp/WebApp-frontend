@@ -18,8 +18,7 @@
                             <div class="add_form_description">ADD WATCHLIST</div>
 
                             <div class="box">
-                                <div class="box_inside">
-
+                                <div class="box_inside1">
                                     <div class="company_add_box">
                                         <div class="input_format">
                                             <input v-model="newBox.company" type="text" id="company" required
@@ -36,21 +35,18 @@
                                         </div>
                                     </div>
 
-                                </div>
 
-
-                                <div class="box_inside">
                                     <div class="price_add_box">
+
+                                        <div class="input_format">
+                                            <input v-model="newBox.price" type="text" id="price" required class="add_form_input_double_1"
+                                                   placeholder="" @input="handleInputChange" />
+                                            <label for="price" class="add_box_label">CURRENT PRICE</label>
+                                        </div>
 
                                         <div class="input_format">
                                             <input v-model="newBox.currencyPrice" type="text" id="currencyPrice" required
                                                    class="add_form_input_double_2" value="USD" />
-                                        </div>
-
-                                        <div class="input_format">
-                                            <input v-model="newBox.price" type="text" id="price" required class="add_form_input_double_1"
-                                                   placeholder="" @input="handleInputChange"/>
-                                            <label for="price" class="add_box_label">CURRENT PRICE</label>
                                         </div>
 
 
@@ -60,7 +56,7 @@
                                     <div class="dividend_q_add_box">
                                         <div class="input_format">
                                             <input v-model="newBox.dividendQ" type="text" id="dividendQ" required
-                                                   class="add_form_input_double_1" placeholder="" @input="handleInputChange"/>
+                                                   class="add_form_input_double_1" placeholder="" @input="handleInputChange" />
                                             <label for="dividendQ" class="add_box_label">DIVIDEN -
                                                 QUARTERLY</label>
                                         </div>
@@ -70,120 +66,121 @@
                                             <input v-model="newBox.currencyDividendQ" type="text" id="currencyDividendQ" required
                                                    class="add_form_input_double_2" value="USD" />
                                         </div>
+                                    </div>
 
+                                    <div class="dcf_manual_add_box">
+                                        <div class="dcf_manual_add_box_description">DCF - MANUAL INPUT</div>
+
+                                        <div class="dcf_manual_add_box_value">
+
+                                            <div class="input_format">
+                                                <input v-model="newBox.dcfWithMarginOfSafety" type="text" id="dcfWithMarginOfSafety"
+                                                       class="add_form_input_double_1" placeholder="" @input="handleInputChange">
+                                                <label for="dcfWithMarginOfSafety" class="add_box_label">DCF - MANUAL</label>
+                                            </div>
+
+
+                                            <div class="input_format">
+                                                <input v-model="newBox.currencyDcf" type="text" id="currencyDcf" required
+                                                       class="add_form_input_double_2" value="USD" />
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="box_inside2">
+                                    <div class="box_inside2_description">DCF - CALCULATION</div>
+                                    <div class="box_inside2_inside">
+
+                                        <div class="box_inside2_free_cash_flow">
+                                            <div class="input_format">
+                                                <input v-model="newBox.freeCashFlow0" type="text" id="freeCashFlow0"
+                                                       class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
+                                                <label for="freeCashFlow0" class="add_box_label">FCF CURRENT YEAR</label>
+                                            </div>
+
+                                            <div class="input_format">
+                                                <input v-model="newBox.freeCashFlow1" type="text" id="freeCashFlow1"
+                                                       class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
+                                                <label for="freeCashFlow1" class="add_box_label">FCF CURRENT YEAR - 1</label>
+                                            </div>
+
+
+                                            <div class="input_format">
+                                                <input v-model="newBox.freeCashFlow2" type="text" id="freeCashFlow2"
+                                                       class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
+                                                <label for="freeCashFlow2" class="add_box_label">FCF CURRENT YEAR - 2</label>
+                                            </div>
+
+                                            <div class="input_format">
+                                                <input v-model="newBox.freeCashFlow3" type="text" id="freeCashFlow3"
+                                                       class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
+                                                <label for="freeCashFlow3" class="add_box_label">FCF CURRENT YEAR - 3</label>
+                                            </div>
+
+                                            <div class="input_format">
+                                                <input v-model="newBox.freeCashFlow4" type="text" id="freeCashFlow4"
+                                                       class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
+                                                <label for="freeCashFlow4" class="add_box_label">FCF CURRENT YEAR - 4</label>
+                                            </div>
+
+                                            <div class="input_format">
+                                                <input v-model="newBox.freeCashFlow5" type="text" id="freeCashFlow5"
+                                                       class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
+                                                <label for="freeCashFlow5" class="add_box_label">FCF CURRENT YEAR - 5</label>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="box2_financial">
+
+                                            <div class="input_format">
+                                                <input v-model="newBox.growthRate" type="text" id="growthRate"
+                                                       class="add_form_input_double_1" placeholder="" @input="handleInputChange">
+                                                <label for="growthRate" class="add_box_label">GROWTH RATE</label>
+                                            </div>
+                                            <div class="input_format">
+                                                <input v-model="newBox.perpetualGrowthRate" type="text" id="perpetualGrowthRate"
+                                                       class="add_form_input_double_1" placeholder="" @input="handleInputChange">
+                                                <label for="perpetualGrowthRate" class="add_box_label">PERPETUAL GROWTH RATE</label>
+                                            </div>
+                                            <div class="input_format">
+                                                <input v-model="newBox.discountRate" type="text" id="discountRate"
+                                                       class="add_form_input_double_1" placeholder="" @input="handleInputChange">
+                                                <label for="discountRate" class="add_box_label">DISCOUNT RATE</label>
+                                            </div>
+
+
+                                            <div class="input_format">
+                                                <input v-model="newBox.cash" type="text" id="cash" class="add_form_input_double_1"
+                                                       placeholder="" @input="handleInputChange">
+                                                <label for="cash" class="add_box_label">CASH & CASH EQUIVALENTS</label>
+                                            </div>
+                                            <div class="input_format">
+                                                <input v-model="newBox.totalDebt" type="text" id="totalDebt" class="add_form_input_double_1"
+                                                       placeholder="" @input="handleInputChange">
+                                                <label for="totalDebt" class="add_box_label">TOTAL DEBT</label>
+                                            </div>
+                                            <div class="input_format">
+                                                <input v-model="newBox.sharesOutstanding" type="text" id="sharesOutstanding"
+                                                       class="add_form_input_double_1" placeholder="" @input="handleInputChange">
+                                                <label for="sharesOutstanding" class="add_box_label">SHARES OUTSTANDING</label>
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
 
-
                             </div>
 
-
-
-
-
-                            <div class="box1">
-                                <div class="box1_description">DCF - Manual input</div>
-
-                                <div class="box1_inside">
-
-                                    <div class="input_format">
-                                        <input v-model="newBox.dcfWithMarginOfSafety" type="text" id="dcfWithMarginOfSafety"
-                                               class="add_form_input_double_1" placeholder="" @input="handleInputChange">
-                                        <label for="dcfWithMarginOfSafety" class="add_box_label">DCF - Manual</label>
-                                    </div>
-
-
-                                    <div class="input_format">
-                                        <input v-model="newBox.currencyDcf" type="text" id="currencyDcf" required
-                                               class="add_form_input_double_2" value="USD" />
-                                    </div>
-
-
-                                </div>
-                            </div>
-
-                            <div class="box2">
-                                <div class="box2_description">DCF - Calculation</div>
-                                <div class="box2_free_cash_flow">
-                                    <div class="input_format">
-                                        <input v-model="newBox.freeCashFlow5" type="text" id="freeCashFlow5"
-                                               class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
-                                        <label for="freeCashFlow5" class="add_box_label">FCF Current Year - 5</label>
-                                    </div>
-                                    <div class="input_format">
-                                        <input v-model="newBox.freeCashFlow4" type="text" id="freeCashFlow4"
-                                               class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
-                                        <label for="freeCashFlow4" class="add_box_label">FCF Current Year - 4</label>
-                                    </div>
-                                    <div class="input_format">
-                                        <input v-model="newBox.freeCashFlow3" type="text" id="freeCashFlow3"
-                                               class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
-                                        <label for="freeCashFlow3" class="add_box_label">FCF Current Year - 3</label>
-                                    </div>
-                                    <div class="input_format">
-                                        <input v-model="newBox.freeCashFlow2" type="text" id="freeCashFlow2"
-                                               class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
-                                        <label for="freeCashFlow2" class="add_box_label">FCF Current Year - 2</label>
-                                    </div>
-                                    <div class="input_format">
-                                        <input v-model="newBox.freeCashFlow1" type="text" id="freeCashFlow1"
-                                               class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
-                                        <label for="freeCashFlow1" class="add_box_label">FCF Current Year - 1</label>
-                                    </div>
-                                    <div class="input_format">
-                                        <input v-model="newBox.freeCashFlow0" type="text" id="freeCashFlow0"
-                                               class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
-                                        <label for="freeCashFlow0" class="add_box_label">FCF Current Year</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="box4">
-                                <div class="box4_inside">
-                                    <div class="input_format">
-                                        <input v-model="newBox.growthRate" type="text" id="growthRate" class="add_form_input_double_1"
-                                               placeholder="" @input="handleInputChange">
-                                        <label for="growthRate" class="add_box_label">Growth rate</label>
-                                    </div>
-                                    <div class="input_format">
-                                        <input v-model="newBox.perpetualGrowthRate" type="text" id="perpetualGrowthRate"
-                                               class="add_form_input_double_1" placeholder="" @input="handleInputChange">
-                                        <label for="perpetualGrowthRate" class="add_box_label">Perpetual Growth rate</label>
-                                    </div>
-                                    <div class="input_format">
-                                        <input v-model="newBox.discountRate" type="text" id="discountRate" class="add_form_input_double_1"
-                                               placeholder="" @input="handleInputChange">
-                                        <label for="discountRate" class="add_box_label">Discount rate</label>
-                                    </div>
-                                </div>
-                                <div class="box4_inside">
-                                    <div class="input_format">
-                                        <input v-model="newBox.cash" type="text" id="cash" class="add_form_input_double_1" placeholder="" @input="handleInputChange">
-                                        <label for="cash" class="add_box_label">Cash & Cash Equivalents</label>
-                                    </div>
-                                    <div class="input_format">
-                                        <input v-model="newBox.totalDebt" type="text" id="totalDebt" class="add_form_input_double_1"
-                                               placeholder="" @input="handleInputChange">
-                                        <label for="totalDebt" class="add_box_label">Total Debt</label>
-                                    </div>
-                                    <div class="input_format">
-                                        <input v-model="newBox.sharesOutstanding" type="text" id="sharesOutstanding"
-                                               class="add_form_input_double_1" placeholder="" @input="handleInputChange">
-                                        <label for="sharesOutstanding" class="add_box_label">Shares Outstanding</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- dodelat vypocet a style-->
-                            <div class="box5">
-                                <p>Instrict Value</p>
-                                <div class="box5_dcf">{{ dcf }}</div>
-                            </div>
 
                             <div class="add_form_buttons">
-                                <button type="submit" @click="addManualWatchlist" class="add_form_button">ADD Manual</button>
-                                <button type="submit" @click="addCalculatingWatchlist" class="add_form_button">ADD Calculating</button>
-                                <button type="button" @click="cancelAdd" class="add_form_button">CANCEL</button>
+                                <div @click="addManualWatchlist" class="add_form_button">ADD MANUAL</div>
+                                <div @click="addCalculatingWatchlist" class="add_form_button">ADD CALCULATING</div>
+                                <div @click="cancelAdd" class="add_form_button">CANCEL</div>
                             </div>
                         </form>
                     </div>
@@ -195,77 +192,166 @@
 
                             <div class="add_form_description">UPDATE WATCHLIST</div>
 
-                            <div class="company_add_box">
-                                <div class="input_format">
-                                    <input v-model="updateBox.company" type="text" id="company" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="company" class="add_box_label">COMPANY</label>
+                            <div class="box">
+                                <div class="box_inside1">
+                                    <div class="company_add_box">
+                                        <div class="input_format">
+                                            <input v-model="updateBox.company" type="text" id="company" required
+                                                   class="add_form_input_double_1" placeholder="" />
+                                            <label for="company" class="add_box_label">COMPANY</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="ticker_add_box">
+                                        <div class="input_format">
+                                            <input v-model="updateBox.ticker" type="text" id="ticker" required class="add_form_input_double_1"
+                                                   placeholder="" />
+                                            <label for="ticker" class="add_box_label">TICKER</label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="price_add_box">
+
+                                        <div class="input_format">
+                                            <input v-model="updateBox.price" type="text" id="price" required class="add_form_input_double_1"
+                                                   placeholder="" @input="handleInputChange" />
+                                            <label for="price" class="add_box_label">CURRENT PRICE</label>
+                                        </div>
+
+                                        <div class="input_format">
+                                            <input v-model="updateBox.currencyPrice" type="text" id="currencyPrice" required
+                                                   class="add_form_input_double_2" value="USD" @input="handleInputChangeToUpperCase"/>
+                                        </div>
+
+
+
+                                    </div>
+
+                                    <div class="dividend_q_add_box">
+                                        <div class="input_format">
+                                            <input v-model="updateBox.dividendQ" type="text" id="dividendQ" required
+                                                   class="add_form_input_double_1" placeholder="" @input="handleInputChange" />
+                                            <label for="dividendQ" class="add_box_label">DIVIDEN -
+                                                QUARTERLY</label>
+                                        </div>
+
+
+                                        <div class="input_format">
+                                            <input v-model="updateBox.currencyDividendQ" type="text" id="currencyDividendQ" required
+                                                   class="add_form_input_double_2" value="USD" @input="handleInputChangeToUpperCase"/>
+                                        </div>
+                                    </div>
+
+                                    <div class="dcf_manual_add_box">
+                                        <div class="dcf_manual_add_box_description">DCF - MANUAL INPUT</div>
+
+                                        <div class="dcf_manual_add_box_value">
+
+                                            <div class="input_format">
+                                                <input v-model="updateBox.dcfWithMarginOfSafety" type="text" id="dcfWithMarginOfSafety"
+                                                       class="add_form_input_double_1" placeholder="" @input="handleInputChange">
+                                                <label for="dcfWithMarginOfSafety" class="add_box_label">DCF - MANUAL</label>
+                                            </div>
+
+
+                                            <div class="input_format">
+                                                <input v-model="updateBox.currencyDcf" type="text" id="currencyDcf" required
+                                                       class="add_form_input_double_2" value="USD" @input="handleInputChangeToUpperCase"/>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
                                 </div>
+
+                                <div class="box_inside2">
+                                    <div class="box_inside2_description">DCF - CALCULATION</div>
+                                    <div class="box_inside2_inside">
+
+                                        <div class="box_inside2_free_cash_flow">
+                                            <div class="input_format">
+                                                <input v-model="updateBox.freeCashFlow0" type="text" id="freeCashFlow0"
+                                                       class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
+                                                <label for="freeCashFlow0" class="add_box_label">FCF CURRENT YEAR</label>
+                                            </div>
+                                            <div class="input_format">
+                                                <input v-model="updateBox.freeCashFlow1" type="text" id="freeCashFlow1"
+                                                       class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
+                                                <label for="freeCashFlow1" class="add_box_label">FCF CURRENT YEAR - 1</label>
+                                            </div>
+                                            <div class="input_format">
+                                                <input v-model="updateBox.freeCashFlow2" type="text" id="freeCashFlow2"
+                                                       class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
+                                                <label for="freeCashFlow2" class="add_box_label">FCF CURRENT YEAR - 2</label>
+                                            </div>
+                                            <div class="input_format">
+                                                <input v-model="updateBox.freeCashFlow3" type="text" id="freeCashFlow3"
+                                                       class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
+                                                <label for="freeCashFlow3" class="add_box_label">FCF CURRENT YEAR - 3</label>
+                                            </div>
+                                            <div class="input_format">
+                                                <input v-model="updateBox.freeCashFlow4" type="text" id="freeCashFlow4"
+                                                       class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
+                                                <label for="freeCashFlow4" class="add_box_label">FCF CURRENT YEAR - 4</label>
+                                            </div>
+                                            <div class="input_format">
+                                                <input v-model="updateBox.freeCashFlow5" type="text" id="freeCashFlow5"
+                                                       class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
+                                                <label for="freeCashFlow5" class="add_box_label">FCF CURRENT YEAR - 5</label>
+                                            </div>
+
+                                        </div>
+                                        <div class="box2_financial">
+
+                                            <div class="input_format">
+                                                <input v-model="updateBox.growthRate" type="text" id="growthRate"
+                                                       class="add_form_input_double_1" placeholder="" @input="handleInputChange">
+                                                <label for="growthRate" class="add_box_label">GROWTH RATE</label>
+                                            </div>
+                                            <div class="input_format">
+                                                <input v-model="updateBox.perpetualGrowthRate" type="text" id="perpetualGrowthRate"
+                                                       class="add_form_input_double_1" placeholder="" @input="handleInputChange">
+                                                <label for="perpetualGrowthRate" class="add_box_label">PERPETUAL GROWTH RATE</label>
+                                            </div>
+                                            <div class="input_format">
+                                                <input v-model="updateBox.discountRate" type="text" id="discountRate"
+                                                       class="add_form_input_double_1" placeholder="" @input="handleInputChange">
+                                                <label for="discountRate" class="add_box_label">DISCOUNT RATE</label>
+                                            </div>
+
+
+                                            <div class="input_format">
+                                                <input v-model="updateBox.cash" type="text" id="cash" class="add_form_input_double_1"
+                                                       placeholder="" @input="handleInputChange">
+                                                <label for="cash" class="add_box_label">CASH & CASH EQUVIVALENTS</label>
+                                            </div>
+                                            <div class="input_format">
+                                                <input v-model="updateBox.totalDebt" type="text" id="totalDebt" class="add_form_input_double_1"
+                                                       placeholder="" @input="handleInputChange">
+                                                <label for="totalDebt" class="add_box_label">TOTAL DEBT</label>
+                                            </div>
+                                            <div class="input_format">
+                                                <input v-model="updateBox.sharesOutstanding" type="text" id="sharesOutstanding"
+                                                       class="add_form_input_double_1" placeholder="" @input="handleInputChange">
+                                                <label for="sharesOutstanding" class="add_box_label">SHARES OUTSTANDING</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
 
-                            <div class="ticker_add_box">
-                                <div class="input_format">
-                                    <input v-model="updateBox.ticker" type="text" id="ticker" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="ticker" class="add_box_label">TICKER</label>
-                                </div>
 
+                            <div class="add_form_buttons">
+                                <div @click="updateManualWatchlist" class="add_form_button">UPDATE MANUAL</div>
+                                <div @click="updateCalculatingWatchlist" class="add_form_button">UPDATE CALCULATING</div>
+                                <div @click="cancelAdd" class="add_form_button">CANCEL</div>
                             </div>
-
-                            <div class="price_add_box">
-
-                                <div class="input_format">
-                                    <input v-model="updateBox.price" type="text" id="price" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="price" class="add_box_label">CURRENT PRICE</label>
-                                </div>
-
-                                <div class="input_format">
-                                    <input v-model="updateBox.currencyPrice" type="text" id="currencyPrice" required
-                                        class="add_form_input_double_2" value="USD" />
-                                </div>
-                            </div>
-
-                            <div class="dcf_add_box">
-
-                                <div class="input_format">
-                                    <input v-model="updateBox.dcf" type="text" id="dcf" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="dcf" class="add_box_label">DCF</label>
-                                </div> 
-
-                             
-                    
-
-                            <div class="input_format">
-                                <input v-model="updateBox.currencyDcf" type="text" id="currencyDcf" required
-                                    class="add_form_input_double_2" value="USD" />
-                            </div>
-
+                        </form>
                     </div>
-
-                    <div class="dividend_q_add_box">
-                        <div class="input_format">
-                            <input v-model="updateBox.dividendQ" type="text" id="dividendQ" required
-                                class="add_form_input_double_1" placeholder="" />
-                            <label for="dividendQ" class="add_box_label">DIVIDEN -
-                                QUARTERLY</label>
-                        </div>
-
-
-                        <div class="input_format">
-                            <input v-model="updateBox.currencyDividendQ" type="text" id="currencyDividendQ" required
-                                class="add_form_input_double_2" value="USD" />
-                        </div>
-                    </div>
-
-                    <div class="add_form_buttons">
-                        <button type="submit" @click="updateWatchlist()" class="add_form_button">UPDATE</button>
-                        <button type="button" @click="cancelAdd" class="add_form_button">CANCEL</button>
-                    </div>
-
-                    </form>
-                </div>
 
 
                 <div class="overlay" v-if="showDeleteConfirmation">
@@ -296,8 +382,8 @@
                     </div>
                 </div>
 
-                <table v-if="!loading">
-                    <thead>
+                    <table v-if="!loading">
+                        <thead>
                         <tr class="watchlist_table">
 
                             <th scope="col" class="Ticker">
@@ -334,8 +420,8 @@
 
                             <th scope="col" class="Edit_remove"></th>
                         </tr>
-                    </thead>
-                    <tbody>
+                        </thead>
+                        <tbody>
                         <tr v-for="box in paginatedData" :key="box.id" class="added_form">
                             <th scope="row" class="hidden-id">{{ box.id }}</th>
                             <td class="ticker_box">{{ box.ticker }}</td>
@@ -373,9 +459,23 @@
                                     <Icon icon="mingcute:delete-fill" class="edit_remove_icon" />
                                 </button>
                             </td>
+
+                            <th class="hidden-id">{{ box.freeCashFlow0 }}</th>
+                            <td class="hidden-id">{{ box.freeCashFlow1 }}</td>
+                            <td class="hidden-id">{{ box.freeCashFlow2 }}</td>
+                            <td class="hidden-id">{{ box.freeCashFlow3 }}</td>
+                            <td class="hidden-id">{{ box.freeCashFlow4 }}</td>
+                            <td class="hidden-id">{{ box.freeCashFlow5 }}</td>
+                            <td class="hidden-id">{{ box.growthRate }}</td>
+                            <td class="hidden-id">{{ box.perpetualGrowthRate }}</td>
+                            <td class="hidden-id">{{ box.discountRate }}</td>
+                            <td class="hidden-id">{{ box.cash }}</td>
+                            <td class="hidden-id">{{ box.totalDebt }}</td>
+                            <td class="hidden-id">{{ box.sharesOutstanding }}</td>
+
                         </tr>
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
 
                 <div class="pages_panel" v-if="totalPages > 1">
                     <div class="firstPage" @click="firstPage">
@@ -464,8 +564,32 @@ export default {
                 dcfWithMarginOfSafety: "",
             },
 
-            /*
-            newBoxCalc: {
+            box: {
+                ticker: "",
+                company: "",
+                price: "",
+                currencyPrice: "",
+                currencyDcf: "",
+                dividendQ: "",
+                currencyDividendQ: "",
+                freeCashFlow0: "",
+                freeCashFlow1: "",
+                freeCashFlow2: "",
+                freeCashFlow3: "",
+                freeCashFlow4: "",
+                freeCashFlow5: "",
+                growthRate: "",
+                perpetualGrowthRate: "",
+                discountRate: "",
+                cash: "",
+                totalDebt: "",
+                sharesOutstanding: "",
+                dcfWithMarginOfSafety: "",
+
+            },
+            showEditForm: false,
+            updateBox: {
+                id: "",
                 ticker: "",
                 company: "",
                 price: "",
@@ -485,47 +609,7 @@ export default {
                 cash: "",
                 totalDebt: "",
                 sharesOutstanding: "",
-            },
-
-
-            newBoxManual: {
-                ticker: "",
-                company: "",
-                price: "",
-                currencyPrice: "USD",
-                currencyDcf: "USD",
-                dividendQ: "",
-                currencyDividendQ: "USD",
                 dcfWithMarginOfSafety: "",
-            },
-            */
-
-            box: {
-                ticker: "",
-                company: "",
-                price: "",
-                currencyPrice: "",
-                dcf: "",
-                currencyDcf: "",
-                dividendQ: "",
-                currencyDividendQ: "",
-                dividendY: "",
-                currencyDividendY: "",
-                dividendYield: "",
-                overValuedUnderValued: ""
-
-            },
-            showEditForm: false,
-            updateBox: {
-                id: "",
-                ticker: "",
-                company: "",
-                price: "",
-                currencyPrice: "",
-                dcf: "",
-                currencyDcf: "",
-                dividendQ: "",
-                currencyDividendQ: "",
             },
             selectedBoxId: null,
             showDeleteConfirmation: false,
@@ -612,30 +696,77 @@ export default {
             this.currentPage = this.totalPages;
         },
 
-        async updateWatchlist() {
+        async updateCalculatingWatchlist() {
             try {
                 if (this.selectedBoxId === null) {
                     console.error("No selected box ID.");
                     return;
                 }
 
-                const watchlistUpdateData = {
+                const watchlistUpdateCalculatingData = {
                     id: this.selectedBoxId,
                     ticker: this.updateBox.ticker,
                     company: this.updateBox.company,
                     price: this.updateBox.price,
                     currencyPrice: this.updateBox.currencyPrice,
-                    dcf: this.updateBox.dcf,
                     currencyDcf: this.updateBox.currencyDcf,
                     dividendQ: this.updateBox.dividendQ,
                     currencyDividendQ: this.updateBox.currencyDividendQ,
                     currencyDividendY: this.updateBox.currencyDividendQ,
+                    freeCashFlow0: this.updateBox.freeCashFlow0,
+                    freeCashFlow1: this.updateBox.freeCashFlow1,
+                    freeCashFlow2: this.updateBox.freeCashFlow2,
+                    freeCashFlow3: this.updateBox.freeCashFlow3,
+                    freeCashFlow4: this.updateBox.freeCashFlow4,
+                    freeCashFlow5: this.updateBox.freeCashFlow5,
+                    growthRate: this.updateBox.growthRate,
+                    perpetualGrowthRate: this.updateBox.perpetualGrowthRate,
+                    discountRate: this.updateBox.discountRate,
+                    cash: this.updateBox.cash,
+                    totalDebt: this.updateBox.totalDebt,
+                    sharesOutstanding: this.updateBox.sharesOutstanding,
                 };
 
-                const response = await db.put(`/watchlist/update`, watchlistUpdateData);
+                const response = await db.put(`/watchlist/update/calc`, watchlistUpdateCalculatingData);
 
                 if (response.ok) {
-                    this.$router.push('/watchlistENG');
+                    this.showEditForm = false;
+                    this.$router.go(0);
+                    console.log("Data have been sent successfully:", response.data);
+                } else {
+                    console.error("Sending failed:", await response.json());
+                }
+            } catch (error) {
+                console.error("An error occurred:", error);
+            }
+        },
+
+
+        async updateManualWatchlist() {
+            try {
+                if (this.selectedBoxId === null) {
+                    console.error("No selected box ID.");
+                    return;
+                }
+
+                const watchlistUpdateManualData = {
+                    id: this.selectedBoxId,
+                    ticker: this.updateBox.ticker,
+                    company: this.updateBox.company,
+                    price: this.updateBox.price,
+                    currencyPrice: this.updateBox.currencyPrice,
+                    currencyDcf: this.updateBox.currencyDcf,
+                    dividendQ: this.updateBox.dividendQ,
+                    currencyDividendQ: this.updateBox.currencyDividendQ,
+                    currencyDividendY: this.updateBox.currencyDividendQ,
+                    dcfWithMarginOfSafety: this.updateBox.dcfWithMarginOfSafety,
+                };
+
+                const response = await db.put(`/watchlist/update/manual`, watchlistUpdateManualData);
+
+                if (response.ok) {
+                    this.showEditForm = false;
+                    this.$router.go(0);
                     console.log("Data have been sent successfully:", response.data);
                 } else {
                     console.error("Sending failed:", await response.json());
@@ -682,7 +813,20 @@ export default {
                 currencyDividendQ: "USD",
                 dividendY: "",
                 currencyDividendY: "USD",
-                dividendYield: ""
+                dividendYield: "",
+                freeCashFlow0: "",
+                freeCashFlow1: "",
+                freeCashFlow2: "",
+                freeCashFlow3: "",
+                freeCashFlow4: "",
+                freeCashFlow5: "",
+                growthRate: "",
+                perpetualGrowthRate: "",
+                discountRate: "",
+                cash: "",
+                totalDebt: "",
+                sharesOutstanding: "",
+                dcfWithMarginOfSafety: "",
             };
         },
 
@@ -715,6 +859,7 @@ export default {
                 const response = await db.post("/watchlist/add/calc", watchlistAddCalculatingData);
 
                 if (response.ok) {
+                    this.$router.push('/watchlistENG');
                     console.log("Data have been sent successfully:", response.data);
                 } else {
                     console.error("Sending failed:", await response.json());
@@ -742,6 +887,8 @@ export default {
                 const response = await db.post("/watchlist/add/manual", watchlistAddManualData);
 
                 if (response.ok) {
+                    this.showAddForm = false;
+                    this.$router.go(0);
                     console.log("Data have been sent successfully:", response.data);
                 } else {
                     console.error("Sending failed:", await response.json());
@@ -782,7 +929,7 @@ export default {
         },
 
         sortTableByDCF() {
-            this.boxes.sort((a, b) => b.dcf - a.dcf);
+            this.boxes.sort((a, b) => b.dcfWithMarginOfSafety - a.dcfWithMarginOfSafety);
         },
 
         sortTableByDividendYield() {
@@ -826,6 +973,19 @@ export default {
         handleInputChange(event) {
             const value = event.target.value;
             const convertedValue = this.convertDecimalSeparator(value);
+            event.target.value = convertedValue;
+        },
+
+        inputToUpperCase(input) {
+            //const upperCaseInput = input.toUpperCase();
+
+            return input.toUpperCase();
+        },
+
+
+        handleInputChangeToUpperCase(event) {
+            const value = event.target.value;
+            const convertedValue = this.inputToUpperCase(value);
             event.target.value = convertedValue;
         }
 
@@ -1098,14 +1258,11 @@ section {
 .added_form {
     height: 3rem;
     width: 85rem;
-    border: 1px solid #8880805e;
-    border-radius: 1px;
     display: flex;
     flex-direction: row;
     align-items: center;
     border-radius: 7px;
-    background: #434343;
-    background: radial-gradient(at center, #3d3b3bc0, #383436);
+    background: rgba(80, 62, 56, 0.34);
     margin-bottom: 3px;
 }
 
@@ -1115,11 +1272,11 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     letter-spacing: 0.05rem;
-    font-weight: 400;
+    font-weight: 200;
     color: #807f7f;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 
@@ -1132,7 +1289,8 @@ section {
     padding-left: 20px;
     font-size: 0.8rem;
     color: rgba(8, 172, 236, 0.918);
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
     letter-spacing: 0.5px;
 
 }
@@ -1143,7 +1301,8 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
 }
 
 .disparity_normal {
@@ -1234,18 +1393,24 @@ section {
     justify-content: flex-end;
     padding-right: 10px;
     gap: 5px;
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: rgba(8, 172, 236, 0.918);
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+tr:nth-child(even) {
+    background: rgba(38, 37, 37, 0.85);
 }
 
 
 
 .currency {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     color: #807f7f;
-    font-weight: 100;
+    font-weight: 200;
     padding-top: 5px;
+    font-family: 'Poppins', sans-serif;
 }
 
 
@@ -1301,7 +1466,7 @@ section {
 
 
 
-/** ADD FORM */
+/* ADD FORM*/
 
 .overlay {
     position: fixed;
@@ -1310,107 +1475,23 @@ section {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.39);
-    z-index: 999;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .add_form {
-    height: 40rem;
-    width: 60rem;
+    height: 30rem;
+    width: 50rem;
     border: 1px solid #8880805e;
-    border-radius: 5px;
-    background: #434343;
-    background: radial-gradient(at center, #3d3b3b, #383436);
+    border-radius: 15px;
+    background: #0D0A3A;
+    background: linear-gradient(315deg, rgba(64, 61, 79, 0.8), #2E3444);
     z-index: 1000;
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
-
-.box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.box_inside {
-    display: flex;
-    justify-content:center;
-}
-
-.box1 {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-}
-
-.box1_description {
-    text-align: center;
-    color: white;
-}
-
-.box1_inside {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 10px;
-}
-
-
-.box2 {
-    display: flex;
-    flex-direction: column;
-}
-
-.box2_description {
-    color: white;
-    text-align: center;
-
-}
-
-.box2_free_cash_flow {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-}
-
-
-.box3 {
-
-}
-
-
-.box4 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 10px;
-}
-
-
-.box5 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.box5 p {
-    color: white;
-}
-
-.box5_dcf {
-    border: 1px solid white;
-    height: 2rem;
-    width: 8rem;
-    text-align: center;
-    color: white;
-}
-
-
 
 .add_form_description {
     display: flex;
@@ -1418,14 +1499,47 @@ section {
     font-size: 2rem;
     font-family: 'Six Caps', 'Noto Serif', sans-serif;
     letter-spacing: 3px;
-    color: #977e38;
+    color: #cc9a3a;
+    margin-bottom: 15px;
 }
+
+.box {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.box_inside1 {
+    margin-top: 20px;
+    margin-right: 30px;
+}
+
+.box_inside2_inside {
+    display: flex;
+    gap: 20px;
+}
+
+.dcf_manual_add_box {
+    margin-top: 20px;
+}
+
+.dcf_manual_add_box_description,
+.box_inside2_description{
+    color: rgba(159, 194, 204, 0.76);
+    font-family: 'Poppins', 'Six Caps', 'Noto Serif', sans-serif;
+}
+
+.dcf_manual_add_box_description {
+    margin-left: 10px;
+}
+
 
 .company_add_box,
 .ticker_add_box,
 .price_add_box,
 .dcf_add_box,
-.dividend_q_add_box {
+.dividend_q_add_box,
+.dcf_manual_add_box_value {
     display: flex;
     flex-direction: row;
     margin-left: 10px;
@@ -1441,17 +1555,17 @@ section {
     background: none;
     position: relative;
     padding-left: 10px;
-    color: rgba(33, 151, 197, 0.815);
+    color: #cc9a3a;
 }
 
 .add_form_input_double_2 {
     width: 3rem;
-    height: 2rem;
+    height: 1.72rem;
     background: none;
     border: 1px solid #d8c6c65e;
     border-radius: 3px;
     padding-left: 10px;
-    color: rgba(33, 151, 197, 0.815);
+    color: #cc9a3a;
 }
 
 .add_form_input_free_cash_flow {
@@ -1462,14 +1576,15 @@ section {
     padding-block: 0.8rem;
     background: none;
     position: relative;
-    color: rgba(33, 151, 197, 0.815);
+    color: #BE6E46;
+    padding-left: 10px;
 }
 
 .add_form_input_double_1:focus,
 .add_form_input_double_2:focus,
 .add_form_input_free_cash_flow:focus {
     outline: none;
-    border: 1px solid #a08228;
+    border: 1px solid rgba(159, 194, 204, 0.76);
 }
 
 .input_format {
@@ -1477,39 +1592,36 @@ section {
     display: flex;
     align-items: center;
     font-family: sans-serif;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .input_format label {
     color: #d8c6c65e;
     letter-spacing: 0.05rem;
-    font-size: 0.7rem;
+    top: -11px;
+    font-size: 0.6rem;
+    font-weight: 300;
 }
 
 .add_box_label {
     position: absolute;
-    left: 10px;
     transition: top 0.3s, font-size 0.3s;
-    background: #434343;
-    background: radial-gradient(at center, #3d3b3b, #383436);
 }
 
 
 .add_form_input_double_1:focus+.add_box_label,
 .add_form_input_free_cash_flow:focus+.add_box_label {
-    top: -6px;
-    font-size: 0.7rem;
-    left: 0.8rem;
+    top: -11px;
+    font-size: 0.6rem;
     font-weight: 400;
-    color: #a08228;
+    color: rgba(159, 194, 204, 0.76);
     font-family: sans-serif;
 }
 
 .add_form_input_double_1:not(:placeholder-shown).add_form_input_double_1:not(:focus)+.add_box_label,
 .add_form_input_free_cash_flow:not(:placeholder-shown).add_form_input_free_cash_flow:not(:focus)+.add_box_label {
-    top: -6px;
-    font-size: 0.7rem;
-    left: 0.8rem;
+    top: -11px;
+    font-size: 0.6rem;
     font-weight: 400;
 
 }
@@ -1519,35 +1631,35 @@ section {
     justify-content: center;
     margin-top: 10px;
     gap: 20px;
+    font-family: 'Poppins', sans-serif;
 
 }
 
 .add_form_button {
-    border: 1px solid;
-    width: 10rem;
-    height: 2rem;
-    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12rem;
+    height: 2.5rem;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
-    background: none;
-    border-radius: 3px;
-    border: 1px solid rgb(136, 136, 136);
-    background: rgba(136, 136, 136, 0.089);
+    margin-top: 20px;
+    background: rgba(5, 189, 235, 0.082);
     font-size: 0.9rem;
-    color: rgb(136, 136, 136);
-    font-weight: 600;
+    color: rgba(130, 163, 173, 0.76);
+    font-weight: 500;
 }
 
+
 .add_form_button:hover {
-    background: #977e38;
-    color: black;
+    background: rgba(210, 168, 91, 0.12);
+    color: rgba(211, 201, 198, 0.75);
 }
 
 
 .hidden-id {
     display: none;
 }
-
 
 
 

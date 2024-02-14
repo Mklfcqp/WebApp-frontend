@@ -143,9 +143,11 @@
                                 </div>
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <div class="box_without_icon"></div>
+                                        <div class="box_without_icon">JIRA</div>
                                     </div>
+                                    <p>JIRA</p>
                                 </div>
+
                             </div>
                         </div>
 
