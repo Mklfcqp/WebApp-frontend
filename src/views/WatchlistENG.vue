@@ -729,9 +729,10 @@ export default {
 
                 const response = await db.put(`/watchlist/update/calc`, watchlistUpdateCalculatingData);
 
+                this.showEditForm = false;
+                this.$router.go(0);
+
                 if (response.ok) {
-                    this.showEditForm = false;
-                    this.$router.go(0);
                     console.log("Data have been sent successfully:", response.data);
                 } else {
                     console.error("Sending failed:", await response.json());
@@ -763,10 +764,10 @@ export default {
                 };
 
                 const response = await db.put(`/watchlist/update/manual`, watchlistUpdateManualData);
+                this.showEditForm = false;
+                this.$router.go(0);
 
                 if (response.ok) {
-                    this.showEditForm = false;
-                    this.$router.go(0);
                     console.log("Data have been sent successfully:", response.data);
                 } else {
                     console.error("Sending failed:", await response.json());
@@ -858,6 +859,9 @@ export default {
 
                 const response = await db.post("/watchlist/add/calc", watchlistAddCalculatingData);
 
+                this.showAddForm = false;
+                this.$router.go(0);
+
                 if (response.ok) {
                     this.$router.push('/watchlistENG');
                     console.log("Data have been sent successfully:", response.data);
@@ -886,9 +890,10 @@ export default {
 
                 const response = await db.post("/watchlist/add/manual", watchlistAddManualData);
 
+                this.showAddForm = false;
+                this.$router.go(0);
+
                 if (response.ok) {
-                    this.showAddForm = false;
-                    this.$router.go(0);
                     console.log("Data have been sent successfully:", response.data);
                 } else {
                     console.error("Sending failed:", await response.json());
@@ -1576,7 +1581,7 @@ tr:nth-child(even) {
     padding-block: 0.8rem;
     background: none;
     position: relative;
-    color: #BE6E46;
+    color: #cc9a3a;
     padding-left: 10px;
 }
 
