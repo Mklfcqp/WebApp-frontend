@@ -1,6 +1,6 @@
 <template>
     <main>
-        <TBackground />
+        <TBackgroundGray />
         <TNavbar />
         <section>
             <div class="content">
@@ -441,7 +441,7 @@
 
 <script>
 import TNavbar from '@/components/TNavbar.vue'
-import TBackground from '@/components/TBackground.vue'
+import TBackgroundGray from '@/components/TBackgroundGray.vue'
 import { Icon } from '@iconify/vue';
 import db from '../utils/db.js'
 import axios from 'axios';
@@ -451,7 +451,7 @@ export default {
     components: {
         TNavbar,
         Icon,
-        TBackground
+        TBackgroundGray,
     },
     data() {
         return {
@@ -855,7 +855,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #151515;
+    background: #222222;
     gap: 1px;
     border-radius: 20px;
 }
