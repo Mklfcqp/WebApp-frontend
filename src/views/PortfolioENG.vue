@@ -15,85 +15,101 @@
                     <div class="overlay" v-if="showAddForm">
                         <form v-if="showAddForm" class="add_form">
 
-                            <div class="add_form_description">ADD STOCK TO PORTFOLIO</div>
+                            <div class="add_form_description">Add stock to portfolio</div>
 
-                            <div class="company_add_box">
-                                <div class="input_format">
-                                    <input v-model="newBox.company" type="text" id="company" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="company" class="add_box_label">COMPANY</label>
+                            <div class="box">
+                                <div class="box_inside1">
+
+
+
+
+                                    <div class="company_add_box">
+                                        <div class="input_format">
+                                            <input v-model="newBox.company" type="text" id="company" required
+                                                   class="add_form_input_double_1" placeholder="" />
+                                            <label for="company" class="add_box_label">COMPANY</label>
+                                        </div>
+                                    </div>
+                                    <div class="ticker_add_box">
+                                        <div class="input_format">
+                                            <input v-model="newBox.ticker" type="text" id="ticker" required class="add_form_input_double_1"
+                                                   placeholder="" />
+                                            <label for="ticker" class="add_box_label">TICKER</label>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="dividend_add_box">
+                                        <div class="input_format">
+                                            <input v-model="newBox.dividend" type="text" id="dividend" required
+                                                   class="add_form_input_double_1" placeholder="" />
+                                            <label for="dividend" class="add_box_label">DIVIDEN</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="interestDividend_add_box">
+                                        <div class="input_format">
+                                            <input v-model="newBox.interestDividend" type="text" id="interestDividend" required
+                                                   class="add_form_input_double_1" placeholder="" />
+                                            <label for="interestDividend" class="add_box_label">DIVIDEND - INTEREST</label>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="ticker_add_box">
-                                <div class="input_format">
-                                    <input v-model="newBox.ticker" type="text" id="ticker" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="ticker" class="add_box_label">TICKER</label>
+
+
+
+                                <div class="box_inside2">
+
+                                    <div class="shares_add_box">
+                                        <div class="input_format">
+                                            <input v-model="newBox.sharesBuy" type="text" id="sharesBuy" required
+                                                   class="add_form_input_double_1" placeholder="" />
+                                            <label for="sharesBuy" class="add_box_label">SHARES BUY</label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="buy_add_box">
+                                        <div class="input_format">
+                                            <input v-model="newBox.buy" type="text" id="buy" required class="add_form_input_double_1"
+                                                   placeholder="" />
+                                            <label for="buy" class="add_box_label">BUY</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="sell_add_box">
+                                        <div class="input_format">
+                                            <input v-model="newBox.sell" type="text" id="sell" required class="add_form_input_double_1"
+                                                   placeholder="" />
+                                            <label for="sell" class="add_box_label">SELL</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="shares_add_box">
+                                        <div class="input_format">
+                                            <input v-model="newBox.sharesSell" type="text" id="sharesSell" required
+                                                   class="add_form_input_double_1" placeholder="" />
+                                            <label for="sharesSell" class="add_box_label">SHARES SELL</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="interestBuySell_add_box">
+                                        <div class="input_format">
+                                            <input v-model="newBox.interestBuySell" type="text" id="interestBuySell" required
+                                                   class="add_form_input_double_1" placeholder="" />
+                                            <label for="interestBuySell" class="add_box_label">BUY/SELL - INTEREST</label>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="shares_add_box">
-                                <div class="input_format">
-                                    <input v-model="newBox.sharesBuy" type="text" id="sharesBuy" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="sharesBuy" class="add_box_label">SHARES BUY</label>
-                                </div>
-                            </div>
-
-
-                            <div class="buy_add_box">
-                                <div class="input_format">
-                                    <input v-model="newBox.buy" type="text" id="buy" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="buy" class="add_box_label">BUY</label>
-                                </div>
-                            </div>
-
-                            <div class="sell_add_box">
-                                <div class="input_format">
-                                    <input v-model="newBox.sell" type="text" id="sell" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="sell" class="add_box_label">SELL</label>
-                                </div>
-                            </div>
-
-                            <div class="shares_add_box">
-                                <div class="input_format">
-                                    <input v-model="newBox.sharesSell" type="text" id="sharesSell" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="sharesSell" class="add_box_label">SHARES SELL</label>
-                                </div>
-                            </div>
-
-                            <div class="interestBuySell_add_box">
-                                <div class="input_format">
-                                    <input v-model="newBox.interestBuySell" type="text" id="interestBuySell" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="interestBuySell" class="add_box_label">BUY/SELL - INTEREST</label>
-                                </div>
-                            </div>
-
-                            <div class="dividend_add_box">
-                                <div class="input_format">
-                                    <input v-model="newBox.dividend" type="text" id="dividend" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="dividend" class="add_box_label">DIVIDEN</label>
-                                </div>
-                            </div>
-
-                            <div class="interestDividend_add_box">
-                                <div class="input_format">
-                                    <input v-model="newBox.interestDividend" type="text" id="interestDividend" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="interestDividend" class="add_box_label">DIVIDEND - INTEREST</label>
-                                </div>
                             </div>
 
 
                             <div class="add_form_buttons">
-                                <button type="submit" @click="addStockToPortfolio" class="add_form_button">ADD</button>
-                                <button type="button" @click="cancelAdd" class="add_form_button">CANCEL</button>
+                                <div type="submit" @click="addStockToPortfolio" class="add_form_button">ADD</div>
+                                <div type="button" @click="cancelAdd" class="add_form_button">CANCEL</div>
                             </div>
 
                         </form>
@@ -107,85 +123,101 @@
                     <div class="overlay" v-if="showEditForm">
                         <form v-if="showEditForm" class="add_form">
 
-                            <div class="add_form_description">UPDATE STOCK</div>
+                            <div class="add_form_description">Update stock</div>
 
-                            <div class="company_add_box">
-                                <div class="input_format">
-                                    <input v-model="updateBox.company" type="text" id="company" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="company" class="add_box_label">COMPANY</label>
+                            <div class="box">
+                                <div class="box_inside1">
+
+
+
+
+                                    <div class="company_add_box">
+                                        <div class="input_format">
+                                            <input v-model="updateBox.company" type="text" id="company" required
+                                                   class="add_form_input_double_1" placeholder="" />
+                                            <label for="company" class="add_box_label">COMPANY</label>
+                                        </div>
+                                    </div>
+                                    <div class="ticker_add_box">
+                                        <div class="input_format">
+                                            <input v-model="updateBox.ticker" type="text" id="ticker" required
+                                                   class="add_form_input_double_1" placeholder="" />
+                                            <label for="ticker" class="add_box_label">TICKER</label>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="dividend_add_box">
+                                        <div class="input_format">
+                                            <input v-model="updateBox.dividend" type="text" id="dividend" required
+                                                   class="add_form_input_double_1" placeholder="" />
+                                            <label for="dividend" class="add_box_label">DIVIDEN</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="interestDividend_add_box">
+                                        <div class="input_format">
+                                            <input v-model="updateBox.interestDividend" type="text" id="interestDividend" required
+                                                   class="add_form_input_double_1" placeholder="" />
+                                            <label for="interestDividend" class="add_box_label">DIVIDEND - INTEREST</label>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="ticker_add_box">
-                                <div class="input_format">
-                                    <input v-model="updateBox.ticker" type="text" id="ticker" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="ticker" class="add_box_label">TICKER</label>
+
+
+
+                                <div class="box_inside2">
+
+                                    <div class="shares_add_box">
+                                        <div class="input_format">
+                                            <input v-model="updateBox.sharesBuy" type="text" id="sharesBuy" required
+                                                   class="add_form_input_double_1" placeholder="" />
+                                            <label for="sharesBuy" class="add_box_label">SHARES BUY</label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="buy_add_box">
+                                        <div class="input_format">
+                                            <input v-model="updateBox.buy" type="text" id="buy" required class="add_form_input_double_1"
+                                                   placeholder="" />
+                                            <label for="buy" class="add_box_label">BUY</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="sell_add_box">
+                                        <div class="input_format">
+                                            <input v-model="updateBox.sell" type="text" id="sell" required class="add_form_input_double_1"
+                                                   placeholder="" />
+                                            <label for="sell" class="add_box_label">SELL</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="shares_add_box">
+                                        <div class="input_format">
+                                            <input v-model="updateBox.sharesSell" type="text" id="sharesSell" required
+                                                   class="add_form_input_double_1" placeholder="" />
+                                            <label for="sharesSell" class="add_box_label">SHARES SELL</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="interestBuySell_add_box">
+                                        <div class="input_format">
+                                            <input v-model="updateBox.interestBuySell" type="text" id="interestBuySell" required
+                                                   class="add_form_input_double_1" placeholder="" />
+                                            <label for="interestBuySell" class="add_box_label">BUY/SELL - INTEREST</label>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="shares_add_box">
-                                <div class="input_format">
-                                    <input v-model="updateBox.sharesBuy" type="text" id="sharesBuy" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="sharesBuy" class="add_box_label">SHARES BUY</label>
-                                </div>
-                            </div>
-
-
-                            <div class="buy_add_box">
-                                <div class="input_format">
-                                    <input v-model="updateBox.buy" type="text" id="buy" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="buy" class="add_box_label">BUY</label>
-                                </div>
-                            </div>
-
-                            <div class="sell_add_box">
-                                <div class="input_format">
-                                    <input v-model="updateBox.sell" type="text" id="sell" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="sell" class="add_box_label">SELL</label>
-                                </div>
-                            </div>
-
-                            <div class="shares_add_box">
-                                <div class="input_format">
-                                    <input v-model="updateBox.sharesSell" type="text" id="sharesSell" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="sharesSell" class="add_box_label">SHARES SELL</label>
-                                </div>
-                            </div>
-
-                            <div class="interestBuySell_add_box">
-                                <div class="input_format">
-                                    <input v-model="updateBox.interestBuySell" type="text" id="interestBuySell" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="interestBuySell" class="add_box_label">BUY/SELL - INTEREST</label>
-                                </div>
-                            </div>
-
-                            <div class="dividend_add_box">
-                                <div class="input_format">
-                                    <input v-model="updateBox.dividend" type="text" id="dividend" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="dividend" class="add_box_label">DIVIDEN</label>
-                                </div>
-                            </div>
-
-                            <div class="interestDividend_add_box">
-                                <div class="input_format">
-                                    <input v-model="updateBox.interestDividend" type="text" id="interestDividend" required
-                                        class="add_form_input_double_1" placeholder="" />
-                                    <label for="interestDividend" class="add_box_label">DIVIDEND - INTEREST</label>
-                                </div>
                             </div>
 
 
                             <div class="add_form_buttons">
-                                <button type="submit" @click="updatePortfolio()" class="add_form_button">UPDATE</button>
-                                <button type="button" @click="cancelAdd" class="add_form_button">CANCEL</button>
+                                <div type="submit" @click="updatePortfolio" class="add_form_button">UPDATE</div>
+                                <div type="button" @click="cancelAdd" class="add_form_button">CANCEL</div>
                             </div>
 
                         </form>
@@ -292,7 +324,7 @@
                             <tr v-for="box in paginatedData" :key="box.id" class="added_form">
                                 <th scope="row" class="hidden-id">{{ box.id }}</th>
                                 <td class="ticker_box">{{ box.ticker }}</td>
-                                <td class="company_box">{{ box.company }}</td>
+                                <td class="company_box" :class="{ 'same_shares': box.sharesBuy === box.sharesSell }">{{ box.company }}</td>
                                 <td class="shares_box">{{ box.sharesBuy }}</td>
                                 <td class="buy_box">{{ box.buy }}</td>
                                 <td class="sell_box">{{ box.sell }}</td>
@@ -581,6 +613,9 @@ export default {
 
                 const response = await db.put(`/portfolio/update`, portfolioUpdateData);
 
+                this.showEditForm = false;
+                this.$router.go(0);
+
                 if (response.ok) {
                     this.$router.push('/portfolioENG');
                     console.log("Data have been sent successfully:", response.data);
@@ -644,6 +679,9 @@ export default {
                 };
 
                 const response = await db.post("/portfolio/add", portfolioAddData);
+
+                this.showAddFormForm = false;
+                this.$router.go(0);
 
                 if (response.ok) {
                     console.log("Data have been sent successfully:", response.data);
@@ -751,6 +789,8 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Six+Caps&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 
 *,
 *::before,
@@ -776,12 +816,10 @@ section {
 /** HEADER */
 .text1 {
     font-size: 2rem;
-    background-image: linear-gradient(to right, #1ff5e7, #46eefa, #41dfff, #52cffe, #69bff8, #6cb5f6, #72abf2, #7aa1ed, #729bf1, #6b95f5, #648ff8, #4a6ac0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: rgba(33, 151, 197, 0.815);
+    font-weight: 300;
     max-width: 500px;
     text-transform: uppercase;
-    color: white;
     letter-spacing: 6px;
     position: relative;
     animation: text 3s 1;
@@ -792,7 +830,7 @@ section {
 
     0% {
 
-        color: #000;
+        color: rgba(33, 151, 197, 0.815);
 
     }
 
@@ -810,19 +848,6 @@ section {
 }
 
 
-/* .content {
-    width: 100rem;
-    height: 50rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(180deg,
-            rgba(255, 255, 255, 0.25) 0%,
-            rgba(255, 255, 255, 0) 100%);
-    border-radius: 20px;
-    z-index: 10;
-} */
-
 /** CONTENT - MAINBOX */
 .mainbox {
     width: 100rem;
@@ -830,8 +855,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #2b282886;
-    /* box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12); */
+    background: #151515;
     gap: 1px;
     border-radius: 20px;
 }
@@ -876,7 +900,7 @@ section {
     justify-content: center;
     border-radius: 10px 0 0 5px;
     font-weight: 400;
-    background: #393433;
+    background: #222327;
     border: 1px solid #8880805e;
 
 }
@@ -888,7 +912,7 @@ section {
     align-items: center;
     padding-left: 10px;
     font-weight: 400;
-    background: #393433;
+    background: #222327;
     border: 1px solid #8880805e;
 }
 
@@ -909,7 +933,7 @@ section {
     padding-right: 10px;
     gap: 5px;
     font-weight: 400;
-    background: #393433;
+    background: #222327;
     border: 1px solid #8880805e;
 }
 
@@ -1051,8 +1075,7 @@ section {
     letter-spacing: 0.05rem;
     font-weight: 400;
     border: 1px solid #8880805e;
-    background: #434343;
-    background: radial-gradient(at center, #3d3b3b, #383436);
+    background: #27272A;
     color: #807f7f;
     font-family: sans-serif;
     border-radius: 5px 0 0 5px;
@@ -1067,8 +1090,7 @@ section {
     align-items: center;
     padding-left: 20px;
     border: 1px solid #8880805e;
-    background: #434343;
-    background: radial-gradient(at center, #3d3b3b, #383436);
+    background: #27272A;
     font-size: 0.8rem;
     color: rgba(8, 172, 236, 0.918);
     font-family: sans-serif;
@@ -1129,8 +1151,8 @@ section {
     gap: 5px;
     font-weight: 300;
     border: 1px solid #8880805e;
-    background: #434343;
-    background: radial-gradient(at center, #3d3b3b, #383436);
+    background: #27272A;
+
 
 }
 
@@ -1138,8 +1160,6 @@ section {
 .profitLossDividend_box_normal {
     height: 2rem;
     width: 6rem;
-    background: #434343;
-    background: radial-gradient(at center, #3d3b3b, #383436);
     font-size: 0.8rem;
     color: #c9c9c9;
     font-family: sans-serif;
@@ -1151,8 +1171,7 @@ section {
     gap: 5px;
     font-weight: 300;
     border: 1px solid #8880805e;
-    background: #434343;
-    background: radial-gradient(at center, #3d3b3b, #383436);
+    background: #27272A;
 }
 
 .profitLossBuySell_box_profit,
@@ -1172,8 +1191,7 @@ section {
     gap: 5px;
     font-weight: 300;
     border: 1px solid #8880805e;
-    background: #434343;
-    background: radial-gradient(at center, #3d3b3b, #383436);
+    background: #27272A;
 }
 
 .profitLossBuySell_box_loss,
@@ -1193,8 +1211,7 @@ section {
     gap: 5px;
     font-weight: 300;
     border: 1px solid #8880805e;
-    background: #434343;
-    background: radial-gradient(at center, #3d3b3b, #383436);
+    background: #27272A;
 }
 
 
@@ -1324,89 +1341,72 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.39);
-    z-index: 999;
+    background: rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .add_form {
-    height: 37rem;
-    width: 26rem;
-    border: 1px solid #8880805e;
-    border-radius: 5px;
-    background: #434343;
-    background: radial-gradient(at center, #3d3b3b, #383436);
+    height: 450px;
+    width: 550px;
+
+    border-radius: 15px;
+    background: #222327;
     z-index: 1000;
-    padding-left: 20px;
-    padding-right: 20px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 10px;
 }
-
 
 .add_form_description {
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    font-size: 2rem;
-    font-family: 'Six Caps', 'Noto Serif', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-family: IBM Plex Sans, sans-serif;
     letter-spacing: 3px;
-    color: #977e38;
+    color: #D4D4D8;
+    padding-bottom: 20px;
+
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.box_inside1 {
+    margin-top: 20px;
+    margin-right: 30px;
 }
 
 
 
-
-
-
 .company_add_box,
-.ticker_add_box,
-.shares_add_box,
-.buy_add_box,
-.sell_add_box,
-.interestBuySell_add_box,
-.profitLossBuySell_add_box,
-.dividend_add_box,
-.interestDividend_add_box,
-.profitLossDividend_add_box,
-.sumProfitLoss_add_box {
+.ticker_add_box {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     gap: 10px;
 }
 
 .add_form_input_double_1 {
     width: 12rem;
-    height: 2rem;
-    border: 1px solid #d8c6c65e;
+    height: 8px;
+    border: 1px solid hsl(240 5% 27.6%);
     border-radius: 3px;
     padding-block: 0.8rem;
-    background: none;
+    background: #27272A;
     position: relative;
     padding-left: 10px;
-    color: rgba(33, 151, 197, 0.815);
+    color: #cc9a3a;
 }
 
-.add_form_input_double_2 {
-    width: 3rem;
-    height: 2rem;
-    background: none;
-    border: 1px solid #d8c6c65e;
-    border-radius: 3px;
-    padding-left: 10px;
-    color: rgba(33, 151, 197, 0.815);
-}
 
-.add_form_input_double_1:focus,
-.add_form_input_double_2:focus {
+.add_form_input_double_1:focus {
     outline: none;
-    border: 1px solid #a08228;
+    border: 1px solid rgba(159, 194, 204, 0.76);
 }
 
 .input_format {
@@ -1414,65 +1414,69 @@ section {
     display: flex;
     align-items: center;
     font-family: sans-serif;
-
+    margin-top: 20px;
 }
 
 .input_format label {
     color: #d8c6c65e;
     letter-spacing: 0.05rem;
-    font-size: 0.7rem;
+    top: -11px;
+    font-size: 0.6rem;
+    font-weight: 300;
 }
 
 .add_box_label {
     position: absolute;
-    left: 10px;
     transition: top 0.3s, font-size 0.3s;
-    background: #434343;
-    background: radial-gradient(at center, #3d3b3b, #383436);
 }
 
-.add_form_input_double_1:focus+.add_box_label {
-    top: -6px;
-    font-size: 0.7rem;
-    left: 0.8rem;
+
+.add_form_input_double_1:focus+.add_box_label,
+.add_form_input_free_cash_flow:focus+.add_box_label {
+    top: -11px;
+    font-size: 0.6rem;
     font-weight: 400;
-    color: #a08228;
+    color: rgba(159, 194, 204, 0.76);
     font-family: sans-serif;
 }
 
-.add_form_input_double_1:not(:placeholder-shown).add_form_input_double_1:not(:focus)+.add_box_label {
-    top: -6px;
-    font-size: 0.7rem;
-    left: 0.8rem;
+.add_form_input_double_1:not(:placeholder-shown).add_form_input_double_1:not(:focus)+.add_box_label,
+.add_form_input_free_cash_flow:not(:placeholder-shown).add_form_input_free_cash_flow:not(:focus)+.add_box_label {
+    top: -11px;
+    font-size: 0.6rem;
     font-weight: 400;
+
 }
 
 .add_form_buttons {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    padding-top: 20px;
     gap: 20px;
+    font-family: IBM Plex Sans, sans-serif;
+
+
 }
 
 .add_form_button {
-    border: 1px solid;
-    width: 5rem;
-    height: 2rem;
-    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12rem;
+    height: 2.5rem;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
-    background: none;
-    border-radius: 3px;
-    border: 1px solid rgb(136, 136, 136);
-    background: rgba(136, 136, 136, 0.089);
+    margin-top: 20px;
+    background: rgba(5, 189, 235, 0.082);
     font-size: 0.9rem;
-    color: rgb(136, 136, 136);
-    font-weight: 600;
+    color: rgba(130, 163, 173, 0.76);
+    font-weight: 500;
 }
 
+
 .add_form_button:hover {
-    background: #977e38;
-    color: black;
+    background: rgba(210, 168, 91, 0.12);
+    color: rgba(211, 201, 198, 0.75);
 }
 
 
@@ -1493,7 +1497,7 @@ section {
     padding-left: 20px;
     font-size: 1rem;
     border: 1px solid #8880805e;
-    background: #393433;
+    background: #222327;
     border-radius: 5px 0 0 10px;
     font-weight: 400;
     margin-top: 20px;
@@ -1528,7 +1532,7 @@ section {
     font-weight: 400;
     font-size: 1rem;
     border: 1px solid #8880805e;
-    background: #393433;
+    background: #222327;
     margin-top: 20px;
     color: #807f7f;
     font-family: sans-serif;
@@ -1545,25 +1549,6 @@ section {
     margin-left: 0.75rem;
 }
 
-.sumProfitLoss_sum_box {
-    margin-left: 0.75rem;
-    margin-right: 0.75rem;
-    border-radius: 5px 5px 10px 10px;
-    height: 2.5rem;
-    width: 6rem;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-right: 10px;
-    gap: 5px;
-    font-weight: 400;
-    font-size: 1rem;
-    border: 1px solid #8880805e;
-    background: #393433;
-    margin-top: 20px;
-    color: #807f7f;
-    font-family: sans-serif;
-}
 
 .sumProfitLoss_sum_box_profit {
     margin-left: 0.75rem;
@@ -1800,5 +1785,13 @@ section {
         background-color: transparent;
     }
 }
+
+
+
+.same_shares {
+    color: rgba(158, 158, 158, 0.658); 
+}
+
+
 </style>
 
