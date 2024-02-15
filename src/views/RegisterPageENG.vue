@@ -3,73 +3,70 @@
     <TBackground/>
 
     <div class="login">
-      <form @submit.prevent="registerUser" action="" class="login__form">
-        <h1 class="login__title">REGISTER</h1>
+        <form @submit.prevent="registerUser" action="" class="login__form">
+            <h1 class="login__title">REGISTER</h1>
 
-        <div class="login__content">
-          <div class="login__box">
-            <Icon icon="tabler:user" class="login__icon" />
+            <div class="login__content">
+                <div class="login__box">
 
-            <div class="login__box-input">
-              <input
-                type="email"
-                v-model="email"
-                required
-                class="login__input"
-                id="login-email"
-                placeholder=" "
-              />
-              <label for="login-email" class="login__label">Email</label>
+                    <div class="login__box-input">
+                        <Icon icon="tabler:user" class="login__icon" />
+                        <input
+                                type="email"
+                                v-model="email"
+                                required
+                                class="login__input"
+                                id="login-email"
+                                placeholder="email"
+                        />
+                    </div>
+                </div>
+
+                <div class="login__box">
+
+                    <div class="login__box-input">
+                        <Icon icon="mdi:password-outline" class="login__icon" />
+                        <input
+                                :type="inputTypeIcon"
+                                v-model="password"
+                                required
+                                class="login__input"
+                                id="login-pass"
+                                placeholder="password"
+                        />
+                        <Icon
+                                :icon="inputTypeIcon === 'password' ? 'ri:eye-off-line' : 'gravity-ui:eye'"
+                                class="login__eye"
+                                @click="toggleInputIcon"
+                        />
+                    </div>
+                </div>
+
+                <div class="login__box">
+
+                    <div class="login__box-input">
+                        <Icon icon="mdi:password-outline" class="login__icon" />
+                        <input
+                                :type="inputTypeIcon"
+                                v-model="confirmPassword"
+                                required
+                                class="login__input"
+                                id="repeat-pass"
+                                placeholder="confirm Password"
+                        />
+                        <Icon
+                                :icon="inputTypeIcon === 'password' ? 'ri:eye-off-line' : 'gravity-ui:eye'"
+                                class="login__eye"
+                                @click="toggleInputIcon"
+                        />
+                    </div>
+                </div>
             </div>
-          </div>
 
-          <div class="login__box">
-            <Icon icon="mdi:password-outline" class="login__icon" />
+            <button type="submit" class="login__button">REGISTER</button>
 
-            <div class="login__box-input">
-              <input
-                :type="inputTypeIcon"
-                v-model="password"
-                required
-                class="login__input"
-                id="login-pass"
-                placeholder=" "
-              />
-              <label for="login-pass" class="login__label">Password</label>
-              <Icon
-                :icon="inputTypeIcon === 'password' ? 'ri:eye-off-line' : 'gravity-ui:eye'"
-                class="login__eye"
-                @click="toggleInputIcon"
-              />
-            </div>
-          </div>
-
-          <div class="login__box">
-            <Icon icon="mdi:password-outline" class="login__icon" />
-
-            <div class="login__box-input">
-              <input
-                :type="inputTypeIcon"
-                v-model="confirmPassword"
-                required
-                class="login__input"
-                id="repeat-pass"
-                placeholder=" "
-              />
-              <label for="repeat-pass" class="login__label">Confirm Password</label>
-              <Icon
-                :icon="inputTypeIcon === 'password' ? 'ri:eye-off-line' : 'gravity-ui:eye'"
-                class="login__eye"
-                @click="toggleInputIcon"
-              />
-            </div>
-          </div>
-        </div>
-
-        <button type="submit" class="login__button">REGISTER</button>
-
-        <p class="login__register">Back to the <a href="#" @click="redirectToLogin">Login</a></p>
-      </form>
+            <p class="login__register">Back to the <a href="#" @click="redirectToLogin">Login</a></p>
+        </form>
 
     </div>
   </body>
@@ -141,227 +138,184 @@ export default {
 
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap')
+
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-  color: white;
-  font-family: Oswald, 'Courier New', Courier, monospace;
-  font-weight: 300;
-  letter-spacing: 1px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-weight: 300;
+    letter-spacing: 1px;
 }
 
 input,
 button {
-  border: none;
-  outline: none;
+    border: none;
+    outline: none;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 body {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2px;
-  flex-wrap: wrap;
-  overflow: hidden;
-  background: #000;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: wrap;
+    overflow: hidden;
+    background: #000;
 }
 
 /*=============== LOGIN ===============*/
 .login {
-  position: relative;
-  height: 100vh;
-  display: grid;
-  align-items: center;
-  z-index: 1000;
+    position: relative;
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    z-index: 1000;
 }
 
 .login__form {
-  position: relative;
-  background-color: hsla(0, 0%, 10%, 0.1);
-  background: #353434;
-  border: 2px solid white;
-  margin-inline: auto;
-  width: 400px;
-  padding: 2rem 3rem 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 0 50px #0ef;
+    position: relative;
+    background-color: hsla(0, 0%, 10%, 0.1);
+    background: #222327;
+    margin-inline: auto;
+    width: 330px;
+    height: 400px;
+    padding: 20px 20px 20px;
+    border-radius: 8px;
+    font-family: 'Lato', 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 50px 0 black;
 }
 
 .login__title {
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #0ef;
-  font-weight: 500;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #D4D4D8;
+    font-weight: 500;
 }
 
-.login__content,
 .login__box {
-  display: grid;
+    display: flex;
+    justify-content: center;
 }
 
 .login__content {
-  row-gap: 1.75rem;
-  margin-bottom: 1.5rem;
-}
-
-.login__box {
-  grid-template-columns: max-content 1fr;
-  align-items: center;
-  column-gap: 0.75rem;
-  border: 1px solid white;
-  border-radius: 10px;
-  padding: 0 10px;
+    row-gap: 10px;
+    margin-bottom: 1rem;
 }
 
 .login__icon,
 .login__eye {
-  font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 .login__input {
-  width: 100%;
-  padding-block: 0.8rem;
-  background: none;
-  position: relative;
-  z-index: 1;
+    color: #3CB652;
+    padding-left: 10px;
+    height: 2rem;
+    width: 18rem;
+    background: none;
 }
 
 .login__box-input {
-  position: relative;
+    position: relative;
+    border: 1px solid hsl(240 5% 27.6%);
+    padding-left: 10px;
+    height: 2rem;
+    width: 19rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    z-index: 1000;
+    background: #27272A;
+    margin: 5px;
+    border-radius: 5px;
+    color: #3CB652;
 }
 
-.login__label {
-  position: absolute;
-  left: 0;
-  top: 13px;
-  transition: top 0.3s, font-size 0.3s;
-  background-color: #353434;
-  padding: 0 5px;
-}
 
 .login__eye {
-  position: absolute;
-  right: 0;
-  top: 13px;
-  z-index: 10;
-  cursor: pointer;
+    position: absolute;
+    left: 290px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
 }
 
-.login__box:nth-child(2) input {
-  padding-right: 1.8rem;
-}
 
-.login__check,
-.login__check-group {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.login__check {
-  margin-bottom: 1.5rem;
-  font-size: 0.85rem;
-}
-
-.login__check-label,
-.login__forgot,
-.login__register {
-  font-size: var(--small-font-size);
-}
-
-.login__check-group {
-  column-gap: 0.5rem;
-}
-
-.login__check-input {
-  width: 16px;
-  height: 16px;
-}
-
-.login__forgot {
-  color: white;
-}
-
-.login__forgot:hover {
-  text-decoration: underline;
-}
 
 .login__button {
-  width: 100%;
-  padding: 1rem;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  margin-bottom: 2rem;
-  color: #0ef;
-  transition: 0.5s;
-  text-align: center;
-  text-decoration: none;
-  overflow: hidden;
-  letter-spacing: 4px;
-  font-size: 20px;
-  font-weight: bold;
-  background-color: hsla(0, 0%, 10%, 0.1);
+    width: 20rem;
+    height: 2.2rem;
+    padding: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 400;
+    background: #3CB652;
 }
 
 .login__button:hover {
-  background: #0ef;
-  color: #fff;
-  border-radius: 0.5rem;
-  box-shadow: 0 0 5px #0ef, 0 0 25px #0ef, 0 0 50px #0ef, 0 0 100px #0ef;
+    background: rgba(60, 182, 82, 0.85);
 }
 
-.login__register {
-  text-align: center;
-  font-size: 0.85rem;
+.login__register,
+.login__register a {
+    text-align: center;
+    color: #C0C0C0;
+    font-size: 0.75rem;
 }
 
 .login__register a:hover {
-  text-decoration: underline;
+    color: #60a5fa;
 }
 
-.login__input:focus + .login__label {
-  top: -12px;
-}
-
-.login__input:not(:placeholder-shown).login__input:not(:focus) + .login__label {
-  top: -12px;
-}
 
 @media screen and (max-width: 600px) {
-  .login {
-    justify-content: center;
-  }
-  .login__form {
-    width: 432px;
-    padding: 4rem 3rem 3.5rem;
-    border-radius: 1.5rem;
-  }
-  .login__title {
-    font-size: 2rem;
-  }
+    .login {
+        justify-content: center;
+    }
+    .login__form {
+        width: 432px;
+        padding: 4rem 3rem 3.5rem;
+        border-radius: 1.5rem;
+    }
+    .login__title {
+        font-size: 2rem;
+    }
 }
 
 @media screen and (max-width: 900px) {
-  .login {
-    justify-content: center;
-  }
-  .login__form {
-    width: 432px;
-    padding: 4rem 3rem 3.5rem;
-    border-radius: 1.5rem;
-  }
-  .login__title {
-    font-size: 2rem;
-  }
+    .login {
+        justify-content: center;
+    }
+    .login__form {
+        width: 432px;
+        padding: 4rem 3rem 3.5rem;
+        border-radius: 1.5rem;
+    }
+    .login__title {
+        font-size: 2rem;
+    }
+
 }
 
 </style>

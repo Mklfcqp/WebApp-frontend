@@ -15,7 +15,7 @@
                     <div class="overlay" v-if="showAddForm">
                         <form v-if="showAddForm" class="add_form">
 
-                            <div class="add_form_description">ADD WATCHLIST</div>
+                            <div class="add_form_description">Add Watchlist</div>
 
                             <div class="box">
                                 <div class="box_inside1">
@@ -69,7 +69,7 @@
                                     </div>
 
                                     <div class="dcf_manual_add_box">
-                                        <div class="dcf_manual_add_box_description">DCF - MANUAL INPUT</div>
+                                        <div class="dcf_manual_add_box_description">DCF - Manual input</div>
 
                                         <div class="dcf_manual_add_box_value">
 
@@ -92,7 +92,7 @@
                                 </div>
 
                                 <div class="box_inside2">
-                                    <div class="box_inside2_description">DCF - CALCULATION</div>
+                                    <div class="box_inside2_description">DCF - calculation</div>
                                     <div class="box_inside2_inside">
 
                                         <div class="box_inside2_free_cash_flow">
@@ -190,7 +190,7 @@
                     <div class="overlay" v-if="showEditForm">
                         <form v-if="showEditForm" class="add_form">
 
-                            <div class="add_form_description">UPDATE WATCHLIST</div>
+                            <div class="add_form_description">Update Watchlist</div>
 
                             <div class="box">
                                 <div class="box_inside1">
@@ -1003,6 +1003,8 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Six+Caps&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 
 
 *,
@@ -1028,12 +1030,10 @@ section {
 /** HEADER */
 .text1 {
     font-size: 2rem;
-    background-image: linear-gradient(to right, #1ff5e7, #46eefa, #41dfff, #52cffe, #69bff8, #6cb5f6, #72abf2, #7aa1ed, #729bf1, #6b95f5, #648ff8, #4a6ac0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: rgba(33, 151, 197, 0.815);
+    font-weight: 300;
     max-width: 500px;
     text-transform: uppercase;
-    color: white;
     letter-spacing: 6px;
     position: relative;
     animation: text 3s 1;
@@ -1044,7 +1044,7 @@ section {
 
     0% {
 
-        color: #000;
+        color: rgba(33, 151, 197, 0.815);
 
     }
 
@@ -1063,19 +1063,6 @@ section {
 
 
 
-/*.content {
-    width: 100rem;
-    height: 50rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(180deg,
-            rgba(255, 255, 255, 0.25) 0%,
-            rgba(255, 255, 255, 0) 100%);
-    border-radius: 20px;
-    z-index: 10;
-}*/
-
 
 /** CONTENT - MAINBOX */
 .mainbox {
@@ -1084,8 +1071,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #2b282888;
-    /*     box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12); */
+    background: #151515;
     gap: 1px;
     border-radius: 20px;
     overflow-y: auto;
@@ -1111,7 +1097,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: row;
-    background: #393433;
+    background: #222327;
 }
 
 .watchlist_table div {
@@ -1267,7 +1253,7 @@ section {
     flex-direction: row;
     align-items: center;
     border-radius: 7px;
-    background: rgba(80, 62, 56, 0.34);
+    background: #303134;
     margin-bottom: 3px;
 }
 
@@ -1405,7 +1391,7 @@ section {
 }
 
 tr:nth-child(even) {
-    background: rgba(38, 37, 37, 0.85);
+    background: #27272A;
 }
 
 
@@ -1479,7 +1465,7 @@ tr:nth-child(even) {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.39);
+    background: rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1488,10 +1474,8 @@ tr:nth-child(even) {
 .add_form {
     height: 30rem;
     width: 50rem;
-    border: 1px solid #8880805e;
     border-radius: 15px;
-    background: #0D0A3A;
-    background: linear-gradient(315deg, rgba(64, 61, 79, 0.8), #2E3444);
+    background: #222327;
     z-index: 1000;
     display: flex;
     justify-content: center;
@@ -1499,13 +1483,15 @@ tr:nth-child(even) {
 }
 
 .add_form_description {
+    height: 3rem;
     display: flex;
     justify-content: center;
-    font-size: 2rem;
-    font-family: 'Six Caps', 'Noto Serif', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-family: IBM Plex Sans, sans-serif;
     letter-spacing: 3px;
-    color: #cc9a3a;
-    margin-bottom: 15px;
+    color: #D4D4D8;
+    padding-bottom: 10px;
 }
 
 .box {
@@ -1532,6 +1518,7 @@ tr:nth-child(even) {
 .box_inside2_description{
     color: rgba(159, 194, 204, 0.76);
     font-family: 'Poppins', 'Six Caps', 'Noto Serif', sans-serif;
+    font-size: 0.8rem;
 }
 
 .dcf_manual_add_box_description {
@@ -1554,10 +1541,10 @@ tr:nth-child(even) {
 .add_form_input_double_1 {
     width: 12rem;
     height: 8px;
-    border: 1px solid #d8c6c65e;
+    border: 1px solid hsl(240 5% 27.6%);
     border-radius: 3px;
     padding-block: 0.8rem;
-    background: none;
+    background: #27272A;
     position: relative;
     padding-left: 10px;
     color: #cc9a3a;
@@ -1566,8 +1553,8 @@ tr:nth-child(even) {
 .add_form_input_double_2 {
     width: 3rem;
     height: 1.72rem;
-    background: none;
-    border: 1px solid #d8c6c65e;
+    background: #27272A;
+    border: 1px solid hsl(240 5% 27.6%);
     border-radius: 3px;
     padding-left: 10px;
     color: #cc9a3a;
@@ -1576,10 +1563,10 @@ tr:nth-child(even) {
 .add_form_input_free_cash_flow {
     width: 9rem;
     height: 8px;
-    border: 1px solid #d8c6c65e;
+    border: 1px solid hsl(240 5% 27.6%);
     border-radius: 3px;
     padding-block: 0.8rem;
-    background: none;
+    background: #27272A;
     position: relative;
     color: #cc9a3a;
     padding-left: 10px;
@@ -1634,9 +1621,9 @@ tr:nth-child(even) {
 .add_form_buttons {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    padding-top: 20px;
     gap: 20px;
-    font-family: 'Poppins', sans-serif;
+    font-family: IBM Plex Sans, sans-serif;
 
 }
 
