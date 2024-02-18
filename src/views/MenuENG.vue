@@ -408,9 +408,9 @@ section {
 
 @media (orientation: portrait) and (min-width: 768px) and (max-width: 1023px) {
     .content {
-        width: 80%;
-        height: 35rem;
-        font-size: 0.85rem;
+        width: 90%;
+        height: 38rem;
+        font-size: 1rem;
     }
 
     .description_1,
@@ -425,37 +425,27 @@ section {
     .container .box {
         width: 250px;
     }
-}
 
-
-@media (orientation: landscape) and (min-width: 768px) and (max-width: 1023px) {
-    .content {
-        width: 80%;
-        height: 35rem;
-        font-size: 0.85rem;
+    .container {
+        gap: 10px;
     }
 
-    .description_1,
-    .description_2 {
-        width: 80%;
-    }
-
-    .content_boxes {
-        gap: 30px;
-    }
-
-    .container .box {
-        width: 250px;
+    .cv_box,
+    .stock_box {
+        font-size: 0.8rem;
     }
 }
+
+
+
 
 
 
 
 @media screen and (min-width: 1024px) {
     .content {
-        width: 70rem;
-        height: 40rem;
+        width: 60rem;
+        height: 35rem;
         font-size: 0.9rem;
     }
 
