@@ -1,8 +1,9 @@
 <template>
     <main>
-        <TBackground />
-        <TNavbar />
+
         <section>
+            <TBackground />
+            <TNavbar />
             <div class="content">
 
                 <div class="description_1">
@@ -20,7 +21,7 @@
                     <p class="comments">/*</p>
                     <br>
                     <p class="comments">for other information click the CV or STOCK button</p>
-                    <br>
+
                 </div>
 
                 <div class="content_boxes">
@@ -47,7 +48,6 @@
                 </div>
 
                 <div class="description_2">
-                    <br>
                     <p class="comments">*/</p>
                     <p class="normal_text">}</p>
                     <br>
@@ -113,8 +113,9 @@ export default {
 }
 
 section {
-    height: 100vh;
-    width: 100%;
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
     position: absolute;
     display: flex;
     justify-content: center;
@@ -157,7 +158,7 @@ section {
 
 .description_1 p:nth-child(7),
 .description_1 p:nth-child(9),
-.description_2 p:nth-child(2) {
+.description_2 p:nth-child(1) {
     margin-left: 2rem;
 }
 
@@ -300,6 +301,177 @@ section {
 }
 
 
+
+
+
+@media screen and (orientation: portrait) and (max-width: 767px) {
+    .content {
+        width: 90%;
+        height: auto;
+        font-size: 0.8rem;
+        padding-top: 15px;
+    }
+
+    .description_1,
+    .description_2 {
+        width: 85%;
+    }
+
+
+    .container .box {
+        width: 85%;
+        height: 60px;
+        font-size: 0.6rem;
+    }
+
+    .container .box:hover {
+        width: 70%;
+        height: 60px;
+    }
+
+    .container .glass_cv h3,
+    .container .glass_stock h3 {
+        font-size: 0.6rem;
+        color: #d4d4d4;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        text-align: center;
+        line-height: 1.2rem;
+    }
+
+    .container {
+        gap: 5px;
+    }
+
+
+}
+
+
+@media screen and (orientation: landscape) and (max-width: 767px) {
+    .content {
+        width: 90%;
+        height: 320px;
+        font-size: 0.7rem;
+        padding-top: 10px;
+        margin-top: 40px;
+    }
+
+    .description_1,
+    .description_2 {
+        width: 90%;
+        font-size: 0.7rem;
+    }
+
+
+    .container .box {
+        width: 200px;
+        height: 40px;
+        font-size: 0.6rem;
+    }
+
+    .container .box:hover {
+        width: 200px;
+        height: 40px;
+    }
+
+    .container .glass_cv h3,
+    .container .glass_stock h3 {
+        font-size: 0.6rem;
+        color: #d4d4d4;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        text-align: center;
+        line-height: 1.2rem;
+    }
+
+    .container {
+        gap: 10px;
+        height: 40px;
+    }
+
+    .cv_box,
+    .stock_box {
+        height: 40px;
+        width: 15rem;
+        border-radius: 0.5rem;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+/*----------------------------------------------------------------*/
+
+@media (orientation: portrait) and (min-width: 768px) and (max-width: 1023px) {
+    .content {
+        width: 80%;
+        height: 35rem;
+        font-size: 0.85rem;
+    }
+
+    .description_1,
+    .description_2 {
+        width: 80%;
+    }
+
+    .content_boxes {
+        gap: 30px;
+    }
+
+    .container .box {
+        width: 250px;
+    }
+}
+
+
+@media (orientation: landscape) and (min-width: 768px) and (max-width: 1023px) {
+    .content {
+        width: 80%;
+        height: 35rem;
+        font-size: 0.85rem;
+    }
+
+    .description_1,
+    .description_2 {
+        width: 80%;
+    }
+
+    .content_boxes {
+        gap: 30px;
+    }
+
+    .container .box {
+        width: 250px;
+    }
+}
+
+
+
+
+@media screen and (min-width: 1024px) {
+    .content {
+        width: 70rem;
+        height: 40rem;
+        font-size: 0.9rem;
+    }
+
+    .description_1,
+    .description_2 {
+        width: 40rem;
+    }
+
+    .content_boxes {
+        gap: 40px;
+    }
+
+    .container .box {
+        width: 200px;
+    }
+}
 
 
 
