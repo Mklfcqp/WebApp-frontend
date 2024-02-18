@@ -300,9 +300,64 @@ section {
     color: #808080;
 }
 
+/*----------------------------------------------------------------*/
+
+@media screen and (max-height: 720px) {
+    .content {
+        width: 85%;
+        max-height: 80%;
+        font-size: 0.7rem;
+        padding-top: 10px;
+    }
+
+    .description_1,
+    .description_2 {
+        width: 90%;
+        font-size: 0.65rem;
+    }
 
 
+    .container .box {
+        width: 200px;
+        height: 40px;
+        font-size: 0.6rem;
+    }
 
+    .container .box:hover {
+        width: 200px;
+        height: 40px;
+    }
+
+    .container .glass_cv h3,
+    .container .glass_stock h3 {
+        font-size: 0.6rem;
+        color: #d4d4d4;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        text-align: center;
+        line-height: 1.2rem;
+    }
+
+    .container {
+        gap: 30px;
+        height: 40px;
+    }
+
+    .cv_box,
+    .stock_box {
+        height: 40px;
+        width: 15rem;
+        border-radius: 0.5rem;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+/*----------------------------------------------------------------*/
 
 @media screen and (orientation: portrait) and (max-width: 767px) {
     .content {
@@ -360,7 +415,7 @@ section {
     .description_1,
     .description_2 {
         width: 90%;
-        font-size: 0.7rem;
+        font-size: 0.6rem;
     }
 
 
