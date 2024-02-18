@@ -1,10 +1,11 @@
 <template>
     <main>
-        <TBackground />
-        <TNavbar />
+
         <section>
+            <TBackground />
+            <TNavbar />
             <div class="content">
-                
+
                 <TCVInfo />
 
                 <swiper :effect="'cards'" :grabCursor="true" :modules="modules" class="swiper">
@@ -518,6 +519,7 @@ section {
     top: 0;
     left: 0;
 }
+
 
 
 .content {

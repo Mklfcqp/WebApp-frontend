@@ -1,8 +1,9 @@
 <template>
   <body>
-    <TBackground/>
+
 
     <div class="login">
+        <TBackground/>
         <form @submit.prevent="registerUser" action="" class="login__form">
             <h1 class="login__title">REGISTER</h1>
 
@@ -140,14 +141,14 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap')
 
-* {
-    box-sizing: border-box;
-    padding: 0;
+*,
+*::before,
+*::after {
     margin: 0;
-    color: white;
-    font-weight: 300;
-    letter-spacing: 1px;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 
 input,
 button {
@@ -159,26 +160,18 @@ a {
     text-decoration: none;
 }
 
-body {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2px;
-    flex-wrap: wrap;
-    overflow: hidden;
-    background: #000;
-}
 
 /*=============== LOGIN ===============*/
 .login {
-    position: relative;
-    height: 100vh;
-    display: grid;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
     align-items: center;
-    z-index: 1000;
+    justify-content: center;
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
 }
 
 .login__form {
@@ -289,31 +282,46 @@ body {
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 676px) {
     .login {
-        justify-content: center;
+
     }
     .login__form {
-        width: 432px;
-        padding: 4rem 3rem 3.5rem;
-        border-radius: 1.5rem;
+        width: 300px;
+
+
     }
     .login__title {
-        font-size: 2rem;
+
     }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (min-width: 768px)
+and (max-width: 1023px) {
     .login {
-        justify-content: center;
+
     }
     .login__form {
-        width: 432px;
-        padding: 4rem 3rem 3.5rem;
-        border-radius: 1.5rem;
+
+
+
     }
     .login__title {
-        font-size: 2rem;
+
+    }
+
+}
+
+
+@media screen and (min-width: 1024px) {
+    .login {
+
+    }
+    .login__form {
+
+    }
+    .login__title {
+
     }
 
 }
