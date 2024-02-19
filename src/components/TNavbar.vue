@@ -5,7 +5,7 @@
     <div class="profile_bar">
       <ul>
         <li>
-            <Icon icon="iconamoon:profile-duotone" class="width_lower" @click="redirectToMenu"/>
+            <Icon icon="iconamoon:profile-duotone" class="width_lower"/>
             <div class="width_higher" @click="redirectToMenu">Profile</div>
           <div class="sub_menu_1">
             <ul>
@@ -62,8 +62,8 @@
     <div class="language_box">
     <div class="language_button">
       <div id="btn"></div>
-      <button type="button" class="toggle-btn" @click="leftClick">ENG</button>
-      <button type="button" class="toggle-btn" @click="rightClick">CZ</button>
+      <div type="button" class="toggle-btn" @click="leftClick">ENG</div>
+      <div type="button" class="toggle-btn" @click="rightClick">CZ</div>
     </div>
   </div>
   </div>
@@ -109,7 +109,7 @@ export default {
 
     rightClick() {
       var btn = document.getElementById('btn');
-      btn.style.left = '50px'
+      btn.style.left = '62px'
     },
 
 
@@ -168,6 +168,7 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .navigation_backgroud {
@@ -289,35 +290,41 @@ export default {
     display: flex;
     align-items: center;
     margin-right: 1.5rem;
+    width: 8rem;
+    height: 1.5rem;
+    border: 1px solid hsl(240 5% 27.6%);
+    border-radius: 5px;
 }
 
 .language_button {
     height: 1.5rem;
-    width: 5rem;
+    width: 8rem;
     display: flex;
     position: relative;
-    border-radius: 7px;
-    background: #D4D4D8;
 }
 
 .toggle-btn {
     padding: 5px 10px;
     cursor: pointer;
     background: transparent;
-    border: 0;
     outline: none;
     position: relative;
     text-align: center;
+    color: #cfcfcf;
+    width: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #btn {
     left: 0;
     top: 0;
     position: absolute;
-    width: 2.5rem;
+    width: 4rem;
     height: 100%;
-    background: #cc9a3a;
-    border-radius: 7px;
+    background: rgba(204, 154, 58, 0.77);
+    border-radius: 5px;
     transition: .5s;
 }
 
@@ -468,22 +475,10 @@ export default {
         color: #dba613;
     }
 
-
-    /** LANGUAGE BUTTONS */
     .language_box {
-        display: none;
-    }
-
-    .language_button {
-        display: none;
-    }
-
-    .toggle-btn {
-        display: none;
-    }
-
-    #btn {
-        display: none;
+        position: absolute;
+        right: 5px;
+        font-size: 0.6rem;
     }
 }
 

@@ -521,4 +521,30 @@ section {
 
 
 
+@media screen and (min-width: 1300px) {
+    .content {
+        width: 70rem;
+        height: 35rem;
+        font-size: 0.9rem;
+    }
+
+    .description_1,
+    .description_2 {
+        width: 40rem;
+    }
+
+    .content_boxes {
+        gap: 40px;
+    }
+
+    .container .box {
+        width: 200px;
+    }
+}
+
+
+
+
+
+
 </style>
