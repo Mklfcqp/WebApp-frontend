@@ -1173,6 +1173,7 @@ export default {
 
 
 .watchlist_table {
+
     min-height: 2.5rem;
     width: 100%;
     border: 1px solid #8880805e;
