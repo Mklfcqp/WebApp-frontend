@@ -1,9 +1,11 @@
 <template>
-    <main>
+    <main class="main">
 
-        <section>
-            <TBackground />
-            <TNavbar />
+        <div class="section">
+
+            <TBackground/>
+            <TNavbar/>
+
             <div class="content">
 
                 <div class="description_1">
@@ -12,38 +14,19 @@
                     <p class="annotation">@AllArgsConstructor</p>
                     <p class="annotation">@Builder</p>
                     <p><span class="keyword">public class</span> <span class="normal_text">JuniorJavaDeveloper
-                            {</span></p>
+          {</span></p>
                     <br>
                     <p><span class="keyword">private</span> <span class="normal_text">String</span> <span
                             class="variables">fullname</span> <span class="normal_text">= "Tomáš
-                            Pitron"</span><span class="keyword">;</span></p>
+          Pitron"</span><span class="keyword">;</span></p>
                     <br>
                     <p class="comments">/*</p>
                     <br>
-                    <p class="comments">for other information click the CV or STOCK button</p>
-
-                </div>
-
-                <div class="content_boxes">
-
-                    <div class="container">
-                        <div class="box">
-                            <div class="cv_box">
-                                <h1>CV</h1>
-                            </div>
-                            <div class="glass_cv" @click="redirectToCV">
-                                <h3>the document attempting to describe my life experiences</h3>
-                            </div>
-                        </div>
-                        <div class="box">
-                            <div class="stock_box">
-                                <h1>STOCK</h1>
-                            </div>
-                            <div class="glass_stock" @click="redirectToWatchlist">
-                                <h3>mini web application to demonstrate my skills</h3>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="comments">for other information click the
+                        <span class="cv" @click="redirectToCV">CV</span> or
+                        <span class="stock" @click="redirectToWatchlist">STOCK</span>
+                    </p>
+                    <br>
 
                 </div>
 
@@ -55,34 +38,30 @@
 
             </div>
 
+        </div>
 
-        </section>
     </main>
 </template>
 
 
-
-
-
-
 <script>
 import TNavbar from '@/components/TNavbar.vue'
-import { Icon } from '@iconify/vue';
+import {Icon} from '@iconify/vue';
 import db from '../utils/db.js'
 import axios from 'axios';
 import TBackground from '@/components/TBackground.vue'
+import TBackgroundGray from "@/components/TBackgroundGray.vue";
 
 export default {
 
     components: {
+        TBackgroundGray,
         TNavbar,
         Icon,
         TBackground
     },
     data() {
-        return {
-
-        }
+        return {}
     },
 
     methods: {
@@ -100,51 +79,54 @@ export default {
 </script>
 
 
-
-
-
 <style scoped>
+
 *,
-*::before,
-*::after {
+*:after,
+*:before {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-section {
-    width: 100vw;
-    height: 100%;
-    overflow: hidden;
+
+.main {
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    min-height: 100vh;
+    width: 100%;
+    background: #141414;
     top: 0;
     left: 0;
 }
 
 
+.section {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .content {
-    width: 70rem;
-    height: 40rem;
+    width: 60rem;
+    min-height: 30rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
     background: linear-gradient(180deg,
-            rgba(255, 255, 255, 0.2) 0%,
-            rgba(255, 255, 255, 0) 100%);
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0) 100%);
     backdrop-filter: blur(1px);
     border-radius: 20px;
-    /*box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);*/
     z-index: 10;
-    font-size: 0.9rem;
     line-height: 1.5;
     font-family: 'JetBrains Mono', Oswald, 'Courier New', Courier;
+    margin-top: 100px;
 }
+
 
 /** CONTENT - MAINBOX */
 
@@ -154,6 +136,7 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+
 }
 
 .description_1 p:nth-child(7),
@@ -164,119 +147,17 @@ section {
 
 .description_1 p:nth-child(11) {
     margin: auto;
-}
-
-
-.content_boxes {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-}
-
-.cv_box,
-.stock_box {
-    height: 3rem;
-    width: 15rem;
-    border-radius: 0.5rem;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.cv_box {
-    background: #497296;
-}
-
-.stock_box {
-    background: #966b3a;
-}
-
-
-.container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-}
-
-.container .box {
-    position: relative;
-    width: 200px;
-    height: 100px;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-
-
-.container .box .glass_cv {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(rgba(32, 102, 194, 0.315), transparent);
-    border: 1px solid rgba(0, 89, 255, 0.1);
-    backdrop-filter: blur(15px);
-    opacity: 0;
-    scale: 0;
-    transition: 0.5s;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-.container .box .glass_stock {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(rgba(187, 141, 41, 0.247), transparent);
-    border: 1px solid rgba(233, 188, 43, 0.1);
-    backdrop-filter: blur(15px);
-    opacity: 0;
-    scale: 0;
-    transition: 0.5s;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-
-.container .box:hover .glass_cv,
-.container .box:hover .glass_stock
-{
-    opacity: 1;
-    scale: 1;
-}
-
-.container .glass_cv h3,
-.container .glass_stock h3 {
-    font-size: 0.9rem;
-    color: #d4d4d4;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
     text-align: center;
-    line-height: 1.2rem;
 }
 
-.container .box:hover h1 {
-    display: none;
+
+.cv, .stock {
+  cursor: pointer;
 }
 
-.container .box:hover .cv_box,
-.container .box:hover .stock_box {
-    background: none;
+.cv:hover,
+.stock:hover {
+    color: #dba613;
 }
 
 
@@ -300,71 +181,52 @@ section {
     color: #808080;
 }
 
-/*----------------------------------------------------------------*/
-
-@media screen and (max-height: 720px) {
-    .content {
-        width: 85%;
-        max-height: 80%;
-        font-size: 0.7rem;
-        padding-top: 10px;
-    }
-
-    .description_1,
-    .description_2 {
-        width: 90%;
-        font-size: 0.65rem;
-    }
 
 
-    .container .box {
-        width: 200px;
-        height: 40px;
-        font-size: 0.6rem;
-    }
 
-    .container .box:hover {
-        width: 200px;
-        height: 40px;
-    }
 
-    .container .glass_cv h3,
-    .container .glass_stock h3 {
-        font-size: 0.6rem;
-        color: #d4d4d4;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        text-align: center;
-        line-height: 1.2rem;
-    }
 
-    .container {
-        gap: 30px;
-        height: 40px;
-    }
+/* For Desktop View */
+@media screen and (min-width: 1200px)
+and (orientation: portrait) {
 
-    .cv_box,
-    .stock_box {
-        height: 40px;
-        width: 15rem;
-        border-radius: 0.5rem;
-        padding: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+}
+
+@media screen and (min-device-width: 1024px)
+and (max-device-width: 1200px)
+and (orientation: portrait) {
+
+}
+
+/* For Tablet View */
+@media screen and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait) {
+
 }
 
 
-/*----------------------------------------------------------------*/
+@media screen and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: portrait) {
 
-@media screen and (orientation: portrait) and (max-width: 767px) {
+}
+
+@media screen and (min-device-width: 480px)
+and (max-device-width: 768px)
+and (orientation: portrait) {
+
+}
+
+@media screen and (min-device-width: 320px)
+and (max-device-width: 480px)
+and (orientation: portrait) {
     .content {
-        width: 90%;
-        height: auto;
+        width: 95%;
+        min-height: 10rem;
         font-size: 0.8rem;
-        padding-top: 15px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 
     .description_1,
@@ -373,178 +235,51 @@ section {
     }
 
 
-    .container .box {
-        width: 85%;
-        height: 60px;
-        font-size: 0.6rem;
-    }
-
-    .container .box:hover {
-        width: 70%;
-        height: 60px;
-    }
-
-    .container .glass_cv h3,
-    .container .glass_stock h3 {
-        font-size: 0.6rem;
-        color: #d4d4d4;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        text-align: center;
-        line-height: 1.2rem;
-    }
-
-    .container {
-        gap: 5px;
-    }
-
 
 }
 
 
-@media screen and (orientation: landscape) and (max-width: 767px) {
-    .content {
-        width: 90%;
-        height: 320px;
-        font-size: 0.7rem;
-        padding-top: 10px;
-        margin-top: 40px;
-    }
-
-    .description_1,
-    .description_2 {
-        width: 90%;
-        font-size: 0.6rem;
-    }
 
 
-    .container .box {
-        width: 200px;
-        height: 40px;
-        font-size: 0.6rem;
-    }
 
-    .container .box:hover {
-        width: 200px;
-        height: 40px;
-    }
 
-    .container .glass_cv h3,
-    .container .glass_stock h3 {
-        font-size: 0.6rem;
-        color: #d4d4d4;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        text-align: center;
-        line-height: 1.2rem;
-    }
 
-    .container {
-        gap: 10px;
-        height: 40px;
-    }
+@media screen and (min-width: 1200px)
+and (orientation: landscape) {
 
-    .cv_box,
-    .stock_box {
-        height: 40px;
-        width: 15rem;
-        border-radius: 0.5rem;
-        padding: 5px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+}
+
+@media screen and (min-device-width: 1024px)
+and (max-device-width: 1200px)
+and (orientation: landscape) {
+
+}
+
+/* For Tablet View */
+@media screen and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: landscape) {
+
 }
 
 
-/*----------------------------------------------------------------*/
+@media screen and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (orientation: landscape) {
 
-@media (orientation: portrait) and (min-width: 768px) and (max-width: 1023px) {
-    .content {
-        width: 90%;
-        height: 38rem;
-        font-size: 1rem;
-    }
-
-    .description_1,
-    .description_2 {
-        width: 80%;
-    }
-
-    .content_boxes {
-        gap: 30px;
-    }
-
-    .container .box {
-        width: 250px;
-    }
-
-    .container {
-        gap: 10px;
-    }
-
-    .cv_box,
-    .stock_box {
-        font-size: 0.8rem;
-    }
 }
 
+@media screen and (min-device-width: 480px)
+and (max-device-width: 768px)
+and (orientation: landscape) {
 
-
-
-
-
-
-@media screen and (min-width: 1024px) {
-    .content {
-        width: 60rem;
-        height: 35rem;
-        font-size: 0.9rem;
-    }
-
-    .description_1,
-    .description_2 {
-        width: 40rem;
-    }
-
-    .content_boxes {
-        gap: 40px;
-    }
-
-    .container .box {
-        width: 200px;
-    }
 }
 
+@media screen and (min-device-width: 320px)
+and (max-device-width: 480px)
+and (orientation: landscape) {
 
-
-
-@media screen and (min-width: 1300px) {
-    .content {
-        width: 70rem;
-        height: 35rem;
-        font-size: 0.9rem;
-    }
-
-    .description_1,
-    .description_2 {
-        width: 40rem;
-    }
-
-    .content_boxes {
-        gap: 40px;
-    }
-
-    .container .box {
-        width: 200px;
-    }
 }
-
-
-
-
 
 
 </style>

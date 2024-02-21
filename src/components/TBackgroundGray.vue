@@ -18,9 +18,11 @@ export default {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    min-height: 100%;
     overflow: hidden;
     background: #141414;
+    overflow-x: hidden;
+
 }
 
 

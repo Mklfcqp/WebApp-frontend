@@ -240,6 +240,7 @@ export default {
 .active_cv a:hover,
 .active_stock a:hover {
     color: #dba613;
+    cursor: pointer;
 }
 
 .menu_bar ul li:hover,
@@ -248,6 +249,7 @@ export default {
     width: 10rem;
     color: #dba613;
     background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
 }
 
 .sub_menu_1 {
@@ -261,6 +263,7 @@ export default {
     background: #2a272749;
     margin-top: 112px;
     font-size: 0.9rem;
+    cursor: pointer;
 }
 
 .menu_bar ul li:hover .sub_menu_1 ul,
@@ -280,6 +283,7 @@ export default {
 .menu_bar ul li:hover .sub_menu_1 ul li a:hover,
 .profile_bar ul li:hover .sub_menu_1 ul li a:hover {
     color: #dba613;
+    cursor: pointer;
 }
 
 

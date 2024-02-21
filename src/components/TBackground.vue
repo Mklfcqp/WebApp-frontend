@@ -20,8 +20,9 @@ export default {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 2000px;
+    height: 100%;
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+    overflow: hidden;
 }
 
 
