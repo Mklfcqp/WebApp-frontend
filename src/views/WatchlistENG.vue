@@ -15,6 +15,7 @@
                         <span class="text1">WATCHLIST</span>
                     </div>
 
+
                     <div class="overlay" v-if="showAddForm">
                         <form v-if="showAddForm" class="add_form">
 
@@ -217,7 +218,6 @@
                             </div>
                         </form>
                     </div>
-
 
                     <div class="overlay" v-if="showEditForm">
                         <form v-if="showEditForm" class="add_form">
@@ -448,7 +448,7 @@
                         </div>
                     </div>
 
-                    <table v-if="!loading">
+                    <table v-if="!loading" class="table_test">
                         <thead>
                         <tr class="watchlist_table">
 
@@ -1142,8 +1142,23 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1px;
 
+}
+
+
+.table_test {
+    border: 1px solid blue;
+    width: 100%;
+    min-height: 20rem;
+}
+
+.mainbox {
+    width: 90%;
+    min-height: 45rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
 }
 
 
@@ -1155,15 +1170,19 @@ export default {
     justify-content: center;
 }
 
+
+
 .watchlist_table {
     min-height: 2.5rem;
-    width: 85rem;
+    width: 100%;
     border: 1px solid #8880805e;
     border-radius: 7px;
-    display: flex;
-    align-items: center;
+    /*display: flex;*/
+    /*align-items: center;*/
     justify-content: row;
     background: #222327;
+    border: 5px solid red;
+
 }
 
 .watchlist_table div {
@@ -1181,8 +1200,8 @@ export default {
 }
 
 .Ticker {
-    height: 2.5rem;
-    width: 5.5rem;
+    /*height: 2.5rem;*/
+    /*width: 5.5rem;*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1192,8 +1211,8 @@ export default {
 }
 
 .Company {
-    height: 2.5rem;
-    width: 27rem;
+    /*height: 2.5rem;*/
+    /*width: 27rem;*/
     display: flex;
     align-items: center;
     padding-left: 10px;
@@ -1201,8 +1220,8 @@ export default {
 }
 
 .Disparity {
-    height: 2.5rem;
-    width: 23rem;
+    /*height: 2.5rem;*/
+    /*width: 23rem;*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1210,8 +1229,8 @@ export default {
 }
 
 .Edit_remove {
-    height: 2.5rem;
-    width: 7rem;
+    /*height: 2.5rem;*/
+    /*width: 7rem;*/
 }
 
 
@@ -1220,8 +1239,8 @@ export default {
 .Dividend_Yield,
 .Dividend_Q,
 .Dividend_Y {
-    height: 2.5rem;
-    width: 10rem;
+    /*height: 2.5rem;*/
+    /*width: 10rem;*/
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -1311,19 +1330,19 @@ export default {
 /** ADDED FORM */
 
 .added_form {
-    height: 3rem;
-    width: 85rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    min-height: 3rem;
+    width: 70%;
+    /*display: flex;*/
+    /*align-items: center;*/
     border-radius: 7px;
     background: #303134;
     margin-bottom: 3px;
+    border: 5px solid yellow;
 }
 
 .ticker_box {
-    height: 2rem;
-    width: 5.5rem;
+    /*height: 2rem;*/
+    /*width: 5.5rem;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1336,8 +1355,8 @@ export default {
 
 
 .company_box {
-    height: 2rem;
-    width: 27rem;
+    /*height: 2rem;*/
+    /*width: 27rem;*/
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -1351,8 +1370,8 @@ export default {
 }
 
 .disparity_box {
-    height: 2rem;
-    width: 23rem;
+    /*height: 2rem;*/
+    /*width: 23rem;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1365,8 +1384,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 1.5rem;
-    width: 10rem;
+    /*height: 1.5rem;*/
+    /*width: 10rem;*/
     background: #c9c9c934;
     font-size: 0.9rem;
     color: #c9c9c9;
@@ -1377,8 +1396,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 1.5rem;
-    width: 10rem;
+    /*height: 1.5rem;*/
+    /*width: 10rem;*/
     background: #e0454a1f;
     font-size: 0.9rem;
     color: #e0454b;
@@ -1390,16 +1409,16 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 1.5rem;
-    width: 10rem;
+    /*height: 1.5rem;*/
+    /*width: 10rem;*/
     background: rgba(198, 239, 206, 0.082);
     font-size: 0.9rem;
     color: #6cc06c;
 }
 
 .edit_remove {
-    height: 2rem;
-    width: 7rem;
+    /*height: 2rem;*/
+    /*width: 7rem;*/
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1410,8 +1429,8 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 2rem;
-    width: 2rem;
+    /*height: 2rem;*/
+    /*width: 2rem;*/
     cursor: pointer;
     background: none;
     border-radius: 3px;
@@ -1439,8 +1458,8 @@ export default {
 .dividend_yield_box,
 .dividend_q_box,
 .dividend_y_box {
-    height: 2rem;
-    width: 10rem;
+    /*height: 2rem;*/
+    /*width: 10rem;*/
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -1914,6 +1933,161 @@ tr:nth-child(even) {
             width: 85rem;
         }
 
+        .added_form {
+            min-height: 3rem;
+            width: 70%;
+            display: flex;
+            align-items: center;
+            border-radius: 7px;
+            background: #303134;
+            margin-bottom: 3px;
+            border: 1px solid yellow;
+        }
+
+        .ticker_box {
+            height: 2rem;
+            width: 5.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7rem;
+            letter-spacing: 0.05rem;
+            font-weight: 200;
+            color: #807f7f;
+            font-family: 'Poppins', sans-serif;
+        }
+
+
+        .company_box {
+            height: 2rem;
+            width: 27rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 20px;
+            font-size: 0.8rem;
+            color: rgba(8, 172, 236, 0.918);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+
+        }
+
+        .disparity_box {
+            height: 2rem;
+            width: 23rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 200;
+        }
+
+        .disparity_normal {
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 1.5rem;
+            width: 10rem;
+            background: #c9c9c934;
+            font-size: 0.9rem;
+            color: #c9c9c9;
+        }
+
+        .disparity_overvalued {
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 1.5rem;
+            width: 10rem;
+            background: #e0454a1f;
+            font-size: 0.9rem;
+            color: #e0454b;
+        }
+
+
+        .disparity_undervalued {
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 1.5rem;
+            width: 10rem;
+            background: rgba(198, 239, 206, 0.082);
+            font-size: 0.9rem;
+            color: #6cc06c;
+        }
+
+        .edit_remove {
+            height: 2rem;
+            width: 7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+        }
+
+        .edit_remove_button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 2rem;
+            width: 2rem;
+            cursor: pointer;
+            background: none;
+            border-radius: 3px;
+            border: 1px solid rgb(136, 136, 136);
+            background: rgba(136, 136, 136, 0.089);
+        }
+
+        .edit_remove_button:hover {
+            background: #c7c5c1d3;
+
+        }
+
+        .edit_remove_icon {
+            color: rgb(136, 136, 136);
+            font-size: 1.2rem;
+        }
+
+        .edit_remove_button:hover .edit_remove_icon {
+            color: #2a2727;
+        }
+
+
+        .price_box,
+        .dcf_box,
+        .dividend_yield_box,
+        .dividend_q_box,
+        .dividend_y_box {
+            height: 2rem;
+            width: 10rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            gap: 5px;
+            font-size: 1rem;
+            color: rgba(8, 172, 236, 0.918);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+        }
+
+        tr:nth-child(even) {
+            background: #27272A;
+        }
+
+
+        .currency {
+            font-size: 0.7rem;
+            color: #807f7f;
+            font-weight: 200;
+            padding-top: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+
     }
 
     /* For Desktop View */
@@ -1938,6 +2112,161 @@ tr:nth-child(even) {
 
     @media screen and (min-device-width: 320px)
     and (max-device-width: 480px) {
+
+        .added_form {
+            min-height: 3rem;
+            width: 70%;
+            display: flex;
+            align-items: center;
+            border-radius: 7px;
+            background: #303134;
+            margin-bottom: 3px;
+            border: 1px solid yellow;
+        }
+
+        .ticker_box {
+            /*height: 2rem;*/
+            /*width: 5.5rem;*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7rem;
+            letter-spacing: 0.05rem;
+            font-weight: 200;
+            color: #807f7f;
+            font-family: 'Poppins', sans-serif;
+        }
+
+
+        .company_box {
+            /*height: 2rem;*/
+            /*width: 27rem;*/
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-left: 20px;
+            font-size: 0.8rem;
+            color: rgba(8, 172, 236, 0.918);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+
+        }
+
+        .disparity_box {
+            /*height: 2rem;*/
+            /*width: 23rem;*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 200;
+        }
+
+        .disparity_normal {
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 1.5rem;
+            width: 10rem;
+            background: #c9c9c934;
+            font-size: 0.9rem;
+            color: #c9c9c9;
+        }
+
+        .disparity_overvalued {
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 1.5rem;
+            width: 10rem;
+            background: #e0454a1f;
+            font-size: 0.9rem;
+            color: #e0454b;
+        }
+
+
+        .disparity_undervalued {
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 1.5rem;
+            width: 10rem;
+            background: rgba(198, 239, 206, 0.082);
+            font-size: 0.9rem;
+            color: #6cc06c;
+        }
+
+        .edit_remove {
+            /*height: 2rem;*/
+            /*width: 7rem;*/
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+        }
+
+        .edit_remove_button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 2rem;
+            width: 2rem;
+            cursor: pointer;
+            background: none;
+            border-radius: 3px;
+            border: 1px solid rgb(136, 136, 136);
+            background: rgba(136, 136, 136, 0.089);
+        }
+
+        .edit_remove_button:hover {
+            background: #c7c5c1d3;
+
+        }
+
+        .edit_remove_icon {
+            color: rgb(136, 136, 136);
+            font-size: 1.2rem;
+        }
+
+        .edit_remove_button:hover .edit_remove_icon {
+            color: #2a2727;
+        }
+
+
+        .price_box,
+        .dcf_box,
+        .dividend_yield_box,
+        .dividend_q_box,
+        .dividend_y_box {
+            /*height: 2rem;*/
+            /*width: 10rem;*/
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            gap: 5px;
+            font-size: 1rem;
+            color: rgba(8, 172, 236, 0.918);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+        }
+
+        tr:nth-child(even) {
+            background: #27272A;
+        }
+
+
+        .currency {
+            font-size: 0.7rem;
+            color: #807f7f;
+            font-weight: 200;
+            padding-top: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
 
     }
 
