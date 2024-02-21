@@ -275,46 +275,30 @@ a {
 }
 
 
-@media screen and (max-width: 676px) {
-    .login {
-
-    }
+@media screen and (max-width: 676px)
+and (orientation: portrait){
     .login__form {
         width: 300px;
-
-
-    }
-    .login__title {
-
     }
 }
 
-@media screen and (min-width: 768px)
-and (max-width: 1023px) {
-    .login {
-
-    }
+@media screen and (max-width: 676px)
+and (orientation: landscape){
     .login__form {
-
+        width: 300px;
+        height: 300px;
     }
+
     .login__title {
-
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: #D4D4D8;
+        font-weight: 500;
     }
-
 }
 
 
-@media screen and (min-width: 1024px) {
-    .login {
 
-    }
-    .login__form {
-
-    }
-    .login__title {
-
-    }
-
-}
 
 </style>

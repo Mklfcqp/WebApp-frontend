@@ -124,7 +124,9 @@ export default {
     z-index: 10;
     line-height: 1.5;
     font-family: 'JetBrains Mono', Oswald, 'Courier New', Courier;
-    margin-top: 100px;
+    margin-top: 80px;
+    font-size: 0.9rem;
+    padding: 10rem;
 }
 
 
@@ -187,46 +189,40 @@ export default {
 
 
 /* For Desktop View */
-@media screen and (min-width: 1200px)
-and (orientation: portrait) {
-
+@media screen and (min-width: 1200px) {
+    .content {
+        min-height: 10rem;
+        font-size: 0.9rem;
+        margin-top: 200px;
+    }
+    .description_1,
+    .description_2 {
+        width: 40rem;
+    }
 }
 
+/* For Desktop View */
 @media screen and (min-device-width: 1024px)
-and (max-device-width: 1200px)
-and (orientation: portrait) {
-
+and (max-device-width: 1200px) {
+    .content {
+        min-height: 10rem;
+        font-size: 0.8rem;
+        margin-top: 200px;
+    }
+    .description_1,
+    .description_2 {
+        width: 40rem;
+    }
 }
 
 /* For Tablet View */
 @media screen and (min-device-width: 768px)
-and (max-device-width: 1024px)
-and (orientation: portrait) {
-
-}
-
-
-@media screen and (min-device-width: 768px)
-and (max-device-width: 1024px)
-and (orientation: portrait) {
-
-}
-
-@media screen and (min-device-width: 480px)
-and (max-device-width: 768px)
-and (orientation: portrait) {
-
-}
-
-@media screen and (min-device-width: 320px)
-and (max-device-width: 480px)
-and (orientation: portrait) {
+and (max-device-width: 1024px) {
     .content {
         width: 95%;
         min-height: 10rem;
         font-size: 0.8rem;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding: 40px 10px  40px 10px;
     }
 
     .description_1,
@@ -234,52 +230,42 @@ and (orientation: portrait) {
         width: 85%;
     }
 
-
-
 }
 
-
-
-
-
-
-
-@media screen and (min-width: 1200px)
-and (orientation: landscape) {
-
-}
-
-@media screen and (min-device-width: 1024px)
-and (max-device-width: 1200px)
-and (orientation: landscape) {
-
-}
-
-/* For Tablet View */
-@media screen and (min-device-width: 768px)
-and (max-device-width: 1024px)
-and (orientation: landscape) {
-
-}
-
-
-@media screen and (min-device-width: 768px)
-and (max-device-width: 1024px)
-and (orientation: landscape) {
-
-}
-
+/* For Mobile View */
 @media screen and (min-device-width: 480px)
-and (max-device-width: 768px)
-and (orientation: landscape) {
+and (max-device-width: 768px) {
+    .content {
+        width: 95%;
+        min-height: 10rem;
+        font-size: 0.8rem;
+        padding: 40px 10px  40px 10px;
+    }
+
+    .description_1,
+    .description_2 {
+        width: 85%;
+    }
 
 }
 
 @media screen and (min-device-width: 320px)
-and (max-device-width: 480px)
-and (orientation: landscape) {
+and (max-device-width: 480px) {
+    .content {
+        width: 95%;
+        min-height: 10rem;
+        font-size: 0.8rem;
+        padding: 30px 10px  30px 10px;
+    }
 
+    .description_1,
+    .description_2 {
+        width: 85%;
+    }
 }
+
+
+
 
 
 </style>
