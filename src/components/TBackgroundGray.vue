@@ -13,15 +13,15 @@ export default {
 
 
 <style scoped>
-.background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background: #141414;
-}
+/*.background {*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100vw;*/
+/*    height: 100%;*/
+/*    overflow: hidden;*/
+/*}*/
+
 
 
 </style>
