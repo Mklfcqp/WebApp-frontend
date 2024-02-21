@@ -17,13 +17,11 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    min-height: 100%;
+    width: 100vw;
+    height: 100%;
     overflow: hidden;
-    background: #141414;
-    overflow-x: hidden;
-
 }
+
 
 
 </style>

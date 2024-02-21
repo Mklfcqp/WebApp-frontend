@@ -194,6 +194,7 @@ export default {
         min-height: 10rem;
         font-size: 0.9rem;
         margin-top: 200px;
+        margin-bottom: 200px;
     }
     .description_1,
     .description_2 {
@@ -208,6 +209,7 @@ and (max-device-width: 1200px) {
         min-height: 10rem;
         font-size: 0.8rem;
         margin-top: 200px;
+        margin-bottom: 200px;
     }
     .description_1,
     .description_2 {

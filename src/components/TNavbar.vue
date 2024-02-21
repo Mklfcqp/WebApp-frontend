@@ -6,7 +6,7 @@
       <ul>
         <li>
             <Icon icon="iconamoon:profile-duotone" class="width_lower"/>
-            <div class="width_higher" @click="redirectToMenu">Profile</div>
+            <div class="width_higher">Profile</div>
           <div class="sub_menu_1">
             <ul>
               <li class="hover_me">
@@ -61,9 +61,10 @@
     </div>
     <div class="language_box">
     <div class="language_button">
-      <div id="btn"></div>
-      <div type="button" class="toggle-btn" @click="leftClick">ENG</div>
-      <div type="button" class="toggle-btn" @click="rightClick">CZ</div>
+<!--      <div id="btn"></div>-->
+<!--        <Icon icon="material-symbols:language" class="width_lower"/>-->
+<!--      <div type="button" class="toggle-btn" @click="leftClick">ENG</div>-->
+<!--      <div type="button" class="toggle-btn" @click="rightClick">CZ</div>-->
     </div>
   </div>
   </div>
@@ -177,10 +178,9 @@ export default {
     left: 0;
     height: 3rem;
     width: 100%;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
+    background: rgba(255, 255, 255, 0.22) 0%;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
-    mask-image: linear-gradient(90deg, rgb(255, 255, 255) 0%, #ffffff 25%, #ffffff 75%, rgb(255, 255, 255) 100%);
-    border-bottom: 1px solid rgba(177, 177, 177, 0.4);
+    /*border-bottom: 1px solid rgba(177, 177, 177, 0.4);*/
 }
 
 .profile_bar {
@@ -296,7 +296,7 @@ export default {
     margin-right: 1.5rem;
     width: 8rem;
     height: 1.5rem;
-    border: 1px solid hsl(240 5% 27.6%);
+    /*border: 1px solid hsl(240 5% 27.6%);*/
     border-radius: 5px;
 }
 
@@ -358,7 +358,9 @@ export default {
         color: #cfcfcf;
     }
 
-    .width_higher {
+    .width_higher,
+    .toggle-btn,
+    #btn {
         display: none;
     }
 
@@ -376,15 +378,7 @@ export default {
     }
 
     .navigation_backgroud {
-        position: fixed;
-        top: 0;
-        left: 0;
         height: 2rem;
-        width: 100%;
-        background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
-        box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
-        mask-image: linear-gradient(90deg, rgb(255, 255, 255) 0%, #ffffff 25%, #ffffff 75%, rgb(255, 255, 255) 100%);
-        border-bottom: 1px solid rgba(177, 177, 177, 0.4);
     }
 
 
@@ -479,11 +473,17 @@ export default {
         color: #dba613;
     }
 
-    .language_box {
-        position: absolute;
-        right: 5px;
-        font-size: 0.6rem;
-    }
+    /*.language_box {*/
+    /*    position: absolute;*/
+    /*    right: 5px;*/
+    /*    display: flex;*/
+    /*}*/
+
+    /*.language_button {*/
+    /*    display: flex;*/
+    /*    align-items: center;*/
+    /*    justify-content: flex-end;*/
+    /*}*/
 }
 
 </style>
