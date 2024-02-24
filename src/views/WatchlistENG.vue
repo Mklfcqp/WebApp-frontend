@@ -1313,6 +1313,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 
@@ -1647,6 +1648,7 @@ export default {
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.71);
+    border: 1px solid hsl(240 5% 27.6%);
 }
 
 
