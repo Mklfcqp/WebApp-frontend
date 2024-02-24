@@ -448,83 +448,234 @@
                         </div>
                     </div>
 
-                    <table v-if="!loading" class="table_test">
-                        <thead>
-                        <tr class="watchlist_table">
+                    <!--                    <table v-if="!loading" class="desktop_table">-->
+                    <!--                        <thead>-->
+                    <!--                        <tr class="watchlist_table">-->
 
-                            <th scope="col" class="Ticker">
-                                <div>Ticker</div>
-                            </th>
-                            <th scope="col" class="Company" @click="sortTableByCompany">
-                                <Icon icon="mdi:alphabet-a" class="watchlist_table_icon"/>
-                                <div>Company</div>
-                            </th>
-                            <th scope="col" class="Current_Price" @click="sortTableByCurrentPrice">
-                                <Icon icon="foundation:dollar" class="watchlist_table_icon"/>
-                                <div>Current Price</div>
-                            </th>
-                            <th scope="col" class="DCF" @click="sortTableByDCF">
-                                <Icon icon="foundation:dollar" class="watchlist_table_icon"/>
-                                <div>DCF</div>
-                            </th>
-                            <th scope="col" class="Dividend_Yield" @click="sortTableByDividendYield">
-                                <Icon icon="material-symbols:percent" class="watchlist_table_icon"/>
-                                <div>Dividend Yield</div>
-                            </th>
-                            <th scope="col" class="Dividend_Q" @click="sortTableByDividendQ">
-                                <Icon icon="solar:dollar-line-duotone" class="watchlist_table_icon"/>
-                                <div>Dividend(Q)</div>
-                            </th>
-                            <th scope="col" class="Dividend_Y" @click="sortTableByDividendY">
-                                <Icon icon="solar:dollar-outline" class="watchlist_table_icon"/>
-                                <div>Dividend(Y)</div>
-                            </th>
-                            <th scope="col" class="Disparity" @click="sortTableByDisparity">
-                                <Icon icon="material-symbols:percent" class="watchlist_table_icon"/>
-                                <div>Disparity</div>
-                            </th>
+                    <!--                            <th scope="col" class="Ticker">-->
+                    <!--                                <div>Ticker</div>-->
+                    <!--                            </th>-->
+                    <!--                            <th scope="col" class="Company" @click="sortTableByCompany">-->
+                    <!--                                <Icon icon="mdi:alphabet-a" class="watchlist_table_icon"/>-->
+                    <!--                                <div>Company</div>-->
+                    <!--                            </th>-->
+                    <!--                            <th scope="col" class="Current_Price" @click="sortTableByCurrentPrice">-->
+                    <!--                                <Icon icon="foundation:dollar" class="watchlist_table_icon"/>-->
+                    <!--                                <div>Current Price</div>-->
+                    <!--                            </th>-->
+                    <!--                            <th scope="col" class="DCF" @click="sortTableByDCF">-->
+                    <!--                                <Icon icon="foundation:dollar" class="watchlist_table_icon"/>-->
+                    <!--                                <div>DCF</div>-->
+                    <!--                            </th>-->
+                    <!--                            <th scope="col" class="Dividend_Yield" @click="sortTableByDividendYield">-->
+                    <!--                                <Icon icon="material-symbols:percent" class="watchlist_table_icon"/>-->
+                    <!--                                <div>Dividend Yield</div>-->
+                    <!--                            </th>-->
+                    <!--                            <th scope="col" class="Dividend_Q" @click="sortTableByDividendQ">-->
+                    <!--                                <Icon icon="solar:dollar-line-duotone" class="watchlist_table_icon"/>-->
+                    <!--                                <div>Dividend(Q)</div>-->
+                    <!--                            </th>-->
+                    <!--                            <th scope="col" class="Dividend_Y" @click="sortTableByDividendY">-->
+                    <!--                                <Icon icon="solar:dollar-outline" class="watchlist_table_icon"/>-->
+                    <!--                                <div>Dividend(Y)</div>-->
+                    <!--                            </th>-->
+                    <!--                            <th scope="col" class="Disparity" @click="sortTableByDisparity">-->
+                    <!--                                <Icon icon="material-symbols:percent" class="watchlist_table_icon"/>-->
+                    <!--                                <div>Disparity</div>-->
+                    <!--                            </th>-->
 
-                            <th scope="col" class="Edit_remove"></th>
-                        </tr>
-                        </thead>
+                    <!--                            <th scope="col" class="Edit_remove"></th>-->
+                    <!--                        </tr>-->
+                    <!--                        </thead>-->
+                    <!--                        <tbody>-->
+                    <!--                        <tr v-for="box in paginatedData" :key="box.id" class="added_form">-->
+                    <!--                            <th scope="row" class="hidden-id">{{ box.id }}</th>-->
+                    <!--                            <td class="ticker_box">{{ box.ticker }}</td>-->
+                    <!--                            <td class="company_box">{{ box.company }}</td>-->
+                    <!--                            <td class="price_box">-->
+                    <!--                                <div class="price_value">{{ box.price }}</div>-->
+                    <!--                                <div class="currency">{{ box.currencyPrice }}</div>-->
+                    <!--                            </td>-->
+                    <!--                            <td class="dcf_box">-->
+                    <!--                                <div class="dcf_value">{{ box.dcfWithMarginOfSafety }}</div>-->
+                    <!--                                <div class="currency">{{ box.currencyDcf }}</div>-->
+                    <!--                            </td>-->
+                    <!--                            <td class="dividend_yield_box">-->
+                    <!--                                <div>{{ box.dividendYield }}</div>-->
+                    <!--                                <div class="currency">%</div>-->
+                    <!--                            </td>-->
+                    <!--                            <td class="dividend_q_box">-->
+                    <!--                                <div class="dividend_q">{{ box.dividendQ }}</div>-->
+                    <!--                                <div class="currency">{{ box.currencyDividendQ }}</div>-->
+                    <!--                            </td>-->
+                    <!--                            <td class="dividend_y_box">-->
+                    <!--                                <div class="dividend_y">{{ box.dividendY }}</div>-->
+                    <!--                                <div class="currency">{{ box.currencyDividendY }}</div>-->
+                    <!--                            </td>-->
+                    <!--                            <td class="disparity_box">-->
+                    <!--                                <div-->
+                    <!--                                        :class="{ 'disparity_overvalued': box.overValuedUnderValued.includes('Overvalued'), 'disparity_undervalued': box.overValuedUnderValued.includes('Undervalued'), 'disparity_normal': !box.overValuedUnderValued.includes('Overvalued') && !box.overValuedUnderValued.includes('Undervalued') }">-->
+                    <!--                                    {{ box.overValuedUnderValued }}-->
+                    <!--                                </div>-->
+                    <!--                            </td>-->
+                    <!--                            <td class="edit_remove">-->
+                    <!--                                <button class="edit_remove_button" @click="loadWatchlistForEdit(box.id)">-->
+                    <!--                                    <Icon icon="mdi:edit-outline" class="edit_remove_icon"/>-->
+                    <!--                                </button>-->
+                    <!--                                <button class="edit_remove_button" @click="deleteWatchlistConfirmation(box.id)">-->
+                    <!--                                    <Icon icon="mingcute:delete-fill" class="edit_remove_icon"/>-->
+                    <!--                                </button>-->
+                    <!--                            </td>-->
+
+                    <!--                            <th class="hidden-id">{{ box.freeCashFlow0 }}</th>-->
+                    <!--                            <td class="hidden-id">{{ box.freeCashFlow1 }}</td>-->
+                    <!--                            <td class="hidden-id">{{ box.freeCashFlow2 }}</td>-->
+                    <!--                            <td class="hidden-id">{{ box.freeCashFlow3 }}</td>-->
+                    <!--                            <td class="hidden-id">{{ box.freeCashFlow4 }}</td>-->
+                    <!--                            <td class="hidden-id">{{ box.freeCashFlow5 }}</td>-->
+                    <!--                            <td class="hidden-id">{{ box.growthRate }}</td>-->
+                    <!--                            <td class="hidden-id">{{ box.perpetualGrowthRate }}</td>-->
+                    <!--                            <td class="hidden-id">{{ box.discountRate }}</td>-->
+                    <!--                            <td class="hidden-id">{{ box.cash }}</td>-->
+                    <!--                            <td class="hidden-id">{{ box.totalDebt }}</td>-->
+                    <!--                            <td class="hidden-id">{{ box.sharesOutstanding }}</td>-->
+
+                    <!--                        </tr>-->
+                    <!--                        </tbody>-->
+                    <!--                    </table>-->
+
+                    <!--                    <div class="pages_panel" v-if="totalPages > 1">-->
+                    <!--                        <div class="firstPage" @click="firstPage">-->
+                    <!--                            <Icon icon="fluent:arrow-previous-12-filled"/>-->
+                    <!--                        </div>-->
+                    <!--                        <div class="previous_page" @click="prevPage" :disabled="currentPage === 1">-->
+                    <!--                            <Icon icon="ep:arrow-left-bold"/>-->
+                    <!--                        </div>-->
+                    <!--                        <div class="current_page">{{ currentPage }} / {{ totalPages }}</div>-->
+                    <!--                        <div class="next_page" @click="nextPage" :disabled="currentPage === totalPages">-->
+                    <!--                            <Icon icon="ep:arrow-right-bold"/>-->
+                    <!--                        </div>-->
+                    <!--                        <div class="lastPage" @click="lastPage">-->
+                    <!--                            <Icon icon="fluent:arrow-next-12-filled"/>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+
+
+                    <table v-if="!loading" class="mobile_table">
+<!--                        <thead>-->
+<!--                        <tr class="watchlist_table">-->
+
+<!--                            <th scope="col" class="Ticker">-->
+<!--                                <div>Ticker</div>-->
+<!--                            </th>-->
+<!--                            <th scope="col" class="Company" @click="sortTableByCompany">-->
+<!--                                <Icon icon="mdi:alphabet-a" class="watchlist_table_icon"/>-->
+<!--                                <div>Company</div>-->
+<!--                            </th>-->
+<!--                            <th scope="col" class="Current_Price" @click="sortTableByCurrentPrice">-->
+<!--                                <Icon icon="foundation:dollar" class="watchlist_table_icon"/>-->
+<!--                                <div>Current Price</div>-->
+<!--                            </th>-->
+<!--                            <th scope="col" class="DCF" @click="sortTableByDCF">-->
+<!--                                <Icon icon="foundation:dollar" class="watchlist_table_icon"/>-->
+<!--                                <div>DCF</div>-->
+<!--                            </th>-->
+<!--                            <th scope="col" class="Dividend_Yield" @click="sortTableByDividendYield">-->
+<!--                                <Icon icon="material-symbols:percent" class="watchlist_table_icon"/>-->
+<!--                                <div>Dividend Yield</div>-->
+<!--                            </th>-->
+<!--                            <th scope="col" class="Dividend_Q" @click="sortTableByDividendQ">-->
+<!--                                <Icon icon="solar:dollar-line-duotone" class="watchlist_table_icon"/>-->
+<!--                                <div>Dividend(Q)</div>-->
+<!--                            </th>-->
+<!--                            <th scope="col" class="Dividend_Y" @click="sortTableByDividendY">-->
+<!--                                <Icon icon="solar:dollar-outline" class="watchlist_table_icon"/>-->
+<!--                                <div>Dividend(Y)</div>-->
+<!--                            </th>-->
+<!--                            <th scope="col" class="Disparity" @click="sortTableByDisparity">-->
+<!--                                <Icon icon="material-symbols:percent" class="watchlist_table_icon"/>-->
+<!--                                <div>Disparity</div>-->
+<!--                            </th>-->
+
+<!--                            <th scope="col" class="Edit_remove"></th>-->
+<!--                        </tr>-->
+<!--                        </thead>-->
                         <tbody>
                         <tr v-for="box in paginatedData" :key="box.id" class="added_form">
                             <th scope="row" class="hidden-id">{{ box.id }}</th>
-                            <td class="ticker_box">{{ box.ticker }}</td>
-                            <td class="company_box">{{ box.company }}</td>
-                            <td class="price_box">
-                                <div class="price_value">{{ box.price }}</div>
-                                <div class="currency">{{ box.currencyPrice }}</div>
+
+                            <td class="ctud_box">
+                                <div class="ct">
+                                    <div class="company">{{ box.company }}</div>
+                                    <div class="ticker">{{ box.ticker }}</div>
+                                </div>
+                                <div class="edit_remove">
+                                    <button class="edit_remove_button" @click="loadWatchlistForEdit(box.id)">
+                                        <Icon icon="mdi:edit-outline" class="edit_remove_icon"/>
+                                    </button>
+                                    <button class="edit_remove_button" @click="deleteWatchlistConfirmation(box.id)">
+                                        <Icon icon="mingcute:delete-fill" class="edit_remove_icon"/>
+                                    </button>
+                                </div>
                             </td>
+
+                            <td class="values_box">
+                            <div class="price_box">
+                                <div class="name">
+                                    <Icon icon="foundation:dollar" class=""/>
+                                    <div>Current Price</div>
+                                </div>
+                                <div class="value">
+                                    <div>{{ box.price }}</div>
+                                    <div class="currency">{{ box.currencyPrice }}</div>
+                                </div>
+                            </div>
                             <td class="dcf_box">
-                                <div class="dcf_value">{{ box.dcfWithMarginOfSafety }}</div>
-                                <div class="currency">{{ box.currencyDcf }}</div>
+                                <div class="name">
+                                    <Icon icon="foundation:dollar" class=""/>
+                                    <div>DCF</div>
+                                </div>
+                                <div class="value">
+                                    <div class="dcf_value">{{ box.dcfWithMarginOfSafety }}</div>
+                                    <div class="currency">{{ box.currencyDcf }}</div>
+                                </div>
                             </td>
                             <td class="dividend_yield_box">
-                                <div>{{ box.dividendYield }}</div>
-                                <div class="currency">%</div>
+                                <div class="name">
+                                    <Icon icon="material-symbols:percent" class=""/>
+                                    <div>Dividend Yield</div>
+                                </div>
+                                <div class="value">
+                                    <div>{{ box.dividendYield }}</div>
+                                    <div class="currency">%</div>
+                                </div>
                             </td>
                             <td class="dividend_q_box">
-                                <div class="dividend_q">{{ box.dividendQ }}</div>
-                                <div class="currency">{{ box.currencyDividendQ }}</div>
+                                <div class="name">
+                                    <Icon icon="solar:dollar-line-duotone" class=""/>
+                                    <div>Dividend(Q)</div>
+                                </div>
+                                <div class="value">
+                                    <div class="dividend_q">{{ box.dividendQ }}</div>
+                                    <div class="currency">{{ box.currencyDividendQ }}</div>
+                                </div>
                             </td>
                             <td class="dividend_y_box">
-                                <div class="dividend_y">{{ box.dividendY }}</div>
-                                <div class="currency">{{ box.currencyDividendY }}</div>
+                                <div class="name">
+                                    <Icon icon="solar:dollar-outline" class=""/>
+                                    <div>Dividend(Y)</div>
+                                </div>
+                                <div class="value">
+                                    <div class="dividend_y">{{ box.dividendY }}</div>
+                                    <div class="currency">{{ box.currencyDividendY }}</div>
+                                </div>
+                            </td>
                             </td>
                             <td class="disparity_box">
                                 <div
                                         :class="{ 'disparity_overvalued': box.overValuedUnderValued.includes('Overvalued'), 'disparity_undervalued': box.overValuedUnderValued.includes('Undervalued'), 'disparity_normal': !box.overValuedUnderValued.includes('Overvalued') && !box.overValuedUnderValued.includes('Undervalued') }">
                                     {{ box.overValuedUnderValued }}
                                 </div>
-                            </td>
-                            <td class="edit_remove">
-                                <button class="edit_remove_button" @click="loadWatchlistForEdit(box.id)">
-                                    <Icon icon="mdi:edit-outline" class="edit_remove_icon"/>
-                                </button>
-                                <button class="edit_remove_button" @click="deleteWatchlistConfirmation(box.id)">
-                                    <Icon icon="mingcute:delete-fill" class="edit_remove_icon"/>
-                                </button>
                             </td>
 
                             <th class="hidden-id">{{ box.freeCashFlow0 }}</th>
@@ -1146,12 +1297,6 @@ export default {
 }
 
 
-.table_test {
-    border: 1px solid blue;
-    width: 100%;
-    min-height: 20rem;
-}
-
 .mainbox {
     width: 90%;
     min-height: 45rem;
@@ -1169,7 +1314,6 @@ export default {
     align-items: center;
     justify-content: center;
 }
-
 
 
 .watchlist_table {
@@ -1328,110 +1472,228 @@ export default {
 }
 
 
+/*!** ADDED FORM *!*/
+
+/*.added_form {*/
+/*    min-height: 3rem;*/
+/*    width: 70%;*/
+/*    !*display: flex;*!*/
+/*    !*align-items: center;*!*/
+/*    border-radius: 7px;*/
+/*    background: #303134;*/
+/*    margin-bottom: 3px;*/
+/*    border: 5px solid yellow;*/
+/*}*/
+
+/*.ticker_box {*/
+/*    !*height: 2rem;*!*/
+/*    !*width: 5.5rem;*!*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    font-size: 0.7rem;*/
+/*    letter-spacing: 0.05rem;*/
+/*    font-weight: 200;*/
+/*    color: #807f7f;*/
+/*    font-family: 'Poppins', sans-serif;*/
+/*}*/
+
+
+/*.company_box {*/
+/*    !*height: 2rem;*!*/
+/*    !*width: 27rem;*!*/
+/*    display: flex;*/
+/*    justify-content: flex-start;*/
+/*    align-items: center;*/
+/*    padding-left: 20px;*/
+/*    font-size: 0.8rem;*/
+/*    color: rgba(8, 172, 236, 0.918);*/
+/*    font-family: 'Poppins', sans-serif;*/
+/*    font-weight: 400;*/
+/*    letter-spacing: 0.5px;*/
+
+/*}*/
+
+/*.disparity_box {*/
+/*    !*height: 2rem;*!*/
+/*    !*width: 23rem;*!*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    font-family: 'Poppins', sans-serif;*/
+/*    font-weight: 200;*/
+/*}*/
+
+/*.disparity_normal {*/
+/*    border-radius: 5px;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    !*height: 1.5rem;*!*/
+/*    !*width: 10rem;*!*/
+/*    background: #c9c9c934;*/
+/*    font-size: 0.9rem;*/
+/*    color: #c9c9c9;*/
+/*}*/
+
+/*.disparity_overvalued {*/
+/*    border-radius: 5px;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    !*height: 1.5rem;*!*/
+/*    !*width: 10rem;*!*/
+/*    background: #e0454a1f;*/
+/*    font-size: 0.9rem;*/
+/*    color: #e0454b;*/
+/*}*/
+
+
+/*.disparity_undervalued {*/
+/*    border-radius: 5px;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    !*height: 1.5rem;*!*/
+/*    !*width: 10rem;*!*/
+/*    background: rgba(198, 239, 206, 0.082);*/
+/*    font-size: 0.9rem;*/
+/*    color: #6cc06c;*/
+/*}*/
+
+/*.edit_remove {*/
+/*    !*height: 2rem;*!*/
+/*    !*width: 7rem;*!*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    gap: 2px;*/
+/*}*/
+
+/*.edit_remove_button {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    !*height: 2rem;*!*/
+/*    !*width: 2rem;*!*/
+/*    cursor: pointer;*/
+/*    background: none;*/
+/*    border-radius: 3px;*/
+/*    border: 1px solid rgb(136, 136, 136);*/
+/*    background: rgba(136, 136, 136, 0.089);*/
+/*}*/
+
+/*.edit_remove_button:hover {*/
+/*    background: #c7c5c1d3;*/
+
+/*}*/
+
+/*.edit_remove_icon {*/
+/*    color: rgb(136, 136, 136);*/
+/*    font-size: 1.2rem;*/
+/*}*/
+
+/*.edit_remove_button:hover .edit_remove_icon {*/
+/*    color: #2a2727;*/
+/*}*/
+
+
+/*.price_box,*/
+/*.dcf_box,*/
+/*.dividend_yield_box,*/
+/*.dividend_q_box,*/
+/*.dividend_y_box {*/
+/*    !*height: 2rem;*!*/
+/*    !*width: 10rem;*!*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: flex-end;*/
+/*    padding-right: 10px;*/
+/*    gap: 5px;*/
+/*    font-size: 1rem;*/
+/*    color: rgba(8, 172, 236, 0.918);*/
+/*    font-family: 'Poppins', sans-serif;*/
+/*    font-weight: 400;*/
+/*}*/
+
+/*tr:nth-child(even) {*/
+/*    background: #27272A;*/
+/*}*/
+
+
+/*.currency {*/
+/*    font-size: 0.7rem;*/
+/*    color: #807f7f;*/
+/*    font-weight: 200;*/
+/*    padding-top: 5px;*/
+/*    font-family: 'Poppins', sans-serif;*/
+/*}*/
+
+
 /** ADDED FORM */
+
+
+.mobile_table {
+    width: 100%;
+    min-height: 20rem;
+}
 
 .added_form {
     min-height: 3rem;
-    width: 70%;
-    /*display: flex;*/
-    /*align-items: center;*/
+    width: 100%;
     border-radius: 7px;
     background: #303134;
-    margin-bottom: 3px;
-    border: 5px solid yellow;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.71);
 }
 
-.ticker_box {
-    /*height: 2rem;*/
-    /*width: 5.5rem;*/
+
+.ctud_box {
+    height: 100px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+}
+
+.ct {
+    width: 90%;
+    padding: 20px;
+}
+
+.company {
+    font-size: 1rem;
+    color: rgba(8, 172, 236, 0.918);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+
+.ticker {
     font-size: 0.7rem;
     letter-spacing: 0.05rem;
     font-weight: 200;
     color: #807f7f;
     font-family: 'Poppins', sans-serif;
-}
-
-
-.company_box {
-    /*height: 2rem;*/
-    /*width: 27rem;*/
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 20px;
-    font-size: 0.8rem;
-    color: rgba(8, 172, 236, 0.918);
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.5px;
 
 }
 
-.disparity_box {
-    /*height: 2rem;*/
-    /*width: 23rem;*/
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 200;
-}
-
-.disparity_normal {
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /*height: 1.5rem;*/
-    /*width: 10rem;*/
-    background: #c9c9c934;
-    font-size: 0.9rem;
-    color: #c9c9c9;
-}
-
-.disparity_overvalued {
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /*height: 1.5rem;*/
-    /*width: 10rem;*/
-    background: #e0454a1f;
-    font-size: 0.9rem;
-    color: #e0454b;
-}
-
-
-.disparity_undervalued {
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /*height: 1.5rem;*/
-    /*width: 10rem;*/
-    background: rgba(198, 239, 206, 0.082);
-    font-size: 0.9rem;
-    color: #6cc06c;
-}
 
 .edit_remove {
-    /*height: 2rem;*/
-    /*width: 7rem;*/
+    padding-right: 20px;
+    padding-top: 30px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2px;
+    justify-content: flex-end;
+    gap: 5px;
 }
 
 .edit_remove_button {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*height: 2rem;*/
-    /*width: 2rem;*/
+    height: 2rem;
+    width: 2rem;
     cursor: pointer;
     background: none;
     border-radius: 3px;
@@ -1454,22 +1716,96 @@ export default {
 }
 
 
+
+.disparity_box {
+    height: 40px;
+    /*width: 23rem;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    margin: 5px;
+}
+
+.disparity_normal {
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    background: #c9c9c934;
+    font-size: 0.9rem;
+    color: #c9c9c9;
+}
+
+.disparity_overvalued {
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    background: #e0454a1f;
+    font-size: 0.9rem;
+    color: #e0454b;
+}
+
+
+.disparity_undervalued {
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100%;
+    background: rgba(198, 239, 206, 0.082);
+    font-size: 0.9rem;
+    color: #6cc06c;
+}
+
+.values_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .price_box,
 .dcf_box,
 .dividend_yield_box,
 .dividend_q_box,
 .dividend_y_box {
-    /*height: 2rem;*/
-    /*width: 10rem;*/
+    width: 95%;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding-right: 10px;
     gap: 5px;
     font-size: 1rem;
     color: rgba(8, 172, 236, 0.918);
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
+    background: rgba(69, 154, 224, 0.12);
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+    font-size: 13px;
+    color: #dedede;
+    margin-left: 5px;
+}
+
+.value {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
 }
 
 tr:nth-child(even) {
@@ -1914,22 +2250,12 @@ tr:nth-child(even) {
     background-color: #555;
 
 
-
-
-
-
-
-
-
-
-
-
-
     /* For Desktop View */
     @media screen and (min-width: 1600px) {
         .content {
             width: 95rem;
         }
+
         .watchlist_table {
             width: 85rem;
         }
