@@ -1590,6 +1590,7 @@ export default {
     background: #c9c9c934;
     font-size: 0.9rem;
     color: #c9c9c9;
+    border: 1px solid hsl(240 5% 27.6%);
 }
 
 .desktop_disparity_overvalued {
@@ -1602,6 +1603,7 @@ export default {
     background: #e0454a1f;
     font-size: 0.9rem;
     color: #e0454b;
+    border: 1px solid hsl(240 5% 27.6%);
 }
 
 
@@ -1615,6 +1617,7 @@ export default {
     background: rgba(198, 239, 206, 0.082);
     font-size: 0.9rem;
     color: #6cc06c;
+    border: 1px solid hsl(240 5% 27.6%);
 }
 
 .desktop_edit_remove {
@@ -1887,6 +1890,7 @@ tr:nth-child(even) {
     background: #e0454a1f;
     font-size: 0.9rem;
     color: #e0454b;
+    border: 1px solid hsl(240 5% 27.6%);
 }
 
 
@@ -1900,6 +1904,7 @@ tr:nth-child(even) {
     background: rgba(198, 239, 206, 0.082);
     font-size: 0.9rem;
     color: #6cc06c;
+    border: 1px solid hsl(240 5% 27.6%);
 }
 
 .values_box {
@@ -1927,6 +1932,7 @@ tr:nth-child(even) {
     background: rgba(69, 154, 224, 0.12);
     border-radius: 5px;
     margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
 }
 
 .name {
