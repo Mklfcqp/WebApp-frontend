@@ -430,14 +430,14 @@ export default {
     .active_menu a:hover,
     .active_cv a:hover,
     .active_stock a:hover {
-        color: #dba613;
+        color: #9e8a53;
     }
 
     .menu_bar ul li:hover,
     .profile_bar ul li:hover {
         height: 2rem;
         width: 3rem;
-        color: #dba613;
+        color: #9e8a53;
         background: rgba(255, 255, 255, 0.1);
     }
 
@@ -470,7 +470,7 @@ export default {
 
     .menu_bar ul li:hover .sub_menu_1 ul li a:hover,
     .profile_bar ul li:hover .sub_menu_1 ul li a:hover {
-        color: #dba613;
+        color: #9e8a53;
     }
 
     /*.language_box {*/
