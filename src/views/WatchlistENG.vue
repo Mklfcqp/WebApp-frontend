@@ -544,38 +544,23 @@
                         </tbody>
                     </table>
 
-                    <!--                    <div class="pages_panel" v-if="totalPages > 1">-->
-                    <!--                        <div class="firstPage" @click="firstPage">-->
-                    <!--                            <Icon icon="fluent:arrow-previous-12-filled"/>-->
-                    <!--                        </div>-->
-                    <!--                        <div class="previous_page" @click="prevPage" :disabled="currentPage === 1">-->
-                    <!--                            <Icon icon="ep:arrow-left-bold"/>-->
-                    <!--                        </div>-->
-                    <!--                        <div class="current_page">{{ currentPage }} / {{ totalPages }}</div>-->
-                    <!--                        <div class="next_page" @click="nextPage" :disabled="currentPage === totalPages">-->
-                    <!--                            <Icon icon="ep:arrow-right-bold"/>-->
-                    <!--                        </div>-->
-                    <!--                        <div class="lastPage" @click="lastPage">-->
-                    <!--                            <Icon icon="fluent:arrow-next-12-filled"/>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
 
 
                     <div class="sorting">
                         <ul>
                             <li>
                                 <div class="active">Sorted by
-                                    <Icon icon="raphael:arrowdown"/>
+                                    <Icon icon="raphael:arrowdown" />
                                 </div>
                                 <div class="sub_menu_1">
                                     <ul>
-                                        <li class="">
+                                        <li>
                                             <a href="#" @click="sortTableByCompany">
                                                 <Icon icon="mdi:alphabet-a" class="menuIcon"/>
                                                 Company
                                             </a>
                                         </li>
-                                        <li class="">
+                                        <li>
                                             <a href="#" @click="sortTableByCurrentPrice">
                                                 <Icon icon="foundation:dollar" class="menuIcon"/>
                                                 Current price
@@ -2356,6 +2341,7 @@ tr:nth-child(even) {
     background-color: #555;
 
 
+
     /* For Desktop View */
     @media screen and (min-width: 1600px) {
         .sorting {
@@ -2373,6 +2359,7 @@ tr:nth-child(even) {
         .content {
             width: 95rem;
         }
+
 
     }
 
@@ -2405,6 +2392,11 @@ tr:nth-child(even) {
         .mobile_table {
             display: block;
         }
+
+        .sorting {
+            display: block;
+        }
+
 
     }
 
