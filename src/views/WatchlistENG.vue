@@ -545,12 +545,11 @@
                     </table>
 
 
-
                     <div class="sorting">
                         <ul>
                             <li>
                                 <div class="active">Sorted by
-                                    <Icon icon="raphael:arrowdown" />
+                                    <Icon icon="raphael:arrowdown"/>
                                 </div>
                                 <div class="sub_menu_1">
                                     <ul>
@@ -634,6 +633,7 @@
                                         <div class="currency">{{ box.currencyPrice }}</div>
                                     </div>
                                 </div>
+                            </td>
                             <td class="dcf_box">
                                 <div class="name">
                                     <Icon icon="foundation:dollar" class=""/>
@@ -674,7 +674,7 @@
                                     <div class="currency">{{ box.currencyDividendY }}</div>
                                 </div>
                             </td>
-                            </td>
+
                             <td class="disparity_box">
                                 <div
                                         :class="{ 'disparity_overvalued': box.overValuedUnderValued.includes('Overvalued'), 'disparity_undervalued': box.overValuedUnderValued.includes('Undervalued'), 'disparity_normal': !box.overValuedUnderValued.includes('Overvalued') && !box.overValuedUnderValued.includes('Undervalued') }">
@@ -1319,6 +1319,19 @@ export default {
     justify-content: center;
     margin-bottom: 20px;
 }
+
+
+/*.sorting {*/
+/*    display: none;*/
+/*}*/
+
+/*.desktop_table {*/
+/*    display: none;*/
+/*}*/
+
+/*.mobile_table {*/
+/*    display: none;*/
+/*}*/
 
 
 .watchlist_table {
@@ -2341,60 +2354,47 @@ tr:nth-child(even) {
     background-color: #555;
 
 
-
     /* For Desktop View */
-    @media screen and (min-width: 1600px) {
-        .sorting {
-            display: none;
-        }
-
-        .mobile_table {
-            display: none;
-        }
-
-        .desktop_table {
-            display: block;
-        }
-
-        .content {
-            width: 95rem;
-        }
-
-
+    @media only screen and (min-width: 1500px) {
+    .desktop_table {
+        display: inline;
     }
 
+    .content {
+        width: 95rem;
+    }
+
+
+}
+
     /* For Desktop View */
-    @media screen and (min-device-width: 1024px)
-    and (max-device-width: 1200px) {
+    @media only screen and (min-width: 1024px)
+    and (max-width: 1200px) {
 
     }
 
     /* For Tablet View */
-    @media screen and (min-device-width: 768px)
-    and (max-device-width: 1024px) {
+    @media only screen and (min-width: 768px)
+    and (max-width: 1024px) {
 
 
     }
 
     /* For Mobile View */
-    @media screen and (min-device-width: 480px)
-    and (max-device-width: 768px) {
+    @media only screen and (min-width: 480px)
+    and (max-width: 768px) {
 
 
     }
 
-    @media screen and (min-device-width: 320px)
-    and (max-device-width: 480px) {
-        .desktop_table {
-            display: none;
-        }
-
+    @media only screen and (min-width: 320px)
+    and (max-width: 480px) {
         .mobile_table {
-            display: block;
+            display: inline;
         }
 
         .sorting {
-            display: block;
+            display: inline;
         }
 
 
