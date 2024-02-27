@@ -1,8 +1,11 @@
 <template>
-    <main>
-        <TBackgroundGray />
-        <TNavbar />
-        <section>
+    <main class="main">
+
+        <section class="section">
+
+            <TBackgroundGray />
+            <TNavbar />
+
             <div class="content">
 
                 <div class="mainbox">
@@ -390,6 +393,295 @@
 
                                 </td>
                             </tr>
+                        </tbody>
+                    </table>
+
+
+
+                    <div class="sorting">
+                        <ul>
+                            <li>
+                                <div class="active">Sorted by
+                                    <Icon icon="raphael:arrowdown" />
+                                </div>
+                                <div class="sub_menu_1">
+                                    <ul>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Company
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Shares Buy
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Buy
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Sell
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Shares Sell
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Interest - Buy/Sell
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Profit/Loss - Buy/Sell
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Dividend
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Interest - Dividend
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Profit/Loss - Dividend
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Profit/Loss - SUM
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+
+
+
+
+
+
+                    <table v-if="!loading" class="mobile_portfolio_table">
+                        <tbody>
+                        <tr v-for="box in paginatedData" :key="box.id" class="mobile_added_form">
+                            <th scope="row" class="hidden-id">{{ box.id }}</th>
+
+                            <td class="ctud_box">
+                                <div class="ct">
+                                    <div class="mobile_company_box">{{ box.company }}</div>
+                                    <div class="mobile_ticker_box">{{ box.ticker }}</div>
+                                </div>
+                                <div class="mobile_edit_remove">
+                                    <button class="mobile_edit_remove_button" @click="loadWatchlistForEdit(box.id)">
+                                        <Icon icon="mdi:edit-outline" class="mobile_edit_remove_icon"/>
+                                    </button>
+                                    <button class="mobile_edit_remove_button" @click="deleteWatchlistConfirmation(box.id)">
+                                        <Icon icon="mingcute:delete-fill" class="mobile_edit_remove_icon"/>
+                                    </button>
+                                </div>
+                            </td>
+
+                            <td class="mobile_shares_box">
+                                <div class="name">
+                                    <div>Shares Buy</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.sharesBuy }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_buy_box">
+                                <div class="name">
+                                    <div>Buy</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.buy }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_sell_box">
+                                <div class="name">
+                                    <div>Sell</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.sell }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_shares_box">
+                                <div class="name">
+                                    <div>Shares Sell</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.sharesSell }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_interestBuySell_box">
+                                <div class="name">
+                                    <div>Interest - Buy/Sell</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.interestBuySell }}</div>
+                                </div>
+                            </td>
+
+                            <td :class="{
+                                    'mobile_profitLossBuySell_box_profit': box.profitLossBuySell > 0,
+                                    'mobile_profitLossBuySell_box_loss': box.profitLossBuySell < 0,
+                                    'mobile_profitLossBuySell_box_normal': box.profitLossBuySell === 0
+                                }">
+                                <div class="name">
+                                    <div>Profit/Loss - Buy/Sell</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.profitLossBuySell }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_dividend_box">
+                                <div class="name">
+                                    <div>Dividend</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.dividend }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_interestDividend_box">
+                                <div class="name">
+                                    <div>Interest - Dividend</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.interestDividend }}</div>
+                                </div>
+                            </td>
+
+                            <td :class="{
+                                    'mobile_profitLossDividend_box_profit': box.profitLossDividend > 0,
+                                    'mobile_profitLossDividend_box_loss': box.profitLossDividend < 0,
+                                    'mobile_profitLossDividend_box_normal': box.profitLossDividend === 0
+                                }">
+                                <div class="name">
+                                    <div>Profit/Loss - Dividend</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.profitLossDividend }}</div>
+                                </div>
+                            </td>
+
+                            <td :class="{
+                                    'mobile_sumProfitLoss_box_profit': box.sumProfitLoss > 0,
+                                    'mobile_sumProfitLoss_box_loss': box.sumProfitLoss < 0,
+                                    'mobile_sumProfitLoss_box_normal': box.sumProfitLoss === 0
+                                }">
+                                <div class="name">
+                                    <div>Profit/Loss - SUM</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.sumProfitLoss }}</div>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr v-for="sumBox in sumBoxes" :key="sumBox.id" class="mobile_added_form">
+                            <th scope="row" class="hidden-id">{{ sumBox.id }}</th>
+                            <td class="mobile_value_sum_box">
+                                <Icon icon="tabler:sum" />Total
+                            </td>
+
+                            <td class="mobile_buy_sum_box">
+                                <div class="name">
+                                    <div>Buy</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ sumBox.buy }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_sell_sum_box">
+                                <div class="name">
+                                    <div>Sell</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ sumBox.sell }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_interestBuySell_sum_box">
+                                <div class="name">
+                                    <div>Interest - Buy/Sell</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ sumBox.interestBuySell }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_profitLossBuySell_sum_box">
+                                <div class="name">
+                                    <div>Profit/Loss - Buy/Sell</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ sumBox.profitLossBuySell }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_dividend_sum_box">
+                                <div class="name">
+                                    <div>Dividend</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ sumBox.dividend }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_interestDividend_sum_box">
+                                <div class="name">
+                                    <div>Interest - Dividend</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ sumBox.interestDividend }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_profitLossDividend_sum_box">
+                                <div class="name">
+                                    <div>Profit/Loss - Dividend</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ sumBox.profitLossDividend }}</div>
+                                </div>
+                            </td>
+
+                            <td :class="{
+                                    'mobile_sumProfitLoss_sum_box_profit': sumBox.sumProfitLoss > 0,
+                                    'mobile_sumProfitLoss_sum_box_loss': sumBox.sumProfitLoss < 0,
+                                    'mobile_sumProfitLoss_sum_box_normal': sumBox.sumProfitLoss === 0
+                                }">
+                                <div class="name">
+                                    <div>Profit/Loss - SUM</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ sumBox.sumProfitLoss }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_edit_sum_remove">
+
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
 
@@ -800,18 +1092,23 @@ export default {
     box-sizing: border-box;
 }
 
-section {
-    height: 100vh;
-    width: 100%;
+.main {
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    min-height: 100vh;
+    width: 100%;
+    background: #141414;
     top: 0;
     left: 0;
 }
 
+
+.section {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /** HEADER */
 .text1 {
@@ -849,15 +1146,27 @@ section {
 
 
 /** CONTENT - MAINBOX */
-.mainbox {
-    width: 100rem;
-    height: 45rem;
+.content {
+    width: 95%;
+    min-height: 45rem;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    background: rgba(44, 43, 43, 0.96);
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #222222;
+
+}
+
+
+.mainbox {
+    width: 90%;
+    min-height: 45rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 1px;
-    border-radius: 20px;
 }
 
 .header {
@@ -866,11 +1175,9 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Oswald', 'Noto Serif', sans-serif;
-    color: #9e8a53;
-    font-size: 2rem;
-    letter-spacing: 3px;
+    margin-bottom: 20px;
 }
+
 
 .portfolio_table {
     height: 3rem;
@@ -1049,6 +1356,93 @@ section {
     border-radius: 5px;
 }
 
+/** SORTING */
+
+.sorting {
+    color: #8b8b94;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    width: 100%;
+    list-style: none;
+    display: inline-flex;
+    border-bottom: 1px solid #8b8b94;
+    margin-bottom: 10px;
+}
+
+
+.sorting ul li,
+.sorting ul li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+.sorting ul li a,
+.sorting ul li a {
+    text-decoration: none;
+    color: #cfcfcf;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.active:hover {
+    color: #cfcfcf;
+    cursor: pointer;
+
+}
+
+.sorting ul li:hover,
+.sorting ul li:hover {
+    color: #9e8a53;
+    cursor: pointer;
+
+}
+
+.sub_menu_1 {
+    display: none;
+}
+
+.sorting ul li:hover .sub_menu_1,
+.sorting ul li:hover .sub_menu_1 {
+    display: block;
+    position: absolute;
+    background: #2A2727FF;
+    margin-top: 245px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.sorting ul li:hover .sub_menu_1 ul,
+.sorting ul li:hover .sub_menu_1 ul {
+    display: block;
+
+}
+
+.sorting ul li:hover .sub_menu_1 ul li,
+.sorting ul li:hover .sub_menu_1 ul li {
+    height: 2rem;
+    width: 10rem;
+}
+
+
+.sorting ul li:hover .sub_menu_1 ul li a:hover,
+.sorting ul li:hover .sub_menu_1 ul li a:hover {
+    color: #9e8a53;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
 
 /** ADDED FORM */
 
@@ -1061,8 +1455,6 @@ section {
     gap: 1px;
     margin-bottom: 3px;
 }
-
-
 
 
 .ticker_box {
@@ -1278,6 +1670,259 @@ section {
     border: 1px solid #8880805e;
 }
 
+
+
+
+
+
+/** ADDED FORM - MOBILE*/
+
+.mobile_portfolio_table {
+    width: 100%;
+    min-height: 20rem;
+}
+
+.mobile_added_form {
+    min-height: 3rem;
+    width: 100%;
+    border-radius: 7px;
+    background: #303134;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.71);
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
+
+.ctud_box {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.ct {
+    width: 90%;
+    padding: 20px;
+}
+
+
+.mobile_ticker_box {
+    font-size: 0.7rem;
+    letter-spacing: 0.05rem;
+    font-weight: 200;
+    color: #807f7f;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.mobile_company_box {
+    font-size: 1rem;
+    color: rgba(8, 172, 236, 0.918);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.mobile_edit_remove {
+    padding-right: 20px;
+    padding-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.mobile_edit_remove_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    background: none;
+    border-radius: 3px;
+    border: 1px solid rgb(136, 136, 136);
+    background: rgba(136, 136, 136, 0.089);
+}
+
+.mobile_edit_remove_button:hover {
+    background: #c7c5c1d3;
+}
+
+.mobile_edit_remove_icon {
+    color: rgb(136, 136, 136);
+    font-size: 1.2rem;
+}
+
+.mobile_edit_remove_button:hover .edit_remove_icon {
+    color: #2a2727;
+}
+
+
+
+.mobile_shares_box,
+.mobile_buy_box,
+.mobile_sell_box,
+.mobile_interestBuySell_box,
+.mobile_dividend_box,
+.mobile_interestDividend_box {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: rgba(8, 172, 236, 0.918);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: rgba(69, 154, 224, 0.12);
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
+
+.name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+    font-size: 13px;
+    color: #dedede;
+    margin-left: 5px;
+}
+
+.value {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+
+
+.mobile_profitLossBuySell_box_normal,
+.mobile_profitLossDividend_box_normal {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #c9c9c9;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: #c9c9c934;
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
+.mobile_profitLossBuySell_box_profit,
+.mobile_profitLossDividend_box_profit {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #6cc06c;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: rgba(198, 239, 206, 0.15);
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
+.mobile_profitLossBuySell_box_loss,
+.mobile_profitLossDividend_box_loss {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #e0454b;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: #e0454a1f;
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
+
+.mobile_dividend_box {
+    margin-left: 0.75rem;
+    border-radius: 5px 0 0 5px;
+}
+
+.mobile_sumProfitLoss_box_profit {
+    width: 95%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #6cc06c;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: rgba(198, 239, 206, 0.15);
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
+.mobile_sumProfitLoss_box_loss {
+    width: 95%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #e0454b;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: #e0454a1f;
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
+.mobile_sumProfitLoss_box_normal {
+    width: 95%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #c9c9c9;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: #c9c9c934;
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
 
 
 
@@ -1564,7 +2209,7 @@ section {
     font-weight: 400;
     font-size: 1rem;
     border: 1px solid #8880805e;
-    background: rgba(198, 239, 206, 0.082);
+    background: rgba(198, 239, 206, 0.35);
     margin-top: 20px;
     color: #6cc06c;
     font-family: sans-serif;
@@ -1611,6 +2256,115 @@ section {
     color: #c9c9c9;
     font-family: sans-serif;
 }
+
+
+
+/** SUM BOX */
+
+.mobile_value_sum_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-top: 20px;
+    font-family: Oswald;
+    color: rgba(8, 172, 236, 0.918);
+}
+
+.mobile_edit_sum_remove {
+    height: 2.5rem;
+    width: 7rem;
+    gap: 1px;
+    background: none;
+    margin-top: 20px;
+}
+
+.mobile_buy_sum_box,
+.mobile_sell_sum_box,
+.mobile_interestBuySell_sum_box,
+.mobile_profitLossBuySell_sum_box,
+.mobile_dividend_sum_box,
+.mobile_interestDividend_sum_box,
+.mobile_profitLossDividend_sum_box {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #9d8633;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: rgba(158, 138, 83, 0.14);
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
+
+.mobile_sumProfitLoss_sum_box_profit {
+    width: 95%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #6cc06c;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: rgba(198, 239, 206, 0.15);
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
+
+.mobile_sumProfitLoss_sum_box_loss {
+    width: 95%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #e0454b;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: #e0454a1f;
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
+
+.mobile_sumProfitLoss_sum_box_normal {
+    width: 95%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #c9c9c9;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: #c9c9c934;
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
 
 
 
