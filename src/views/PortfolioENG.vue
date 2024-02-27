@@ -599,7 +599,7 @@
                         <tr v-for="sumBox in sumBoxes" :key="sumBox.id" class="mobile_added_form">
                             <th scope="row" class="hidden-id">{{ sumBox.id }}</th>
                             <td class="mobile_value_sum_box">
-                                <Icon icon="tabler:sum" />Total
+                                <Icon icon="tabler:sum" class="mobile_sum_icon"/>Total
                             </td>
 
                             <td class="mobile_buy_sum_box">
@@ -1693,11 +1693,13 @@ export default {
     align-items: center;
     box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.71);
     border: 1px solid hsl(240 5% 27.6%);
+    padding-bottom: 15px;
 }
 
 
 .ctud_box {
     height: 100px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
@@ -1861,11 +1863,6 @@ export default {
     border: 1px solid hsl(240 5% 27.6%);
 }
 
-
-.mobile_dividend_box {
-    margin-left: 0.75rem;
-    border-radius: 5px 0 0 5px;
-}
 
 .mobile_sumProfitLoss_box_profit {
     width: 95%;
@@ -2262,15 +2259,16 @@ export default {
 /** SUM BOX */
 
 .mobile_value_sum_box {
+    height: 100px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding-left: 20px;
     font-size: 1.1rem;
     font-weight: 400;
-    margin-top: 20px;
     font-family: Oswald;
-    color: rgba(8, 172, 236, 0.918);
+    color: #9d8633;
 }
 
 .mobile_edit_sum_remove {
@@ -2279,6 +2277,10 @@ export default {
     gap: 1px;
     background: none;
     margin-top: 20px;
+}
+
+.mobile_sum_icon {
+    font-size: 1.4rem;
 }
 
 .mobile_buy_sum_box,
@@ -2544,6 +2546,56 @@ export default {
 
 .same_shares {
     color: rgba(158, 158, 158, 0.658); 
+}
+
+
+
+
+
+/* For Desktop View */
+@media screen and (min-width: 1500px) {
+    .desktop_table {
+        display: inline;
+    }
+
+    .content {
+        width: 95rem;
+    }
+
+
+}
+
+/* For Desktop View */
+@media screen and (min-width: 1024px)
+and (max-width: 1200px) {
+
+}
+
+/* For Tablet View */
+@media screen and (min-width: 768px)
+and (max-width: 1024px) {
+
+
+}
+
+/* For Mobile View */
+@media screen and (min-width: 480px)
+and (max-width: 768px) {
+
+
+}
+
+@media screen and (min-width: 320px)
+and (max-width: 480px) {
+    .mobile_table {
+        display: inline;
+    }
+
+    .sorting {
+        display: inline;
+    }
+
+
 }
 
 

@@ -570,7 +570,7 @@
 
                     <table v-if="!loading" class="mobile_table">
                         <tbody>
-                        <tr v-for="box in paginatedData" :key="box.id" class="added_form">
+                        <tr v-for="box in paginatedData" :key="box.id" class="mobile_added_form">
                             <th scope="row" class="hidden-id">{{ box.id }}</th>
 
                             <td class="ctud_box">
@@ -1189,6 +1189,21 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 
+
+
+.desktop_table {
+    display: none;
+}
+
+.sorting {
+    display: none;
+}
+
+.mobile_table {
+    display: none;
+}
+
+
 *,
 *:after,
 *:before {
@@ -1284,21 +1299,6 @@ export default {
     justify-content: center;
     margin-bottom: 20px;
 }
-
-
-/*.sorting {*/
-/*    display: none;*/
-/*}*/
-
-/*.desktop_table {*/
-/*    display: none;*/
-/*}*/
-
-/*.mobile_table {*/
-/*    display: none;*/
-/*}*/
-
-
 
 
 
@@ -1707,7 +1707,7 @@ tr:nth-child(even) {
     min-height: 20rem;
 }
 
-.added_form {
+.mobile_added_form {
     min-height: 3rem;
     width: 100%;
     border-radius: 7px;
@@ -2350,65 +2350,67 @@ tr:nth-child(even) {
 
 ::-webkit-scrollbar-thumb:hover {
     background-color: #555;
+}
 
 
-    /* For Desktop View */
-    @media screen and (min-width: 1500px) {
-        .desktop_table {
-            display: inline;
-        }
-
-        .content {
-            width: 95rem;
-        }
-
-
+/* For Desktop View */
+@media screen and (min-width: 1500px) {
+    .desktop_table {
+        display: inline;
     }
 
-    /* For Desktop View */
-    @media screen and (min-width: 1024px)
-    and (max-width: 1200px) {
-        .add_form {
-            height: auto;
-            width: 95%;
-        }
-    }
-
-    /* For Tablet View */
-    @media screen and (min-width: 768px)
-    and (max-width: 1024px) {
-        .add_form {
-            height: auto;
-            width: 95%;
-        }
-
-    }
-
-    /* For Mobile View */
-    @media screen and (min-width: 480px)
-    and (max-width: 768px) {
-        .add_form {
-            height: auto;
-            width: 95%;
-        }
-
-    }
-
-    @media screen and (min-width: 320px)
-    and (max-width: 480px) {
-        .mobile_table {
-            display: inline;
-        }
-
-        .sorting {
-            display: inline;
-        }
-        .add_form {
-            height: auto;
-            width: 95%;
-        }
-
+    .content {
+        width: 95rem;
     }
 
 
-}</style>
+}
+
+/* For Desktop View */
+@media screen and (min-width: 1024px)
+and (max-width: 1200px) {
+    .add_form {
+        height: auto;
+        width: 95%;
+    }
+}
+
+/* For Tablet View */
+@media screen and (min-width: 768px)
+and (max-width: 1024px) {
+    .add_form {
+        height: auto;
+        width: 95%;
+    }
+
+}
+
+/* For Mobile View */
+@media screen and (min-width: 480px)
+and (max-width: 768px) {
+    .add_form {
+        height: auto;
+        width: 95%;
+    }
+
+}
+
+@media screen and (min-width: 320px)
+and (max-width: 480px) {
+    .mobile_table {
+        display: inline;
+    }
+
+    .sorting {
+        display: inline;
+    }
+    .add_form {
+        height: auto;
+        width: 95%;
+    }
+
+}
+
+
+
+</style>
