@@ -25,7 +25,7 @@
                                     <div class="company_add_box">
                                         <div class="input_format">
                                             <input v-model="newBox.company" type="text" id="company" required
-                                                   class="add_form_input_double_1_extend" placeholder="" />
+                                                   class="add_form_input_free_cash_flow" placeholder="" />
                                             <label for="company" class="add_box_label">COMPANY</label>
                                         </div>
                                     </div>
@@ -33,7 +33,7 @@
                                     <div class="ticker_add_box">
                                         <div class="input_format">
                                             <input v-model="newBox.ticker" type="text" id="ticker" required
-                                                   class="add_form_input_double_1_extend" placeholder="" />
+                                                   class="add_form_input_free_cash_flow" placeholder="" />
                                             <label for="ticker" class="add_box_label">TICKER</label>
                                         </div>
                                     </div>
@@ -147,36 +147,36 @@
 
                                 <div class="box_inside3">
                                     <div class="input_format">
-                                        <input v-model="newBox.growthRate" type="text" id="growthRate" class="add_form_input_double_3"
+                                        <input v-model="newBox.growthRate" type="text" id="growthRate" class="add_form_input_free_cash_flow"
                                                placeholder="" @input="handleInputChange">
                                         <label for="growthRate" class="add_box_label">GROWTH RATE</label>
                                     </div>
                                     <div class="input_format">
                                         <input v-model="newBox.perpetualGrowthRate" type="text" id="perpetualGrowthRate"
-                                               class="add_form_input_double_3" placeholder="" @input="handleInputChange">
+                                               class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
                                         <label for="perpetualGrowthRate" class="add_box_label">PERPETUAL GROWTH
                                             RATE</label>
                                     </div>
                                     <div class="input_format">
-                                        <input v-model="newBox.discountRate" type="text" id="discountRate" class="add_form_input_double_3"
+                                        <input v-model="newBox.discountRate" type="text" id="discountRate" class="add_form_input_free_cash_flow"
                                                placeholder="" @input="handleInputChange">
                                         <label for="discountRate" class="add_box_label">DISCOUNT RATE</label>
                                     </div>
 
 
                                     <div class="input_format">
-                                        <input v-model="newBox.cash" type="text" id="cash" class="add_form_input_double_3" placeholder=""
+                                        <input v-model="newBox.cash" type="text" id="cash" class="add_form_input_free_cash_flow" placeholder=""
                                                @input="handleInputChange">
                                         <label for="cash" class="add_box_label">CASH & CASH EQUIVALENTS</label>
                                     </div>
                                     <div class="input_format">
-                                        <input v-model="newBox.totalDebt" type="text" id="totalDebt" class="add_form_input_double_3"
+                                        <input v-model="newBox.totalDebt" type="text" id="totalDebt" class="add_form_input_free_cash_flow"
                                                placeholder="" @input="handleInputChange">
                                         <label for="totalDebt" class="add_box_label">TOTAL DEBT</label>
                                     </div>
                                     <div class="input_format">
                                         <input v-model="newBox.sharesOutstanding" type="text" id="sharesOutstanding"
-                                               class="add_form_input_double_3" placeholder="" @input="handleInputChange">
+                                               class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
                                         <label for="sharesOutstanding" class="add_box_label">SHARES
                                             OUTSTANDING</label>
                                     </div>
@@ -203,7 +203,7 @@
                                     <div class="company_add_box">
                                         <div class="input_format">
                                             <input v-model="updateBox.company" type="text" id="company" required
-                                                   class="add_form_input_double_1" placeholder=""/>
+                                                   class="add_form_input_free_cash_flow" placeholder=""/>
                                             <label for="company" class="add_box_label">COMPANY</label>
                                         </div>
                                     </div>
@@ -211,7 +211,7 @@
                                     <div class="ticker_add_box">
                                         <div class="input_format">
                                             <input v-model="updateBox.ticker" type="text" id="ticker" required
-                                                   class="add_form_input_double_1"
+                                                   class="add_form_input_free_cash_flow"
                                                    placeholder=""/>
                                             <label for="ticker" class="add_box_label">TICKER</label>
                                         </div>
@@ -337,36 +337,36 @@
 
                                 <div class="box_inside3">
                                     <div class="input_format">
-                                        <input v-model="updateBox.growthRate" type="text" id="growthRate" class="add_form_input_double_3"
+                                        <input v-model="updateBox.growthRate" type="text" id="growthRate" class="add_form_input_free_cash_flow"
                                                placeholder="" @input="handleInputChange">
                                         <label for="growthRate" class="add_box_label">GROWTH RATE</label>
                                     </div>
                                     <div class="input_format">
                                         <input v-model="updateBox.perpetualGrowthRate" type="text" id="perpetualGrowthRate"
-                                               class="add_form_input_double_3" placeholder="" @input="handleInputChange">
+                                               class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
                                         <label for="perpetualGrowthRate" class="add_box_label">PERPETUAL GROWTH
                                             RATE</label>
                                     </div>
                                     <div class="input_format">
-                                        <input v-model="updateBox.discountRate" type="text" id="discountRate" class="add_form_input_double_3"
+                                        <input v-model="updateBox.discountRate" type="text" id="discountRate" class="add_form_input_free_cash_flow"
                                                placeholder="" @input="handleInputChange">
                                         <label for="discountRate" class="add_box_label">DISCOUNT RATE</label>
                                     </div>
 
 
                                     <div class="input_format">
-                                        <input v-model="updateBox.cash" type="text" id="cash" class="add_form_input_double_3" placeholder=""
+                                        <input v-model="updateBox.cash" type="text" id="cash" class="add_form_input_free_cash_flow" placeholder=""
                                                @input="handleInputChange">
                                         <label for="cash" class="add_box_label">CASH & CASH EQUIVALENTS</label>
                                     </div>
                                     <div class="input_format">
-                                        <input v-model="updateBox.totalDebt" type="text" id="totalDebt" class="add_form_input_double_3"
+                                        <input v-model="updateBox.totalDebt" type="text" id="totalDebt" class="add_form_input_free_cash_flow"
                                                placeholder="" @input="handleInputChange">
                                         <label for="totalDebt" class="add_box_label">TOTAL DEBT</label>
                                     </div>
                                     <div class="input_format">
                                         <input v-model="updateBox.sharesOutstanding" type="text" id="sharesOutstanding"
-                                               class="add_form_input_double_3" placeholder="" @input="handleInputChange">
+                                               class="add_form_input_free_cash_flow" placeholder="" @input="handleInputChange">
                                         <label for="sharesOutstanding" class="add_box_label">SHARES
                                             OUTSTANDING</label>
                                     </div>
@@ -1941,8 +1941,8 @@ tr:nth-child(even) {
 
 .add_form {
     margin-top: 100px;
-    height: 30rem;
-    width: 50rem;
+    height: fit-content;
+    width: 95%;
     border-radius: 10px;
     background: #222327;
     z-index: 1000;
@@ -1950,11 +1950,9 @@ tr:nth-child(even) {
     justify-content: center;
     flex-direction: column;
     border: 1px solid hsl(240 5% 27.6%);
+    padding: 30px;
 }
 
-.test {
-    color: red;
-}
 
 .add_form_description {
     height: 3rem;
@@ -1971,9 +1969,9 @@ tr:nth-child(even) {
 .box {
     display: flex;
     justify-content: center;
+    width: 100%;
     gap: 20px;
     flex-wrap: wrap;
-
 }
 
 .box_inside1 {
@@ -1981,7 +1979,6 @@ tr:nth-child(even) {
 }
 
 .box_inside2 {
-
 }
 
 .box_inside3 {
@@ -1997,12 +1994,10 @@ tr:nth-child(even) {
 .company_add_box,
 .ticker_add_box,
 .price_add_box,
-.dcf_add_box,
 .dividend_q_add_box,
 .dcf_manual_add_box_value {
     display: flex;
     flex-direction: row;
-    margin-left: 10px;
     gap: 10px;
 }
 
@@ -2027,18 +2022,9 @@ tr:nth-child(even) {
     background: #27272A;
     position: relative;
     color: #cc9a3a;
+    padding-left: 10px;
 }
 
-.add_form_input_double_1_extend {
-    width: 14rem;
-    height: 8px;
-    border: 1px solid hsl(240 5% 27.6%);
-    border-radius: 3px;
-    padding-block: 0.8rem;
-    background: #27272A;
-    position: relative;
-    color: #cc9a3a;
-}
 
 .add_form_input_double_2 {
     width: 3rem;
@@ -2047,6 +2033,7 @@ tr:nth-child(even) {
     border: 1px solid hsl(240 5% 27.6%);
     border-radius: 3px;
     color: #cc9a3a;
+    padding-left: 10px;
 }
 
 .add_form_input_free_cash_flow {
@@ -2058,22 +2045,13 @@ tr:nth-child(even) {
     background: #27272A;
     position: relative;
     color: #cc9a3a;
+    padding-left: 10px;
 }
 
-.add_form_input_double_3 {
-    width: 14rem;
-    height: 8px;
-    border: 1px solid hsl(240 5% 27.6%);
-    border-radius: 3px;
-    padding-block: 0.8rem;
-    background: #27272A;
-    position: relative;
-    color: #cc9a3a;
-}
 
 .add_form_input_double_1:focus,
 .add_form_input_double_2:focus,
-.add_form_input_free_cash_flow:focus {
+.add_form_input_free_cash_flow:focus{
     outline: none;
     border: 1px solid rgba(159, 194, 204, 0.76);
 }
@@ -2120,26 +2098,25 @@ tr:nth-child(even) {
 .add_form_buttons {
     display: flex;
     justify-content: center;
-    padding-top: 5px;
-    gap: 20px;
+    gap: 10px;
     font-family: IBM Plex Sans, sans-serif;
     flex-wrap: wrap;
-
+    margin-top: 20px;
 }
 
 .add_form_button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 12rem;
-    height: 2.5rem;
+    width: 14rem;
+    height: 2rem;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
     background: rgba(5, 189, 235, 0.082);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: rgba(130, 163, 173, 0.76);
     font-weight: 500;
+    border: 1px solid hsl(240 5% 27.6%);
 }
 
 
@@ -2349,6 +2326,7 @@ tr:nth-child(even) {
 
 
 
+
 /* For Desktop View */
 @media screen and (min-width: 1500px) {
     .desktop_table {
@@ -2358,6 +2336,14 @@ tr:nth-child(even) {
 
     .content {
         width: 95rem;
+    }
+
+    .add_form {
+        width: 50rem;
+    }
+
+    .add_form_button {
+        width: 10rem;
     }
 
 }
@@ -2374,7 +2360,10 @@ and (max-width: 1500px) {
     }
 
     .add_form {
-        height: auto;
+        width: 50rem;
+    }
+    .add_form_button {
+        width: 10rem;
     }
 }
 
@@ -2389,9 +2378,12 @@ and (max-width: 1200px) {
         display: inline;
     }
 
-
     .add_form {
-        height: auto;
+        width: 50rem;
+    }
+
+    .add_form_button {
+        width: 10rem;
     }
 }
 
@@ -2407,7 +2399,11 @@ and (max-width: 1024px) {
     }
 
     .add_form {
-        height: auto;
+        width: 47rem;
+    }
+
+    .add_form_button {
+        width: 10rem;
     }
 
 }
@@ -2423,9 +2419,11 @@ and (max-width: 768px) {
         display: inline;
     }
 
-    .add_form {
-        height: auto;
+    .add_form_button {
+        width: 10rem;
     }
+
+
 
 }
 
@@ -2438,9 +2436,9 @@ and (max-width: 480px) {
     .sorting {
         display: inline;
     }
-    .add_form {
-        height: auto;
-    }
+
+
+
 }
 
 @media screen and (max-width: 320px) {
@@ -2451,9 +2449,7 @@ and (max-width: 480px) {
     .sorting {
         display: inline;
     }
-    .add_form {
-        height: auto;
-    }
+
 }
 
 
