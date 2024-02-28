@@ -1188,22 +1188,6 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Six+Caps&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
-
-
-
-.desktop_table {
-    display: none;
-}
-
-.sorting {
-    display: none;
-}
-
-.mobile_table {
-    display: none;
-}
-
-
 *,
 *:after,
 *:before {
@@ -1277,7 +1261,6 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 
@@ -1945,26 +1928,28 @@ tr:nth-child(even) {
 /* ADD FORM*/
 
 .overlay {
-    /*position: fixed;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*background: rgba(0, 0, 0, 0.8);*/
     display: flex;
-    align-items: center;
     justify-content: center;
+    position: absolute;
+    overflow-x: hidden;
+    min-height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
 }
 
 .add_form {
+    margin-top: 100px;
     height: 30rem;
     width: 50rem;
-    border-radius: 15px;
+    border-radius: 10px;
     background: #222327;
     z-index: 1000;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    border: 1px solid hsl(240 5% 27.6%);
 }
 
 .test {
@@ -2199,13 +2184,11 @@ tr:nth-child(even) {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
 }
 
 .delete_button {
     width: 8rem;
     height: 2rem;
-    border-radius: 3px;
     cursor: pointer;
     margin-top: 10px;
     background: none;
@@ -2221,7 +2204,6 @@ tr:nth-child(even) {
 .cancel_button {
     width: 8rem;
     height: 2rem;
-    border-radius: 3px;
     cursor: pointer;
     margin-top: 10px;
     background: none;
@@ -2353,34 +2335,79 @@ tr:nth-child(even) {
 }
 
 
+.desktop_table {
+    display: none;
+}
+
+.sorting {
+    display: none;
+}
+
+.mobile_table {
+    display: none;
+}
+
+
+
 /* For Desktop View */
 @media screen and (min-width: 1500px) {
     .desktop_table {
-        display: inline;
+        display: table;
     }
+
 
     .content {
         width: 95rem;
     }
 
-
 }
+
+/* For Desktop View */
+@media screen and (min-width: 1200px)
+and (max-width: 1500px) {
+    .mobile_table {
+        display: table;
+    }
+
+    .sorting {
+        display: inline;
+    }
+
+    .add_form {
+        height: auto;
+    }
+}
+
 
 /* For Desktop View */
 @media screen and (min-width: 1024px)
 and (max-width: 1200px) {
+    .mobile_table {
+        display: table;
+    }
+    .sorting {
+        display: inline;
+    }
+
+
     .add_form {
         height: auto;
-        width: 95%;
     }
 }
 
 /* For Tablet View */
 @media screen and (min-width: 768px)
 and (max-width: 1024px) {
+    .mobile_table {
+        display: table;
+    }
+
+    .sorting {
+        display: inline;
+    }
+
     .add_form {
         height: auto;
-        width: 95%;
     }
 
 }
@@ -2388,9 +2415,16 @@ and (max-width: 1024px) {
 /* For Mobile View */
 @media screen and (min-width: 480px)
 and (max-width: 768px) {
+    .mobile_table {
+        display: table;
+    }
+
+    .sorting {
+        display: inline;
+    }
+
     .add_form {
         height: auto;
-        width: 95%;
     }
 
 }
@@ -2398,7 +2432,7 @@ and (max-width: 768px) {
 @media screen and (min-width: 320px)
 and (max-width: 480px) {
     .mobile_table {
-        display: inline;
+        display: table;
     }
 
     .sorting {
@@ -2406,9 +2440,20 @@ and (max-width: 480px) {
     }
     .add_form {
         height: auto;
-        width: 95%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .mobile_table {
+        display: table;
     }
 
+    .sorting {
+        display: inline;
+    }
+    .add_form {
+        height: auto;
+    }
 }
 
 
