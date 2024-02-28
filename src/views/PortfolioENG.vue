@@ -1,8 +1,11 @@
 <template>
-    <main>
-        <TBackgroundGray />
-        <TNavbar />
-        <section>
+    <main class="main">
+
+        <section class="section">
+
+            <TBackgroundGray />
+            <TNavbar />
+
             <div class="content">
 
                 <div class="mainbox">
@@ -255,11 +258,9 @@
                     </div>
 
 
-                    <table v-if="!loading">
+                    <table v-if="!loading" class="desktop_portfolio_table">
                         <thead>
                             <tr class="portfolio_table">
-
-
 
                                 <th scope="col" class="Ticker">
                                     <div>Ticker</div>
@@ -321,75 +322,371 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="box in paginatedData" :key="box.id" class="added_form">
+                            <tr v-for="box in paginatedData" :key="box.id" class="desktop_added_form">
                                 <th scope="row" class="hidden-id">{{ box.id }}</th>
-                                <td class="ticker_box">{{ box.ticker }}</td>
-                                <td class="company_box" :class="{ 'same_shares': box.sharesBuy === box.sharesSell }">{{ box.company }}</td>
-                                <td class="shares_box">{{ box.sharesBuy }}</td>
-                                <td class="buy_box">{{ box.buy }}</td>
-                                <td class="sell_box">{{ box.sell }}</td>
-                                <td class="shares_box">{{ box.sharesSell }}</td>
-                                <td class="interestBuySell_box">{{ box.interestBuySell }}</td>
+                                <td class="desktop_ticker_box">{{ box.ticker }}</td>
+                                <td class="desktop_company_box" :class="{ 'same_shares': box.sharesBuy === box.sharesSell }">{{ box.company }}</td>
+                                <td class="desktop_shares_box">{{ box.sharesBuy }}</td>
+                                <td class="desktop_buy_box">{{ box.buy }}</td>
+                                <td class="desktop_sell_box">{{ box.sell }}</td>
+                                <td class="desktop_shares_box">{{ box.sharesSell }}</td>
+                                <td class="desktop_interestBuySell_box">{{ box.interestBuySell }}</td>
                                 <td :class="{
-                                    'profitLossBuySell_box_profit': box.profitLossBuySell > 0,
-                                    'profitLossBuySell_box_loss': box.profitLossBuySell < 0,
-                                    'profitLossBuySell_box_normal': box.profitLossBuySell === 0
+                                    'desktop_profitLossBuySell_box_profit': box.profitLossBuySell > 0,
+                                    'desktop_profitLossBuySell_box_loss': box.profitLossBuySell < 0,
+                                    'desktop_profitLossBuySell_box_normal': box.profitLossBuySell === 0
                                 }">
                                     {{ box.profitLossBuySell }}
                                 </td>
-                                <td class="dividend_box">{{ box.dividend }}</td>
-                                <td class="interestDividend_box">{{ box.interestDividend }}</td>
+                                <td class="desktop_dividend_box">{{ box.dividend }}</td>
+                                <td class="desktop_interestDividend_box">{{ box.interestDividend }}</td>
                                 <td :class="{
-                                    'profitLossDividend_box_profit': box.profitLossDividend > 0,
-                                    'profitLossDividend_box_loss': box.profitLossDividend < 0,
-                                    'profitLossDividend_box_normal': box.profitLossDividend === 0
+                                    'desktop_profitLossDividend_box_profit': box.profitLossDividend > 0,
+                                    'desktop_profitLossDividend_box_loss': box.profitLossDividend < 0,
+                                    'desktop_profitLossDividend_box_normal': box.profitLossDividend === 0
                                 }">
                                     {{ box.profitLossDividend }}
                                 </td>
                                 <td :class="{
-                                    'sumProfitLoss_box_profit': box.sumProfitLoss > 0,
-                                    'sumProfitLoss_box_loss': box.sumProfitLoss < 0,
-                                    'sumProfitLoss_box_normal': box.sumProfitLoss === 0
+                                    'desktop_sumProfitLoss_box_profit': box.sumProfitLoss > 0,
+                                    'desktop_sumProfitLoss_box_loss': box.sumProfitLoss < 0,
+                                    'desktop_sumProfitLoss_box_normal': box.sumProfitLoss === 0
                                 }">
                                     {{ box.sumProfitLoss }}
                                 </td>
 
 
-                                <td class="edit_remove">
-                                    <button class="edit_remove_button" @click="loadPortfolioForEdit(box.id)">
-                                        <Icon icon="mdi:edit-outline" class="edit_remove_icon" />
+                                <td class="desktop_edit_remove">
+                                    <button class="desktop_edit_remove_button" @click="loadPortfolioForEdit(box.id)">
+                                        <Icon icon="mdi:edit-outline" class="desktop_edit_remove_icon" />
                                     </button>
-                                    <button class="edit_remove_button" @click="deletePortfolioConfirmation(box.id)">
-                                        <Icon icon="mingcute:delete-fill" class="edit_remove_icon" />
+                                    <button class="desktop_edit_remove_button" @click="deletePortfolioConfirmation(box.id)">
+                                        <Icon icon="mingcute:delete-fill" class="desktop_edit_remove_icon" />
                                     </button>
                                 </td>
                             </tr>
-                            <tr v-for="sumBox in sumBoxes" :key="sumBox.id" class="added_form">
+                            <tr v-for="sumBox in sumBoxes" :key="sumBox.id" class="desktop_added_form">
                                 <th scope="row" class="hidden-id">{{ sumBox.id }}</th>
-                                <td class="value_sum_box">
+                                <td class="desktop_value_sum_box">
                                     <Icon icon="tabler:sum" />Total
                                 </td>
-                                <td class="sharesBuy_sum_box"></td>
-                                <td class="buy_sum_box">{{ sumBox.buy }}</td>
-                                <td class="sell_sum_box">{{ sumBox.sell }}</td>
-                                <td class="sharesSell_sum_box"></td>
-                                <td class="interestBuySell_sum_box">{{ sumBox.interestBuySell }}</td>
-                                <td class="profitLossBuySell_sum_box">{{ sumBox.profitLossBuySell }}</td>
-                                <td class="dividend_sum_box">{{ sumBox.dividend }}</td>
-                                <td class="interestDividend_sum_box">{{ sumBox.interestDividend }}</td>
-                                <td class="profitLossDividend_sum_box">{{ sumBox.profitLossDividend }}</td>
+                                <td class="desktop_sharesBuy_sum_box"></td>
+                                <td class="desktop_buy_sum_box">{{ sumBox.buy }}</td>
+                                <td class="desktop_sell_sum_box">{{ sumBox.sell }}</td>
+                                <td class="desktop_sharesSell_sum_box"></td>
+                                <td class="desktop_interestBuySell_sum_box">{{ sumBox.interestBuySell }}</td>
+                                <td class="desktop_profitLossBuySell_sum_box">{{ sumBox.profitLossBuySell }}</td>
+                                <td class="desktop_dividend_sum_box">{{ sumBox.dividend }}</td>
+                                <td class="desktop_interestDividend_sum_box">{{ sumBox.interestDividend }}</td>
+                                <td class="desktop_profitLossDividend_sum_box">{{ sumBox.profitLossDividend }}</td>
                                 <td :class="{
-                                    'sumProfitLoss_sum_box_profit': sumBox.sumProfitLoss > 0,
-                                    'sumProfitLoss_sum_box_loss': sumBox.sumProfitLoss < 0,
-                                    'sumProfitLoss_sum_box_normal': sumBox.sumProfitLoss === 0
+                                    'desktop_sumProfitLoss_sum_box_profit': sumBox.sumProfitLoss > 0,
+                                    'desktop_sumProfitLoss_sum_box_loss': sumBox.sumProfitLoss < 0,
+                                    'desktop_sumProfitLoss_sum_box_normal': sumBox.sumProfitLoss === 0
                                 }">
                                     {{ sumBox.sumProfitLoss }}
                                 </td>
 
-                                <td class="edit_sum_remove">
+                                <td class="desktop_edit_sum_remove">
 
                                 </td>
                             </tr>
+                        </tbody>
+                    </table>
+
+
+
+                    <div class="sorting">
+                        <ul>
+                            <li>
+                                <div class="active">Sorted by
+                                    <Icon icon="raphael:arrowdown" />
+                                </div>
+                                <div class="sub_menu_1">
+                                    <ul>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Company
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Shares Buy
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Buy
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Sell
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Shares Sell
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Interest - Buy/Sell
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Profit/Loss - Buy/Sell
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Dividend
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Interest - Dividend
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Profit/Loss - Dividend
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="">
+                                                Profit/Loss - SUM
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+
+
+
+
+
+
+                    <table v-if="!loading" class="mobile_portfolio_table">
+                        <tbody>
+                        <tr v-for="box in paginatedData" :key="box.id" class="mobile_added_form">
+                            <th scope="row" class="hidden-id">{{ box.id }}</th>
+
+                            <td class="ctud_box">
+                                <div class="ct">
+                                    <div class="mobile_company_box">{{ box.company }}</div>
+                                    <div class="mobile_ticker_box">{{ box.ticker }}</div>
+                                </div>
+                                <div class="mobile_edit_remove">
+                                    <button class="mobile_edit_remove_button" @click="loadWatchlistForEdit(box.id)">
+                                        <Icon icon="mdi:edit-outline" class="mobile_edit_remove_icon"/>
+                                    </button>
+                                    <button class="mobile_edit_remove_button" @click="deleteWatchlistConfirmation(box.id)">
+                                        <Icon icon="mingcute:delete-fill" class="mobile_edit_remove_icon"/>
+                                    </button>
+                                </div>
+                            </td>
+
+                            <td class="mobile_shares_box">
+                                <div class="name">
+                                    <div>Shares Buy</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.sharesBuy }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_buy_box">
+                                <div class="name">
+                                    <div>Buy</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.buy }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_sell_box">
+                                <div class="name">
+                                    <div>Sell</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.sell }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_shares_box">
+                                <div class="name">
+                                    <div>Shares Sell</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.sharesSell }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_interestBuySell_box">
+                                <div class="name">
+                                    <div>Interest - Buy/Sell</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.interestBuySell }}</div>
+                                </div>
+                            </td>
+
+                            <td :class="{
+                                    'mobile_profitLossBuySell_box_profit': box.profitLossBuySell > 0,
+                                    'mobile_profitLossBuySell_box_loss': box.profitLossBuySell < 0,
+                                    'mobile_profitLossBuySell_box_normal': box.profitLossBuySell === 0
+                                }">
+                                <div class="name">
+                                    <Icon icon="ph:plus-minus-bold" />
+                                    <div>Buy/Sell</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.profitLossBuySell }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_dividend_box">
+                                <div class="name">
+                                    <Icon icon="material-symbols:percent" />
+                                    <div>Dividend</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.dividend }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_interestDividend_box">
+                                <div class="name">
+                                    <div>Interest - Dividend</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.interestDividend }}</div>
+                                </div>
+                            </td>
+
+                            <td :class="{
+                                    'mobile_profitLossDividend_box_profit': box.profitLossDividend > 0,
+                                    'mobile_profitLossDividend_box_loss': box.profitLossDividend < 0,
+                                    'mobile_profitLossDividend_box_normal': box.profitLossDividend === 0
+                                }">
+                                <div class="name">
+                                    <Icon icon="ph:plus-minus-bold" />
+                                    <div>Dividend</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.profitLossDividend }}</div>
+                                </div>
+                            </td>
+
+                            <td :class="{
+                                    'mobile_sumProfitLoss_box_profit': box.sumProfitLoss > 0,
+                                    'mobile_sumProfitLoss_box_loss': box.sumProfitLoss < 0,
+                                    'mobile_sumProfitLoss_box_normal': box.sumProfitLoss === 0
+                                }">
+                                <div class="name">
+                                    <Icon icon="ph:plus-minus-bold" />
+                                    <div>SUM</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ box.sumProfitLoss }}</div>
+                                </div>
+                            </td>
+
+                        </tr>
+                        <tr v-for="sumBox in sumBoxes" :key="sumBox.id" class="mobile_added_form_sum">
+                            <th scope="row" class="hidden-id">{{ sumBox.id }}</th>
+                            <td class="mobile_value_sum_box">Total</td>
+
+                            <td class="mobile_buy_sum_box">
+                                <div class="name">
+                                    <Icon icon="icons8:buy" />
+                                    <div>Buy</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ sumBox.buy }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_sell_sum_box">
+                                <div class="name">
+                                    <div>Sell</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ sumBox.sell }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_interestBuySell_sum_box">
+                                <div class="name">
+                                    <div>Interest - Buy/Sell</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ sumBox.interestBuySell }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_profitLossBuySell_sum_box">
+                                <div class="name">
+                                    <Icon icon="ph:plus-minus-bold" />
+                                    <div>Buy/Sell</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ sumBox.profitLossBuySell }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_dividend_sum_box">
+                                <div class="name">
+                                    <Icon icon="material-symbols:percent" />
+                                    <div>Dividend</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ sumBox.dividend }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_interestDividend_sum_box">
+                                <div class="name">
+                                    <div>Interest - Dividend</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ sumBox.interestDividend }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_profitLossDividend_sum_box">
+                                <div class="name">
+                                    <Icon icon="ph:plus-minus-bold" />
+                                    <div>Dividend</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ sumBox.profitLossDividend }}</div>
+                                </div>
+                            </td>
+
+                            <td :class="{
+                                    'mobile_sumProfitLoss_sum_box_profit': sumBox.sumProfitLoss > 0,
+                                    'mobile_sumProfitLoss_sum_box_loss': sumBox.sumProfitLoss < 0,
+                                    'mobile_sumProfitLoss_sum_box_normal': sumBox.sumProfitLoss === 0
+                                }">
+                                <div class="name">
+                                    <Icon icon="ph:plus-minus-bold" />
+                                    <div>SUM</div>
+                                </div>
+                                <div class="value">
+                                    <div class="">{{ sumBox.sumProfitLoss }}</div>
+                                </div>
+                            </td>
+
+                            <td class="mobile_edit_sum_remove">
+
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
 
@@ -800,18 +1097,23 @@ export default {
     box-sizing: border-box;
 }
 
-section {
-    height: 100vh;
-    width: 100%;
+.main {
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    min-height: 100vh;
+    width: 100%;
+    background: #141414;
     top: 0;
     left: 0;
 }
 
+
+.section {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 /** HEADER */
 .text1 {
@@ -849,15 +1151,27 @@ section {
 
 
 /** CONTENT - MAINBOX */
-.mainbox {
-    width: 100rem;
-    height: 45rem;
+.content {
+    width: 95%;
+    min-height: 45rem;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    background: rgba(44, 43, 43, 0.96);
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #222222;
+
+}
+
+
+.mainbox {
+    width: 90%;
+    min-height: 45rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 1px;
-    border-radius: 20px;
 }
 
 .header {
@@ -866,11 +1180,9 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Oswald', 'Noto Serif', sans-serif;
-    color: #9e8a53;
-    font-size: 2rem;
-    letter-spacing: 3px;
+    margin-bottom: 20px;
 }
+
 
 .portfolio_table {
     height: 3rem;
@@ -1049,10 +1361,97 @@ section {
     border-radius: 5px;
 }
 
+/** SORTING */
 
-/** ADDED FORM */
+.sorting {
+    color: #8b8b94;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    width: 100%;
+    list-style: none;
+    display: inline-flex;
+    border-bottom: 1px solid #8b8b94;
+    margin-bottom: 10px;
+}
 
-.added_form {
+
+.sorting ul li,
+.sorting ul li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+.sorting ul li a,
+.sorting ul li a {
+    text-decoration: none;
+    color: #cfcfcf;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.active:hover {
+    color: #cfcfcf;
+    cursor: pointer;
+
+}
+
+.sorting ul li:hover,
+.sorting ul li:hover {
+    color: #9e8a53;
+    cursor: pointer;
+
+}
+
+.sub_menu_1 {
+    display: none;
+}
+
+.sorting ul li:hover .sub_menu_1,
+.sorting ul li:hover .sub_menu_1 {
+    display: block;
+    position: absolute;
+    background: #2A2727FF;
+    margin-top: 245px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.sorting ul li:hover .sub_menu_1 ul,
+.sorting ul li:hover .sub_menu_1 ul {
+    display: block;
+
+}
+
+.sorting ul li:hover .sub_menu_1 ul li,
+.sorting ul li:hover .sub_menu_1 ul li {
+    height: 2rem;
+    width: 10rem;
+}
+
+
+.sorting ul li:hover .sub_menu_1 ul li a:hover,
+.sorting ul li:hover .sub_menu_1 ul li a:hover {
+    color: #9e8a53;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+/** ADDED FORM - DESKTOP*/
+
+.desktop_added_form {
     height: 2rem;
     width: 93.25rem;
     display: flex;
@@ -1060,12 +1459,11 @@ section {
     align-items: center;
     gap: 1px;
     margin-bottom: 3px;
+
 }
 
 
-
-
-.ticker_box {
+.desktop_ticker_box {
     height: 2rem;
     width: 4rem;
     display: flex;
@@ -1082,7 +1480,7 @@ section {
 }
 
 
-.company_box {
+.desktop_company_box {
     height: 2rem;
     width: 20rem;
     display: flex;
@@ -1097,7 +1495,7 @@ section {
     letter-spacing: 0.5px;
 }
 
-.edit_remove {
+.desktop_edit_remove {
     height: 2rem;
     width: 7rem;
     display: flex;
@@ -1106,7 +1504,7 @@ section {
     gap: 3px;
 }
 
-.edit_remove_button {
+.desktop_edit_remove_button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1118,27 +1516,27 @@ section {
     background: rgba(136, 136, 136, 0.089);
 }
 
-.edit_remove_button:hover {
+.desktop_edit_remove_button:hover {
     background: #c7c5c1d3;
 }
 
-.edit_remove_icon {
+.desktop_edit_remove_icon {
     color: rgb(136, 136, 136);
     font-size: 1.2rem;
 }
 
-.edit_remove_button:hover .edit_remove_icon {
+.desktop_edit_remove_button:hover .desktop_edit_remove_icon {
     color: #2a2727;
 }
 
 
 
-.shares_box,
-.buy_box,
-.sell_box,
-.interestBuySell_box,
-.dividend_box,
-.interestDividend_box {
+.desktop_shares_box,
+.desktop_buy_box,
+.desktop_sell_box,
+.desktop_interestBuySell_box,
+.desktop_dividend_box,
+.desktop_interestDividend_box {
     color: #89909b;
     font-size: 0.8rem;
     font-family: sans-serif;
@@ -1156,8 +1554,8 @@ section {
 
 }
 
-.profitLossBuySell_box_normal,
-.profitLossDividend_box_normal {
+.desktop_profitLossBuySell_box_normal,
+.desktop_profitLossDividend_box_normal {
     height: 2rem;
     width: 6rem;
     font-size: 0.8rem;
@@ -1174,8 +1572,8 @@ section {
     background: #27272A;
 }
 
-.profitLossBuySell_box_profit,
-.profitLossDividend_box_profit {
+.desktop_profitLossBuySell_box_profit,
+.desktop_profitLossDividend_box_profit {
     height: 2rem;
     width: 6rem;
     background: #434343;
@@ -1194,8 +1592,8 @@ section {
     background: #27272A;
 }
 
-.profitLossBuySell_box_loss,
-.profitLossDividend_box_loss {
+.desktop_profitLossBuySell_box_loss,
+.desktop_profitLossDividend_box_loss {
     height: 2rem;
     width: 6rem;
     background: #434343;
@@ -1215,12 +1613,12 @@ section {
 }
 
 
-.dividend_box {
+.desktop_dividend_box {
     margin-left: 0.75rem;
     border-radius: 5px 0 0 5px;
 }
 
-.sumProfitLoss_box_profit {
+.desktop_sumProfitLoss_box_profit {
     margin-left: 0.75rem;
     margin-right: 0.75rem;
     background: rgba(198, 239, 206, 0.082);
@@ -1239,7 +1637,7 @@ section {
     border: 1px solid #8880805e;
 }
 
-.sumProfitLoss_box_loss {
+.desktop_sumProfitLoss_box_loss {
     margin-left: 0.75rem;
     margin-right: 0.75rem;
     background: #e0454a1f;
@@ -1258,7 +1656,7 @@ section {
     border: 1px solid #8880805e;
 }
 
-.sumProfitLoss_box_normal {
+.desktop_sumProfitLoss_box_normal {
     margin-left: 0.75rem;
     margin-right: 0.75rem;
     background: #c9c9c934;
@@ -1278,6 +1676,256 @@ section {
     border: 1px solid #8880805e;
 }
 
+
+
+
+
+
+/** ADDED FORM - MOBILE*/
+
+.mobile_portfolio_table {
+    width: 100%;
+    min-height: 20rem;
+}
+
+.mobile_added_form {
+    min-height: 3rem;
+    width: 100%;
+    border-radius: 7px;
+    background: #303134;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.71);
+    border: 1px solid hsl(240 5% 27.6%);
+    padding-bottom: 15px;
+}
+
+
+.ctud_box {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.ct {
+    width: 90%;
+    padding: 20px;
+}
+
+
+.mobile_ticker_box {
+    font-size: 0.7rem;
+    letter-spacing: 0.05rem;
+    font-weight: 200;
+    color: #807f7f;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.mobile_company_box {
+    font-size: 1rem;
+    color: rgba(8, 172, 236, 0.918);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.mobile_edit_remove {
+    padding-right: 20px;
+    padding-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.mobile_edit_remove_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    width: 2rem;
+    cursor: pointer;
+    background: none;
+    border-radius: 3px;
+    border: 1px solid rgb(136, 136, 136);
+    background: rgba(136, 136, 136, 0.089);
+}
+
+.mobile_edit_remove_button:hover {
+    background: #c7c5c1d3;
+}
+
+.mobile_edit_remove_icon {
+    color: rgb(136, 136, 136);
+    font-size: 1.2rem;
+}
+
+.mobile_edit_remove_button:hover .edit_remove_icon {
+    color: #2a2727;
+}
+
+
+
+.mobile_shares_box,
+.mobile_buy_box,
+.mobile_sell_box,
+.mobile_interestBuySell_box,
+.mobile_dividend_box,
+.mobile_interestDividend_box {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: rgba(8, 172, 236, 0.918);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: rgba(69, 154, 224, 0.12);
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
+
+.name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3px;
+    font-size: 13px;
+    color: #dedede;
+    margin-left: 5px;
+}
+
+.value {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+
+
+.mobile_profitLossBuySell_box_normal,
+.mobile_profitLossDividend_box_normal {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #c9c9c9;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: #c9c9c934;
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
+.mobile_profitLossBuySell_box_profit,
+.mobile_profitLossDividend_box_profit {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #6cc06c;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: rgba(198, 239, 206, 0.082);
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
+.mobile_profitLossBuySell_box_loss,
+.mobile_profitLossDividend_box_loss {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #e0454b;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: #e0454a1f;
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
+
+.mobile_sumProfitLoss_box_profit {
+    width: 95%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #6cc06c;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: rgba(198, 239, 206, 0.082);
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
+.mobile_sumProfitLoss_box_loss {
+    width: 95%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #e0454b;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: #e0454a1f;
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
+.mobile_sumProfitLoss_box_normal {
+    width: 95%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #c9c9c9;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: #c9c9c934;
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
 
 
 
@@ -1486,9 +2134,9 @@ section {
 
 
 
-/** SUM BOX */
+/** SUM BOX - DESKTOP */
 
-.value_sum_box {
+.desktop_value_sum_box {
     height: 2.5rem;
     width: 24.1rem;
     display: flex;
@@ -1505,7 +2153,7 @@ section {
     color: #8f8f8f;
 }
 
-.edit_sum_remove {
+.desktop_edit_sum_remove {
     height: 2.5rem;
     width: 7rem;
     gap: 1px;
@@ -1513,15 +2161,15 @@ section {
     margin-top: 20px;
 }
 
-.buy_sum_box,
-.sell_sum_box,
-.sharesBuy_sum_box,
-.sharesSell_sum_box,
-.interestBuySell_sum_box,
-.profitLossBuySell_sum_box,
-.dividend_sum_box,
-.interestDividend_sum_box,
-.profitLossDividend_sum_box {
+.desktop_buy_sum_box,
+.desktop_sell_sum_box,
+.desktop_sharesBuy_sum_box,
+.desktop_sharesSell_sum_box,
+.desktop_interestBuySell_sum_box,
+.desktop_profitLossBuySell_sum_box,
+.desktop_dividend_sum_box,
+.desktop_interestDividend_sum_box,
+.desktop_profitLossDividend_sum_box {
     height: 2.5rem;
     width: 6rem;
     display: flex;
@@ -1538,19 +2186,19 @@ section {
     font-family: sans-serif;
 }
 
-.profitLossBuySell_sum_box,
-.profitLossDividend_sum_box {
+.desktop_profitLossBuySell_sum_box,
+.desktop_profitLossDividend_sum_box {
     border-radius: 0 5px 10px 0;
 }
 
 
-.dividend_sum_box {
+.desktop_dividend_sum_box {
     border-radius: 5px 0 0 10px;
     margin-left: 0.75rem;
 }
 
 
-.sumProfitLoss_sum_box_profit {
+.desktop_sumProfitLoss_sum_box_profit {
     margin-left: 0.75rem;
     margin-right: 0.75rem;
     border-radius: 5px 5px 10px 10px;
@@ -1571,7 +2219,7 @@ section {
 }
 
 
-.sumProfitLoss_sum_box_loss {
+.desktop_sumProfitLoss_sum_box_loss {
     margin-left: 0.75rem;
     margin-right: 0.75rem;
     border-radius: 5px 5px 10px 10px;
@@ -1592,7 +2240,7 @@ section {
 }
 
 
-.sumProfitLoss_sum_box_normal {
+.desktop_sumProfitLoss_sum_box_normal {
     margin-left: 0.75rem;
     margin-right: 0.75rem;
     border-radius: 5px 5px 10px 10px;
@@ -1611,6 +2259,134 @@ section {
     color: #c9c9c9;
     font-family: sans-serif;
 }
+
+
+
+/** SUM BOX - MOBILE*/
+
+.mobile_added_form_sum {
+    min-height: 3rem;
+    width: 100%;
+    border-radius: 7px;
+    background: #3b3b3b;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.71);
+    border: 1px solid hsl(240 5% 27.6%);
+    padding-bottom: 15px;
+}
+
+.mobile_value_sum_box {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    font-family: Oswald;
+    color: #9d8633;
+}
+
+.mobile_edit_sum_remove {
+    height: 2.5rem;
+    width: 7rem;
+    gap: 1px;
+    background: none;
+    margin-top: 20px;
+}
+
+.mobile_sum_icon {
+    font-size: 1.4rem;
+}
+
+.mobile_buy_sum_box,
+.mobile_sell_sum_box,
+.mobile_interestBuySell_sum_box,
+.mobile_profitLossBuySell_sum_box,
+.mobile_dividend_sum_box,
+.mobile_interestDividend_sum_box,
+.mobile_profitLossDividend_sum_box {
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #9d8633;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: rgba(158, 138, 83, 0.14);
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
+
+.mobile_sumProfitLoss_sum_box_profit {
+    width: 95%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #6cc06c;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: rgba(198, 239, 206, 0.082);
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
+
+.mobile_sumProfitLoss_sum_box_loss {
+    width: 95%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #e0454b;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: #e0454a1f;
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
+
+.mobile_sumProfitLoss_sum_box_normal {
+    width: 95%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    gap: 5px;
+    font-size: 1rem;
+    color: #c9c9c9;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: #c9c9c934;
+    border-radius: 5px;
+    margin: 5px;
+    border: 1px solid hsl(240 5% 27.6%);
+}
+
 
 
 
@@ -1790,6 +2566,151 @@ section {
 
 .same_shares {
     color: rgba(158, 158, 158, 0.658); 
+}
+
+
+
+
+.desktop_portfolio_table {
+    display: none;
+}
+
+.sorting {
+    display: none;
+}
+
+.mobile_portfolio_table {
+    display: none;
+}
+
+
+
+
+/* For Desktop View */
+@media screen and (min-width: 1500px) {
+    .desktop_portfolio_table {
+        display: table;
+    }
+
+
+    .content {
+        width: 95rem;
+    }
+
+    .add_form {
+        width: 50rem;
+    }
+
+    .add_form_button {
+        width: 10rem;
+    }
+
+}
+
+/* For Desktop View */
+@media screen and (min-width: 1200px)
+and (max-width: 1500px) {
+    .mobile_portfolio_table {
+        display: table;
+    }
+    .sorting {
+        display: inline;
+    }
+
+    .add_form {
+        width: 50rem;
+    }
+
+    .add_form_button {
+        width: 10rem;
+    }
+
+
+}
+
+
+/* For Desktop View */
+@media screen and (min-width: 1024px)
+and (max-width: 1200px) {
+    .mobile_portfolio_table {
+        display: table;
+    }
+    .sorting {
+        display: inline;
+    }
+
+    .add_form {
+        width: 50rem;
+    }
+
+    .add_form_button {
+        width: 10rem;
+    }
+}
+
+/* For Tablet View */
+@media screen and (min-width: 768px)
+and (max-width: 1024px) {
+    .mobile_portfolio_table {
+        display: table;
+    }
+
+    .sorting {
+        display: inline;
+    }
+
+    .add_form {
+        width: 47rem;
+    }
+
+    .add_form_button {
+        width: 10rem;
+    }
+
+}
+
+/* For Mobile View */
+@media screen and (min-width: 480px)
+and (max-width: 768px) {
+    .mobile_portfolio_table {
+        display: table;
+    }
+
+    .sorting {
+        display: inline;
+    }
+
+    .add_form_button {
+        width: 10rem;
+    }
+
+
+
+}
+
+@media screen and (min-width: 320px)
+and (max-width: 480px) {
+    .mobile_portfolio_table {
+        display: table;
+    }
+
+    .sorting {
+        display: inline;
+    }
+
+
+
+}
+
+@media screen and (max-width: 320px) {
+    .mobile_portfolio_table {
+        display: table;
+    }
+
+    .sorting {
+        display: inline;
+    }
+
 }
 
 
