@@ -44,7 +44,7 @@
             <ul>
               <li>
                 <a href="#" @click="redirectToWatchlist">
-                  <Icon icon="streamline:graph-dot-solid" class="menuIcon" />
+                    <Icon icon="fluent-mdl2:financial-solid" class="menuIcon"/>
                   Watchlist
                 </a>
               </li>

@@ -413,6 +413,63 @@
                         </div>
                     </div>
 
+                    <div class="sorting">
+                        <ul>
+                            <li>
+                                <div class="active">Sorted by
+                                    <Icon icon="raphael:arrowdown" />
+                                </div>
+                                <div class="sub_menu_1">
+                                    <ul>
+                                        <li>
+                                            <a href="#" @click="sortTableByCompany">
+                                                <Icon icon="mdi:alphabet-a" class="menuIcon"/>
+                                                Company
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="sortTableByCurrentPrice">
+                                                <Icon icon="foundation:dollar" class="menuIcon"/>
+                                                Current price
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="sortTableByDCF">
+                                                <Icon icon="foundation:dollar" class="menuIcon"/>
+                                                DCF
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="sortTableByDividendYield">
+                                                <Icon icon="material-symbols:percent" class="menuIcon"/>
+                                                Dividend yield
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="sortTableByDividendQ">
+                                                <Icon icon="solar:dollar-line-duotone" class="menuIcon"/>
+                                                Dividend quarter
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="sortTableByDividendY">
+                                                <Icon icon="solar:dollar-line-duotone" class="menuIcon"/>
+                                                Dividend year
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" @click="sortTableByDisparity">
+                                                <Icon icon="material-symbols:percent" class="menuIcon"/>
+                                                Disparity
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+
                     <table v-if="!loading" class="desktop_table">
                         <thead>
                         <tr class="watchlist_table">
@@ -508,65 +565,6 @@
                         </tr>
                         </tbody>
                     </table>
-
-
-
-                    <div class="sorting">
-                        <ul>
-                            <li>
-                                <div class="active">Sorted by
-                                    <Icon icon="raphael:arrowdown" />
-                                </div>
-                                <div class="sub_menu_1">
-                                    <ul>
-                                        <li>
-                                            <a href="#" @click="sortTableByCompany">
-                                                <Icon icon="mdi:alphabet-a" class="menuIcon"/>
-                                                Company
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" @click="sortTableByCurrentPrice">
-                                                <Icon icon="foundation:dollar" class="menuIcon"/>
-                                                Current price
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" @click="sortTableByDCF">
-                                                <Icon icon="foundation:dollar" class="menuIcon"/>
-                                                DCF
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" @click="sortTableByDividendYield">
-                                                <Icon icon="material-symbols:percent" class="menuIcon"/>
-                                                Dividend yield
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" @click="sortTableByDividendQ">
-                                                <Icon icon="solar:dollar-line-duotone" class="menuIcon"/>
-                                                Dividend quarter
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" @click="sortTableByDividendY">
-                                                <Icon icon="solar:dollar-line-duotone" class="menuIcon"/>
-                                                Dividend year
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" @click="sortTableByDisparity">
-                                                <Icon icon="material-symbols:percent" class="menuIcon"/>
-                                                Disparity
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-
-                    </div>
 
                     <table v-if="!loading" class="mobile_table">
                         <tbody>
@@ -2354,7 +2352,6 @@ and (max-width: 1500px) {
     .mobile_table {
         display: table;
     }
-
     .sorting {
         display: inline;
     }
@@ -2362,9 +2359,12 @@ and (max-width: 1500px) {
     .add_form {
         width: 50rem;
     }
+
     .add_form_button {
         width: 10rem;
     }
+
+
 }
 
 
