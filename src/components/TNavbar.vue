@@ -29,13 +29,13 @@
     <div class="menu_bar">
       <ul>
 
-        <li class="active_menu">
+        <li class="active_menu" @click="redirectToMenu">
             <Icon icon="ion:menu" class="width_lower" @click="redirectToMenu"/>
-            <div class="width_higher" @click="redirectToMenu">MENU</div>
+            <div class="width_higher">MENU</div>
         </li>
-        <li class="active_cv">
+        <li class="active_cv" @click="redirectToCV">
             <Icon icon="pepicons-pop:cv" class="width_lower" @click="redirectToCV"/>
-            <div class="width_higher" @click="redirectToCV">CV</div>
+            <div class="width_higher">CV</div>
         </li>
         <li class="active_stock">
             <Icon icon="mdi:graph-bar" class="width_lower"/>
