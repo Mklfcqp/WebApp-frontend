@@ -13,7 +13,7 @@
 
                     <div class="header">
 <!--                        <img src="src/assets/img/watchlist-header.svg" alt="sell" class="watchlist_icon">-->
-                        <img src="src/assets/img/dollar-bill.png" alt="sell" class="watchlist_icon">
+                        <img src="../assets/img/dollar-bill.png" alt="sell" class="watchlist_icon">
                         <span class="text1">WATCHLIST</span>
                     </div>
 
