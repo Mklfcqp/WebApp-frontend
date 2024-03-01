@@ -5,19 +5,19 @@
     <div class="profile_bar">
       <ul>
         <li>
-            <Icon icon="iconamoon:profile-duotone" class="width_lower"/>
+            <img src="src/assets/img/profile.svg" alt="profile" class="menuIcon">
             <div class="width_higher">Profile</div>
           <div class="sub_menu_1">
             <ul>
               <li class="hover_me">
                 <a href="#">
-                  <Icon icon="lets-icons:setting-line-light" class="menuIcon" />
+                    <img src="src/assets/img/setting.svg" alt="setting" class="menuIcon">
                   Setting
                 </a>
               </li>
               <li>
                 <a href="#" @click="logout">
-                  <Icon icon="mdi-light:logout" class="menuIcon" />
+                    <img src="src/assets/img/logout.svg" alt="logout" class="menuIcon">
                   Logout
                 </a>
               </li>
@@ -30,27 +30,27 @@
       <ul>
 
         <li class="active_menu" @click="redirectToMenu">
-            <Icon icon="ion:menu" class="width_lower" @click="redirectToMenu"/>
+            <img src="src/assets/img/menu.svg" alt="menu" class="menuIcon">
             <div class="width_higher">MENU</div>
         </li>
         <li class="active_cv" @click="redirectToCV">
-            <Icon icon="pepicons-pop:cv" class="width_lower" @click="redirectToCV"/>
+            <img src="src/assets/img/cv.svg" alt="cv" class="menuIcon">
             <div class="width_higher">CV</div>
         </li>
         <li class="active_stock">
-            <Icon icon="mdi:graph-bar" class="width_lower"/>
+            <img src="src/assets/img/stock.svg" alt="stock" class="menuIcon">
             <div class="width_higher">STOCK</div>
           <div class="sub_menu_1">
             <ul>
               <li>
                 <a href="#" @click="redirectToWatchlist">
-                    <Icon icon="fluent-mdl2:financial-solid" class="menuIcon"/>
+                    <img src="src/assets/img/watchlist.svg" alt="watchlist" class="menuIcon">
                   Watchlist
                 </a>
               </li>
               <li>
                 <a href="#" @click="redirectToPortfolio">
-                  <Icon icon="raphael:piechart" class="menuIcon" />
+                    <img src="src/assets/img/portfolio.svg" alt="portfolio" class="menuIcon">
                   Portfolio
                 </a>
               </li>
@@ -197,7 +197,8 @@ export default {
 }
 
 .menuIcon {
-    color: #cfcfcf;
+    width: 25px;
+    height: 25px;
 }
 
 
@@ -206,7 +207,6 @@ export default {
     display: inline-flex;
     list-style: none;
     color: #cfcfcf;
-
 }
 
 .menu_bar ul li,
@@ -216,6 +216,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
 }
 
 .width_higher {
@@ -232,7 +233,7 @@ export default {
     color: #cfcfcf;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
 }
 
 .active:hover,
