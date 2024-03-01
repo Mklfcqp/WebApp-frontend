@@ -106,7 +106,7 @@ export default {
         password: CryptoJS.SHA256(this.password).toString(CryptoJS.enc.Hex),
       };
 
-      axios.post("http://localhost:8080/auth/login", userData)
+      axios.post("https://webapp-backend-production.up.railway.app/auth/login", userData)
         .then((response) => {
           console.log("User logged in successfully:", response.data);
 

@@ -849,7 +849,7 @@ export default {
                 Authorization: `Bearer ${accessToken}`,
             };
 
-            axios.get('http://localhost:8080/watchlist/load', {headers})
+            axios.get('https://webapp-backend-production.up.railway.app/watchlist/load', {headers})
                 .then(response => {
                     this.boxes = response.data;
                     this.loading = false;
@@ -964,7 +964,7 @@ export default {
 
         async deleteWatchlist(id) {
             try {
-                const response = await fetch(`http://localhost:8080/watchlist/delete/${id}`, {
+                const response = await fetch(`https://webapp-backend-production.up.railway.app/watchlist/delete/${id}`, {
                     method: 'DELETE'
                 });
 
@@ -1146,7 +1146,7 @@ export default {
             const headers = new Headers();
             headers.append('Authorization', `Bearer ${accessToken}`);
 
-            fetch('http://localhost:8080/watchlist/sorted/disparity', {headers})
+            fetch('https://webapp-backend-production.up.railway.app/watchlist/sorted/disparity', {headers})
                 .then(res => res.json())
                 .then(data => {
                     this.boxes = data;
