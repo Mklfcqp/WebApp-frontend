@@ -12,6 +12,7 @@
                 <div class="mainbox">
 
                     <div class="header">
+                        <img src="src/assets/img/watchlist-header.svg" alt="sell" class="watchlist_icon">
                         <span class="text1">WATCHLIST</span>
                     </div>
 
@@ -423,43 +424,43 @@
                                     <ul>
                                         <li>
                                             <a href="#" @click="sortTableByCompany">
-                                                <Icon icon="mdi:alphabet-a" class="menuIcon"/>
+                                                <img src="src/assets/img/company.svg" alt="company" class="sorting_mobile_icon">
                                                 Company
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableByCurrentPrice">
-                                                <Icon icon="foundation:dollar" class="menuIcon"/>
+                                                <img src="src/assets/img/price.svg" alt="price" class="sorting_mobile_icon">
                                                 Current price
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableByDCF">
-                                                <Icon icon="foundation:dollar" class="menuIcon"/>
+                                                <img src="src/assets/img/price.svg" alt="dcf" class="sorting_mobile_icon">
                                                 DCF
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableByDividendYield">
-                                                <Icon icon="material-symbols:percent" class="menuIcon"/>
+                                                <img src="src/assets/img/dividend-yield.svg" alt="dividend-yield" class="sorting_mobile_icon">
                                                 Dividend yield
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableByDividendQ">
-                                                <Icon icon="solar:dollar-line-duotone" class="menuIcon"/>
+                                                <img src="src/assets/img/dividend.svg" alt="dividend" class="sorting_mobile_icon">
                                                 Dividend quarter
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableByDividendY">
-                                                <Icon icon="solar:dollar-line-duotone" class="menuIcon"/>
+                                                <img src="src/assets/img/dividend.svg" alt="dividend" class="sorting_mobile_icon">
                                                 Dividend year
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableByDisparity">
-                                                <Icon icon="material-symbols:percent" class="menuIcon"/>
+                                                <img src="src/assets/img/disparity.svg" alt="disparity" class="sorting_mobile_icon">
                                                 Disparity
                                             </a>
                                         </li>
@@ -478,31 +479,31 @@
                                 <div>Ticker</div>
                             </th>
                             <th scope="col" class="Company" @click="sortTableByCompany">
-                                <Icon icon="mdi:alphabet-a" class="watchlist_table_icon"/>
+                                <img src="src/assets/img/company.svg" alt="company" class="sorting_icons">
                                 <div>Company</div>
                             </th>
                             <th scope="col" class="Current_Price" @click="sortTableByCurrentPrice">
-                                <Icon icon="foundation:dollar" class="watchlist_table_icon"/>
+                                <img src="src/assets/img/price.svg" alt="price" class="sorting_icons">
                                 <div>Current Price</div>
                             </th>
                             <th scope="col" class="DCF" @click="sortTableByDCF">
-                                <Icon icon="foundation:dollar" class="watchlist_table_icon"/>
+                                <img src="src/assets/img/price.svg" alt="dcf" class="sorting_icons">
                                 <div>DCF</div>
                             </th>
                             <th scope="col" class="Dividend_Yield" @click="sortTableByDividendYield">
-                                <Icon icon="material-symbols:percent" class="watchlist_table_icon"/>
+                                <img src="src/assets/img/dividend-yield.svg" alt="dividend-yield" class="sorting_icons">
                                 <div>Dividend Yield</div>
                             </th>
                             <th scope="col" class="Dividend_Q" @click="sortTableByDividendQ">
-                                <Icon icon="solar:dollar-line-duotone" class="watchlist_table_icon"/>
+                                <img src="src/assets/img/dividend.svg" alt="dividend" class="sorting_icons">
                                 <div>Dividend(Q)</div>
                             </th>
                             <th scope="col" class="Dividend_Y" @click="sortTableByDividendY">
-                                <Icon icon="solar:dollar-outline" class="watchlist_table_icon"/>
+                                <img src="src/assets/img/dividend.svg" alt="dividend" class="sorting_icons">
                                 <div>Dividend(Y)</div>
                             </th>
                             <th scope="col" class="Disparity" @click="sortTableByDisparity">
-                                <Icon icon="material-symbols:percent" class="watchlist_table_icon"/>
+                                <img src="src/assets/img/disparity.svg" alt="disparity" class="sorting_icons">
                                 <div>Disparity</div>
                             </th>
 
@@ -542,10 +543,10 @@
                             </td>
                             <td class="desktop_edit_remove">
                                 <button class="desktop_edit_remove_button" @click="loadWatchlistForEdit(box.id)">
-                                    <Icon icon="mdi:edit-outline" class="desktop_edit_remove_icon"/>
+                                    <img src="src/assets/img/edit.svg" alt="edit" class="added_box_icon">
                                 </button>
                                 <button class="desktop_edit_remove_button" @click="deleteWatchlistConfirmation(box.id)">
-                                    <Icon icon="mingcute:delete-fill" class="desktop_edit_remove_icon"/>
+                                    <img src="src/assets/img/bin.svg" alt="remove" class="added_box_icon">
                                 </button>
                             </td>
 
@@ -576,12 +577,12 @@
                                     <div class="company">{{ box.company }}</div>
                                     <div class="ticker">{{ box.ticker }}</div>
                                 </div>
-                                <div class="edit_remove">
-                                    <button class="edit_remove_button" @click="loadWatchlistForEdit(box.id)">
-                                        <Icon icon="mdi:edit-outline" class="edit_remove_icon"/>
+                                <div class="mobile_edit_remove">
+                                    <button class="mobile_edit_remove_button" @click="loadWatchlistForEdit(box.id)">
+                                        <img src="src/assets/img/edit.svg" alt="edit" class="added_box_icon">
                                     </button>
-                                    <button class="edit_remove_button" @click="deleteWatchlistConfirmation(box.id)">
-                                        <Icon icon="mingcute:delete-fill" class="edit_remove_icon"/>
+                                    <button class="mobile_edit_remove_button" @click="deleteWatchlistConfirmation(box.id)">
+                                        <img src="src/assets/img/bin.svg" alt="remove" class="added_box_icon">
                                     </button>
                                 </div>
                             </td>
@@ -589,7 +590,7 @@
                             <td class="values_box">
                                 <div class="price_box">
                                     <div class="name">
-                                        <Icon icon="foundation:dollar" class=""/>
+                                        <img src="src/assets/img/price.svg" alt="price" class="sorting_mobile_icon">
                                         <div>Current Price</div>
                                     </div>
                                     <div class="value">
@@ -599,7 +600,7 @@
                                 </div>
                             <td class="dcf_box">
                                 <div class="name">
-                                    <Icon icon="foundation:dollar" class=""/>
+                                    <img src="src/assets/img/price.svg" alt="dcf" class="sorting_mobile_icon">
                                     <div>DCF</div>
                                 </div>
                                 <div class="value">
@@ -609,7 +610,7 @@
                             </td>
                             <td class="dividend_yield_box">
                                 <div class="name">
-                                    <Icon icon="material-symbols:percent" class=""/>
+                                    <img src="src/assets/img/dividend-yield.svg" alt="dividend-yield" class="sorting_mobile_icon">
                                     <div>Dividend Yield</div>
                                 </div>
                                 <div class="value">
@@ -619,7 +620,7 @@
                             </td>
                             <td class="dividend_q_box">
                                 <div class="name">
-                                    <Icon icon="solar:dollar-line-duotone" class=""/>
+                                    <img src="src/assets/img/dividend.svg" alt="dividend" class="sorting_mobile_icon">
                                     <div>Dividend(Q)</div>
                                 </div>
                                 <div class="value">
@@ -629,7 +630,7 @@
                             </td>
                             <td class="dividend_y_box">
                                 <div class="name">
-                                    <Icon icon="solar:dollar-outline" class=""/>
+                                    <img src="src/assets/img/dividend.svg" alt="dividend" class="sorting_mobile_icon">
                                     <div>Dividend(Y)</div>
                                 </div>
                                 <div class="value">
@@ -684,7 +685,7 @@
                         <button @click="showAddForm = true" v-if="!showAddForm" class="bot_box">
 
                             <div class="bot_box_icon">
-                                <Icon icon="typcn:plus" class="bot_icon"/>
+                                <img src="src/assets/img/plus.svg" alt="plus" class="bot_icon">
                             </div>
 
                             <div class="bot_box_button">Add Stock to Watchlist</div>
@@ -1281,6 +1282,11 @@ export default {
     margin-bottom: 20px;
 }
 
+.watchlist_icon {
+    width: 30px;
+    height: 30px;
+}
+
 
 
 .watchlist_table {
@@ -1305,9 +1311,10 @@ export default {
 
 }
 
-.watchlist_table_icon {
-    color: #8f8f8f;
-    font-size: 1rem;
+.sorting_icons {
+    width: 30px;
+    height: 30px;
+    display: none;
 }
 
 .Ticker {
@@ -1370,7 +1377,30 @@ export default {
     background-color: #d4ad4262;
     cursor: pointer;
     border: 1px solid #8880805e;
+    display: flex;
+    justify-content: center;
 }
+
+
+.Company:hover div,
+.Current_Price:hover div,
+.DCF:hover div,
+.Dividend_Yield:hover div,
+.Dividend_Q:hover div,
+.Dividend_Y:hover div,
+.Disparity:hover div {
+    display: none;
+}
+
+.watchlist_table th:hover img {
+    display: inline-block;
+}
+
+.watchlist_table th img {
+    display: none;
+}
+
+
 
 
 /** BOT */
@@ -1410,8 +1440,8 @@ export default {
 }
 
 .bot_icon {
-    font-size: 1.2rem;
-    color: rgba(33, 151, 197, 0.815);
+    width: 30px;
+    height: 30px;
 }
 
 .bot_box_button {
@@ -1558,10 +1588,6 @@ export default {
 
 }
 
-.desktop_edit_remove_icon {
-    color: rgb(136, 136, 136);
-    font-size: 1.2rem;
-}
 
 .desktop_edit_remove_button:hover .edit_remove_icon {
     color: #2a2727;
@@ -1597,6 +1623,12 @@ tr:nth-child(even) {
     font-weight: 200;
     padding-top: 5px;
     font-family: 'Poppins', sans-serif;
+}
+
+
+.added_box_icon {
+    width: 22px;
+    height: 22px;
 }
 
 
@@ -1655,7 +1687,7 @@ tr:nth-child(even) {
     position: absolute;
     background: #2A2727FF;
     margin-top: 245px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     cursor: pointer;
     border-radius: 7px;
 }
@@ -1678,6 +1710,12 @@ tr:nth-child(even) {
     color: #9e8a53;
     cursor: pointer;
 }
+
+.sorting_mobile_icon {
+    width: 20px;
+    height: 20px;
+}
+
 
 
 /** ADDED FORM - MOBILE*/
@@ -1731,7 +1769,7 @@ tr:nth-child(even) {
 }
 
 
-.edit_remove {
+.mobile_edit_remove {
     padding-right: 20px;
     padding-top: 30px;
     display: flex;
@@ -1739,7 +1777,7 @@ tr:nth-child(even) {
     gap: 5px;
 }
 
-.edit_remove_button {
+.mobile_edit_remove_button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1752,17 +1790,13 @@ tr:nth-child(even) {
     background: rgba(136, 136, 136, 0.089);
 }
 
-.edit_remove_button:hover {
+.mobile_edit_remove_button:hover {
     background: #c7c5c1d3;
 
 }
 
-.edit_remove_icon {
-    color: rgb(136, 136, 136);
-    font-size: 1.2rem;
-}
 
-.edit_remove_button:hover .edit_remove_icon {
+.mobile_edit_remove_button:hover .edit_remove_icon {
     color: #2a2727;
 }
 
@@ -2132,6 +2166,7 @@ tr:nth-child(even) {
 /** DELETE CONFIRMATION */
 
 .confirmation {
+    margin-top: 200px;
     width: 22rem;
     height: 10rem;
     display: flex;
@@ -2209,6 +2244,7 @@ tr:nth-child(even) {
     flex-wrap: wrap;
     width: var(--total-size);
     height: var(--total-size);
+    margin-top: 200px;
 }
 
 .cell {
@@ -2385,6 +2421,10 @@ and (max-width: 1200px) {
     .add_form_button {
         width: 10rem;
     }
+
+    .loader {
+        --cell-size: 15px;
+    }
 }
 
 /* For Tablet View */
@@ -2406,6 +2446,10 @@ and (max-width: 1024px) {
         width: 10rem;
     }
 
+    .loader {
+        --cell-size: 15px;
+    }
+
 }
 
 /* For Mobile View */
@@ -2423,6 +2467,10 @@ and (max-width: 768px) {
         width: 10rem;
     }
 
+    .loader {
+        --cell-size: 10px;
+    }
+
 
 
 }
@@ -2437,6 +2485,10 @@ and (max-width: 480px) {
         display: inline;
     }
 
+    .loader {
+        --cell-size: 10px;
+    }
+
 
 
 }
@@ -2449,6 +2501,14 @@ and (max-width: 480px) {
     .sorting {
         display: inline;
     }
+
+    .loader {
+        --cell-size: 10px;
+    }
+
+
+
+
 
 }
 
