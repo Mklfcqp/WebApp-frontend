@@ -358,10 +358,10 @@
 
 
                                 <td class="desktop_edit_remove">
-                                    <button class="mobile_edit_remove_button" @click="loadWatchlistForEdit(box.id)">
+                                    <button class="mobile_edit_remove_button" @click="loadPortfolioForEdit(box.id)">
                                         <img src="src/assets/img/edit.svg" alt="sell" class="added_box_icon">
                                     </button>
-                                    <button class="mobile_edit_remove_button" @click="deleteWatchlistConfirmation(box.id)">
+                                    <button class="mobile_edit_remove_button" @click="deletePortfolioConfirmation(box.id)">
                                         <img src="src/assets/img/bin.svg" alt="sell" class="added_box_icon">
                                     </button>
                                 </td>
@@ -586,10 +586,10 @@
                                     <div class="mobile_ticker_box">{{ box.ticker }}</div>
                                 </div>
                                 <div class="mobile_edit_remove">
-                                    <button class="mobile_edit_remove_button" @click="loadWatchlistForEdit(box.id)">
+                                    <button class="mobile_edit_remove_button" @click="loadPortfolioForEdit(box.id)">
                                         <img src="src/assets/img/edit.svg" alt="sell" class="added_box_icon">
                                     </button>
-                                    <button class="mobile_edit_remove_button" @click="deleteWatchlistConfirmation(box.id)">
+                                    <button class="mobile_edit_remove_button" @click="deletePortfolioConfirmation(box.id)">
                                         <img src="src/assets/img/bin.svg" alt="sell" class="added_box_icon">
                                     </button>
                                 </div>
@@ -2038,30 +2038,34 @@ export default {
 /** ADD FORM */
 
 .overlay {
-    position: fixed;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    overflow-x: hidden;
+    min-height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .add_form {
-    height: 450px;
-    width: 550px;
-
-    border-radius: 15px;
+    margin-top: 100px;
+    height: fit-content;
+    width: 95%;
+    border-radius: 10px;
     background: #222327;
     z-index: 1000;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    border: 1px solid hsl(240 5% 27.6%);
+    padding: 30px;
 }
 
+
 .add_form_description {
+    height: 3rem;
     display: flex;
     justify-content: center;
     font-size: 1.5rem;
@@ -2069,44 +2073,95 @@ export default {
     font-family: IBM Plex Sans, sans-serif;
     letter-spacing: 3px;
     color: #D4D4D8;
-    padding-bottom: 20px;
-
+    padding-bottom: 10px;
 }
 
 .box {
     display: flex;
     justify-content: center;
+    width: 100%;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .box_inside1 {
     margin-top: 20px;
-    margin-right: 30px;
 }
 
+.box_inside2 {
+}
 
+.box_inside3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.dcf_manual_add_box {
+    margin-top: 20px;
+}
 
 .company_add_box,
-.ticker_add_box {
+.ticker_add_box,
+.price_add_box,
+.dividend_q_add_box,
+.dcf_manual_add_box_value {
     display: flex;
     flex-direction: row;
     gap: 10px;
 }
 
+.dcf_manual_add_box_description,
+.box_inside2_description {
+    color: rgba(159, 194, 204, 0.76);
+    font-family: 'Poppins', 'Six Caps', 'Noto Serif', sans-serif;
+    font-size: 0.8rem;
+}
+
+.dcf_manual_add_box_description {
+    margin-left: 10px;
+}
+
+
 .add_form_input_double_1 {
-    width: 12rem;
+    width: 10rem;
     height: 8px;
     border: 1px solid hsl(240 5% 27.6%);
     border-radius: 3px;
     padding-block: 0.8rem;
     background: #27272A;
     position: relative;
-    padding-left: 10px;
     color: #cc9a3a;
+    padding-left: 10px;
 }
 
 
-.add_form_input_double_1:focus {
+.add_form_input_double_2 {
+    width: 3rem;
+    height: 1.72rem;
+    background: #27272A;
+    border: 1px solid hsl(240 5% 27.6%);
+    border-radius: 3px;
+    color: #cc9a3a;
+    padding-left: 10px;
+}
+
+.add_form_input_free_cash_flow {
+    width: 14rem;
+    height: 8px;
+    border: 1px solid hsl(240 5% 27.6%);
+    border-radius: 3px;
+    padding-block: 0.8rem;
+    background: #27272A;
+    position: relative;
+    color: #cc9a3a;
+    padding-left: 10px;
+}
+
+
+.add_form_input_double_1:focus,
+.add_form_input_double_2:focus,
+.add_form_input_free_cash_flow:focus{
     outline: none;
     border: 1px solid rgba(159, 194, 204, 0.76);
 }
@@ -2153,26 +2208,25 @@ export default {
 .add_form_buttons {
     display: flex;
     justify-content: center;
-    padding-top: 20px;
-    gap: 20px;
+    gap: 10px;
     font-family: IBM Plex Sans, sans-serif;
-
-
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .add_form_button {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 12rem;
-    height: 2.5rem;
+    width: 14rem;
+    height: 2rem;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
     background: rgba(5, 189, 235, 0.082);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: rgba(130, 163, 173, 0.76);
     font-weight: 500;
+    border: 1px solid hsl(240 5% 27.6%);
 }
 
 
@@ -2445,6 +2499,7 @@ export default {
 /** DELETE CONFIRMATION */
 
 .confirmation {
+    margin-top: 200px;
     width: 22rem;
     height: 10rem;
     display: flex;
@@ -2657,6 +2712,14 @@ export default {
         width: 10rem;
     }
 
+    .add_form {
+        width: 50rem;
+    }
+
+    .add_form_button {
+        width: 10rem;
+    }
+
 }
 
 /* For Desktop View */
@@ -2677,6 +2740,13 @@ and (max-width: 1500px) {
         width: 10rem;
     }
 
+    .add_form {
+        width: 50rem;
+    }
+
+    .add_form_button {
+        width: 10rem;
+    }
 
 }
 
@@ -2689,6 +2759,14 @@ and (max-width: 1200px) {
     }
     .sorting {
         display: inline;
+    }
+
+    .add_form {
+        width: 50rem;
+    }
+
+    .add_form_button {
+        width: 10rem;
     }
 
     .add_form {
@@ -2719,6 +2797,14 @@ and (max-width: 1024px) {
         width: 10rem;
     }
 
+    .add_form {
+        width: 47rem;
+    }
+
+    .add_form_button {
+        width: 10rem;
+    }
+
 }
 
 /* For Mobile View */
@@ -2736,6 +2822,9 @@ and (max-width: 768px) {
         width: 10rem;
     }
 
+    .add_form_button {
+        width: 10rem;
+    }
 
 
 }
