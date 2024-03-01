@@ -2209,6 +2209,7 @@ tr:nth-child(even) {
     flex-wrap: wrap;
     width: var(--total-size);
     height: var(--total-size);
+    margin-top: 200px;
 }
 
 .cell {
@@ -2385,6 +2386,10 @@ and (max-width: 1200px) {
     .add_form_button {
         width: 10rem;
     }
+
+    .loader {
+        --cell-size: 15px;
+    }
 }
 
 /* For Tablet View */
@@ -2406,6 +2411,10 @@ and (max-width: 1024px) {
         width: 10rem;
     }
 
+    .loader {
+        --cell-size: 15px;
+    }
+
 }
 
 /* For Mobile View */
@@ -2423,6 +2432,10 @@ and (max-width: 768px) {
         width: 10rem;
     }
 
+    .loader {
+        --cell-size: 10px;
+    }
+
 
 
 }
@@ -2437,6 +2450,10 @@ and (max-width: 480px) {
         display: inline;
     }
 
+    .loader {
+        --cell-size: 10px;
+    }
+
 
 
 }
@@ -2448,6 +2465,10 @@ and (max-width: 480px) {
 
     .sorting {
         display: inline;
+    }
+
+    .loader {
+        --cell-size: 10px;
     }
 
 }
