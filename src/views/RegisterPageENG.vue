@@ -118,7 +118,7 @@ export default {
 
         console.log("Data to be sent:", userData);
 
-        axios.post("https://webapp-backend-production.up.railway.app/auth/register", userData)
+        axios.post("http://localhost:8080/auth/register", userData)
           .then(() => {
             console.log("User registered successfully!");
             this.redirectToLogin();
