@@ -5,19 +5,19 @@
     <div class="profile_bar">
       <ul>
         <li>
-            <img src="src/assets/img/profile.svg" alt="profile" class="menuIcon">
+<!--            <img src="src/assets/img/profile.svg" alt="profile" class="menuIcon">-->
             <div class="width_higher">Profile</div>
           <div class="sub_menu_1">
             <ul>
               <li class="hover_me">
                 <a href="#">
-                    <img src="src/assets/img/setting.svg" alt="setting" class="menuIcon">
+<!--                    <img src="src/assets/img/setting.svg" alt="setting" class="menuIcon">-->
                   Setting
                 </a>
               </li>
               <li>
                 <a href="#" @click="logout">
-                    <img src="src/assets/img/logout.svg" alt="logout" class="menuIcon">
+<!--                    <img src="src/assets/img/logout.svg" alt="logout" class="menuIcon">-->
                   Logout
                 </a>
               </li>
@@ -30,27 +30,27 @@
       <ul>
 
         <li class="active_menu" @click="redirectToMenu">
-            <img src="src/assets/img/menu.svg" alt="menu" class="menuIcon">
+<!--            <img src="src/assets/img/menu.svg" alt="menu" class="menuIcon">-->
             <div class="width_higher">MENU</div>
         </li>
         <li class="active_cv" @click="redirectToCV">
-            <img src="src/assets/img/cv.svg" alt="cv" class="menuIcon">
+<!--            <img src="src/assets/img/cv.svg" alt="cv" class="menuIcon">-->
             <div class="width_higher">CV</div>
         </li>
         <li class="active_stock">
-            <img src="src/assets/img/stock.svg" alt="stock" class="menuIcon">
+<!--            <img src="src/assets/img/stock.svg" alt="stock" class="menuIcon">-->
             <div class="width_higher">STOCK</div>
           <div class="sub_menu_1">
             <ul>
               <li>
                 <a href="#" @click="redirectToWatchlist">
-                    <img src="src/assets/img/watchlist.svg" alt="watchlist" class="menuIcon">
+<!--                    <img src="src/assets/img/watchlist.svg" alt="watchlist" class="menuIcon">-->
                   Watchlist
                 </a>
               </li>
               <li>
                 <a href="#" @click="redirectToPortfolio">
-                    <img src="src/assets/img/portfolio.svg" alt="portfolio" class="menuIcon">
+<!--                    <img src="src/assets/img/portfolio.svg" alt="portfolio" class="menuIcon">-->
                   Portfolio
                 </a>
               </li>

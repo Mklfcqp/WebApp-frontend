@@ -11,7 +11,7 @@
                 <div class="mainbox">
 
                     <div class="header">
-                        <img src="src/assets/img/portfolio-header.svg" alt="sell" class="portfolio_icon">
+<!--                        <img src="src/assets/img/portfolio-header.svg" alt="sell" class="portfolio_icon">-->
                         <span class="text1">PORTFOLIO</span>
                     </div>
 
@@ -267,51 +267,51 @@
                                     <div>Ticker</div>
                                 </th>
                                 <th scope="col" class="Company" @click="sortTableByCompany">
-                                    <img src="src/assets/img/company.svg" alt="buy" class="sorting_icons">
+<!--                                    <img src="src/assets/img/company.svg" alt="buy" class="sorting_icons">-->
                                     <div>Company</div>
                                 </th>
                                 <th scope="col" class="Shares" @click="sortTableBySharesBuy">
-                                    <img src="src/assets/img/shares.svg" alt="buy" class="sorting_icons">
+<!--                                    <img src="src/assets/img/shares.svg" alt="buy" class="sorting_icons">-->
                                     <div>Shares Buy</div>
                                 </th>
                                 <th scope="col" class="Buy" @click="sortTableByBuy">
-                                    <img src="src/assets/img/buy.svg" alt="buy" class="sorting_icons">
+<!--                                    <img src="src/assets/img/buy.svg" alt="buy" class="sorting_icons">-->
                                     <div>Buy</div>
                                 </th>
                                 <th scope="col" class="Sell" @click="sortTableBySell">
-                                    <img src="src/assets/img/sell.svg" alt="buy" class="sorting_icons">
+<!--                                    <img src="src/assets/img/sell.svg" alt="buy" class="sorting_icons">-->
                                     <div>Sell</div>
                                 </th>
                                 <th scope="col" class="Shares" @click="sortTableBySharesSell">
-                                    <img src="src/assets/img/shares.svg" alt="buy" class="sorting_icons">
+<!--                                    <img src="src/assets/img/shares.svg" alt="buy" class="sorting_icons">-->
                                     <div>Shares Sell</div>
                                 </th>
                                 <th scope="col" class="InterestBuySell" @click="sortTableByInterestBuySell">
-                                    <img src="src/assets/img/interest.svg" alt="buy" class="sorting_icons">
+<!--                                    <img src="src/assets/img/interest.svg" alt="buy" class="sorting_icons">-->
                                     <div>Interest</div>
                                 </th>
                                 <th scope="col" class="ProfitLossBuySell" @click="sortTableByProfitLossBuySell">
-                                    <img src="src/assets/img/profit-loss.svg" alt="buy" class="sorting_icons">
+<!--                                    <img src="src/assets/img/profit-loss.svg" alt="buy" class="sorting_icons">-->
                                     <div>Profit/Loss </div>
                                 </th>
 
 
 
                                 <th scope="col" class="Dividend" @click="sortTableByDividend">
-                                    <img src="src/assets/img/dividend.svg" alt="buy" class="sorting_icons">
+<!--                                    <img src="src/assets/img/dividend.svg" alt="buy" class="sorting_icons">-->
                                     <div>Dividend</div>
                                 </th>
                                 <th scope="col" class="InterestDividend" @click="sortTableByInterestDividend">
-                                    <img src="src/assets/img/interest.svg" alt="buy" class="sorting_icons">
+<!--                                    <img src="src/assets/img/interest.svg" alt="buy" class="sorting_icons">-->
                                     <div>Interest</div>
                                 </th>
                                 <th scope="col" class="ProfitLossDividend" @click="sortTableByProfitLossDividend">
-                                    <img src="src/assets/img/profit-loss.svg" alt="buy" class="sorting_icons">
+<!--                                    <img src="src/assets/img/profit-loss.svg" alt="buy" class="sorting_icons">-->
                                     <div>Profit/Loss</div>
                                 </th>
 
                                 <th scope="col" class="ProfitLossSum" @click="sortTableByProfitLossSum">
-                                    <img src="src/assets/img/profit-loss.svg" alt="buy" class="sorting_icons">
+<!--                                    <img src="src/assets/img/profit-loss.svg" alt="buy" class="sorting_icons">-->
                                     <div>Profit/Loss</div>
                                 </th>
 
@@ -359,10 +359,10 @@
 
                                 <td class="desktop_edit_remove">
                                     <button class="mobile_edit_remove_button" @click="loadPortfolioForEdit(box.id)">
-                                        <img src="src/assets/img/edit.svg" alt="sell" class="added_box_icon">
+<!--                                        <img src="src/assets/img/edit.svg" alt="sell" class="added_box_icon">-->
                                     </button>
                                     <button class="mobile_edit_remove_button" @click="deletePortfolioConfirmation(box.id)">
-                                        <img src="src/assets/img/bin.svg" alt="sell" class="added_box_icon">
+<!--                                        <img src="src/assets/img/bin.svg" alt="sell" class="added_box_icon">-->
                                     </button>
                                 </td>
                             </tr>
@@ -407,67 +407,67 @@
                                     <ul>
                                         <li>
                                             <a href="#" @click="sortTableByCompany">
-                                                <img src="src/assets/img/company.svg" alt="buy" class="sorting_mobile_icon">
+<!--                                                <img src="src/assets/img/company.svg" alt="buy" class="sorting_mobile_icon">-->
                                                 Company
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableBySharesBuy">
-                                                <img src="src/assets/img/shares.svg" alt="buy" class="sorting_mobile_icon">
+<!--                                                <img src="src/assets/img/shares.svg" alt="buy" class="sorting_mobile_icon">-->
                                                 Shares Buy
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableByBuy">
-                                                <img src="src/assets/img/buy.svg" alt="buy" class="sorting_mobile_icon">
+<!--                                                <img src="src/assets/img/buy.svg" alt="buy" class="sorting_mobile_icon">-->
                                                 Buy
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableBySell">
-                                                <img src="src/assets/img/sell.svg" alt="buy" class="sorting_mobile_icon">
+<!--                                                <img src="src/assets/img/sell.svg" alt="buy" class="sorting_mobile_icon">-->
                                                 Sell
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableBySharesSell">
-                                                <img src="src/assets/img/shares.svg" alt="buy" class="sorting_mobile_icon">
+<!--                                                <img src="src/assets/img/shares.svg" alt="buy" class="sorting_mobile_icon">-->
                                                 Shares Sell
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableByInterestBuySell">
-                                                <img src="src/assets/img/interest.svg" alt="buy" class="sorting_mobile_icon">
+<!--                                                <img src="src/assets/img/interest.svg" alt="buy" class="sorting_mobile_icon">-->
                                                 Interest - Buy/Sell
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableByProfitLossBuySell">
-                                                <img src="src/assets/img/profit-loss.svg" alt="buy" class="sorting_mobile_icon">
+<!--                                                <img src="src/assets/img/profit-loss.svg" alt="buy" class="sorting_mobile_icon">-->
                                                 Profit/Loss - Buy/Sell
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableByDividend">
-                                                <img src="src/assets/img/dividend.svg" alt="buy" class="sorting_mobile_icon">
+<!--                                                <img src="src/assets/img/dividend.svg" alt="buy" class="sorting_mobile_icon">-->
                                                 Dividend
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableByInterestDividend">
-                                                <img src="src/assets/img/interest.svg" alt="buy" class="sorting_mobile_icon">
+<!--                                                <img src="src/assets/img/interest.svg" alt="buy" class="sorting_mobile_icon">-->
                                                 Interest - Dividend
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableByProfitLossDividend">
-                                                <img src="src/assets/img/profit-loss.svg" alt="buy" class="sorting_mobile_icon">
+<!--                                                <img src="src/assets/img/profit-loss.svg" alt="buy" class="sorting_mobile_icon">-->
                                                 Profit/Loss - Dividend
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableByProfitLossSum">
-                                                <img src="src/assets/img/profit-loss.svg" alt="buy" class="sorting_mobile_icon">
+<!--                                                <img src="src/assets/img/profit-loss.svg" alt="buy" class="sorting_mobile_icon">-->
                                                 Profit/Loss - SUM
                                             </a>
                                         </li>
@@ -491,7 +491,7 @@
 
                             <td class="mobile_buy_sum_box">
                                 <div class="name">
-                                    <img src="src/assets/img/buy.svg" alt="buy" class="added_box_icon">
+<!--                                    <img src="src/assets/img/buy.svg" alt="buy" class="added_box_icon">-->
                                     <div>Buy</div>
                                 </div>
                                 <div class="value">
@@ -501,7 +501,7 @@
 
                             <td class="mobile_sell_sum_box">
                                 <div class="name">
-                                    <img src="src/assets/img/sell.svg" alt="sell" class="added_box_icon">
+<!--                                    <img src="src/assets/img/sell.svg" alt="sell" class="added_box_icon">-->
                                     <div>Sell</div>
                                 </div>
                                 <div class="value">
@@ -511,7 +511,7 @@
 
                             <td class="mobile_interestBuySell_sum_box">
                                 <div class="name">
-                                    <img src="src/assets/img/interest.svg" alt="sell" class="added_box_icon">
+<!--                                    <img src="src/assets/img/interest.svg" alt="sell" class="added_box_icon">-->
                                     <div>Interest - Buy/Sell</div>
                                 </div>
                                 <div class="value">
@@ -521,7 +521,7 @@
 
                             <td class="mobile_profitLossBuySell_sum_box">
                                 <div class="name">
-                                    <img src="src/assets/img/profit-loss.svg" alt="sell" class="added_box_icon">
+<!--                                    <img src="src/assets/img/profit-loss.svg" alt="sell" class="added_box_icon">-->
                                     <div>Profit/Loss - Buy/Sell</div>
                                 </div>
                                 <div class="value">
@@ -531,7 +531,7 @@
 
                             <td class="mobile_dividend_sum_box">
                                 <div class="name">
-                                    <img src="src/assets/img/dividend.svg" alt="sell" class="added_box_icon">
+<!--                                    <img src="src/assets/img/dividend.svg" alt="sell" class="added_box_icon">-->
                                     <div>Dividend</div>
                                 </div>
                                 <div class="value">
@@ -541,7 +541,7 @@
 
                             <td class="mobile_interestDividend_sum_box">
                                 <div class="name">
-                                    <img src="src/assets/img/interest.svg" alt="sell" class="added_box_icon">
+<!--                                    <img src="src/assets/img/interest.svg" alt="sell" class="added_box_icon">-->
                                     <div>Interest - Dividend</div>
                                 </div>
                                 <div class="value">
@@ -551,7 +551,7 @@
 
                             <td class="mobile_profitLossDividend_sum_box">
                                 <div class="name">
-                                    <img src="src/assets/img/profit-loss.svg" alt="sell" class="added_box_icon">
+<!--                                    <img src="src/assets/img/profit-loss.svg" alt="sell" class="added_box_icon">-->
                                     <div>Profit/Loss - Dividend</div>
                                 </div>
                                 <div class="value">
@@ -565,7 +565,7 @@
                                     'mobile_sumProfitLoss_sum_box_normal': sumBox.sumProfitLoss === 0
                                 }">
                                 <div class="name">
-                                    <img src="src/assets/img/profit-loss.svg" alt="sell" class="added_box_icon">
+<!--                                    <img src="src/assets/img/profit-loss.svg" alt="sell" class="added_box_icon">-->
                                     <div>Profit/Loss - SUM</div>
                                 </div>
                                 <div class="value">
@@ -587,17 +587,17 @@
                                 </div>
                                 <div class="mobile_edit_remove">
                                     <button class="mobile_edit_remove_button" @click="loadPortfolioForEdit(box.id)">
-                                        <img src="src/assets/img/edit.svg" alt="sell" class="added_box_icon">
+<!--                                        <img src="src/assets/img/edit.svg" alt="sell" class="added_box_icon">-->
                                     </button>
                                     <button class="mobile_edit_remove_button" @click="deletePortfolioConfirmation(box.id)">
-                                        <img src="src/assets/img/bin.svg" alt="sell" class="added_box_icon">
+<!--                                        <img src="src/assets/img/bin.svg" alt="sell" class="added_box_icon">-->
                                     </button>
                                 </div>
                             </td>
 
                             <td class="mobile_shares_box">
                                 <div class="name">
-                                    <img src="src/assets/img/shares.svg" alt="sell" class="added_box_icon">
+<!--                                    <img src="src/assets/img/shares.svg" alt="sell" class="added_box_icon">-->
                                     <div>Shares Buy</div>
                                 </div>
                                 <div class="value">
@@ -607,7 +607,7 @@
 
                             <td class="mobile_buy_box">
                                 <div class="name">
-                                    <img src="src/assets/img/buy.svg" alt="sell" class="added_box_icon">
+<!--                                    <img src="src/assets/img/buy.svg" alt="sell" class="added_box_icon">-->
                                     <div>Buy</div>
                                 </div>
                                 <div class="value">
@@ -617,7 +617,7 @@
 
                             <td class="mobile_sell_box">
                                 <div class="name">
-                                    <img src="src/assets/img/sell.svg" alt="sell" class="added_box_icon">
+<!--                                    <img src="src/assets/img/sell.svg" alt="sell" class="added_box_icon">-->
                                     <div>Sell</div>
                                 </div>
                                 <div class="value">
@@ -627,7 +627,7 @@
 
                             <td class="mobile_shares_box">
                                 <div class="name">
-                                    <img src="src/assets/img/shares.svg" alt="sell" class="added_box_icon">
+<!--                                    <img src="src/assets/img/shares.svg" alt="sell" class="added_box_icon">-->
                                     <div>Shares Sell</div>
                                 </div>
                                 <div class="value">
@@ -637,7 +637,7 @@
 
                             <td class="mobile_interestBuySell_box">
                                 <div class="name">
-                                    <img src="src/assets/img/interest.svg" alt="sell" class="added_box_icon">
+<!--                                    <img src="src/assets/img/interest.svg" alt="sell" class="added_box_icon">-->
                                     <div>Interest - Buy/Sell</div>
                                 </div>
                                 <div class="value">
@@ -651,7 +651,7 @@
                                     'mobile_profitLossBuySell_box_normal': box.profitLossBuySell === 0
                                 }">
                                 <div class="name">
-                                    <img src="src/assets/img/profit-loss.svg" alt="sell" class="added_box_icon">
+<!--                                    <img src="src/assets/img/profit-loss.svg" alt="sell" class="added_box_icon">-->
                                     <div>Profit/Loss - Buy/Sell</div>
                                 </div>
                                 <div class="value">
@@ -661,7 +661,7 @@
 
                             <td class="mobile_dividend_box">
                                 <div class="name">
-                                    <img src="src/assets/img/dividend.svg" alt="sell" class="added_box_icon">
+<!--                                    <img src="src/assets/img/dividend.svg" alt="sell" class="added_box_icon">-->
                                     <div>Dividend</div>
                                 </div>
                                 <div class="value">
@@ -671,7 +671,7 @@
 
                             <td class="mobile_interestDividend_box">
                                 <div class="name">
-                                    <img src="src/assets/img/interest.svg" alt="sell" class="added_box_icon">
+<!--                                    <img src="src/assets/img/interest.svg" alt="sell" class="added_box_icon">-->
                                     <div>Interest - Dividend</div>
                                 </div>
                                 <div class="value">
@@ -685,7 +685,7 @@
                                     'mobile_profitLossDividend_box_normal': box.profitLossDividend === 0
                                 }">
                                 <div class="name">
-                                    <img src="src/assets/img/profit-loss.svg" alt="sell" class="added_box_icon">
+<!--                                    <img src="src/assets/img/profit-loss.svg" alt="sell" class="added_box_icon">-->
                                     <div>Profit/Loss - Dividend</div>
                                 </div>
                                 <div class="value">
@@ -699,7 +699,7 @@
                                     'mobile_sumProfitLoss_box_normal': box.sumProfitLoss === 0
                                 }">
                                 <div class="name">
-                                    <img src="src/assets/img/profit-loss.svg" alt="sell" class="added_box_icon">
+<!--                                    <img src="src/assets/img/profit-loss.svg" alt="sell" class="added_box_icon">-->
                                     <div>Profit/Loss - SUM</div>
                                 </div>
                                 <div class="value">
@@ -734,7 +734,7 @@
                         <button @click="showAddForm = true" v-if="!showAddForm" class="bot_box">
 
                             <div class="bot_box_icon">
-                                <img src="src/assets/img/plus.svg" alt="sell" class="bot_icon">
+<!--                                <img src="src/assets/img/plus.svg" alt="sell" class="bot_icon">-->
                             </div>
 
                             <div class="bot_box_button">Add Stock to Portfolio</div>
