@@ -332,10 +332,6 @@ export default {
     transition: .5s;
 }
 
-.width_lower {
-    display: none;
-}
-
 .width_higher {
     display: inline;
 }
@@ -353,11 +349,6 @@ export default {
 
 @media only screen and (max-width: 720px) {
 
-    .width_lower {
-        display: inline;
-        color: #cfcfcf;
-    }
-
     .width_higher,
     .toggle-btn,
     #btn {
@@ -367,14 +358,7 @@ export default {
     .navigation {
         height: 2rem;
         border: 1px solid black;
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 100;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
+        justify-content: space-between;
     }
 
     .navigation_backgroud {
@@ -395,36 +379,13 @@ export default {
         background: none;
     }
 
-    .menuIcon {
-        color: #cfcfcf;
-    }
-
-
-    .menu_bar ul,
-    .profile_bar ul {
-        display: inline-flex;
-        list-style: none;
-        color: #cfcfcf;
-
-    }
 
     .menu_bar ul li,
     .profile_bar ul li {
         width: 3rem;
         height: 2rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 
-    .menu_bar ul li a,
-    .profile_bar ul li a {
-        text-decoration: none;
-        color: #cfcfcf;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-    }
 
     .active:hover,
     .active_menu a:hover,
@@ -438,33 +399,21 @@ export default {
         height: 2rem;
         width: 3rem;
         color: #9e8a53;
-        background: rgba(255, 255, 255, 0.1);
     }
 
-    .sub_menu_1 {
-        display: none;
-    }
 
     .menu_bar ul li:hover .sub_menu_1,
     .profile_bar ul li:hover .sub_menu_1 {
-        display: block;
-        position: absolute;
-        background: #2a272749;
         margin-top: 95px;
         margin-left: 64px;
         font-size: 0.8rem;
     }
 
-    .menu_bar ul li:hover .sub_menu_1 ul,
-    .profile_bar ul li:hover .sub_menu_1 ul {
-        display: block;
-    }
 
     .menu_bar ul li:hover .sub_menu_1 ul li,
     .profile_bar ul li:hover .sub_menu_1 ul li {
         height: 2rem;
         width: 7rem;
-        background: rgba(255, 255, 255, 0.1);
     }
 
 
@@ -473,17 +422,9 @@ export default {
         color: #9e8a53;
     }
 
-    /*.language_box {*/
-    /*    position: absolute;*/
-    /*    right: 5px;*/
-    /*    display: flex;*/
-    /*}*/
 
-    /*.language_button {*/
-    /*    display: flex;*/
-    /*    align-items: center;*/
-    /*    justify-content: flex-end;*/
-    /*}*/
+
+
 }
 
 </style>
