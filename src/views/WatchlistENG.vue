@@ -13,7 +13,6 @@
 
                     <div class="header">
                         <img src="../assets/img/watchlist-header.svg" alt="sell" class="watchlist_icon">
-<!--                        <img src="src/assets/img/dollar-bill.png" alt="sell" class="watchlist_icon">-->
                         <span class="text1">WATCHLIST</span>
                     </div>
 
@@ -425,43 +424,43 @@
                                     <ul>
                                         <li>
                                             <a href="#" @click="sortTableByCompany">
-<!--                                                <img src="src/assets/img/company.svg" alt="company" class="sorting_mobile_icon">-->
+                                                <img src="../assets/img/company.svg" alt="company" class="sorting_mobile_icon">
                                                 Company
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableByCurrentPrice">
-<!--                                                <img src="src/assets/img/price.svg" alt="price" class="sorting_mobile_icon">-->
+                                                <img src="../assets/img/price.svg" alt="price" class="sorting_mobile_icon">
                                                 Current price
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableByDCF">
-<!--                                                <img src="src/assets/img/price.svg" alt="dcf" class="sorting_mobile_icon">-->
+                                                <img src="../assets/img/price.svg" alt="dcf" class="sorting_mobile_icon">
                                                 DCF
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableByDividendYield">
-<!--                                                <img src="src/assets/img/dividend-yield.svg" alt="dividend-yield" class="sorting_mobile_icon">-->
+                                                <img src="../assets/img/dividend-yield.svg" alt="dividend-yield" class="sorting_mobile_icon">
                                                 Dividend yield
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableByDividendQ">
-<!--                                                <img src="src/assets/img/dividend.svg" alt="dividend" class="sorting_mobile_icon">-->
+                                                <img src="../assets/img/dividend.svg" alt="dividend" class="sorting_mobile_icon">
                                                 Dividend quarter
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableByDividendY">
-<!--                                                <img src="src/assets/img/dividend.svg" alt="dividend" class="sorting_mobile_icon">-->
+                                                <img src="../assets/img/dividend.svg" alt="dividend" class="sorting_mobile_icon">
                                                 Dividend year
                                             </a>
                                         </li>
                                         <li>
                                             <a href="#" @click="sortTableByDisparity">
-<!--                                                <img src="src/assets/img/disparity.svg" alt="disparity" class="sorting_mobile_icon">-->
+                                                <img src="../assets/img/disparity.svg" alt="disparity" class="sorting_mobile_icon">
                                                 Disparity
                                             </a>
                                         </li>
@@ -480,31 +479,31 @@
                                 <div>Ticker</div>
                             </th>
                             <th scope="col" class="Company" @click="sortTableByCompany">
-<!--                                <img src="src/assets/img/company.svg" alt="company" class="sorting_icons">-->
+                                <img src="../assets/img/company.svg" alt="company" class="sorting_icons">
                                 <div>Company</div>
                             </th>
                             <th scope="col" class="Current_Price" @click="sortTableByCurrentPrice">
-<!--                                <img src="src/assets/img/price.svg" alt="price" class="sorting_icons">-->
+                                <img src="../assets/img/price.svg" alt="price" class="sorting_icons">
                                 <div>Current Price</div>
                             </th>
                             <th scope="col" class="DCF" @click="sortTableByDCF">
-<!--                                <img src="src/assets/img/price.svg" alt="dcf" class="sorting_icons">-->
+                                <img src="../assets/img/price.svg" alt="dcf" class="sorting_icons">
                                 <div>DCF</div>
                             </th>
                             <th scope="col" class="Dividend_Yield" @click="sortTableByDividendYield">
-<!--                                <img src="src/assets/img/dividend-yield.svg" alt="dividend-yield" class="sorting_icons">-->
+                                <img src="../assets/img/dividend-yield.svg" alt="dividend-yield" class="sorting_icons">
                                 <div>Dividend Yield</div>
                             </th>
                             <th scope="col" class="Dividend_Q" @click="sortTableByDividendQ">
-<!--                                <img src="src/assets/img/dividend.svg" alt="dividend" class="sorting_icons">-->
+                                <img src="../assets/img/dividend.svg" alt="dividend" class="sorting_icons">
                                 <div>Dividend(Q)</div>
                             </th>
                             <th scope="col" class="Dividend_Y" @click="sortTableByDividendY">
-<!--                                <img src="src/assets/img/dividend.svg" alt="dividend" class="sorting_icons">-->
+                                <img src="../assets/img/dividend.svg" alt="dividend" class="sorting_icons">
                                 <div>Dividend(Y)</div>
                             </th>
                             <th scope="col" class="Disparity" @click="sortTableByDisparity">
-<!--                                <img src="src/assets/img/disparity.svg" alt="disparity" class="sorting_icons">-->
+                                <img src="../assets/img/disparity.svg" alt="disparity" class="sorting_icons">
                                 <div>Disparity</div>
                             </th>
 
@@ -544,10 +543,10 @@
                             </td>
                             <td class="desktop_edit_remove">
                                 <button class="desktop_edit_remove_button" @click="loadWatchlistForEdit(box.id)">
-<!--                                    <img src="src/assets/img/edit.svg" alt="edit" class="added_box_icon">-->
+                                    <img src="../assets/img/edit.svg" alt="edit" class="added_box_icon">
                                 </button>
                                 <button class="desktop_edit_remove_button" @click="deleteWatchlistConfirmation(box.id)">
-<!--                                    <img src="src/assets/img/bin.svg" alt="remove" class="added_box_icon">-->
+                                    <img src="../assets/img/bin.svg" alt="remove" class="added_box_icon">
                                 </button>
                             </td>
 
@@ -580,10 +579,10 @@
                                 </div>
                                 <div class="mobile_edit_remove">
                                     <button class="mobile_edit_remove_button" @click="loadWatchlistForEdit(box.id)">
-<!--                                        <img src="src/assets/img/edit.svg" alt="edit" class="added_box_icon">-->
+                                        <img src="../assets/img/edit.svg" alt="edit" class="added_box_icon">
                                     </button>
                                     <button class="mobile_edit_remove_button" @click="deleteWatchlistConfirmation(box.id)">
-<!--                                        <img src="src/assets/img/bin.svg" alt="remove" class="added_box_icon">-->
+                                        <img src="../assets/img/bin.svg" alt="remove" class="added_box_icon">
                                     </button>
                                 </div>
                             </td>
@@ -591,7 +590,7 @@
                             <td class="values_box">
                                 <div class="price_box">
                                     <div class="name">
-<!--                                        <img src="src/assets/img/price.svg" alt="price" class="sorting_mobile_icon">-->
+                                        <img src="../assets/img/price.svg" alt="price" class="sorting_mobile_icon">
                                         <div>Current Price</div>
                                     </div>
                                     <div class="value">
@@ -601,7 +600,7 @@
                                 </div>
                             <td class="dcf_box">
                                 <div class="name">
-<!--                                    <img src="src/assets/img/price.svg" alt="dcf" class="sorting_mobile_icon">-->
+                                    <img src="../assets/img/price.svg" alt="dcf" class="sorting_mobile_icon">
                                     <div>DCF</div>
                                 </div>
                                 <div class="value">
@@ -611,7 +610,7 @@
                             </td>
                             <td class="dividend_yield_box">
                                 <div class="name">
-<!--                                    <img src="src/assets/img/dividend-yield.svg" alt="dividend-yield" class="sorting_mobile_icon">-->
+                                    <img src="../assets/img/dividend-yield.svg" alt="dividend-yield" class="sorting_mobile_icon">
                                     <div>Dividend Yield</div>
                                 </div>
                                 <div class="value">
@@ -621,7 +620,7 @@
                             </td>
                             <td class="dividend_q_box">
                                 <div class="name">
-<!--                                    <img src="src/assets/img/dividend.svg" alt="dividend" class="sorting_mobile_icon">-->
+                                    <img src="../assets/img/dividend.svg" alt="dividend" class="sorting_mobile_icon">
                                     <div>Dividend(Q)</div>
                                 </div>
                                 <div class="value">
@@ -631,7 +630,7 @@
                             </td>
                             <td class="dividend_y_box">
                                 <div class="name">
-<!--                                    <img src="src/assets/img/dividend.svg" alt="dividend" class="sorting_mobile_icon">-->
+                                    <img src="../assets/img/dividend.svg" alt="dividend" class="sorting_mobile_icon">
                                     <div>Dividend(Y)</div>
                                 </div>
                                 <div class="value">
@@ -686,7 +685,7 @@
                         <button @click="showAddForm = true" v-if="!showAddForm" class="bot_box">
 
                             <div class="bot_box_icon">
-<!--                                <img src="src/assets/img/plus.svg" alt="plus" class="bot_icon">-->
+                                <img src="../assets/img/plus.svg" alt="plus" class="bot_icon">
                             </div>
 
                             <div class="bot_box_button">Add Stock to Watchlist</div>
