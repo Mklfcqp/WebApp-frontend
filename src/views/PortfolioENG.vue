@@ -2587,6 +2587,7 @@ export default {
     flex-wrap: wrap;
     width: var(--total-size);
     height: var(--total-size);
+    margin-top: 200px;
 }
 
 .cell {
