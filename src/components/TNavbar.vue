@@ -9,11 +9,11 @@
                     <div class="width_higher">Profile</div>
                     <div class="sub_menu_1">
                         <ul>
-                            <li class="active">
+                            <li class="active_submenu">
                                 <img src="../assets/img/setting.svg" alt="setting" class="menuIcon">
                                 <div class="width_higher">Setting</div>
                             </li>
-                            <li class="active" @click="logout">
+                            <li class="active_submenu" @click="logout">
                                 <img src="../assets/img/logout.svg" alt="logout" class="menuIcon">
                                 <div class="width_higher">Logout</div>
                             </li>
@@ -38,13 +38,13 @@
                     <div class="width_higher">STOCK</div>
                     <div class="sub_menu_1">
                         <ul>
-                            <li>
+                            <li class="active_submenu">
                                 <a href="#" @click="redirectToWatchlist">
                                     <img src="../assets/img/watchlist.svg" alt="watchlist" class="menuIcon">
                                     <div class="width_higher">Watchlist</div>
                                 </a>
                             </li>
-                            <li>
+                            <li class="active_submenu">
                                 <a href="#" @click="redirectToPortfolio">
                                     <img src="../assets/img/portfolio.svg" alt="portfolio" class="menuIcon">
                                     <div class="width_higher">Portfolio</div>
@@ -63,12 +63,12 @@
                     <img src="../assets/img/language.svg" alt="language" class="menuIcon">
                     <div class="sub_menu_1">
                         <ul>
-                            <li>
+                            <li class="active_submenu">
                                 <a href="#" @click="">
                                     <img src="../assets/img/cz.svg" alt="cz" class="menuIcon">
                                 </a>
                             </li>
-                            <li>
+                            <li class="active_submenu">
                                 <a href="#" @click="">
                                     <img src="../assets/img/uk.svg" alt="uk" class="menuIcon">
                                 </a>
@@ -225,20 +225,16 @@ export default {
 .active_menu:hover,
 .active_cv:hover,
 .active_stock:hover {
-    color: #dba613;
     cursor: pointer;
-    background: #00ff37;
-    border: 1px solid yellow;
-}
-
-.menu_bar ul li:hover,
-.profile_bar ul li:hover,
-.language_box ul li:hover {
     height: 3rem;
     width: 10rem;
-    color: #dba613;
     background: rgba(255, 255, 255, 0.1);
-    cursor: pointer;
+}
+
+
+.active_submenu:hover {
+    border: 1px solid hsl(51, 5%, 28%);
+    background: #9e8a53;
 }
 
 .sub_menu_1 {
