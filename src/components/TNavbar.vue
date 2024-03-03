@@ -144,6 +144,8 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background: #2d2d2d;
+    border-bottom: 1px solid rgba(177, 177, 177, 0.4);
 }
 
 .navigation_backgroud {
@@ -152,9 +154,7 @@ export default {
     left: 0;
     height: 3rem;
     width: 100%;
-    background: rgba(255, 255, 255, 0.22) 0%;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
-    /*border-bottom: 1px solid rgba(177, 177, 177, 0.4);*/
+    background: #2d2d2d;
 }
 
 .profile_bar {
@@ -290,7 +290,6 @@ export default {
 
     .navigation {
         height: 2rem;
-        border: 1px solid black;
         justify-content: space-around;
     }
 
