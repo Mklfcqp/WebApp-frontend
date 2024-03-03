@@ -208,7 +208,7 @@ export default {
 and (max-width: 1600px) {
     .content {
         margin-top: 100px;
-        height: 40rem;
+        height: 35rem;
         width: 70rem;
         padding-left: 60px;
         padding-right: 60px;
