@@ -1,151 +1,125 @@
 <template>
-  <div class="navigation_backgroud"></div>
-  <div class="navigation">
+    <div class="navigation_backgroud"></div>
+    <div class="navigation">
 
-    <div class="profile_bar">
-      <ul>
-        <li>
-            <img src="../assets/img/profile.svg" alt="profile" class="menuIcon">
-            <div class="width_higher">Profile</div>
-          <div class="sub_menu_1">
+        <div class="profile_bar">
             <ul>
-              <li class="hover_me">
-                <a href="#">
-                    <img src="../assets/img/setting.svg" alt="setting" class="menuIcon">
-                  Setting
-                </a>
-              </li>
-              <li>
-                <a href="#" @click="logout">
-                    <img src="../assets/img/logout.svg" alt="logout" class="menuIcon">
-                  Logout
-                </a>
-              </li>
+                <li class="active">
+                    <img src="../assets/img/profile.svg" alt="profile" class="menuIcon">
+                    <div class="width_higher">Profile</div>
+                    <div class="sub_menu_1">
+                        <ul>
+                            <li class="active_submenu">
+                                <img src="../assets/img/setting.svg" alt="setting" class="menuIcon">
+                                <div class="width_higher">Setting</div>
+                            </li>
+                            <li class="active_submenu" @click="logout">
+                                <img src="../assets/img/logout.svg" alt="logout" class="menuIcon">
+                                <div class="width_higher">Logout</div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="menu_bar">
-      <ul>
+        </div>
+        <div class="menu_bar">
+            <ul>
 
-        <li class="active_menu" @click="redirectToMenu">
-            <img src="../assets/img/menu.svg" alt="menu" class="menuIcon">
-            <div class="width_higher">MENU</div>
-        </li>
-        <li class="active_cv" @click="redirectToCV">
-            <img src="../assets/img/cv.svg" alt="cv" class="menuIcon">
-            <div class="width_higher">CV</div>
-        </li>
-        <li class="active_stock">
-            <img src="../assets/img/stock.svg" alt="stock" class="menuIcon">
-            <div class="width_higher">STOCK</div>
-          <div class="sub_menu_1">
-            <ul>
-              <li>
-                <a href="#" @click="redirectToWatchlist">
-                    <img src="../assets/img/watchlist.svg" alt="watchlist" class="menuIcon">
-                  Watchlist
-                </a>
-              </li>
-              <li>
-                <a href="#" @click="redirectToPortfolio">
-                    <img src="../assets/img/portfolio.svg" alt="portfolio" class="menuIcon">
-                  Portfolio
-                </a>
-              </li>
+                <li class="active_menu" @click="redirectToMenu">
+                    <img src="../assets/img/menu.svg" alt="menu" class="menuIcon">
+                    <div class="width_higher">MENU</div>
+                </li>
+                <li class="active_cv" @click="redirectToCV">
+                    <img src="../assets/img/cv.svg" alt="cv" class="menuIcon">
+                    <div class="width_higher">CV</div>
+                </li>
+                <li class="active_stock">
+                    <img src="../assets/img/stock.svg" alt="stock" class="menuIcon">
+                    <div class="width_higher">STOCK</div>
+                    <div class="sub_menu_1">
+                        <ul>
+                            <li class="active_submenu">
+                                <a href="#" @click="redirectToWatchlist">
+                                    <img src="../assets/img/watchlist.svg" alt="watchlist" class="menuIcon">
+                                    <div class="width_higher">Watchlist</div>
+                                </a>
+                            </li>
+                            <li class="active_submenu">
+                                <a href="#" @click="redirectToPortfolio">
+                                    <img src="../assets/img/portfolio.svg" alt="portfolio" class="menuIcon">
+                                    <div class="width_higher">Portfolio</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
-          </div>
-        </li>
-      </ul>
+        </div>
+
+
+        <div class="language_box">
+            <ul>
+                <li class="active_stock">
+                    <img src="../assets/img/language.svg" alt="language" class="menuIcon">
+                    <div class="sub_menu_1">
+                        <ul>
+                            <li class="active_submenu">
+                                <a href="#" @click="">
+                                    <img src="../assets/img/cz.svg" alt="cz" class="menuIcon">
+                                </a>
+                            </li>
+                            <li class="active_submenu">
+                                <a href="#" @click="">
+                                    <img src="../assets/img/uk.svg" alt="uk" class="menuIcon">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="language_box">
-    <div class="language_button">
-<!--      <div id="btn"></div>-->
-<!--        <Icon icon="material-symbols:language" class="width_lower"/>-->
-<!--      <div type="button" class="toggle-btn" @click="leftClick">ENG</div>-->
-<!--      <div type="button" class="toggle-btn" @click="rightClick">CZ</div>-->
-    </div>
-  </div>
-  </div>
 </template>
 
 <script>
-import { Icon } from '@iconify/vue';
+import {Icon} from '@iconify/vue';
 
 export default {
-  components: { Icon },
+    components: {Icon},
 
-  data() {
-    return {
-      isMenuVisible: false,
-      isSubMenuVisible: false,
-      isStockMenuVisible: false,
-    };
-  },
-
-
-
-  methods: {
-    toggleMenu() {
-      this.isMenuVisible = !this.isMenuVisible;
-
-    },
-
-    toggleSubMenu() {
-      this.isSubMenuVisible = !this.isSubMenuVisible;
-    },
-
-    toggleStockMenu() {
-      this.isStockMenuVisible = !this.isStockMenuVisible;
+    data() {
+        return {};
     },
 
 
+    methods: {
+
+        redirectToPortfolio() {
+            this.$router.push("/portfolioENG");
+        },
+
+        redirectToWatchlist() {
+            this.$router.push("/watchlistENG");
+        },
+
+        redirectToCV() {
+            this.$router.push("/cvENG");
+        },
+
+        redirectToMenu() {
+            this.$router.push("/menuENG");
+        },
+
+        logout() {
+            localStorage.clear();
+            this.$router.push("/loginENG");
+        },
 
 
-    leftClick() {
-      var btn = document.getElementById('btn');
-      btn.style.left = '0'
-    },
-
-    rightClick() {
-      var btn = document.getElementById('btn');
-      btn.style.left = '62px'
-    },
-
-
-
-
-
-    redirectToPortfolio() {
-      this.$router.push("/portfolioENG");
-    },
-
-    redirectToWatchlist() {
-      this.$router.push("/watchlistENG");
-    },
-
-    redirectToCV() {
-      this.$router.push("/cvENG");
-    },
-
-    redirectToMenu() {
-      this.$router.push("/menuENG");
-    },
-
-    logout() {
-      localStorage.clear();
-      this.$router.push("/loginENG");
-    },
-
-
-  }
+    }
 
 };
 </script>
-
-
-
 
 
 <style scoped>
@@ -170,6 +144,8 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background: #2d2d2d;
+    border-bottom: 1px solid rgba(177, 177, 177, 0.4);
 }
 
 .navigation_backgroud {
@@ -178,9 +154,7 @@ export default {
     left: 0;
     height: 3rem;
     width: 100%;
-    background: rgba(255, 255, 255, 0.22) 0%;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
-    /*border-bottom: 1px solid rgba(177, 177, 177, 0.4);*/
+    background: #2d2d2d;
 }
 
 .profile_bar {
@@ -196,6 +170,14 @@ export default {
     background: none;
 }
 
+.language_box {
+    display: flex;
+    align-items: center;
+    margin-right: 1.5rem;
+    width: 10rem;
+    height: 3rem;
+}
+
 .menuIcon {
     width: 25px;
     height: 25px;
@@ -203,14 +185,16 @@ export default {
 
 
 .menu_bar ul,
-.profile_bar ul {
+.profile_bar ul,
+.language_box ul {
     display: inline-flex;
     list-style: none;
     color: #cfcfcf;
 }
 
 .menu_bar ul li,
-.profile_bar ul li {
+.profile_bar ul li,
+.language_box ul li {
     width: 10rem;
     height: 3rem;
     display: flex;
@@ -228,7 +212,8 @@ export default {
 }
 
 .menu_bar ul li a,
-.profile_bar ul li a {
+.profile_bar ul li a,
+.language_box ul li a {
     text-decoration: none;
     color: #cfcfcf;
     display: flex;
@@ -237,20 +222,19 @@ export default {
 }
 
 .active:hover,
-.active_menu a:hover,
-.active_cv a:hover,
-.active_stock a:hover {
-    color: #dba613;
+.active_menu:hover,
+.active_cv:hover,
+.active_stock:hover {
     cursor: pointer;
-}
-
-.menu_bar ul li:hover,
-.profile_bar ul li:hover {
     height: 3rem;
     width: 10rem;
-    color: #dba613;
     background: rgba(255, 255, 255, 0.1);
-    cursor: pointer;
+}
+
+
+.active_submenu:hover {
+    border: 1px solid hsl(51, 5%, 28%);
+    background: #9e8a53;
 }
 
 .sub_menu_1 {
@@ -258,7 +242,8 @@ export default {
 }
 
 .menu_bar ul li:hover .sub_menu_1,
-.profile_bar ul li:hover .sub_menu_1 {
+.profile_bar ul li:hover .sub_menu_1,
+.language_box ul li:hover .sub_menu_1 {
     display: block;
     position: absolute;
     background: #2a272749;
@@ -268,99 +253,46 @@ export default {
 }
 
 .menu_bar ul li:hover .sub_menu_1 ul,
-.profile_bar ul li:hover .sub_menu_1 ul {
+.profile_bar ul li:hover .sub_menu_1 ul,
+.language_box ul li:hover .sub_menu_1 ul {
     display: block;
 }
 
 .menu_bar ul li:hover .sub_menu_1 ul li,
-.profile_bar ul li:hover .sub_menu_1 ul li {
+.profile_bar ul li:hover .sub_menu_1 ul li,
+.language_box ul li:hover .sub_menu_1 ul li {
     height: 2rem;
     width: 10rem;
     background: rgba(255, 255, 255, 0.1);
 }
 
 
-
 .menu_bar ul li:hover .sub_menu_1 ul li a:hover,
-.profile_bar ul li:hover .sub_menu_1 ul li a:hover {
+.profile_bar ul li:hover .sub_menu_1 ul li a:hover,
+.language_box ul li:hover .sub_menu_1 ul li a:hover {
     color: #dba613;
     cursor: pointer;
 }
 
-
-
-
-/** LANGUAGE BUTTONS */
-.language_box {
-    display: flex;
-    align-items: center;
-    margin-right: 1.5rem;
-    width: 8rem;
-    height: 1.5rem;
-    /*border: 1px solid hsl(240 5% 27.6%);*/
-    border-radius: 5px;
-}
-
-.language_button {
-    height: 1.5rem;
-    width: 8rem;
-    display: flex;
-    position: relative;
-}
-
-.toggle-btn {
-    padding: 5px 10px;
-    cursor: pointer;
-    background: transparent;
-    outline: none;
-    position: relative;
-    text-align: center;
-    color: #cfcfcf;
-    width: 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#btn {
-    left: 0;
-    top: 0;
-    position: absolute;
-    width: 4rem;
-    height: 100%;
-    background: rgba(204, 154, 58, 0.77);
-    border-radius: 5px;
-    transition: .5s;
-}
 
 .width_higher {
     display: inline;
 }
 
 
-
-
-
-
-
-
-
-
 /* Media Queries */
 
 @media only screen and (max-width: 720px) {
 
-    .width_higher,
-    .toggle-btn,
-    #btn {
+    .width_higher {
         display: none;
     }
 
     .navigation {
         height: 2rem;
-        border: 1px solid black;
-        justify-content: space-between;
+        justify-content: space-around;
     }
+
 
     .navigation_backgroud {
         height: 2rem;
@@ -369,61 +301,73 @@ export default {
 
     .profile_bar {
         height: 2rem;
-        width: 3rem;
+        width: 50px;
         background: none;
-        margin-left: 1.5rem;
+        margin-left: -10px;
     }
 
     .menu_bar {
-        width: 3rem;
+        width: 150px;
         height: 2rem;
         background: none;
+    }
+
+    .language_box {
+        display: flex;
+        margin-right: -10px;
+        width: 50px;
+        height: 2rem;
     }
 
 
     .menu_bar ul li,
-    .profile_bar ul li {
-        width: 3rem;
+    .profile_bar ul li,
+    .language_box ul li {
+        width: 50px;
         height: 2rem;
     }
 
 
-    .active:hover,
-    .active_menu a:hover,
-    .active_cv a:hover,
-    .active_stock a:hover {
+    .active a:hover,
+    .active_menu div:hover,
+    .active_cv div:hover,
+    .active_stock div:hover {
         color: #9e8a53;
     }
 
     .menu_bar ul li:hover,
-    .profile_bar ul li:hover {
+    .profile_bar ul li:hover,
+    .language_box ul li:hover {
         height: 2rem;
-        width: 3rem;
+        width: 50px;
         color: #9e8a53;
     }
 
-
+    .profile_bar ul li:hover .sub_menu_1,
     .menu_bar ul li:hover .sub_menu_1,
-    .profile_bar ul li:hover .sub_menu_1 {
+    .language_box ul li:hover .sub_menu_1 {
         margin-top: 95px;
-        margin-left: 64px;
-        font-size: 0.8rem;
     }
 
 
     .menu_bar ul li:hover .sub_menu_1 ul li,
-    .profile_bar ul li:hover .sub_menu_1 ul li {
+    .profile_bar ul li:hover .sub_menu_1 ul li,
+    .language_box ul li:hover .sub_menu_1 ul li {
         height: 2rem;
-        width: 7rem;
+        width: 50px;
     }
 
 
     .menu_bar ul li:hover .sub_menu_1 ul li a:hover,
-    .profile_bar ul li:hover .sub_menu_1 ul li a:hover {
+    .profile_bar ul li:hover .sub_menu_1 ul li a:hover,
+    .language_box ul li:hover .sub_menu_1 ul li a:hover {
         color: #9e8a53;
     }
 
-
+    .menuIcon {
+        width: 20px;
+        height: 20px;
+    }
 
 
 }

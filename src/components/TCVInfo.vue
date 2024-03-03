@@ -34,19 +34,21 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap');
 
 .info {
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 30rem;
-    height: 30rem;
+    align-items: center;
+    width: 90%;
+    height: fit-content;
     text-align: justify;
-    gap: 20px;
+    gap: 5px;
 }
 
 .title {
     font-family: 'Six Caps', 'Noto Serif', sans-serif;
     color: rgb(179, 179, 179);
-    font-size: 8rem;
+    font-size: 6rem;
     letter-spacing: 3px;
 }
 
@@ -64,6 +66,140 @@ export default {
     font-weight: 300;
     font-size: 1.5rem;
     color: #50A7C2;
+}
+
+
+
+
+
+
+/* For Desktop View */
+@media screen and (min-width: 1600px) {
+    .info {
+        margin-top: 0px;
+        width: 30rem;
+        height: 30rem;
+    }
+
+
+
+}
+
+/* For Desktop View */
+@media screen and (min-width: 1500px)
+and (max-width: 1600px) {
+    .info {
+        margin-top: 0px;
+        width: 30rem;
+        height: 30rem;
+    }
+
+}
+
+/* For Desktop View */
+@media screen and (min-width: 1200px)
+and (max-width: 1500px) {
+    .info {
+        width: 70%;
+        margin-bottom: 20px;
+    }
+
+    .title {
+        font-size: 5rem;
+    }
+
+    .info p {
+        font-size: 1rem;
+    }
+
+    .text_name {
+        font-size: 1.3rem;
+    }
+}
+
+
+/* For Desktop View */
+@media screen and (min-width: 1024px)
+and (max-width: 1200px) {
+    .info {
+        width: 70%;
+        margin-bottom: 20px;
+    }
+
+    .title {
+        font-size: 5rem;
+    }
+
+    .info p {
+        font-size: 0.9rem;
+    }
+
+    .text_name {
+        font-size: 1.3rem;
+    }
+}
+
+/* For Tablet View */
+@media screen and (min-width: 768px)
+and (max-width: 1024px) {
+    .title {
+        font-size: 4rem;
+    }
+
+    .info p {
+        font-size: 0.9rem;
+    }
+
+    .text_name {
+        font-size: 1.2rem;
+    }
+}
+
+/* For Mobile View */
+@media screen and (min-width: 480px)
+and (max-width: 768px) {
+    .title {
+        font-size: 4rem;
+    }
+
+    .info p {
+        font-size: 0.8rem;
+    }
+
+    .text_name {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (min-width: 320px)
+and (max-width: 480px) {
+    .title {
+        font-size: 3rem;
+    }
+
+    .info p {
+        font-size: 0.7rem;
+    }
+
+    .text_name {
+        font-size: 1rem;
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+    .title {
+        font-size: 3rem;
+    }
+
+    .info p {
+        font-size: 0.7rem;
+    }
+
+    .text_name {
+        font-size: 1rem;
+    }
+
 }
 
 </style>

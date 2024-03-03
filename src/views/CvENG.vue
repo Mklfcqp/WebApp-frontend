@@ -1,7 +1,7 @@
 <template>
-    <main>
+    <main class="main">
 
-        <section>
+        <section class="section">
             <TBackground />
             <TNavbar />
             <div class="content">
@@ -508,27 +508,43 @@ export default {
     font-family: 'Comfortaa', cursive;
 }
 
-section {
-    height: 100vh;
-    width: 100%;
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.main {
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    min-height: 100vh;
+    width: 100%;
+    background: #141414;
     top: 0;
     left: 0;
 }
 
 
-
-.content {
-    width: 100rem;
-    height: 50rem;
+.section {
+    max-width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 100px;
+}
+
+
+
+.content {
+    width: 95%;
+    min-height: 50rem;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     background: linear-gradient(180deg,
             rgba(255, 255, 255, 0.25) 0%,
             rgba(255, 255, 255, 0) 100%);
@@ -536,15 +552,14 @@ section {
     border-radius: 20px;
     /*box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);*/
     z-index: 10;
-
+    margin-top: 80px;
+    margin-bottom: 80px;
 }
 
 
 
-
-
 .swiper {
-    width: 600px;
+    width: 95%;
     height: 520px;
 }
 
@@ -605,7 +620,7 @@ section {
 }
 
 .box {
-    width: 30rem;
+    width: 95%;
     height: 24rem;
     display: flex;
     flex-direction: column;
@@ -613,7 +628,7 @@ section {
 }
 
 .row {
-    width: 30rem;
+    width: 100%;
     height: 6rem;
     display: flex;
     flex-direction: row;
@@ -685,7 +700,7 @@ section {
     color: #43c2fd;
     display: block;
     font-weight: 900;
-    font-size: 0.8rem;
+    font-size: 0.5rem;
 }
 
 .row_box:hover p {
@@ -703,7 +718,7 @@ section {
     color: #43c2fd;
     display: block;
     font-weight: 900;
-    font-size: 0.8rem;
+    font-size: 0.5rem;
 }
 
 
@@ -715,16 +730,17 @@ section {
 }
 
 .mainbox {
-    width: 33rem;
+    width: 100%;
     height: 27rem;
     margin-top: 1rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
 }
 
 .outside_box1 {
-    width: 33rem;
+    width: 95%;
     height: 13rem;
     background: #D2D4AD;
     border-radius: 15px;
@@ -732,7 +748,7 @@ section {
 }
 
 .outside_box2 {
-    width: 33rem;
+    width: 95%;
     height: 13rem;
     display: flex;
     flex-direction: row;
@@ -741,7 +757,7 @@ section {
 
 .inside_box1 {
     background: #7B3C45;
-    width: 16rem;
+    width: 100%;
     height: 13rem;
     border-radius: 15px;
     padding: 20px;
@@ -749,7 +765,7 @@ section {
 
 .inside_box2 {
     background: #3B5639;
-    width: 16rem;
+    width: 100%;
     height: 13rem;
     border-radius: 15px;
     padding: 20px;
@@ -759,20 +775,20 @@ section {
 .outside_box1 {
     font-family: 'Nunito', 'Fjalla One', sans-serif;
     color: #000000;
-    font-size: 1.3rem;
+    font-size: 0.9rem;
 }
 
 .inside_box1 p,
 .inside_box2 p {
     font-family: 'Nunito', 'Fjalla One', sans-serif;
     color: #cccccc;
-    font-size: 1.3rem;
+    font-size: 0.9rem;
 }
 
 .fjala {
     font-family: 'Fjalla One', 'Nunito', sans-serif;
     color: #50A7C2;
-    font-size: 2rem;
+    font-size: 1.3rem;
 }
 
 
@@ -784,7 +800,7 @@ section {
 
 .card {
     position: relative;
-    width: 520px;
+    width: 95%;
     height: 400px;
     display: flex;
     flex-direction: column;
@@ -872,21 +888,21 @@ section {
     position: absolute;
     top: 10px;
     left: 0px;
-    width: 520px;
-    height: 140px;
+    width: 100%;
 }
 
 .box1_text1 p {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     color: #d5dadb;
     margin: 7px 20px 0 20px;
 }
 
 .box1_text2 {
     position: absolute;
-    left: 260px;
+    padding: 10px;
+    left: 160px;
     bottom: 0;
-    width: 260px;
+    width: 50%;
     height: 100px;
     display: flex;
     align-items: center;
@@ -894,7 +910,7 @@ section {
 }
 
 .box1_text2_info {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     color: #d5dadb;
 }
 
@@ -904,8 +920,8 @@ section {
 
 .box3_text1 {
     position: absolute;
-    left: 30px;
-    width: 220px;
+    padding: 15px;
+    width: 100%;
     height: 220px;
     display: flex;
     align-items: center;
@@ -914,32 +930,34 @@ section {
 
 .box3_text2 {
     position: absolute;
-    left: 250px;
+    left: 160px;
     bottom: -150px;
-    width: 270px;
+    width: 100%;
     height: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 10px;
+
 }
 
 .box3_text2 p {
     color: #413c3c;
     font-weight: 500;
+    font-size: 0.9rem;
 }
 
 .fjala_edu_box1 {
     font-family: 'Fjalla One', 'Nunito', sans-serif;
     color: #50A7C2;
-    font-size: 2rem;
+    font-size: 1.3rem;
 }
 
 .fjala_edu_box3 {
     font-family: 'Fjalla One', 'Nunito', sans-serif;
     color: #50A7C2;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
 }
 
 
@@ -963,60 +981,16 @@ section {
 
 #drag-container,
 #spin-container {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin: auto;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-
-}
-
-#drag-container img {
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    line-height: 200px;
-    font-size: 50px;
-    text-align: center;
-    -webkit-box-shadow: 0 0 8px #fff;
-    box-shadow: 0 0 8px #fff;
-    -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
-    border-radius: 20px;
-}
-
-
-#drag-container p {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%) rotateX(90deg);
-    transform: translate(-50%, -50%) rotateX(90deg);
-    color: #fff;
-}
-
-#ground {
-    width: 900px;
-    height: 900px;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%) rotateX(90deg);
-    transform: translate(-50%, -50%) rotateX(90deg);
-    background: -webkit-radial-gradient(center center, farthest-side, #9993, transparent);
+    display: none;
 }
 
 
 .language_description_box {
     width: 100%;
-    height: 6rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 .cz_box,
@@ -1040,7 +1014,6 @@ section {
     height: 60px;
     border-radius: 10px;
     border: 1px solid #8b8b94;
-    box-shadow: 0 0 8px #fff;
 }
 
 
@@ -1067,11 +1040,13 @@ section {
     -webkit-backdrop-filter: blur(10px);
     transition: all 0.5s linear;
     font-weight: 600;
+    font-size: 0.8rem;
 }
 
 
 
 .contacts {
+    width: 95%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1086,12 +1061,11 @@ section {
 .city,
 .github {
     height: 3rem;
-    width: 18rem;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    color: #FFF;
     transition: all 0.5s;
     position: relative;
     font-size: 2rem;
@@ -1267,4 +1241,1024 @@ section {
     }
 
 }
+
+
+
+
+
+
+/* For Desktop View */
+@media screen and (min-width: 1600px) {
+    .content {
+        flex-direction: row;
+        gap: 150px;
+        width: 95rem;
+    }
+
+    .swiper {
+        width: 600px;
+    }
+
+
+    /** CARD - TECHNICAL SKILLS */
+
+
+    .box {
+        width: 30rem;
+    }
+
+    .row {
+        width: 30rem;
+    }
+
+    .row_box_inside:hover p {
+        font-size: 0.8rem;
+    }
+
+
+    .row_box_inside.active p {
+        font-size: 0.8rem;
+    }
+
+
+
+    /** CARD - SOFT SKILL */
+    .mainbox {
+        width: 33rem;
+    }
+
+    .outside_box1 {
+        width: 33rem;
+    }
+
+    .outside_box2 {
+        width: 33rem;
+    }
+
+    .inside_box1 {
+        width: 16rem;
+    }
+
+    .inside_box2 {
+        width: 16rem;
+    }
+
+
+    .outside_box1 {
+        font-size: 1.3rem;
+    }
+
+    .inside_box1 p,
+    .inside_box2 p {
+        font-size: 1.3rem;
+    }
+
+    .fjala {
+        font-size: 2rem;
+    }
+
+
+
+
+
+    /** EDUCATION */
+    /** WORK EXPERIENCES */
+
+    .card {
+        width: 520px;
+    }
+
+    .box1_text1 {
+        width: 520px;
+        height: 140px;
+    }
+
+    .box1_text1 p {
+        font-size: 1.2rem;
+    }
+
+    .box1_text2 {
+        left: 260px;
+        width: 260px;
+    }
+
+    .box1_text2_info {
+        font-size: 0.9rem;
+    }
+
+    .box3_text1 {
+        left: 30px;
+        width: 220px;
+        height: 220px;
+    }
+
+    .box3_text2 {
+        left: 250px;
+        width: 270px;
+    }
+
+    .box3_text2 p {
+        color: #413c3c;
+        font-weight: 500;
+    }
+
+    .fjala_edu_box1 {
+        font-size: 2rem;
+    }
+
+    .fjala_edu_box3 {
+        font-size: 2.5rem;
+    }
+
+
+
+    /** LANGUAGES */
+    #drag-container,
+    #spin-container {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin: auto;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+
+    }
+
+    #drag-container img {
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        line-height: 200px;
+        font-size: 50px;
+        text-align: center;
+        -webkit-box-shadow: 0 0 8px #fff;
+        box-shadow: 0 0 8px #fff;
+        -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+        border-radius: 20px;
+    }
+
+
+    #drag-container p {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+        transform: translate(-50%, -50%) rotateX(90deg);
+        color: #fff;
+    }
+
+    #ground {
+        width: 900px;
+        height: 900px;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+        transform: translate(-50%, -50%) rotateX(90deg);
+        background: -webkit-radial-gradient(center center, farthest-side, #9993, transparent);
+    }
+
+
+    .language_description_box {
+        height: 6rem;
+        flex-direction: row;
+    }
+
+    .img {
+        box-shadow: 0 0 8px #fff;
+    }
+
+    /** CONTACT CARD */
+    .linkedin,
+    .email,
+    .phone,
+    .city,
+    .github {
+        width: 18rem;
+    }
+
+}
+
+
+
+
+
+/* For Desktop View */
+@media screen and (min-width: 1500px)
+and (max-width: 1600px) {
+    .content {
+        flex-direction: row;
+        gap: 100px;
+        width: 95rem;
+    }
+
+    .swiper {
+        width: 600px;
+    }
+
+
+    /** CARD - TECHNICAL SKILLS */
+
+
+    .box {
+        width: 30rem;
+    }
+
+    .row {
+        width: 30rem;
+    }
+
+    .row_box_inside:hover p {
+        font-size: 0.8rem;
+    }
+
+
+    .row_box_inside.active p {
+        font-size: 0.8rem;
+    }
+
+
+
+    /** CARD - SOFT SKILL */
+    .mainbox {
+        width: 33rem;
+    }
+
+    .outside_box1 {
+        width: 33rem;
+    }
+
+    .outside_box2 {
+        width: 33rem;
+    }
+
+    .inside_box1 {
+        width: 16rem;
+    }
+
+    .inside_box2 {
+        width: 16rem;
+    }
+
+
+    .outside_box1 {
+        font-size: 1.3rem;
+    }
+
+    .inside_box1 p,
+    .inside_box2 p {
+        font-size: 1.3rem;
+    }
+
+    .fjala {
+        font-size: 2rem;
+    }
+
+    /** EDUCATION */
+    /** WORK EXPERIENCES */
+
+    .card {
+        width: 520px;
+    }
+
+    .box1_text1 {
+        width: 520px;
+        height: 140px;
+    }
+
+    .box1_text1 p {
+        font-size: 1.2rem;
+    }
+
+    .box1_text2 {
+        left: 260px;
+        width: 260px;
+    }
+
+    .box1_text2_info {
+        font-size: 0.9rem;
+    }
+
+    .box3_text1 {
+        left: 30px;
+        width: 220px;
+        height: 220px;
+    }
+
+    .box3_text2 {
+        left: 250px;
+        width: 270px;
+    }
+
+    .box3_text2 p {
+        color: #413c3c;
+        font-weight: 500;
+    }
+
+    .fjala_edu_box1 {
+        font-size: 2rem;
+    }
+
+    .fjala_edu_box3 {
+        font-size: 2.5rem;
+    }
+
+
+
+    /** LANGUAGES */
+    #drag-container,
+    #spin-container {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin: auto;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+
+    }
+
+    #drag-container img {
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        line-height: 200px;
+        font-size: 50px;
+        text-align: center;
+        -webkit-box-shadow: 0 0 8px #fff;
+        box-shadow: 0 0 8px #fff;
+        -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+        border-radius: 20px;
+    }
+
+
+    #drag-container p {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+        transform: translate(-50%, -50%) rotateX(90deg);
+        color: #fff;
+    }
+
+    #ground {
+        width: 900px;
+        height: 900px;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+        transform: translate(-50%, -50%) rotateX(90deg);
+        background: -webkit-radial-gradient(center center, farthest-side, #9993, transparent);
+    }
+
+
+    .language_description_box {
+        height: 6rem;
+        flex-direction: row;
+    }
+
+    .img {
+        box-shadow: 0 0 8px #fff;
+    }
+
+    /** CONTACT CARD */
+    .linkedin,
+    .email,
+    .phone,
+    .city,
+    .github {
+        width: 18rem;
+    }
+}
+
+/* For Desktop View */
+@media screen and (min-width: 1200px)
+and (max-width: 1500px) {
+    .content {
+        width: 95%;
+    }
+
+    .swiper {
+        width: 600px;
+    }
+
+
+    /** CARD - TECHNICAL SKILLS */
+
+
+    .box {
+        width: 30rem;
+    }
+
+    .row {
+        width: 30rem;
+    }
+
+    .row_box_inside:hover p {
+        font-size: 0.8rem;
+    }
+
+
+    .row_box_inside.active p {
+        font-size: 0.8rem;
+    }
+
+
+
+    /** CARD - SOFT SKILL */
+    .mainbox {
+        width: 33rem;
+    }
+
+    .outside_box1 {
+        width: 33rem;
+    }
+
+    .outside_box2 {
+        width: 33rem;
+    }
+
+    .inside_box1 {
+        width: 16rem;
+    }
+
+    .inside_box2 {
+        width: 16rem;
+    }
+
+
+    .outside_box1 {
+        font-size: 1.3rem;
+    }
+
+    .inside_box1 p,
+    .inside_box2 p {
+        font-size: 1.3rem;
+    }
+
+    .fjala {
+        font-size: 2rem;
+    }
+
+    /** EDUCATION */
+    /** WORK EXPERIENCES */
+
+    .card {
+        width: 520px;
+    }
+
+    .box1_text1 {
+        width: 520px;
+        height: 140px;
+    }
+
+    .box1_text1 p {
+        font-size: 1.2rem;
+    }
+
+    .box1_text2 {
+        left: 260px;
+        width: 260px;
+    }
+
+    .box1_text2_info {
+        font-size: 0.9rem;
+    }
+
+    .box3_text1 {
+        left: 30px;
+        width: 220px;
+        height: 220px;
+    }
+
+    .box3_text2 {
+        left: 250px;
+        width: 270px;
+    }
+
+    .box3_text2 p {
+        color: #413c3c;
+        font-weight: 500;
+    }
+
+    .fjala_edu_box1 {
+        font-size: 2rem;
+    }
+
+    .fjala_edu_box3 {
+        font-size: 2.5rem;
+    }
+
+
+
+    /** LANGUAGES */
+    #drag-container,
+    #spin-container {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin: auto;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+
+    }
+
+    #drag-container img {
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        line-height: 200px;
+        font-size: 50px;
+        text-align: center;
+        -webkit-box-shadow: 0 0 8px #fff;
+        box-shadow: 0 0 8px #fff;
+        -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+        border-radius: 20px;
+    }
+
+
+    #drag-container p {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+        transform: translate(-50%, -50%) rotateX(90deg);
+        color: #fff;
+    }
+
+    #ground {
+        width: 900px;
+        height: 900px;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+        transform: translate(-50%, -50%) rotateX(90deg);
+        background: -webkit-radial-gradient(center center, farthest-side, #9993, transparent);
+    }
+
+
+    .language_description_box {
+        height: 6rem;
+        flex-direction: row;
+    }
+
+    .img {
+        box-shadow: 0 0 8px #fff;
+    }
+
+    /** CONTACT CARD */
+    .linkedin,
+    .email,
+    .phone,
+    .city,
+    .github {
+        width: 18rem;
+    }
+}
+
+
+/* For Desktop View */
+@media screen and (min-width: 1024px)
+and (max-width: 1200px) {
+    .swiper {
+        width: 600px;
+    }
+
+
+    /** CARD - TECHNICAL SKILLS */
+
+
+    .box {
+        width: 30rem;
+    }
+
+    .row {
+        width: 30rem;
+    }
+
+    .row_box_inside:hover p {
+        font-size: 0.8rem;
+    }
+
+
+    .row_box_inside.active p {
+        font-size: 0.8rem;
+    }
+
+
+
+    /** CARD - SOFT SKILL */
+    .mainbox {
+        width: 33rem;
+    }
+
+    .outside_box1 {
+        width: 33rem;
+    }
+
+    .outside_box2 {
+        width: 33rem;
+    }
+
+    .inside_box1 {
+        width: 16rem;
+    }
+
+    .inside_box2 {
+        width: 16rem;
+    }
+
+
+    .outside_box1 {
+        font-size: 1.3rem;
+    }
+
+    .inside_box1 p,
+    .inside_box2 p {
+        font-size: 1.3rem;
+    }
+
+    .fjala {
+        font-size: 2rem;
+    }
+
+    /** EDUCATION */
+    /** WORK EXPERIENCES */
+
+    .card {
+        width: 520px;
+    }
+
+    .box1_text1 {
+        width: 520px;
+        height: 140px;
+    }
+
+    .box1_text1 p {
+        font-size: 1.2rem;
+    }
+
+    .box1_text2 {
+        left: 260px;
+        width: 260px;
+    }
+
+    .box1_text2_info {
+        font-size: 0.9rem;
+    }
+
+    .box3_text1 {
+        left: 30px;
+        width: 220px;
+        height: 220px;
+    }
+
+    .box3_text2 {
+        left: 250px;
+        width: 270px;
+    }
+
+    .box3_text2 p {
+        color: #413c3c;
+        font-weight: 500;
+    }
+
+    .fjala_edu_box1 {
+        font-size: 2rem;
+    }
+
+    .fjala_edu_box3 {
+        font-size: 2.5rem;
+    }
+
+
+
+    /** LANGUAGES */
+    #drag-container,
+    #spin-container {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin: auto;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+
+    }
+
+    #drag-container img {
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        line-height: 200px;
+        font-size: 50px;
+        text-align: center;
+        -webkit-box-shadow: 0 0 8px #fff;
+        box-shadow: 0 0 8px #fff;
+        -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+        border-radius: 20px;
+    }
+
+
+    #drag-container p {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+        transform: translate(-50%, -50%) rotateX(90deg);
+        color: #fff;
+    }
+
+    #ground {
+        width: 900px;
+        height: 900px;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+        transform: translate(-50%, -50%) rotateX(90deg);
+        background: -webkit-radial-gradient(center center, farthest-side, #9993, transparent);
+    }
+
+
+    .language_description_box {
+        height: 6rem;
+        flex-direction: row;
+    }
+
+    .img {
+        box-shadow: 0 0 8px #fff;
+    }
+
+    /** CONTACT CARD */
+    .linkedin,
+    .email,
+    .phone,
+    .city,
+    .github {
+        width: 18rem;
+    }
+}
+
+/* For Tablet View */
+@media screen and (min-width: 768px)
+and (max-width: 1024px) {
+    .content {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .swiper {
+        width: 600px;
+    }
+
+
+    /** CARD - TECHNICAL SKILLS */
+
+
+    .box {
+        width: 30rem;
+    }
+
+    .row {
+        width: 30rem;
+    }
+
+    .row_box_inside:hover p {
+        font-size: 0.8rem;
+    }
+
+
+    .row_box_inside.active p {
+        font-size: 0.8rem;
+    }
+
+
+
+    /** CARD - SOFT SKILL */
+    .mainbox {
+        width: 33rem;
+    }
+
+    .outside_box1 {
+        width: 33rem;
+    }
+
+    .outside_box2 {
+        width: 33rem;
+    }
+
+    .inside_box1 {
+        width: 16rem;
+    }
+
+    .inside_box2 {
+        width: 16rem;
+    }
+
+
+    .outside_box1 {
+        font-size: 1.3rem;
+    }
+
+    .inside_box1 p,
+    .inside_box2 p {
+        font-size: 1.3rem;
+    }
+
+    .fjala {
+        font-size: 2rem;
+    }
+
+    /** EDUCATION */
+    /** WORK EXPERIENCES */
+
+    .card {
+        width: 520px;
+    }
+
+    .box1_text1 {
+        width: 520px;
+        height: 140px;
+    }
+
+    .box1_text1 p {
+        font-size: 1.2rem;
+    }
+
+    .box1_text2 {
+        left: 260px;
+        width: 260px;
+    }
+
+    .box1_text2_info {
+        font-size: 0.9rem;
+    }
+
+    .box3_text1 {
+        left: 30px;
+        width: 220px;
+        height: 220px;
+    }
+
+    .box3_text2 {
+        left: 250px;
+        width: 270px;
+    }
+
+    .box3_text2 p {
+        color: #413c3c;
+        font-weight: 500;
+    }
+
+    .fjala_edu_box1 {
+        font-size: 2rem;
+    }
+
+    .fjala_edu_box3 {
+        font-size: 2.5rem;
+    }
+
+
+
+    /** LANGUAGES */
+    #drag-container,
+    #spin-container {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin: auto;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+
+    }
+
+    #drag-container img {
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        line-height: 200px;
+        font-size: 50px;
+        text-align: center;
+        -webkit-box-shadow: 0 0 8px #fff;
+        box-shadow: 0 0 8px #fff;
+        -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+        border-radius: 20px;
+    }
+
+
+    #drag-container p {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+        transform: translate(-50%, -50%) rotateX(90deg);
+        color: #fff;
+    }
+
+    #ground {
+        width: 900px;
+        height: 900px;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%) rotateX(90deg);
+        transform: translate(-50%, -50%) rotateX(90deg);
+        background: -webkit-radial-gradient(center center, farthest-side, #9993, transparent);
+    }
+
+
+    .language_description_box {
+        height: 6rem;
+        flex-direction: row;
+    }
+
+    .img {
+        box-shadow: 0 0 8px #fff;
+    }
+
+    /** CONTACT CARD */
+    .linkedin,
+    .email,
+    .phone,
+    .city,
+    .github {
+        width: 18rem;
+    }
+}
+
+/* For Mobile View */
+@media screen and (min-width: 480px)
+and (max-width: 768px) {
+    /** CARD - SOFT SKILL */
+
+    .outside_box1 {
+        font-size: 1.1rem;
+    }
+
+    .inside_box1 p,
+    .inside_box2 p {
+        font-size: 1.1rem;
+    }
+
+    .fjala {
+        font-size: 1.5rem;
+    }
+
+    /** CONTACT CARD */
+    .linkedin,
+    .email,
+    .phone,
+    .city,
+    .github {
+        width: 18rem;
+    }
+}
+
+@media screen and (min-width: 320px)
+and (max-width: 480px) {
+    /** CONTACT CARD */
+    .linkedin,
+    .email,
+    .phone,
+    .city,
+    .github {
+        max-width: 18rem;
+    }
+
+
+
+}
+
+@media screen and (max-width: 320px) {
+
+
+}
+
+
 </style>

@@ -2051,6 +2051,7 @@ export default {
 
 .add_form {
     margin-top: 100px;
+    margin-bottom: 100px;
     height: fit-content;
     width: 95%;
     border-radius: 10px;
@@ -2091,41 +2092,18 @@ export default {
 .box_inside2 {
 }
 
-.box_inside3 {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
-.dcf_manual_add_box {
-    margin-top: 20px;
-}
 
 .company_add_box,
-.ticker_add_box,
-.price_add_box,
-.dividend_q_add_box,
-.dcf_manual_add_box_value {
+.ticker_add_box {
     display: flex;
     flex-direction: row;
     gap: 10px;
 }
 
-.dcf_manual_add_box_description,
-.box_inside2_description {
-    color: rgba(159, 194, 204, 0.76);
-    font-family: 'Poppins', 'Six Caps', 'Noto Serif', sans-serif;
-    font-size: 0.8rem;
-}
-
-.dcf_manual_add_box_description {
-    margin-left: 10px;
-}
-
 
 .add_form_input_double_1 {
-    width: 10rem;
-    height: 8px;
+    width: 15rem;
+    height: 30px;
     border: 1px solid hsl(240 5% 27.6%);
     border-radius: 3px;
     padding-block: 0.8rem;
@@ -2136,37 +2114,13 @@ export default {
 }
 
 
-.add_form_input_double_2 {
-    width: 3rem;
-    height: 1.72rem;
-    background: #27272A;
-    border: 1px solid hsl(240 5% 27.6%);
-    border-radius: 3px;
-    color: #cc9a3a;
-    padding-left: 10px;
-}
-
-.add_form_input_free_cash_flow {
-    width: 14rem;
-    height: 8px;
-    border: 1px solid hsl(240 5% 27.6%);
-    border-radius: 3px;
-    padding-block: 0.8rem;
-    background: #27272A;
-    position: relative;
-    color: #cc9a3a;
-    padding-left: 10px;
-}
-
-
-.add_form_input_double_1:focus,
-.add_form_input_double_2:focus,
-.add_form_input_free_cash_flow:focus{
+.add_form_input_double_1:focus {
     outline: none;
     border: 1px solid rgba(159, 194, 204, 0.76);
 }
 
 .input_format {
+    height: 30px;
     position: relative;
     display: flex;
     align-items: center;
@@ -2705,21 +2659,21 @@ export default {
         width: 95rem;
     }
 
+    .overlay {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+    }
+
     .add_form {
-        width: 50rem;
+        width: fit-content;
     }
 
     .add_form_button {
         width: 10rem;
     }
 
-    .add_form {
-        width: 50rem;
-    }
-
-    .add_form_button {
-        width: 10rem;
-    }
 
 }
 
@@ -2733,16 +2687,15 @@ and (max-width: 1500px) {
         display: inline;
     }
 
-    .add_form {
-        width: 50rem;
+    .overlay {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        align-items: center;
     }
 
-    .add_form_button {
-        width: 10rem;
-    }
-
     .add_form {
-        width: 50rem;
+        width: fit-content;
     }
 
     .add_form_button {
@@ -2762,16 +2715,15 @@ and (max-width: 1200px) {
         display: inline;
     }
 
-    .add_form {
-        width: 50rem;
+    .overlay {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        align-items: center;
     }
 
-    .add_form_button {
-        width: 10rem;
-    }
-
     .add_form {
-        width: 50rem;
+        width: fit-content;
     }
 
     .add_form_button {
@@ -2790,16 +2742,14 @@ and (max-width: 1024px) {
         display: inline;
     }
 
-    .add_form {
-        width: 47rem;
-    }
-
-    .add_form_button {
-        width: 10rem;
+    .overlay {
+        position: fixed;
+        height: 100%;
+        width: 100%;
     }
 
     .add_form {
-        width: 47rem;
+        width: fit-content;
     }
 
     .add_form_button {
@@ -2819,8 +2769,14 @@ and (max-width: 768px) {
         display: inline;
     }
 
-    .add_form_button {
-        width: 10rem;
+    .overlay {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+    }
+
+    .add_form {
+        width: fit-content;
     }
 
     .add_form_button {
@@ -2840,6 +2796,36 @@ and (max-width: 480px) {
         display: inline;
     }
 
+    .box_inside1 {
+        width: 95%;
+    }
+
+    .box_inside2 {
+        width: 95%;
+    }
+
+    .company_add_box,
+    .ticker_add_box {
+        flex-direction: column;
+    }
+
+
+    .add_form_input_double_1 {
+        width: 100%;
+        height: 40px;
+        padding-block: 0rem;
+    }
+
+
+    .input_format {
+        height: 40px;
+    }
+
+
+    .add_form_button {
+        width: 95%;
+    }
+
 
 
 }
@@ -2851,6 +2837,36 @@ and (max-width: 480px) {
 
     .sorting {
         display: inline;
+    }
+
+    .box_inside1 {
+        width: 95%;
+    }
+
+    .box_inside2 {
+        width: 95%;
+    }
+
+    .company_add_box,
+    .ticker_add_box {
+        flex-direction: column;
+    }
+
+
+    .add_form_input_double_1 {
+        width: 100%;
+        height: 40px;
+        padding-block: 0rem;
+    }
+
+
+    .input_format {
+        height: 40px;
+    }
+
+
+    .add_form_button {
+        width: 95%;
     }
 
 }

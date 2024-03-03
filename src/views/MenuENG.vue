@@ -110,7 +110,7 @@ export default {
 
 
 .content {
-    width: 60rem;
+    width: 95%;
     min-height: 30rem;
     display: flex;
     flex-direction: column;
@@ -125,8 +125,9 @@ export default {
     line-height: 1.5;
     font-family: 'JetBrains Mono', Oswald, 'Courier New', Courier;
     margin-top: 80px;
-    font-size: 0.9rem;
-    padding: 10rem;
+    font-size: 0.7rem;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 
@@ -134,11 +135,10 @@ export default {
 
 .description_1,
 .description_2 {
-    width: 40rem;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-
 }
 
 .description_1 p:nth-child(7),
@@ -184,36 +184,56 @@ export default {
 }
 
 
+/* For Desktop View */
+@media screen and (min-width: 1600px) {
+    .content {
+        margin-top: 100px;
+        height: 40rem;
+        width: 70rem;
+        padding-left: 60px;
+        padding-right: 60px;
+        font-size: 0.9rem;
+    }
 
+    .description_1,
+    .description_2 {
+        width: 50rem;
+    }
+}
 
 
 
 /* For Desktop View */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px)
+and (max-width: 1600px) {
     .content {
-        min-height: 10rem;
+        margin-top: 100px;
+        height: 35rem;
+        width: 70rem;
+        padding-left: 60px;
+        padding-right: 60px;
         font-size: 0.9rem;
-        margin-top: 200px;
-        margin-bottom: 200px;
     }
+
     .description_1,
     .description_2 {
-        width: 40rem;
+        width: 50rem;
     }
 }
+
 
 /* For Desktop View */
 @media screen and (min-device-width: 1024px)
 and (max-device-width: 1200px) {
     .content {
-        min-height: 10rem;
+        padding-left: 60px;
+        padding-right: 60px;
         font-size: 0.8rem;
-        margin-top: 200px;
-        margin-bottom: 200px;
     }
+
     .description_1,
     .description_2 {
-        width: 40rem;
+        width: 50rem;
     }
 }
 
@@ -221,48 +241,26 @@ and (max-device-width: 1200px) {
 @media screen and (min-device-width: 768px)
 and (max-device-width: 1024px) {
     .content {
-        width: 95%;
-        min-height: 10rem;
+        padding-left: 60px;
+        padding-right: 60px;
         font-size: 0.8rem;
-        padding: 40px 10px  40px 10px;
     }
-
-    .description_1,
-    .description_2 {
-        width: 85%;
-    }
-
 }
 
 /* For Mobile View */
 @media screen and (min-device-width: 480px)
 and (max-device-width: 768px) {
     .content {
-        width: 95%;
-        min-height: 10rem;
-        font-size: 0.8rem;
-        padding: 40px 10px  40px 10px;
+        padding-left: 40px;
+        padding-right: 40px;
     }
-
-    .description_1,
-    .description_2 {
-        width: 85%;
-    }
-
 }
 
 @media screen and (min-device-width: 320px)
 and (max-device-width: 480px) {
     .content {
-        width: 95%;
-        min-height: 10rem;
-        font-size: 0.8rem;
-        padding: 30px 10px  30px 10px;
-    }
-
-    .description_1,
-    .description_2 {
-        width: 85%;
+        padding-left: 30px;
+        padding-right: 30px;
     }
 }
 
