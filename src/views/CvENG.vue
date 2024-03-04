@@ -2,11 +2,11 @@
     <main class="main">
 
         <section class="section">
-            <TBackground />
-            <TNavbar />
+            <TBackground/>
+            <TNavbar/>
             <div class="content">
 
-                <TCVInfo />
+                <TCVInfo/>
 
                 <swiper :effect="'cards'" :grabCursor="true" :modules="modules" class="swiper">
 
@@ -14,7 +14,7 @@
                     <swiper-slide class="card1">
 
                         <Icon :icon="isTextVisible ? 'gravity-ui:eye' : 'ri:eye-off-line'" class="view"
-                            @click="toggleTextVisibility" />
+                              @click="toggleTextVisibility"/>
 
                         <div class="title_card">Technical Skills</div>
 
@@ -22,32 +22,32 @@
                             <div class="row">
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <Icon icon="fluent-mdl2:java-logo" class="row_box_icon" />
+                                        <Icon icon="fluent-mdl2:java-logo" class="row_box_icon"/>
                                     </div>
                                     <p>JAVA 17</p>
                                 </div>
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <Icon icon="cib:spring" class="row_box_icon" />
+                                        <Icon icon="cib:spring" class="row_box_icon"/>
                                     </div>
                                     <p>SPRING BOOT</p>
                                 </div>
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <Icon icon="simple-icons:springsecurity" class="row_box_icon" />
+                                        <Icon icon="simple-icons:springsecurity" class="row_box_icon"/>
                                     </div>
                                     <p>SPRING</p>
                                     <p>SECURITY</p>
                                 </div>
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <Icon icon="cib:git" class="row_box_icon" />
+                                        <Icon icon="cib:git" class="row_box_icon"/>
                                     </div>
                                     <p>GIT</p>
                                 </div>
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <Icon icon="carbon:partition-collection" class="row_box_icon" />
+                                        <Icon icon="carbon:partition-collection" class="row_box_icon"/>
                                     </div>
                                     <p>STREAM API</p>
                                 </div>
@@ -55,7 +55,7 @@
                             <div class="row">
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <Icon icon="simple-icons:junit5" class="row_box_icon" />
+                                        <Icon icon="simple-icons:junit5" class="row_box_icon"/>
                                     </div>
                                     <p>JUNIT</p>
                                 </div>
@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <Icon icon="material-symbols:function" class="row_box_icon" />
+                                        <Icon icon="material-symbols:function" class="row_box_icon"/>
                                     </div>
                                     <p>FUNCTIONAL</p>
                                     <p>PROGRAMMING</p>
@@ -88,13 +88,13 @@
                             <div class="row">
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <Icon icon="simple-icons:hibernate" class="row_box_icon" />
+                                        <Icon icon="simple-icons:hibernate" class="row_box_icon"/>
                                     </div>
                                     <p>HIBERNATE</p>
                                 </div>
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <Icon icon="tabler:brand-mysql" class="row_box_icon" />
+                                        <Icon icon="tabler:brand-mysql" class="row_box_icon"/>
                                     </div>
                                     <p>MySQL</p>
                                 </div>
@@ -106,13 +106,13 @@
                                 </div>
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <Icon icon="akar-icons:postgresql-fill" class="row_box_icon" />
+                                        <Icon icon="akar-icons:postgresql-fill" class="row_box_icon"/>
                                     </div>
                                     <p>POSTGRE</p>
                                 </div>
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <Icon icon="simple-icons:awslambda" class="row_box_icon" />
+                                        <Icon icon="simple-icons:awslambda" class="row_box_icon"/>
                                     </div>
                                     <p>LAMBDA</p>
                                 </div>
@@ -120,25 +120,25 @@
                             <div class="row">
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <Icon icon="akar-icons:html-fill" class="row_box_icon" />
+                                        <Icon icon="akar-icons:html-fill" class="row_box_icon"/>
                                     </div>
                                     <p>HTML</p>
                                 </div>
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <Icon icon="akar-icons:css-fill" class="row_box_icon" />
+                                        <Icon icon="akar-icons:css-fill" class="row_box_icon"/>
                                     </div>
                                     <p>CSS</p>
                                 </div>
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <Icon icon="simple-icons:javascript" class="row_box_icon" />
+                                        <Icon icon="simple-icons:javascript" class="row_box_icon"/>
                                     </div>
                                     <p>JAVASCRIPT</p>
                                 </div>
                                 <div class="row_box_inside">
                                     <div class="row_box">
-                                        <Icon icon="teenyicons:vue-solid" class="row_box_icon" />
+                                        <Icon icon="teenyicons:vue-solid" class="row_box_icon"/>
                                     </div>
                                     <p>VUE</p>
                                 </div>
@@ -168,7 +168,8 @@
                             </div>
                             <div class="outside_box2">
                                 <div class="inside_box1">
-                                    <p><span class="fjala">Leading</span> the migration of suppliers for ŠKODA auto from one
+                                    <p><span class="fjala">Leading</span> the migration of suppliers for ŠKODA auto from
+                                        one
                                         EDI webapp to another.</p>
                                 </div>
                                 <div class="inside_box2">
@@ -189,32 +190,33 @@
 
                             <div class="box1">
 
-                                <div class="box1_text1">
-                                    <p>Since 1.10. 2020 I have been working as</p>
-                                    <p><span class="fjala_edu_box1">EDI specialist </span>at the company</p>
-                                    <p> <span class="company">Impromat Engineering</span>, providing EDI services</p>
-                                    <p>for<span class="company"> ŠKODA Auto.</span></p>
+                                <div class="box1_text2">
+                                    <p>Java from Scratch</p>
+                                    <p>(327 hours)</p>
+                                    <p>1.4. 2023 - 17.2. 2024</p>
                                 </div>
 
-                                <div class="box1_text2">
-                                    <span class="box1_text2_info">If you would like to know more information feel free to
-                                        contact me.</span>
+                                <div class="box1_text1">
+                                    <p><span class="fjala_edu_box3">Software Development Academy</span></p>
                                 </div>
 
                             </div>
 
                             <div class="box2">
 
+                                <div class="box3_text2">
+                                    <p>Since 1.10. 2020 I have been working as</p>
+                                    <p><span class="fjala_edu_box1">EDI specialist </span>at the company</p>
+                                    <p> <span class="company">Impromat Engineering</span>, providing EDI services</p>
+                                    <p>for<span class="company"> ŠKODA Auto.</span></p>
+                                </div>
+
                                 <span class="box3">
                                     <div class="box3_text1">
-                                        <p><span class="fjala_edu_box3">Software Development Academy</span></p>
+                                        <span class="box3_text2_info">If you would like to know more information feel free to
+                                        contact me.</span>
                                     </div>
-                                    <div class="box3_text2">
-                                        <p>Java from Scratch</p>
-                                        <p>(327 hours)</p>
-                                        <p>1.4. 2023 - 17.2. 2024</p>
 
-                                    </div>
                                 </span>
 
                             </div>
@@ -266,22 +268,22 @@
 
                         <div class="contacts">
                             <div class="linkedin" type="button" @click="redirectToLinkedin">
-                                <Icon icon="cib:linkedin" class="linkedin_icon" />
+                                <Icon icon="cib:linkedin" class="linkedin_icon"/>
                             </div>
                             <div class="email" type="button" @click="copyToClipboard('tomas.senti@seznam.cz')">
-                                <Icon icon="clarity:email-line" class="contact_icon" />
+                                <Icon icon="clarity:email-line" class="contact_icon"/>
                                 <P>tomas.senti@seznam.cz</P>
                             </div>
                             <div class="phone" type="button" @click="copyToClipboard('+420 725 602 631')">
-                                <Icon icon="ph:device-mobile" class="contact_icon" />
+                                <Icon icon="ph:device-mobile" class="contact_icon"/>
                                 <P>+420 725 602 631</P>
                             </div>
                             <div class="city" type="button" @click="copyToClipboard('Luštěnice')">
-                                <Icon icon="icon-park-outline:city" class="contact_icon" />
+                                <Icon icon="icon-park-outline:city" class="contact_icon"/>
                                 <P>Luštěnice</P>
                             </div>
                             <div class="github" type="button" @click="redirectToGihub">
-                                <Icon icon="bi:github" class="github_icon" />
+                                <Icon icon="bi:github" class="github_icon"/>
                             </div>
                         </div>
 
@@ -302,21 +304,16 @@
                 </swiper>
 
 
-
             </div>
         </section>
     </main>
 </template>
 
 
-
-
-
-
 <script>
 import TNavbar from '@/components/TNavbar.vue';
-import { Icon } from '@iconify/vue';
-import { Swiper, SwiperSlide } from 'swiper/vue';
+import {Icon} from '@iconify/vue';
+import {Swiper, SwiperSlide} from 'swiper/vue';
 import TBackground from '@/components/TBackground.vue'
 import TCVInfo from '@/components/TCVInfo.vue'
 
@@ -324,8 +321,7 @@ import 'swiper/css';
 
 import 'swiper/css/effect-cards';
 
-import { EffectCards } from 'swiper/modules';
-
+import {EffectCards} from 'swiper/modules';
 
 
 export default {
@@ -338,9 +334,7 @@ export default {
         TCVInfo,
     },
     data() {
-        return {
-
-        };
+        return {};
     },
 
     mounted() {
@@ -484,12 +478,7 @@ export default {
 }
 
 
-
-
 </script>
-
-
-
 
 
 <style scoped>
@@ -536,7 +525,6 @@ export default {
 }
 
 
-
 .content {
     width: 95%;
     min-height: 50rem;
@@ -546,8 +534,8 @@ export default {
     align-items: center;
     gap: 10px;
     background: linear-gradient(180deg,
-            rgba(255, 255, 255, 0.25) 0%,
-            rgba(255, 255, 255, 0) 100%);
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 100%);
     backdrop-filter: blur(2px);
     border-radius: 20px;
     /*box-shadow: 0 0.5px 0 1px rgba(255, 255, 255, 0.23) inset, 0 1px 0 0 rgba(255, 255, 255, 0.66) inset, 0 4px 16px rgba(0, 0, 0, 0.12);*/
@@ -555,7 +543,6 @@ export default {
     margin-top: 80px;
     margin-bottom: 80px;
 }
-
 
 
 .swiper {
@@ -574,7 +561,6 @@ export default {
 }
 
 
-
 .swiper-slide::after {
     display: block;
     content: '';
@@ -585,8 +571,6 @@ export default {
     height: 120%;
     background: linear-gradient(226deg, rgba(255, 255, 255, 0.137) 0%, rgba(255, 255, 255, 0.151) 35%, rgba(255, 255, 255, 0.048) 42%, rgba(255, 255, 255, 0) 60%);
 }
-
-
 
 
 .card1 {
@@ -646,10 +630,9 @@ export default {
     justify-content: center;
     align-items: center;
     background: linear-gradient(hsl(0 0% 100% / 0.15), #0000), hsl(0 0% 4%);
-    box-shadow:
-        0 -1px hsl(0 0% 0% / 0.5) inset,
-        0 2px 4px hsl(0 0% 0% / 0.5),
-        0 1px hsl(0 0% 100% / 0.5) inset;
+    box-shadow: 0 -1px hsl(0 0% 0% / 0.5) inset,
+    0 2px 4px hsl(0 0% 0% / 0.5),
+    0 1px hsl(0 0% 100% / 0.5) inset;
 
 }
 
@@ -722,7 +705,6 @@ export default {
 }
 
 
-
 /** CARD - SOFT SKILL */
 
 .card2 .title_card {
@@ -792,9 +774,6 @@ export default {
 }
 
 
-
-
-
 /** EDUCATION */
 /** WORK EXPERIENCES */
 
@@ -805,6 +784,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transform: rotate(180deg);
 }
 
 .card .box1 {
@@ -847,7 +827,6 @@ export default {
     background: #B6C8A9;
     border-radius: 15px;
     border-top-left-radius: 0;
-    padding: 0 35px;
 }
 
 .card .box2 .box3 {
@@ -885,81 +864,87 @@ export default {
 }
 
 .box1_text1 {
-    position: absolute;
-    top: 10px;
-    left: 0px;
     width: 100%;
+    height: auto;
+    transform: rotate(180deg);
+    display: flex;
+    text-align: center;
+    align-items: center;
 }
 
-.box1_text1 p {
-    font-size: 0.8rem;
+.box1_text2 p {
+    font-size: 1rem;
     color: #d5dadb;
     margin: 7px 20px 0 20px;
 }
 
 .box1_text2 {
-    position: absolute;
     padding: 10px;
-    left: 160px;
-    bottom: 0;
-    width: 50%;
-    height: 100px;
+    width: 100%;
+    height: 170px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
+    transform: rotate(180deg);
 }
 
-.box1_text2_info {
-    font-size: 0.7rem;
-    color: #d5dadb;
+.box3_text2_info {
+    font-size: 0.8rem;
+    color: rgb(129, 129, 128);
 }
 
 .company {
-    color: #000000;
+    color: #8f8f8f;
+}
+
+.box1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.box2 {
+    width: 100%;
 }
 
 .box3_text1 {
-    position: absolute;
-    padding: 15px;
+    padding: 5px 15px;
     width: 100%;
-    height: 220px;
+    height: 70px;
     display: flex;
+    text-align: center;
     align-items: center;
-    font-size: 1.2rem;
+    transform: rotate(180deg);
 }
 
 .box3_text2 {
-    position: absolute;
-    left: 160px;
-    bottom: -150px;
+    position: relative;
     width: 100%;
     height: 150px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
     gap: 10px;
-
+    transform: rotate(180deg);
+    padding: 10px 40px;
 }
 
 .box3_text2 p {
-    color: #413c3c;
-    font-weight: 500;
-    font-size: 0.9rem;
+    color: #2a2727;
+}
+
+
+.fjala_edu_box3 {
+    font-family: 'Fjalla One', 'Nunito', sans-serif;
+    color: #50A7C2;
+    font-size: 2.5rem;
 }
 
 .fjala_edu_box1 {
     font-family: 'Fjalla One', 'Nunito', sans-serif;
     color: #50A7C2;
-    font-size: 1.3rem;
-}
-
-.fjala_edu_box3 {
-    font-family: 'Fjalla One', 'Nunito', sans-serif;
-    color: #50A7C2;
     font-size: 1.5rem;
 }
-
 
 
 /** LANGUAGES */
@@ -971,8 +956,8 @@ export default {
     display: flex;
     flex-direction: column;
     background: radial-gradient(circle,
-            rgba(67, 69, 112, 1) 3%,
-            rgba(35, 36, 57, 1) 60%);
+    rgba(67, 69, 112, 1) 3%,
+    rgba(35, 36, 57, 1) 60%);
     -webkit-perspective: 1000px;
     perspective: 1000px;
     -webkit-transform-style: preserve-3d;
@@ -1017,10 +1002,6 @@ export default {
 }
 
 
-
-
-
-
 /** CONTACT CARD */
 
 .title_card {
@@ -1042,7 +1023,6 @@ export default {
     font-weight: 600;
     font-size: 0.8rem;
 }
-
 
 
 .contacts {
@@ -1089,7 +1069,6 @@ export default {
     transition: all 0.3s;
     border-radius: 10px;
 }
-
 
 
 .linkedin:hover,
@@ -1243,10 +1222,6 @@ export default {
 }
 
 
-
-
-
-
 /* For Desktop View */
 @media screen and (min-width: 1600px) {
     .content {
@@ -1261,8 +1236,6 @@ export default {
 
 
     /** CARD - TECHNICAL SKILLS */
-
-
     .box {
         width: 30rem;
     }
@@ -1279,7 +1252,6 @@ export default {
     .row_box_inside.active p {
         font-size: 0.8rem;
     }
-
 
 
     /** CARD - SOFT SKILL */
@@ -1316,60 +1288,6 @@ export default {
     .fjala {
         font-size: 2rem;
     }
-
-
-
-
-
-    /** EDUCATION */
-    /** WORK EXPERIENCES */
-
-    .card {
-        width: 520px;
-    }
-
-    .box1_text1 {
-        width: 520px;
-        height: 140px;
-    }
-
-    .box1_text1 p {
-        font-size: 1.2rem;
-    }
-
-    .box1_text2 {
-        left: 260px;
-        width: 260px;
-    }
-
-    .box1_text2_info {
-        font-size: 0.9rem;
-    }
-
-    .box3_text1 {
-        left: 30px;
-        width: 220px;
-        height: 220px;
-    }
-
-    .box3_text2 {
-        left: 250px;
-        width: 270px;
-    }
-
-    .box3_text2 p {
-        color: #413c3c;
-        font-weight: 500;
-    }
-
-    .fjala_edu_box1 {
-        font-size: 2rem;
-    }
-
-    .fjala_edu_box3 {
-        font-size: 2.5rem;
-    }
-
 
 
     /** LANGUAGES */
@@ -1445,9 +1363,6 @@ export default {
 }
 
 
-
-
-
 /* For Desktop View */
 @media screen and (min-width: 1500px)
 and (max-width: 1600px) {
@@ -1463,8 +1378,6 @@ and (max-width: 1600px) {
 
 
     /** CARD - TECHNICAL SKILLS */
-
-
     .box {
         width: 30rem;
     }
@@ -1481,7 +1394,6 @@ and (max-width: 1600px) {
     .row_box_inside.active p {
         font-size: 0.8rem;
     }
-
 
 
     /** CARD - SOFT SKILL */
@@ -1518,56 +1430,6 @@ and (max-width: 1600px) {
     .fjala {
         font-size: 2rem;
     }
-
-    /** EDUCATION */
-    /** WORK EXPERIENCES */
-
-    .card {
-        width: 520px;
-    }
-
-    .box1_text1 {
-        width: 520px;
-        height: 140px;
-    }
-
-    .box1_text1 p {
-        font-size: 1.2rem;
-    }
-
-    .box1_text2 {
-        left: 260px;
-        width: 260px;
-    }
-
-    .box1_text2_info {
-        font-size: 0.9rem;
-    }
-
-    .box3_text1 {
-        left: 30px;
-        width: 220px;
-        height: 220px;
-    }
-
-    .box3_text2 {
-        left: 250px;
-        width: 270px;
-    }
-
-    .box3_text2 p {
-        color: #413c3c;
-        font-weight: 500;
-    }
-
-    .fjala_edu_box1 {
-        font-size: 2rem;
-    }
-
-    .fjala_edu_box3 {
-        font-size: 2.5rem;
-    }
-
 
 
     /** LANGUAGES */
@@ -1654,8 +1516,6 @@ and (max-width: 1500px) {
 
 
     /** CARD - TECHNICAL SKILLS */
-
-
     .box {
         width: 30rem;
     }
@@ -1672,7 +1532,6 @@ and (max-width: 1500px) {
     .row_box_inside.active p {
         font-size: 0.8rem;
     }
-
 
 
     /** CARD - SOFT SKILL */
@@ -1709,56 +1568,6 @@ and (max-width: 1500px) {
     .fjala {
         font-size: 2rem;
     }
-
-    /** EDUCATION */
-    /** WORK EXPERIENCES */
-
-    .card {
-        width: 520px;
-    }
-
-    .box1_text1 {
-        width: 520px;
-        height: 140px;
-    }
-
-    .box1_text1 p {
-        font-size: 1.2rem;
-    }
-
-    .box1_text2 {
-        left: 260px;
-        width: 260px;
-    }
-
-    .box1_text2_info {
-        font-size: 0.9rem;
-    }
-
-    .box3_text1 {
-        left: 30px;
-        width: 220px;
-        height: 220px;
-    }
-
-    .box3_text2 {
-        left: 250px;
-        width: 270px;
-    }
-
-    .box3_text2 p {
-        color: #413c3c;
-        font-weight: 500;
-    }
-
-    .fjala_edu_box1 {
-        font-size: 2rem;
-    }
-
-    .fjala_edu_box3 {
-        font-size: 2.5rem;
-    }
-
 
 
     /** LANGUAGES */
@@ -1842,8 +1651,6 @@ and (max-width: 1200px) {
 
 
     /** CARD - TECHNICAL SKILLS */
-
-
     .box {
         width: 30rem;
     }
@@ -1860,7 +1667,6 @@ and (max-width: 1200px) {
     .row_box_inside.active p {
         font-size: 0.8rem;
     }
-
 
 
     /** CARD - SOFT SKILL */
@@ -1897,56 +1703,6 @@ and (max-width: 1200px) {
     .fjala {
         font-size: 2rem;
     }
-
-    /** EDUCATION */
-    /** WORK EXPERIENCES */
-
-    .card {
-        width: 520px;
-    }
-
-    .box1_text1 {
-        width: 520px;
-        height: 140px;
-    }
-
-    .box1_text1 p {
-        font-size: 1.2rem;
-    }
-
-    .box1_text2 {
-        left: 260px;
-        width: 260px;
-    }
-
-    .box1_text2_info {
-        font-size: 0.9rem;
-    }
-
-    .box3_text1 {
-        left: 30px;
-        width: 220px;
-        height: 220px;
-    }
-
-    .box3_text2 {
-        left: 250px;
-        width: 270px;
-    }
-
-    .box3_text2 p {
-        color: #413c3c;
-        font-weight: 500;
-    }
-
-    .fjala_edu_box1 {
-        font-size: 2rem;
-    }
-
-    .fjala_edu_box3 {
-        font-size: 2.5rem;
-    }
-
 
 
     /** LANGUAGES */
@@ -2034,8 +1790,6 @@ and (max-width: 1024px) {
 
 
     /** CARD - TECHNICAL SKILLS */
-
-
     .box {
         width: 30rem;
     }
@@ -2052,7 +1806,6 @@ and (max-width: 1024px) {
     .row_box_inside.active p {
         font-size: 0.8rem;
     }
-
 
 
     /** CARD - SOFT SKILL */
@@ -2089,56 +1842,6 @@ and (max-width: 1024px) {
     .fjala {
         font-size: 2rem;
     }
-
-    /** EDUCATION */
-    /** WORK EXPERIENCES */
-
-    .card {
-        width: 520px;
-    }
-
-    .box1_text1 {
-        width: 520px;
-        height: 140px;
-    }
-
-    .box1_text1 p {
-        font-size: 1.2rem;
-    }
-
-    .box1_text2 {
-        left: 260px;
-        width: 260px;
-    }
-
-    .box1_text2_info {
-        font-size: 0.9rem;
-    }
-
-    .box3_text1 {
-        left: 30px;
-        width: 220px;
-        height: 220px;
-    }
-
-    .box3_text2 {
-        left: 250px;
-        width: 270px;
-    }
-
-    .box3_text2 p {
-        color: #413c3c;
-        font-weight: 500;
-    }
-
-    .fjala_edu_box1 {
-        font-size: 2rem;
-    }
-
-    .fjala_edu_box3 {
-        font-size: 2.5rem;
-    }
-
 
 
     /** LANGUAGES */
@@ -2216,7 +1919,6 @@ and (max-width: 1024px) {
 @media screen and (min-width: 480px)
 and (max-width: 768px) {
     /** CARD - SOFT SKILL */
-
     .outside_box1 {
         font-size: 1.1rem;
     }
@@ -2228,6 +1930,33 @@ and (max-width: 768px) {
 
     .fjala {
         font-size: 1.5rem;
+    }
+
+    /* EDUCATION/WORK EXPERIENCES*/
+
+    .box1_text2 p {
+        font-size: 0.9rem;
+    }
+
+    .box3_text2 {
+        gap: 5px;
+        padding: 10px 20px;
+    }
+
+    .box3_text2 p {
+        font-size: 1rem;
+    }
+
+    .box3_text2_info {
+        font-size: 0.8rem;
+    }
+
+    .fjala_edu_box3 {
+        font-size: 2rem;
+    }
+
+    .fjala_edu_box1 {
+        font-size: 1.3rem;
     }
 
     /** CONTACT CARD */
@@ -2251,12 +1980,62 @@ and (max-width: 480px) {
         max-width: 18rem;
     }
 
+    /* EDUCATION/WORK EXPERIENCES*/
 
+    .box1_text2 p {
+        font-size: 0.7rem;
+    }
+
+    .box3_text2 {
+        gap: 3px;
+        padding: 10px 20px;
+    }
+
+    .box3_text2 p {
+        font-size: 0.8rem;
+    }
+
+    .box3_text2_info {
+        font-size: 0.7rem;
+    }
+
+    .fjala_edu_box3 {
+        font-size: 1.7rem;
+    }
+
+    .fjala_edu_box1 {
+        font-size: 1.3rem;
+    }
 
 }
 
 @media screen and (max-width: 320px) {
+    /* EDUCATION/WORK EXPERIENCES*/
 
+    .box1_text2 p {
+        font-size: 0.7rem;
+    }
+
+    .box3_text2 {
+        gap: 3px;
+        padding: 10px 20px;
+    }
+
+    .box3_text2 p {
+        font-size: 0.8rem;
+    }
+
+    .box3_text2_info {
+        font-size: 0.6rem;
+    }
+
+    .fjala_edu_box3 {
+        font-size: 1.2rem;
+    }
+
+    .fjala_edu_box1 {
+        font-size: 1.3rem;
+    }
 
 }
 
