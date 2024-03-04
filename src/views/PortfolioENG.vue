@@ -2796,6 +2796,12 @@ and (max-width: 480px) {
         display: inline;
     }
 
+    .overlay {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+    }
+
     .box_inside1 {
         width: 95%;
     }
@@ -2837,6 +2843,12 @@ and (max-width: 480px) {
 
     .sorting {
         display: inline;
+    }
+
+    .overlay {
+        position: fixed;
+        height: 100%;
+        width: 100%;
     }
 
     .box_inside1 {
