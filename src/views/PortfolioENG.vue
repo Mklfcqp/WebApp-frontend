@@ -2832,6 +2832,17 @@ and (max-width: 480px) {
         width: 95%;
     }
 
+    .pages_panel {
+        height: 2rem;
+        width: 95%;
+        gap: 5px;
+    }
+
+    .current_page {
+        width: 4rem;
+        height: 2rem;
+    }
+
 
 
 }
@@ -2879,6 +2890,17 @@ and (max-width: 480px) {
 
     .add_form_button {
         width: 95%;
+    }
+
+    .pages_panel {
+        height: 2rem;
+        width: 95%;
+        gap: 5px;
+    }
+
+    .current_page {
+        width: 4rem;
+        height: 2rem;
     }
 
 }
