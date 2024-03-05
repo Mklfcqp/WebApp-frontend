@@ -197,7 +197,9 @@
                                 </div>
 
                                 <div class="box1_text1">
-                                    <p><span class="fjala_edu_box3">Software Development Academy</span></p>
+                                    <p><span class="fjala_edu_box3">Software</span></p>
+                                    <p><span class="fjala_edu_box3">Development</span></p>
+                                    <p><span class="fjala_edu_box3">Academy</span></p>
                                 </div>
 
                             </div>
@@ -869,7 +871,9 @@ export default {
     transform: rotate(180deg);
     display: flex;
     text-align: center;
-    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .box1_text2 p {
@@ -910,7 +914,7 @@ export default {
 .box3_text1 {
     padding: 5px 15px;
     width: 100%;
-    height: 70px;
+    height: 110px;
     display: flex;
     text-align: center;
     align-items: center;
@@ -2026,7 +2030,7 @@ and (max-width: 480px) {
     }
 
     .box3_text2_info {
-        font-size: 0.6rem;
+        font-size: 0.7rem;
     }
 
     .fjala_edu_box3 {
